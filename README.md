@@ -13,8 +13,7 @@ V1 --> Vr --> Rotate to 8deg --> @50ft Rotate to 15deg -->Climb @V2 + 15ktn --> 
 VSpeeds
 
  Takeoff speeds at 12deg Flap setting
- 
-				V1	Vr	V2 
+ 				V1	Vr	V2 
 				
 29762lbs = 13500kg		110	114	117
 
