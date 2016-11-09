@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- flight recorder configuration -->
+<!-- flightrecorder properties for electrical Dornier 328-110.
+  
+-->
+
+<PropertyList>
+
+   <signal>
+        <type>float</type>
+        <property type="string">/systems/electrical/outputs/landing-light[0]</property>
+    </signal>
+        <signal>
+        <type>float</type>
+        <property type="string">/systems/electrical/outputs/landing-light[1]</property>
+    </signal>
+        <signal>
+        <type>float</type>
+        <property type="string">/systems/electrical/outputs/nav-lights</property>
+    </signal>
+        <signal>
+        <type>float</type>
+        <property type="string">/systems/electrical/outputs/wing-lights</property>
+    </signal>
+        <signal>
+        <type>float</type>
+        <property type="string">/systems/electrical/outputs/logo-lights</property>
+    </signal>
+        <signal>
+        <type>float</type>
+        <property type="string">/systems/electrical/outputs/taxi-lights</property>
+    </signal>
+        <signal>
+        <type>float</type>
+        <property type="string">/systems/electrical/outputs/beacon</property>
+    </signal>        <signal>
+        <type>float</type>
+        <property type="string">/systems/electrical/outputs/strobe</property>
+    </signal>
+    
+    <!--<signal>
+        <type>float</type>
+        <property type="string">/systems/electrical/outputs/landing-light-intensity</property>
+    </signal>
+        <signal>
+        <type>float</type>
+        <property type="string">/systems/electrical/outputs/beacon-itensity</property>
+    </signal>
+    <signal>
+        <type>float</type>
+        <property type="string">/systems/electrical/outputs/wing-lights-itensity</property>
+    </signal>
+        <signal>
+        <type>float</type>
+        <property type="string">/systems/electrical/outputs/logo-lights-itensity</property>
+    </signal>-->
+    
+
+</PropertyList>

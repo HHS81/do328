@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Copyright (c) 2015 onox
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 2 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<PropertyList>
+    <name type="string">Flight Recorder for the Dornier 328 Turboprop</name>
+    <!-- Generic components -->
+    <config n="0">
+        <signals include="/Aircraft/Generic/flightrecorder/components/environment.xml"/>
+        <signals include="/Aircraft/Generic/flightrecorder/components/position.xml"/>
+        <signals include="/Aircraft/Generic/flightrecorder/components/controls.xml"/>
+        <signals include="/Aircraft/Generic/flightrecorder/components/surfaces.xml"/>
+        <signals include="/Aircraft/Generic/flightrecorder/components/engine-turboprop.xml">
+            <count type="int">2</count>
+        </signals>
+        <signals include="/Aircraft/Generic/flightrecorder/components/faults-engines.xml">
+            <count type="int">2</count>
+        </signals>
+        <signals include="/Aircraft/Generic/flightrecorder/components/tanks.xml">
+            <count type="int">2</count>
+        </signals>
+    <signals include="Aircraft/Generic/flightrecorder/components/gear-retractable.xml">
+        <count type="int">3</count>
+    </signals>
+
+
+
+<!--Dornier 328-110 specific ones-->
+    <signals include="components/electrical.xml"/>
+   <signals include="components/gear-specific.xml"/>
+    <signals include="components/groundspoiler.xml"/>
+    <signals include="components/wingflex.xml"/>
+
+       <signal>
+            <type>float</type>
+            <property type="string">/gear/gear/compression-m</property>
+            <interpolation>linear</interpolation>
+        </signal>
+        <signal>
+            <type>float</type>
+            <property type="string">/gear/gear/spray</property>
+            <interpolation>linear</interpolation>
+        </signal>
+        <signal>
+            <type>float</type>
+            <property type="string">/gear/gear/spray-density</property>
+            <interpolation>linear</interpolation>
+        </signal>
+        <signal>
+            <type>float</type>
+            <property type="string">/gear/gear/sprayspeed-ms</property>
+            <interpolation>linear</interpolation>
+        </signal>
+        <signal>
+            <type>float</type>
+            <property type="string">/gear/gear/tyre-smoke</property>
+            <interpolation>linear</interpolation>
+        </signal>
+        <signal>
+            <type>float</type>
+            <property type="string">/gear/gear[1]/compression-m</property>
+            <interpolation>linear</interpolation>
+        </signal>
+        <signal>
+            <type>float</type>
+            <property type="string">/gear/gear[1]/spray</property>
+            <interpolation>linear</interpolation>
+        </signal>
+        <signal>
+            <type>float</type>
+            <property type="string">/gear/gear[1]/spray-density</property>
+            <interpolation>linear</interpolation>
+        </signal>
+        <signal>
+            <type>float</type>
+            <property type="string">/gear/gear[1]/sprayspeed-ms</property>
+            <interpolation>linear</interpolation>
+        </signal>
+        <signal>
+            <type>float</type>
+            <property type="string">/gear/gear[1]/tyre-smoke</property>
+            <interpolation>linear</interpolation>
+        </signal>
+        <signal>
+            <type>float</type>
+            <property type="string">/gear/gear[2]/compression-m</property>
+            <interpolation>linear</interpolation>
+        </signal>
+        <signal>
+            <type>float</type>
+            <property type="string">/gear/gear[2]/spray</property>
+            <interpolation>linear</interpolation>
+        </signal>
+        <signal>
+            <type>float</type>
+            <property type="string">/gear/gear[2]/spray-density</property>
+            <interpolation>linear</interpolation>
+        </signal>
+        <signal>
+            <type>float</type>
+            <property type="string">/gear/gear[2]/sprayspeed-ms</property>
+            <interpolation>linear</interpolation>
+        </signal>
+        <signal>
+            <type>float</type>
+            <property type="string">/gear/gear[2]/tyre-smoke</property>
+            <interpolation>linear</interpolation>
+        </signal>
+
+
+    </config>
+</PropertyList>
+

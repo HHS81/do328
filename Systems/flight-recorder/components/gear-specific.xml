@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- flight recorder configuration -->
+<!-- flightrecorder properties for gear.
+  
+-->
+
+<PropertyList>
+  <signal>
+           <type>float</type><property type="string">controls/gear/nosegear-steering-cmd-norm</property><interpolation type="string">angular-deg</interpolation>
+         </signal>
+         <signal>
+           <type>float</type><property type="string">/gear/gear/compression-ft</property>
+         </signal>
+         <signal>
+           <type>float</type><property type="string">/gear/gear[1]/compression-ft</property>
+         </signal>
+         <signal>
+           <type>float</type><property type="string">/gear/gear[2]/compression-ft</property>
+         </signal>
+  <signal>
+           <type>double</type><property type="string">/velocities/groundspeed-kt</property>
+         </signal>
+         <signal>
+           <type>double</type><property type="string">/fdm/jsbsim/gear/unit[0]/wheel-speed-fps</property>
+         </signal>
+         <signal>
+           <type>double</type><property type="string">/fdm/jsbsim/gear/unit[1]/wheel-speed-fps</property>
+         </signal>
+         <signal>
+           <type>double</type><property type="string">/fdm/jsbsim/gear/unit[2]/wheel-speed-fps</property>
+         </signal>
+
+</PropertyList>

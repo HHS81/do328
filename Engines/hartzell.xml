@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+    This file is part of Dornier 328
+
+    The Dornier 328 is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 2 of the License, or
+    (at your option) any later version.
+
+    The Dornier 328 is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Dornier 328.  If not, see <http://www.gnu.org/licenses/>.
+
+     Author: Dirk Dittmann
+      Date: 2013-03-13
+
+      further change:      Eric van den Berg
+      Date:             28.04.13
+
+      Last change:      Heiko Schulz
+      Date:             28.04.13
+-->
+
+<!-- 
+	Manufacturer	: Hartzell
+	Model	
+
+To-Do Merge prop.xml with this one after 1.8: 
+-->
+
+
+<propeller name="Hartzell">
+<!--  Hartzell - real -->
+<ixx> 4.25 </ixx>
+  <diameter unit="IN"> 141.7 </diameter>
+  <numblades> 6 </numblades>
+  <gearratio> 16.4 </gearratio>
+  <reversepitch> -15.1 </reversepitch>
+  <minpitch> 15.5</minpitch>
+  <maxpitch> 77 </maxpitch>
+  <minrpm> 853 </minrpm>
+  <maxrpm> 1300 </maxrpm>
+  <constspeed> 1 </constspeed>
+  <p_factor>0.01</p_factor><!--only slight p-factor on dornier 328 from video and reports visible-->
+ <ct_factor> 1.6 </ct_factor>
+  <cp_factor>1.0 </cp_factor>
+  
+  <!-- thrust coefficient as a function of advance ratio and blade angle -->
+  <table name="C_THRUST" type="internal">
+      <tableData>
+	-15.1	-5.0	15.5	20	25        35 	           40       45        55        65       77
+0	-0.13	0.04	0.15	0.25	0.33   0.36		0.39   0.4    0.4    0.37   0.0000
+0.2	-0.14	0.03	0.14	0.24	0.30    0.35		0.38   0.4    0.4    0.37   0.0000
+0.3	-0.15	0.02	0.13	0.23	0.28    0.34		0.38    0.4    0.4    0.37   0.0000
+0.5	-0.15	0.01	0.12	0.22	0.26    0.33		0.37    0.39    0.4    0.37   0.0000
+0.6	-0.15	-0.03	0.12	0.21	0.24    0.33		0.37    0.39    0.4    0.37   0.0000
+0.7	-0.15	-0.07 0.11	0.19	0.22    0.32		0.36    0.39    0.4    0.37   0.0000	
+0.9	-0.15	-0.1	0.055	0.16	0.20    0.31		0.34    0.39    0.39    0.37   0.0000
+1.1	-0.15	-0.13	-0.025 0.07	0.17    0.30	          0.33    0.39    0.39    0.36   0.0000
+1.2	-0.12	-0.17	-0.1	0.02	 0.08    0.29	0.29    0.38    0.38    0.34   0.0000
+1.5	-0.12	-0.22	-0.18	-0.12	 -0.02    0.25	 0.25    0.37    0.38    0.31   0.0000
+1.6	-0.10	-0.24	-0.2	-0.15	 -0.07    0.21	0.21    0.34    0.36    0.3   0.0000
+1.8	-0.08	-0.28	-0.32	-0.27	-0.15    0.15	0.17    0.33   0.36    0.27   0.0000
+2.0	-0.02	-0.32	-0.44	-0.4	-0.2   0.07		0.13	0.29    0.3    0.26   0.0000
+2.4	-0.01	-0.39	-0.56	-0.46	-0.25   -0.03	0.09   0.22    0.26    0.17   0.0000
+2.6	0.0	-0.5	-0.65	-0.54	-0.35	-0.1	          0.02	0.14	0.2	0.14	0.00
+2.8	0.1	-0.7	-0.8	-0.7	-0.5	-0.2	          -0.06	0.07	0.12	0.06	0.00
+3.0	0.2	-0.9	-1	-0.9	-0.7	-0.3	          -0.17	-0.03	0.05	0.02	0.00
+        </tableData>
+  </table>
+
+  <table name="C_POWER" type="internal">
+     <tableData>
+	-15.1	-5.0	15.5	20	25        35        45        55        65       77
+0	0.13	0.135	0.135	0.16	0.29    0.51    0.66    0.78    0.86   0.96
+0.2	0.13	0.26	0.139	0.17	0.28    0.49    0.66    0.78    0.86   0.96
+0.4	0.13	0.7	0.138	0.19	0.25    0.46    0.66    0.78    0.86   0.96
+0.6	0.13	0.5	0.120	0.19	0.23    0.43    0.64    0.77    0.86   0.96
+0.8	0.13	0.4	0.076	0.17	0.19    0.41    0.61    0.77    0.86   0.96
+1.2	0.14	-0.2	-0.030 0.08 0.05    0.44    0.64    0.76    0.86   0.96
+1.4	0.14	-0.5	-0.110 -0.004  -0.04    0.36    0.63    0.75    0.86   0.96
+1.6	0.14	-0.11	-0.230 -0.43  -0.12    0.27    0.62    0.73    0.85   0.96
+1.8	0.14	-0.21	-0.310 -0.41 -0.19    0.15    0.59    0.71    0.82   0.96
+2.2	0.14	-0.29	-0.430 -0.44  -0.35   0.07    0.54    0.69    0.8   0.96
+2.4	0.15	-0.40	-0.550 -0.47  -0.43   -0.19    0.45    0.66    0.77   0.96
+2.6	0.16	-0.49	-0.550 -0.47 -0.50   -0.27    0.31    0.64    0.75   0.96
+2.8    0.23	-0.59	-0.550 -0.47 -0.58   -0.44   0.24    0.62    0.72   0.96
+3.2	0.31	-0.69	-0.550 -0.47  -0.74   -0.60   -0.11    0.4350    0.69   0.96
+     </tableData>
+  </table>
+  
+
+<!-- thrust effects of helical tip Mach -->
+<table name="CT_MACH" type="internal">
+  <tableData>
+    0.85   1.0
+    1.05   0.8
+  </tableData>
+</table>
+
+<!-- power-required effects of helical tip Mach -->
+<table name="CP_MACH" type="internal">
+  <tableData>
+    0.85   1.0
+    1.05   1.8
+    2.00   1.4
+  </tableData>
+</table>
+
+</propeller>

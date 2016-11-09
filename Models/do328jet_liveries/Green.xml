@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+	<sim>
+		<model>
+			
+				<livery>
+					<name type="string">Green</name>
+					 <index type="int">4</index>
+					  <texture>do328jet_liveries/GREEN.png</texture>
+				</livery>
+			<do328>
+			<material>
+			<fuselage>
+						<diffuse>
+							<red>1.0</red>
+							<green>1.0</green>
+							<blue>1.0</blue>
+						</diffuse>
+ 					         <specular>
+							<red>0.05</red>
+							<green>0.05</green>
+							<blue>0.05</blue>
+						</specular>
+						<ambient>
+							<red>1.0</red>
+							<green>1.0</green>
+							<blue>1.0</blue>
+						</ambient>
+				</fuselage>
+                               </material>
+			       </do328>
+		</model>
+	  <rendering>
+    <refl_correction type="string">-0.12</refl_correction>
+    </rendering>
+	</sim>
+</PropertyList>

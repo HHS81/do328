@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+	<sim>
+		<model>
+			
+				<livery>
+					<name type="string">Default2</name>
+					 <index type="int">1</index>
+					  <texture>do328prop_liveries/DEFAULT2.png</texture>
+				</livery>
+			<do328>
+			<material>
+			<fuselage>
+						<diffuse>
+							<red>1.0</red>
+							<green>1.0</green>
+							<blue>1.0</blue>
+						</diffuse>
+ 					         <specular>
+							<red>0.15</red>
+							<green>0.15</green>
+							<blue>0.15</blue>
+						</specular>
+						<ambient>
+							<red>1.0</red>
+							<green>1.0</green>
+							<blue>1.0</blue>
+						</ambient>
+				</fuselage>
+                               </material>
+			       </do328>
+		</model>
+	  <rendering>
+    <refl_correction type="string">-0.4</refl_correction>
+    </rendering>
+	</sim>
+</PropertyList>

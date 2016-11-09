@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- flight recorder configuration -->
+<!-- flightrecorder properties for gear.
+  
+-->
+
+<PropertyList>
+	<signal>
+           <type>float</type><property type="string">/fdm/jsbsim/fcs/groundspoiler-pos-norm</property>
+         </signal>
+</PropertyList>
