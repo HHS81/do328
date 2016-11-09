@@ -37,3 +37,4 @@ VSpeeds
 22046lbs = 10000kg		95	
 20943lbs = 9500kg		92	
  
+Please see also: http://wiki.flightgear.org/Dornier_328
