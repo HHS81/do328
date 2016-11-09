@@ -3,6 +3,7 @@ Dornier 328-1XXTurboprop / Dornier 328-3XX Jet
 
 Keys:
 Tab-key: Auto-Spoiler
+
 Del-key: Beta-range (for taxi) and Thrust-Reverser
 
 Takeoff
