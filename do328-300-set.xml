@@ -124,6 +124,7 @@ Started by Heiko Schulz
             </config>
         </view>
 
+<!--Disable Cabin View until Cabin is made
 
   <view n="100">
     <name>Passenger 1</name>
@@ -182,7 +183,7 @@ Started by Heiko Schulz
           </right>
         </limits>
     </config>
-    </view>
+    </view>-->
 
  
         <allow-toggle-cockpit>true</allow-toggle-cockpit>
