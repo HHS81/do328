@@ -17,7 +17,7 @@
 
 	<model>
 		<name>FlightDeck</name>
-		<path>Aircraft/do328/Models/Flightdeck.xml</path>
+		<path>Aircraft/do328/Models/flightdeck.xml</path>
 		<offsets>
 			<x-m>0.0</x-m>
 			<y-m>0.0</y-m>
