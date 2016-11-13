@@ -214,7 +214,7 @@ Started by Heiko Schulz
 
   
   <sound>
-   <path>Aircraft/do328/Sounds/do328prop-sound.xml</path>
+   <path>Aircraft/do328/Sounds/do328jet-sound.xml</path>
   </sound>
 
     <virtual-cockpit archive="y">true</virtual-cockpit>
