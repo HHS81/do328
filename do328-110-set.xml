@@ -873,7 +873,7 @@ V1 --> Vr --> Rotate to 8deg --> @50ft Rotate to 15deg -->Climb @V2 + 15ktn --> 
 	 	 <!--<file>Aircraft/do328/Nasal/lightmap.nas</file>-->
 	 	<file>Aircraft/do328/Nasal/Autostart.nas</file>
 	 <file>Aircraft/do328/Models/Instruments/EICAS/eicas.nas</file>
-	 <file>Aircraft/do328/Models/Instruments/EICAS/black.nas</file>
+	 <file>Aircraft/do328/Models/Instruments/EICAS/doors.nas</file>
 	</systems>
 	    <do328>
 	<file>Aircraft/do328/Nasal/Electrical.nas</file>
