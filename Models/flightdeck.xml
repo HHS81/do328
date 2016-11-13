@@ -14,8 +14,20 @@
             <pitch-deg>-6</pitch-deg>
         </offsets>
     </model>
-    
-   <!-- <model>
+
+<!--hide screen for future canvas solution-->
+ <animation>
+   <object-name>MFD1_Screen</object-name>
+   <type>select</type>
+    <condition>
+	<equals>
+	  <value>1</value>
+	  <value>0</value>
+	</equals>
+    </condition>
+  </animation>
+    <model>
+<!--use classic mfd instead-->
         <name>MFD1</name>
         <path>Aircraft/do328/Models/Instruments/MFD/MFD3d.xml</path>
         <offsets>
@@ -24,7 +36,7 @@
             <z-m>1.910</z-m>
             <pitch-deg>-6</pitch-deg>
         </offsets>
-    </model>-->
+    </model>
     
     <model>
         <name>PFD2</name>

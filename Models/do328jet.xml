@@ -1,8 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8' ?>
 <PropertyList>
 
-    <!--<path>328-3xx.ac</path>-->
-<path>do728.ac</path>-
+   <path>328-3xx.ac</path>
 
    <nasal>
         <load>
@@ -14,7 +13,7 @@
 
 	<model>
 		<name>FlightDeck</name>
-		<path>Aircraft/do328/Models/Flightdeck.xml</path>
+		<path>Aircraft/do328/Models/flightdeck.xml</path>
 		<offsets>
 			<x-m>0.0</x-m>
 			<y-m>0.0</y-m>
