@@ -60,11 +60,19 @@ VSpeeds
 Please see also: http://wiki.flightgear.org/Dornier_328
 
 Sources/ References
+
 https://www.flightglobal.com/pdfarchive/view/1995/1995%20-%203235.html
+
 http://compair.aviationresearch.com/database_files/TheImage_41.pdf
+
 http://www.skybrary.aero/bookshelf/books/1285.pdf
+
 http://www.bfu-web.de/DE/Publikationen/Untersuchungsberichte/2001/Bericht_1X004-0.01.pdf?__blob=publicationFile
+
 http://www.bfu-web.de/DE/Publikationen/Untersuchungsberichte/2004/Bericht_04_5X001-0-DO328-Saarbruecken.pdf?__blob=publicationFile
+
 https://assets.publishing.service.gov.uk/media/5423016ce5274a1314000aa1/Dornier_328_100__TF-CSB_1-08.pdf
+
 http://www.bfu-web.de/EN/Publications/Investigation%20Report/2008/Report_08_1X001_DO328_Mannheim_RE.pdf?__blob=publicationFile
+
 http://www.flashcardmachine.com/dornier.html
