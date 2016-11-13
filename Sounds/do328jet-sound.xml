@@ -1,0 +1,668 @@
+<?xml version="1.0"?>
+ 
+<PropertyList>
+
+    <fx>
+
+<!-- Engine 1 
+
+<crank>
+            <name>engstart0</name>
+            <reference-dist>3.0</reference-dist>
+            <max-dist>6.0</max-dist>
+            <mode>once</mode>
+            <path>Sounds/turbine_start.wav</path>
+            <condition>
+                <greater-than>
+                    <property>controls/engines/engine[0]/condition</property>
+                    <value>0.1</value>
+                </greater-than>
+            </condition>
+            <volume>
+                <property>sim/sound/cabin</property>
+                <factor>0.3</factor>
+            </volume>
+            <position>
+                <x>-1.5</x>
+                <y>2.5</y>
+                <z>-0.33</z>
+            </position>
+        </crank>-->
+
+        <engine>
+   <name>leftengine</name>
+   <path>jetengine.wav</path>
+   <mode>looped</mode>
+   <condition>
+<greater-than>
+<property>/sim/current-view/view-number</property>
+<value>0</value>
+</greater-than>
+</condition>
+      <volume>
+    <property>/engines/engine[0]/n1</property>
+        <factor>0.01</factor>
+	<max>2.0</max>
+    <offset>0.00</offset>
+   </volume>
+   <pitch>
+<property>/engines/engine[0]/n1</property>
+<offset>0.25</offset>
+<factor>0.01</factor>
+<max>1</max>
+</pitch>
+            <position>
+                 <x>-1.5</x>
+                <y>2.5</y>
+                <z>-0.33</z>
+            </position>
+     <orientation>
+        <x> 1.0 </x>
+        <y> 0.0 </y>
+        <z> 0.0 </z>
+        <inner-angle>90</inner-angle>
+        <outer-angle>180</outer-angle>
+        <outer-gain>0.1</outer-gain>
+      </orientation>
+        </engine>
+
+ 
+
+        <!--<shutdown>
+            <name>engine0 off</name>
+            <reference-dist>1.0</reference-dist>
+            <max-dist>4.0</max-dist>
+            <mode>once</mode>
+            <path>Sounds/turbine_shutdown.wav</path>
+            <condition>
+                <equals>
+                    <property>controls/engines/engine[0]/condition</property>
+                    <value>0</value>
+                </equals>
+            </condition>
+            <volume>
+                <property>sim/sound/cabin</property>
+                <factor>0.3</factor>
+            </volume>
+            <position>
+                 <x>-1.5</x>
+                <y>2.5</y>
+                <z>-0.33</z>
+            </position>
+        </shutdown>-->
+
+<!-- Engine 2 
+
+        <crank>
+            <name>engstart1</name>
+            <reference-dist>2.0</reference-dist>
+            <max-dist>4.0</max-dist>
+            <mode>once</mode>
+            <path>Sounds/turbine_start.wav</path>
+            <condition>
+                <greater-than>
+                    <property>controls/engines/engine[1]/condition</property>
+                    <value>0</value>
+                </greater-than>
+            </condition>
+            <volume>
+                <property>sim/sound/cabin</property>
+                <factor>0.3</factor>
+            </volume>
+            <position>
+                <x>-1.5</x>
+                <y>-2.6</y>
+                <z>-0.33</z>
+            </position>
+        </crank>-->
+
+
+   <engine>
+   <name>rightengine</name>
+   <path>jetengine.wav</path>
+   <mode>looped</mode>
+   <condition>
+<greater-than>
+<property>/sim/current-view/view-number</property>
+<value>0</value>
+</greater-than>
+</condition>
+      <volume>
+    <property>/engines/engine[0]/n1</property>
+        <factor>0.01</factor>
+	<max>2.0</max>
+    <offset>0.00</offset>
+   </volume>
+   <pitch>
+<property>/engines/engine[0]/n1</property>
+<offset>0.25</offset>
+<factor>0.01</factor>
+<max>1</max>
+</pitch>
+            <position>
+                 <x>-1.5</x>
+                <y>-2.5</y>
+                <z>-0.33</z>
+            </position>
+     <orientation>
+        <x> 1.0 </x>
+        <y> 0.0 </y>
+        <z> 0.0 </z>
+        <inner-angle>90</inner-angle>
+        <outer-angle>180</outer-angle>
+        <outer-gain>0.1</outer-gain>
+      </orientation>
+        </engine>
+
+
+ 
+       <!-- <shutdown>
+            <name>engine1 off</name>
+            <reference-dist>1.0</reference-dist>
+            <max-dist>4.0</max-dist>
+            <mode>once</mode>
+            <path>Sounds/turbine_shutdown.wav</path>
+            <condition>
+                <equals>
+                    <property>controls/engines/engine[1]/condition</property>
+                    <value>0</value>
+                </equals>
+            </condition>
+            <volume>
+                <property>sim/sound/cabin</property>
+                <factor>0.3</factor>
+            </volume>
+            <position>
+                <x>-1.5</x>
+                <y>-2.6</y>
+                <z>-0.33</z>
+            </position>
+        </shutdown>
+
+
+
+        <rumble>
+            <name>rumble</name>
+            <reference-dist>2.0</reference-dist>
+            <max-dist>5.0</max-dist>
+            <mode>looped</mode>
+            <path>Sounds/rumble.wav</path>
+            <condition>
+                <or>
+                    <property>gear/gear[0]/wow</property>
+                    <property>gear/gear[1]/wow</property>
+                    <property>gear/gear[2]/wow</property>
+                </or>
+            </condition>
+            <volume>
+                <property>velocities/groundspeed-kt</property>
+                <factor>0.05</factor>
+                <max>0.5</max>
+            </volume>
+            <position>
+                <x>-3</x>
+                <y>0</y>
+                <z>-2</z>
+            </position>
+        </rumble>
+
+        <gear>
+            <name>gear</name>
+            <mode>in-transit</mode>
+            <path>Sounds/gear.wav</path>
+            <property>gear/gear[0]/position-norm</property>
+            <reference-dist>2.0</reference-dist>
+            <max-dist>5.0</max-dist>
+            <pitch>
+                <internal>dt_play</internal>
+                <offset>0.8</offset>
+                <factor>-0.001</factor>
+            </pitch>
+            <position>
+                <x>-2</x>
+                <y>0</y>
+                <z>-2</z>
+            </position>
+        </gear>
+
+        <gear>
+            <name>gear-lock</name>
+            <path>Sounds/gear-lck.wav</path>
+            <condition>
+                <equals>
+                    <property>gear/gear[0]/position-norm</property>
+                    <value>0</value>
+                </equals>
+            </condition>
+            <reference-dist>2.0</reference-dist>
+            <max-dist>5.0</max-dist>
+            <position>
+                <x>-2</x>
+                <y>0</y>
+                <z>-2</z>
+            </position>
+        </gear>
+
+        <squeal>
+            <name>squeal</name>
+            <reference-dist>10.0</reference-dist>
+            <max-dist>20.0</max-dist>
+            <path>Sounds/squeal.wav</path>
+            <condition>
+                <or>
+                    <property>gear/gear[0]/wow</property>
+                    <property>gear/gear[1]/wow</property>
+                    <property>gear/gear[2]/wow</property>
+                </or>
+            </condition>
+            <volume>
+                <property>sim/sound/E_volume</property>
+            </volume>
+            <volume>
+                <property>velocities/airspeed-kt</property>
+                <factor>0.01</factor>
+            </volume>
+            <pitch>
+                <property>velocities/airspeed-kt</property>
+                <factor>0.0025</factor>
+                <offset>1.0</offset>
+            </pitch>
+            <position>
+                <x>-2</x>
+                <y>0</y>
+                <z>-2</z>
+            </position>
+        </squeal>
+ 
+        <flap>
+            <name>flaps</name>
+            <reference-dist>1.0</reference-dist>
+            <max-dist>2.0</max-dist>
+            <mode>in-transit</mode>
+            <path>Sounds/flaps.wav</path>
+            <property>surface-positions/flap-pos-norm</property>
+            <volume>
+                <property>sim/sound/cabin</property>
+            </volume>
+            <position>
+                <x>-3</x>
+                <y>0</y>
+                <z>-1</z>
+            </position>
+        </flap>-->
+
+<owind>
+<name>Outside_wind</name>
+<mode>looped</mode>
+<path>wind-8khz.wav</path>
+<condition>
+<greater-than>
+<property>/sim/current-view/view-number</property>
+<value>0</value>
+</greater-than>
+</condition>
+ <property>/velocities/airspeed-kt</property>
+<pitch>
+<internal>dt_play</internal>
+<offset>1.0</offset>
+<factor>-0.001</factor>
+</pitch>
+<volume>
+    <property>/velocities/airspeed-kt</property>
+        <factor>0.011</factor>
+	<max>2.0</max>
+    <offset>0.00</offset>
+   </volume> <position>
+                 <x>0.0</x>
+                <y>0.0</y>
+                <z>0.0</z>
+            </position>
+     <orientation>
+        <x> 1.0 </x>
+        <y> 0.0 </y>
+        <z> 0.0 </z>
+        <inner-angle>90</inner-angle>
+        <outer-angle>180</outer-angle>
+        <outer-gain>0.1</outer-gain>
+      </orientation>
+</owind>
+
+       <!-- <stall>
+            <name>stall</name>
+            <path>Sounds/beep.wav</path>
+            <condition>
+                <property>sim/alarms/stall-warning</property>
+            </condition>
+            <property>sim/alarms/stall-warning</property>
+            <volume>
+            <property>sim/alarms/stall-warning</property>
+            <max>0.6</max>
+        </volume>
+        <pitch>
+            <offset>0.5</offset>
+        </pitch>
+  </stall>-->
+
+<!-- generic GPWS
+
+        <altitude1>
+            <name>alt-10</name>
+            <reference-dist>1.0</reference-dist>
+            <max-dist>2.0</max-dist>
+            <mode>once</mode>
+            <path>Sounds/mk-viii/altitude-10.wav</path>
+            <condition>
+                <equals>
+                    <property>instrumentation/annunciators/gpws/altitude-callout</property>
+                    <value>10</value>
+                </equals>
+            </condition>
+            <volume>
+                <property>instrumentation/annunciators/gpws/volume</property>
+            </volume>
+            <position>
+                <x>-5</x>
+                <y>0</y>
+                <z>0</z>
+            </position>
+        </altitude1>
+
+        <altitude2>
+            <name>alt-20</name>
+            <reference-dist>1.0</reference-dist>
+            <max-dist>2.0</max-dist>
+            <mode>once</mode>
+            <path>Sounds/mk-viii/altitude-20.wav</path>
+            <condition>
+                <equals>
+                    <property>instrumentation/annunciators/gpws/altitude-callout</property>
+                    <value>20</value>
+                </equals>
+            </condition>
+            <volume>
+                <property>instrumentation/annunciators/gpws/volume</property>
+            </volume>
+            <position>
+                <x>-5</x>
+                <y>0</y>
+                <z>0</z>
+            </position>
+        </altitude2>
+
+        <altitude3>
+            <name>alt-30</name>
+            <reference-dist>1.0</reference-dist>
+            <max-dist>2.0</max-dist>
+            <mode>once</mode>
+            <path>Sounds/mk-viii/altitude-30.wav</path>
+            <condition>
+                <equals>
+                    <property>instrumentation/annunciators/gpws/altitude-callout</property>
+                    <value>30</value>
+                </equals>
+            </condition>
+            <volume>
+                <property>instrumentation/annunciators/gpws/volume</property>
+            </volume>
+            <position>
+                <x>-5</x>
+                <y>0</y>
+                <z>0</z>
+            </position>
+        </altitude3>
+
+        <altitude4>
+            <name>alt-40</name>
+            <reference-dist>1.0</reference-dist>
+            <max-dist>2.0</max-dist>
+            <mode>once</mode>
+            <path>Sounds/mk-viii/altitude-40.wav</path>
+            <condition>
+                <equals>
+                    <property>instrumentation/annunciators/gpws/altitude-callout</property>
+                    <value>40</value>
+                </equals>
+            </condition>
+            <volume>
+                <property>instrumentation/annunciators/gpws/volume</property>
+            </volume>
+            <position>
+                <x>-5</x>
+                <y>0</y>
+                <z>0</z>
+            </position>
+        </altitude4>
+
+        <altitude5>
+            <name>alt-50</name>
+            <reference-dist>1.0</reference-dist>
+            <max-dist>2.0</max-dist>
+            <mode>once</mode>
+            <path>Sounds/mk-viii/altitude-50.wav</path>
+            <condition>
+                <equals>
+                    <property>instrumentation/annunciators/gpws/altitude-callout</property>
+                    <value>50</value>
+                </equals>
+            </condition>
+            <volume>
+                <property>instrumentation/annunciators/gpws/volume</property>
+            </volume>
+            <position>
+                <x>-5</x>
+                <y>0</y>
+                <z>0</z>
+            </position>
+        </altitude5>
+
+        <altitude6>
+            <name>alt-100</name>
+            <reference-dist>1.0</reference-dist>
+            <max-dist>2.0</max-dist>
+            <mode>once</mode>
+            <path>Sounds/mk-viii/altitude-100.wav</path>
+            <condition>
+                <equals>
+                    <property>instrumentation/annunciators/gpws/altitude-callout</property>
+                    <value>100</value>
+                </equals>
+            </condition>
+            <volume>
+                <property>instrumentation/annunciators/gpws/volume</property>
+            </volume>
+            <position>
+                <x>-5</x>
+                <y>0</y>
+                <z>0</z>
+            </position>
+        </altitude6>
+
+        <altitude7>
+            <name>alt-200</name>
+            <reference-dist>1.0</reference-dist>
+            <max-dist>2.0</max-dist>
+            <mode>once</mode>
+            <path>Sounds/mk-viii/altitude-200.wav</path>
+            <condition>
+                <equals>
+                    <property>instrumentation/annunciators/gpws/altitude-callout</property>
+                    <value>200</value>
+                </equals>
+            </condition>
+            <volume>
+                <property>instrumentation/annunciators/gpws/volume</property>
+            </volume>
+            <position>
+                <x>-5</x>
+                <y>0</y>
+                <z>0</z>
+            </position>
+        </altitude7>
+
+        <altitude8>
+            <name>alt-300</name>
+            <reference-dist>1.0</reference-dist>
+            <max-dist>2.0</max-dist>
+            <mode>once</mode>
+            <path>Sounds/mk-viii/altitude-300.wav</path>
+            <condition>
+                <equals>
+                    <property>instrumentation/annunciators/gpws/altitude-callout</property>
+                    <value>300</value>
+                </equals>
+            </condition>
+            <volume>
+                <property>instrumentation/annunciators/gpws/volume</property>
+            </volume>
+            <position>
+                <x>-5</x>
+                <y>0</y>
+                <z>0</z>
+            </position>
+        </altitude8>
+
+        <altitude9>
+            <name>alt-400</name>
+            <reference-dist>1.0</reference-dist>
+            <max-dist>2.0</max-dist>
+            <mode>once</mode>
+            <path>Sounds/mk-viii/altitude-400.wav</path>
+            <condition>
+                <equals>
+                    <property>instrumentation/annunciators/gpws/altitude-callout</property>
+                    <value>400</value>
+                </equals>
+            </condition>
+            <volume>
+                <property>instrumentation/annunciators/gpws/volume</property>
+            </volume>
+            <position>
+                <x>-5</x>
+                <y>0</y>
+                <z>0</z>
+            </position>
+        </altitude9>
+
+        <altitude10>
+            <name>alt-500</name>
+            <reference-dist>1.0</reference-dist>
+            <max-dist>2.0</max-dist>
+            <mode>once</mode>
+            <path>Sounds/mk-viii/altitude-500.wav</path>
+            <condition>
+                <equals>
+                    <property>instrumentation/annunciators/gpws/altitude-callout</property>
+                    <value>500</value>
+                </equals>
+            </condition>
+            <volume>
+                <property>instrumentation/annunciators/gpws/volume</property>
+            </volume>
+            <position>
+                <x>-5</x>
+                <y>0</y>
+                <z>0</z>
+            </position>
+        </altitude10>
+
+        <altitude11>
+            <name>alt-1000</name>
+            <reference-dist>1.0</reference-dist>
+            <max-dist>2.0</max-dist>
+            <mode>once</mode>
+            <path>Sounds/mk-viii/altitude-1000.wav</path>
+            <condition>
+                <equals>
+                    <property>instrumentation/annunciators/gpws/altitude-callout</property>
+                    <value>1000</value>
+                </equals>
+            </condition>
+            <volume>
+                <property>instrumentation/annunciators/gpws/volume</property>
+            </volume>
+            <position>
+                <x>-5</x>
+                <y>0</y>
+                <z>0</z>
+            </position>
+        </altitude11>
+
+        <terrain>
+            <name>terrain</name>
+            <reference-dist>1.0</reference-dist>
+            <max-dist>2.0</max-dist>
+            <mode>once</mode>
+            <path>Sounds/mk-viii/terrain.wav</path>
+            <condition>
+                <property>instrumentation/annunciators/gpws/terrain-alert</property>
+            </condition>
+            <volume>
+                <property>instrumentation/annunciators/gpws/volume</property>
+            </volume>
+            <position>
+                <x>-5</x>
+                <y>0</y>
+                <z>0</z>
+            </position>
+        </terrain>
+
+        <bank-angle>
+            <name>bank angle</name>
+            <reference-dist>1.0</reference-dist>
+            <max-dist>2.0</max-dist>
+            <mode>once</mode>
+            <path>Sounds/mk-viii/bank-angle.wav</path>
+            <condition>
+                <property>instrumentation/annunciators/gpws/bank-angle</property>
+            </condition>
+            <volume>
+                <property>instrumentation/annunciators/gpws/volume</property>
+            </volume>
+            <position>
+                <x>-5</x>
+                <y>0</y>
+                <z>0</z>
+            </position>
+        </bank-angle>
+
+        <pullup>
+            <name>pull up</name>
+            <reference-dist>1.0</reference-dist>
+            <max-dist>2.0</max-dist>
+            <mode>once</mode>
+            <path>Sounds/mk-viii/pull-up.wav</path>
+            <condition>
+                <property>instrumentation/annunciators/gpws/pitch</property>
+            </condition>
+            <volume>
+                <property>instrumentation/annunciators/gpws/volume</property>
+            </volume>
+            <position>
+                <x>-5</x>
+                <y>0</y>
+                <z>0</z>
+            </position>
+        </pullup>
+
+        <minimums>
+            <name>minimums</name>
+            <reference-dist>1.0</reference-dist>
+            <max-dist>2.0</max-dist>
+            <mode>once</mode>
+            <path>Sounds/mk-viii/minimums.wav</path>
+            <condition>
+                <property>instrumentation/annunciators/gpws/minimums</property>
+            </condition>
+            <volume>
+                <property>instrumentation/annunciators/gpws/volume</property>
+            </volume>
+            <position>
+                <x>-5</x>
+                <y>0</y>
+                <z>0</z>
+            </position>
+        </minimums>-->
+
+    </fx>
+
+</PropertyList>

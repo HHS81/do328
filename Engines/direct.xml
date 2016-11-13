@@ -1,6 +1,3 @@
-<?xml version="1.0"?>
-<!--
-  Thrust is computed directly by the engine
--->
+<?xml version="1.0"?> 
 <direct name="Direct">
 </direct>
