@@ -33,6 +33,7 @@ var Startup = func{
     setprop("controls/engines/engine[1]/cutoff",0);
     setprop("controls/engines/engine[0]/starter",1);
     setprop("controls/engines/engine[1]/starter",1);
+    setprop("fdm/jsbsim/propulsion/engine/EIP/state",1);
 }
 
 
@@ -49,6 +50,7 @@ var Shutdown = func{
 	setprop("controls/engines/engine[1]/condition",0);
     setprop("controls/engines/engine[0]/cutoff",1);
     setprop("controls/engines/engine[1]/cutoff",1);
+    setprop("fdm/jsbsim/propulsion/engine/EIP/state",0);
 }
 
 setlistener("/sim/model/autostart", func(start) {

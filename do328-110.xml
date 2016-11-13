@@ -601,6 +601,29 @@ Landing Distance MLW unfactored (what the aircraft demostrated without any safet
 			</product>
     			</function>
 		</fcs_function>
+		
+<fcs_function name="propulsion/engine[1]/trq-percent">
+    			<function>
+      			<description>Indicated TRQ in percent</description>
+			<product>
+				<property>propulsion/engine/EIP/state</property> 
+				<max>
+					<value>0</value>	
+					<product>
+						<property>propulsion/engine[1]/power-hp</property>
+						<value>60</value>
+						<pow>
+							<max>			
+								<property>propulsion/engine[1]/propeller-rpm</property>
+								<value>10</value>
+							</max>
+							<value>-1</value>
+						</pow>
+					</product>
+				</max>
+			</product>
+    			</function>
+		</fcs_function>
 	     
 <!-- need %Cg in chord for moments [Xcg - Xref)/100] 
             <summer name="cg-x-offset-chord-in">

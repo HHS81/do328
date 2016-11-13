@@ -42,15 +42,15 @@ var class_eicas = {
 	},
 	fast_update: func()
 	{
-		var tq = [0,getprop("/fdm/jsbsim/propulsion/engine[0]/torque-lbs"),getprop("/fdm/jsbsim/propulsion/engine[0]/torque-lbs")];
+		var tq = [0,getprop("/fdm/jsbsim/propulsion/engine[0]/trq-percent"), getprop("/fdm/jsbsim/propulsion/engine[1]/trq-percent")];
 		var np = [0,getprop("/fdm/jsbsim/propulsion/engine[0]/propeller-rpm"),getprop("/fdm/jsbsim/propulsion/engine[1]/propeller-rpm")];
 		var itt = [0,getprop("/fdm/jsbsim/propulsion/engine[0]/itt-c"),getprop("/fdm/jsbsim/propulsion/engine[1]/itt-c")];
 		var nh = [0,getprop("engines/engine[0]/n1"),getprop("engines/engine[0]/n1")];
 
 		for(var n = 1; n<=2; n+=1){
 			if(tq[n] != nil){
-				me["readout_tq"~n].setText(sprintf("%3.01f",-tq[n]/88));
-				me["dial_tq"~n].setRotation(-tq[n] * (270/8800) * math.pi/180);
+				me["readout_tq"~n].setText(sprintf("%3.01f",tq[n]));
+				me["dial_tq"~n].setRotation(tq[n] * (270/100) * math.pi/180);
 			}
 
 			if(np[n] != nil){
