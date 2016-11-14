@@ -2,7 +2,7 @@
 <PropertyList>
 
 <name>Nav Panel</name>
-<background>Aircraft/CitationX/Models/Instruments/MFD/transparent.png</background>
+<background>Aircraft/do328/Models/Instruments/MFD/transparent.png</background>
 <w>512</w>
 <h>602</h>
 
