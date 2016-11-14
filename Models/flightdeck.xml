@@ -3,6 +3,78 @@
 
     <path>Flightdeck11.ac</path>
 
+<animation>
+	<type>pick</type>
+	<object-name>EICAS_Menu</object-name>
+	<action>
+		<button>0</button>
+		<repeatable>false</repeatable>	
+		<binding>
+			<command>nasal</command>
+			<script>systems.eicasBtClick(0)</script>
+		</binding>
+	</action>
+</animation>
+<animation>
+	<type>pick</type>
+	<object-name>EICAS_BT1</object-name>
+	<action>
+		<button>0</button>
+		<repeatable>false</repeatable>	
+		<binding>
+			<command>nasal</command>
+			<script>systems.eicasBtClick(1)</script>
+		</binding>
+	</action>
+</animation>
+<animation>
+	<type>pick</type>
+	<object-name>EICAS_BT2</object-name>
+	<action>
+		<button>0</button>
+		<repeatable>false</repeatable>	
+		<binding>
+			<command>nasal</command>
+			<script>systems.eicasBtClick(2)</script>
+		</binding>
+	</action>
+</animation>
+<animation>
+	<type>pick</type>
+	<object-name>EICAS_BT3</object-name>
+	<action>
+		<button>0</button>
+		<repeatable>false</repeatable>	
+		<binding>
+			<command>nasal</command>
+			<script>systems.eicasBtClick(3)</script>
+		</binding>
+	</action>
+</animation>
+<animation>
+	<type>pick</type>
+	<object-name>EICAS_BT4</object-name>
+	<action>
+		<button>0</button>
+		<repeatable>false</repeatable>	
+		<binding>
+			<command>nasal</command>
+			<script>systems.eicasBtClick(4)</script>
+		</binding>
+	</action>
+</animation>
+<animation>
+	<type>pick</type>
+	<object-name>EICAS_BT5</object-name>
+	<action>
+		<button>0</button>
+		<repeatable>false</repeatable>	
+		<binding>
+			<command>nasal</command>
+			<script>systems.eicasBtClick(5)</script>
+		</binding>
+	</action>
+</animation>
 
     <model>
         <name>PFD1</name>

@@ -1,14 +1,9 @@
-# ==============================================================================
-# Boeing 747-400 EICAS by Gijs de Rooy
-# ==============================================================================
-
 var canvasGroup = {};
-var canvasEicas = {};
 
-var class_eicas = {
+var canvas_eicas = {
 	new: func(canvasGroup)
 	{
-		var m = { parents: [class_eicas] };
+		var m = { parents: [canvas_eicas] };
 		
 		var eicasP = canvasGroup;
 		
@@ -76,18 +71,3 @@ var class_eicas = {
 		settimer(func me.fast_update(), 0.1);
 	}
 };
-
-setlistener("/nasal/canvas/loaded", func {
-	canvasEicas = canvas.new({
-		"name": "EICASPrimary",
-		"size": [1024, 1024],
-		"view": [567, 673],
-		"mipmapping": 1
-	});
-	canvasEicas.addPlacement({"node": "EICAS_Screen"});
-	var group = canvasEicas.createGroup();
-	var eicasInstance = class_eicas.new(group);
-	eicasInstance.slow_update();
-	eicasInstance.fast_update();
-}, 1);
-
