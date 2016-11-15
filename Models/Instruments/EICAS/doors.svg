@@ -15,7 +15,7 @@
    width="566.92914"
    height="673.22833"
    viewBox="0 0 566.92917 673.22836"
-   sodipodi:docname="6.svg">
+   sodipodi:docname="doors.svg">
   <metadata
      id="metadata8">
     <rdf:RDF>
@@ -24,7 +24,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -44,9 +44,9 @@
      id="namedview4"
      showgrid="false"
      units="px"
-     inkscape:zoom="0.52618938"
-     inkscape:cx="-9.0889455"
-     inkscape:cy="374.25118"
+     inkscape:zoom="1.0523788"
+     inkscape:cx="299.11451"
+     inkscape:cy="250.81294"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -241,12 +241,6 @@
      style="fill:none;fill-rule:evenodd;stroke:#ffffff;stroke-width:3.00000036;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
      d="m 200.00002,448.22836 170.00002,0"
      id="path4410"
-     inkscape:connector-curvature="0"
-     sodipodi:nodetypes="cc" />
-  <path
-     style="fill:none;fill-rule:evenodd;stroke:#28c8fa;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-     d="m 40.000005,571.72837 500.000055,0"
-     id="path4478-3-6"
      inkscape:connector-curvature="0"
      sodipodi:nodetypes="cc" />
 </svg>

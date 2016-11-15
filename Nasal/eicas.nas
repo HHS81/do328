@@ -3,32 +3,40 @@ var canvasEicas = {};
 var eicasPage = {};
 var canvasEicasDoors = {};
 var doorsPageEicas = {};
+var canvasEicasFuel = {};
+var fuelPageEicas = {};
 
 var eicasBtClick = func(input = -1) {
 
 	if(input == 1) {
 		eicasPage.hide();
-		doorsPageEicas.show();
+		doorsPageEicas.hide();
+		fuelPageEicas.show();
 	}
 	else if(input == 2){
 		eicasPage.hide();
 		doorsPageEicas.show();
+		fuelPageEicas.hide();
 	}
 	else if(input == 3){
 		eicasPage.hide();
 		doorsPageEicas.show();
+		fuelPageEicas.hide();
 	}
 	else if(input == 4){
 		eicasPage.hide();
 		doorsPageEicas.show();
+		fuelPageEicas.hide();
 	}
 	else if(input == 5){
 		eicasPage.hide();
 		doorsPageEicas.show();
+		fuelPageEicas.hide();
 	}
 	else {
 		doorsPageEicas.hide();
 		eicasPage.show();
+		fuelPageEicas.hide();
 	}
 }
 
@@ -51,6 +59,10 @@ setlistener("/nasal/canvas/loaded", func {
 	doorsPageEicas = group.createChild('group');
 	canvas_doors.new(doorsPageEicas);
 
-	doorsPageEicas.hide();
+	fuelPageEicas = group.createChild('group');
+	canvas_fuel.new(fuelPageEicas);
+
 	eicasPage.show();
+	doorsPageEicas.hide();
+	fuelPageEicas.hide();
 }, 1);

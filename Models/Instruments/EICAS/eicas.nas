@@ -24,6 +24,10 @@ var canvas_eicas = {
 			m[key] = eicasP.getElementById(key);
 		}
 
+		var sk = eicasP.createChild('group');
+		var skInstance = canvas_softkeys.new(sk);
+		skInstance.setSoftkeys(["MAIN","CAPT","DATA","COPY","AHRS","SYSTEM"]);
+
 		return m;
 	},
 	slow_update: func()
