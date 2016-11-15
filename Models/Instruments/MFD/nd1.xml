@@ -12,7 +12,7 @@
 
         <layer>
             <texture>
-                <path>Aircraft/CitationX/Models/Instruments/MFD/radar.png</path>
+                <path>Aircraft/do328/Models/Instruments/MFD/radar.png</path>
                 <x1>0.0</x1>
                 <y1>0.336</y1>
                 <x2>1.0</x2>
