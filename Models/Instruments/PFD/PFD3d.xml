@@ -519,7 +519,7 @@
 
 <model>
         <name>text3d</name>
-        <path>Aircraft/CitationX/Models/Instruments/PFD/text3d.xml</path>
+        <path>Aircraft/do328/Models/Instruments/PFD/text3d.xml</path>
         <offsets>
             <x-m>0.0016</x-m>
             <y-m>0</y-m>
