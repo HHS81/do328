@@ -1,7 +1,7 @@
-var canvas_group = {};
+var canvasGroup = {};
 
 var canvas_doors = {
-	new: func(canvas_group)
+	new: func(canvasGroup, id)
 	{
 		var m = { parents: [canvas_doors] };
 		
@@ -12,11 +12,10 @@ var canvas_doors = {
 			}
 		};
 		
-		canvas.parsesvg(canvas_group, "Aircraft/do328/Models/Instruments/EICAS/doors.svg", {'font-mapper': font_mapper});
+		canvas.parsesvg(canvasGroup, "Aircraft/do328/Models/Instruments/EICAS/doors.svg", {'font-mapper': font_mapper});
 
-		var sk = canvas_group.createChild('group');
-		var skInstance = canvas_softkeys.new(sk);
-		skInstance.setSoftkeys(["SYSTEM 3/3","OXYGEN","DOORS","","","Next"]);
+		var sk = canvasGroup.createChild('group');
+		canvas_softkeys.new(sk, id);
 
 		return m;
 	}

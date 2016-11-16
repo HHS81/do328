@@ -1,7 +1,7 @@
-var canvas_group = {};
+var canvasGroup = {};
 
 var canvas_fuel = {
-	new: func(canvas_group)
+	new: func(canvasGroup, id)
 	{
 		var m = { parents: [canvas_fuel] };
 		
@@ -12,11 +12,10 @@ var canvas_fuel = {
 			}
 		};
 		
-		canvas.parsesvg(canvas_group, "Aircraft/do328/Models/Instruments/EICAS/fuel.svg", {'font-mapper': font_mapper});
+		canvas.parsesvg(canvasGroup, "Aircraft/do328/Models/Instruments/EICAS/fuel.svg", {'font-mapper': font_mapper});
 		
-		var sk = canvas_group.createChild('group');
-		var skInstance = canvas_softkeys.new(sk);
-		skInstance.setSoftkeys(["SYSTEM 1/3","CONTROL","HYDR","ENGINE","FUEL","NEXT"]);
+		var sk = canvasGroup.createChild('group');
+		canvas_softkeys.new(sk, id);
 
 		return m;
 	}

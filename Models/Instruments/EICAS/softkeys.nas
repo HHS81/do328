@@ -1,7 +1,7 @@
-var canvas_group = {};
+var canvasGroup = {};
 
 var canvas_softkeys = {
-	new: func(canvas_group)
+	new: func(canvasGroup, id)
 	{
 		var m = { parents: [canvas_softkeys] };
 		
@@ -12,12 +12,29 @@ var canvas_softkeys = {
 			}
 		};
 		
-		canvas.parsesvg(canvas_group, "Aircraft/do328/Models/Instruments/EICAS/softkeys.svg", {'font-mapper': font_mapper});
+		canvas.parsesvg(canvasGroup, "Aircraft/do328/Models/Instruments/EICAS/softkeys.svg", {'font-mapper': font_mapper});
 
 		var svg_keys = ["title","sk1","sk2","sk3","sk4","sk5"];
 		foreach(var key; svg_keys) {
-			m[key] = canvas_group.getElementById(key);
+			m[key] = canvasGroup.getElementById(key);
 		}
+
+		setlistener("/canvas/softkeys"~id, func {
+			var softkeys = split(";", getprop("/canvas/softkeys"~id));
+
+			if(size(softkeys) != 6) {
+				m["title"].setText("INVALID");
+				for(var n = 1; n<=5; n+=1){
+					m["sk"~n].setText("");
+				}
+			}
+			else {
+				m["title"].setText(softkeys[0]);
+				for(var n = 1; n<=5; n+=1){
+					m["sk"~n].setText(softkeys[n]);
+				}
+			}
+		}, 1);
 
 		return m;
 	},
