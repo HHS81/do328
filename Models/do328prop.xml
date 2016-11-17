@@ -1458,19 +1458,19 @@
 <animation>
         <type>rotate</type>
         <object-name>blade21</object-name>
-        <property>/engines/engine[0]/thruster/pitch</property>
+        <property>controls/engines/engine[1]/propeller-pitch</property>
         <interpolation>
             <entry>
-                <ind>77.0</ind><dep>0.0</dep>
+                <ind>0</ind><dep>0.0</dep>
             </entry>
             <entry>
-                <ind>0</ind><dep>77.0</dep>
+                <ind>1</ind><dep>77.0</dep>
             </entry>
         </interpolation>
        <center>
-			<x-m>-5.079394</x-m>
-			<y-m>3.054513</y-m>
-			<z-m>3.772953</z-m>
+			<x-m>-5.08434</x-m>
+			<y-m>3.54583</y-m>
+			<z-m>2.80725</z-m>
 		</center>
 		<axis>
 			<x>0.011651</x>
@@ -1482,19 +1482,19 @@
     <animation>
         <type>rotate</type>
         <object-name>blade22</object-name>
-        <property>/engines/engine[0]/thruster/pitch</property>
+        <property>controls/engines/engine[1]/propeller-pitch</property>
         <interpolation>
             <entry>
-                <ind>77.0</ind><dep>0.0</dep>
+                <ind>0</ind><dep>0.0</dep>
             </entry>
             <entry>
-                <ind>0</ind><dep>77.0</dep>
+                <ind>1</ind><dep>77.0</dep>
             </entry>
         </interpolation>
       <center>
-			<x-m>-5.081888</x-m>
-			<y-m>2.573701</y-m>
-			<z-m>2.917284</z-m>
+			<x-m>-5.08434</x-m>
+			<y-m>3.54583</y-m>
+			<z-m>2.80725</z-m>
 		</center>
 		<axis>
 			<x>0.009438</x>
@@ -1506,19 +1506,19 @@
     <animation>
         <type>rotate</type>
         <object-name>blade23</object-name>
-        <property>/engines/engine[0]/thruster/pitch</property>
+        <property>controls/engines/engine[1]/propeller-pitch</property>
         <interpolation>
             <entry>
-                <ind>77.0</ind><dep>0.0</dep>
+                <ind>0</ind><dep>0.0</dep>
             </entry>
             <entry>
-                <ind>0</ind><dep>77.0</dep>
+                <ind>1</ind><dep>77.0</dep>
             </entry>
         </interpolation>
      <center>
-			<x-m>-5.081888</x-m>
-			<y-m>3.063434</y-m>
-			<z-m>2.076154</z-m>
+			<x-m>-5.08434</x-m>
+			<y-m>3.54583</y-m>
+			<z-m>2.80725</z-m>
 		</center>
 		<axis>
 			<x>0.009438</x>
@@ -1530,19 +1530,19 @@
     <animation>
         <type>rotate</type>
         <object-name>blade24</object-name>
-        <property>/engines/engine[0]/thruster/pitch</property>
+        <property>controls/engines/engine[1]/propeller-pitch</property>
         <interpolation>
             <entry>
-                <ind>77.0</ind><dep>0.0</dep>
+                <ind>0</ind><dep>0.0</dep>
             </entry>
             <entry>
-                <ind>0</ind><dep>77.0</dep>
+                <ind>1</ind><dep>77.0</dep>
             </entry>
         </interpolation>
      <center>
-			<x-m>-5.077168</x-m>
-			<y-m>3.686569</y-m>
-			<z-m>2.684132</z-m>
+			<x-m>-5.08434</x-m>
+			<y-m>3.54583</y-m>
+			<z-m>2.80725</z-m>
 		</center>
 		<axis>
 			<x>0.009438</x>
@@ -1554,19 +1554,19 @@
     <animation>
         <type>rotate</type>
         <object-name>blade25</object-name>
-        <property>/engines/engine[0]/thruster/pitch</property>
+        <property>controls/engines/engine[1]/propeller-pitch</property>
         <interpolation>
             <entry>
-                <ind>77.0</ind><dep>0.0</dep>
+                <ind>0</ind><dep>0.0</dep>
             </entry>
             <entry>
-                <ind>0</ind><dep>77.0</dep>
+                <ind>1</ind><dep>77.0</dep>
             </entry>
         </interpolation>
     <center>
-			<x-m>-5.099794</x-m>
-			<y-m>4.538104</y-m>
-			<z-m>2.922825</z-m>
+			<x-m>-5.08434</x-m>
+			<y-m>3.54583</y-m>
+			<z-m>2.80725</z-m>
 		</center>
 		<axis>
 			<x>-0.022138</x>
@@ -1578,19 +1578,19 @@
     <animation>
         <type>rotate</type>
         <object-name>blade26</object-name>
-        <property>/engines/engine[0]/thruster/pitch</property>
+        <property>controls/engines/engine[1]/propeller-pitch</property>
         <interpolation>
             <entry>
-                <ind>77.0</ind><dep>0.0</dep>
+                <ind>0</ind><dep>0.0</dep>
             </entry>
             <entry>
-                <ind>0</ind><dep>77.0</dep>
+                <ind>1</ind><dep>77.0</dep>
             </entry>
         </interpolation>
     <center>
-			<x-m>-5.082947</x-m>
-			<y-m>4.03479</y-m>
-			<z-m>3.7666</z-m>
+			<x-m>-5.08434</x-m>
+			<y-m>3.54583</y-m>
+			<z-m>2.80725</z-m>
 		</center>
 		<axis>
 			<x>0.011557</x>
@@ -1625,19 +1625,19 @@
 <animation>
         <type>rotate</type>
         <object-name>blade11</object-name>
-        <property>/engines/engine[1]/thruster/pitch</property>
+        <property>controls/engines/engine[0]/propeller-pitch</property>
         <interpolation>
             <entry>
-                <ind>77.0</ind><dep>0.0</dep>
+                <ind>0</ind><dep>0.0</dep>
             </entry>
             <entry>
-                <ind>0</ind><dep>77.0</dep>
+                <ind>1</ind><dep>77.0</dep>
             </entry>
         </interpolation>
         <center>
-			<x-m>-5.080097</x-m>
-			<y-m>-4.039443</y-m>
-			<z-m>3.773893</z-m>
+			<x-m>-5.08434</x-m>
+			<y-m>-3.54584</y-m>
+			<z-m>2.80725</z-m>
 		</center>
 		<axis>
 			<x>0.010246</x>
@@ -1649,19 +1649,19 @@
     <animation>
         <type>rotate</type>
         <object-name>blade12</object-name>
-        <property>/engines/engine[1]/thruster/pitch</property>
+        <property>controls/engines/engine[0]/propeller-pitch</property>
         <interpolation>
             <entry>
-                <ind>77.0</ind><dep>0.0</dep>
+                <ind>0</ind><dep>0.0</dep>
             </entry>
             <entry>
-                <ind>0</ind><dep>77.0</dep>
+                <ind>1</ind><dep>77.0</dep>
             </entry>
         </interpolation>
        <center>
-			<x-m>-5.069608</x-m>
-			<y-m>-4.521884</y-m>
-			<z-m>2.926459</z-m>
+			<x-m>-5.08434</x-m>
+			<y-m>-3.54584</y-m>
+			<z-m>2.80725</z-m>
 		</center>
 		<axis>
 			<x>-0.015122</x>
@@ -1673,19 +1673,19 @@
      <animation>
         <type>rotate</type>
         <object-name>blade13</object-name>
-        <property>/engines/engine[1]/thruster/pitch</property>
+        <property>controls/engines/engine[0]/propeller-pitch</property>
         <interpolation>
             <entry>
-                <ind>77.0</ind><dep>0.0</dep>
+                <ind>0</ind><dep>0.0</dep>
             </entry>
             <entry>
-                <ind>0</ind><dep>77.0</dep>
+                <ind>1</ind><dep>77.0</dep>
             </entry>
         </interpolation>
        <center>
-			<x-m>-5.082948</x-m>
-			<y-m>-4.036365</y-m>
-			<z-m>2.075076</z-m>
+			<x-m>-5.08434</x-m>
+			<y-m>-3.54584</y-m>
+			<z-m>2.80725</z-m>
 		</center>
 		<axis>
 			<x>0.011558</x>
@@ -1697,19 +1697,19 @@
     <animation>
         <type>rotate</type>
         <object-name>blade14</object-name>
-        <property>/engines/engine[1]/thruster/pitch</property>
+        <property>controls/engines/engine[0]/propeller-pitch</property>
         <interpolation>
             <entry>
-                <ind>77.0</ind><dep>0.0</dep>
+                <ind>0</ind><dep>0.0</dep>
             </entry>
             <entry>
-                <ind>0</ind><dep>77.0</dep>
+                <ind>1</ind><dep>77.0</dep>
             </entry>
         </interpolation>
        <center>
-			<x-m>-5.082947</x-m>
-			<y-m>-3.060019</y-m>
-			<z-m>2.075523</z-m>
+			<x-m>-5.08434</x-m>
+			<y-m>-3.54584</y-m>
+			<z-m>2.80725</z-m>
 		</center>
 		<axis>
 			<x>0.011558</x>
@@ -1721,19 +1721,19 @@
     <animation>
         <type>rotate</type>
         <object-name>blade15</object-name>
-        <property>/engines/engine[1]/thruster/pitch</property>
+        <property>controls/engines/engine[0]/propeller-pitch</property>
         <interpolation>
             <entry>
-                <ind>77.0</ind><dep>0.0</dep>
+                <ind>0</ind><dep>0.0</dep>
             </entry>
             <entry>
-                <ind>0</ind><dep>77.0</dep>
+                <ind>1</ind><dep>77.0</dep>
             </entry>
         </interpolation>
        <center>
-			<x-m>-5.082947</x-m>
-			<y-m>-2.572235</y-m>
-			<z-m>2.921286</z-m>
+			<x-m>-5.08434</x-m>
+			<y-m>-3.54584</y-m>
+			<z-m>2.80725</z-m>
 		</center>
 		<axis>
 			<x>0.011557</x>
@@ -1745,19 +1745,19 @@
     <animation>
         <type>rotate</type>
         <object-name>blade16</object-name>
-        <property>/engines/engine[1]/thruster/pitch</property>
+        <property>controls/engines/engine[0]/propeller-pitch</property>
         <interpolation>
             <entry>
-                <ind>77.0</ind><dep>0.0</dep>
+                <ind>0</ind><dep>0.0</dep>
             </entry>
             <entry>
-                <ind>0</ind><dep>77.0</dep>
+                <ind>1</ind><dep>77.0</dep>
             </entry>
         </interpolation>
        <center>
-			<x-m>-5.081936</x-m>
-			<y-m>-3.05931</y-m>
-			<z-m>3.765743</z-m>
+			<x-m>-5.08434</x-m>
+			<y-m>-3.54584</y-m>
+			<z-m>2.80725</z-m>
 		</center>
 		<axis>
 			<x>0.01358</x>
