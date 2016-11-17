@@ -10,7 +10,7 @@ var softkeysEicas = ["MAIN;CAPT\nSYSTEM;REF\nDATA;COPY;AHRS;F/O\nSYSTEM",
 
 var activateEicasPage = func(input = -1) {
 
-	for(var i=0; i<3; i=i+1) {
+	for(var i=0; i<size(eicasPages); i=i+1) {
 		if(i == input) {
 			eicasPages[i].show();
 		}
@@ -44,7 +44,10 @@ var eicasBtClick = func(input = -1) {
 			}
 		}
 		else if(activeSoftkeysEicas == 2) {
-			if(input == 5) {
+			if(input == 4) {
+				activateEicasPage(3);
+			}
+			else if(input == 5) {
 				setprop("/canvas/softkeys0", softkeysEicas[3]);
 				activeSoftkeysEicas = 3;
 			}
@@ -83,6 +86,9 @@ setlistener("/nasal/canvas/loaded", func {
 
 	eicasPages[2] = group.createChild('group');
 	canvas_fuel.new(eicasPages[2], 0);
+
+	eicasPages[3] = group.createChild('group');
+	canvas_apu.new(eicasPages[3], 0);
 
 	activateEicasPage(0);
 }, 1);
