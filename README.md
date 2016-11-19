@@ -61,6 +61,8 @@ Please see also: http://wiki.flightgear.org/Dornier_328
 
 Sources/ References
 
+http://328.eu/wp-content/uploads/2013/04/easa-tcds-do328.pdf
+
 https://www.flightglobal.com/pdfarchive/view/1995/1995%20-%203235.html
 
 http://compair.aviationresearch.com/database_files/TheImage_41.pdf

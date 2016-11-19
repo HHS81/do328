@@ -475,6 +475,11 @@ Landing Distance MLW unfactored (what the aircraft demostrated without any safet
       <yaw>   0.00 </yaw>
     </orient>
     <feed>0</feed>
+    <feed>1</feed>
+    <feed>2</feed>
+    <feed>3</feed>
+    <feed>4</feed>
+    <feed>5</feed>
     <thruster file="hartzell2">
     <sense>1</sense>
      <location unit="IN">
@@ -501,7 +506,12 @@ Landing Distance MLW unfactored (what the aircraft demostrated without any safet
       <roll>  0.00 </roll>
       <yaw>   0.00 </yaw>
     </orient>
+    <feed>0</feed>
     <feed>1</feed>
+    <feed>2</feed>
+    <feed>3</feed>
+    <feed>4</feed>
+    <feed>5</feed>
     <thruster file="hartzell2">
     <sense>1</sense>
      <location unit="IN">
@@ -517,26 +527,84 @@ Landing Distance MLW unfactored (what the aircraft demostrated without any safet
     </thruster>
   </engine>
 
-  <tank type="FUEL" number="0">
-     <location unit="IN">
-       <x>-78.9 </x>
-       <y>-87 </y>
-       <z>130.11 </z>
+<!--http://328.eu/wp-content/uploads/2013/04/easa-tcds-do328.pdf-->
+  <tank type="FUEL" number="0"><!--feeder tank-->
+     <location unit="M">
+       <x>-2.0 </x>
+       <y>-7.634 </y>
+       <z> 3.1 </z>
      </location>
-     <capacity unit="LBS"> 3778.5 </capacity>
-     <contents unit="LBS"> 3778.5 </contents>
+     <priority>1</priority>
+     <capacity unit="LBS"> 187.4 </capacity>
+     <contents unit="LBS"> 187.4 </contents>
+<density unit="LBS/GAL"> 6.643 </density>
+
   </tank>
 
   <tank type="FUEL" number="1">
-     <location unit="IN">
-       <x>-78.9 </x>
-       <y>87 </y>
-       <z>130.11 </z>
+     <location unit="M">
+       <x>-2.0 </x>
+       <y>-5.0 </y>
+       <z> 3.2 </z>
      </location>
-     <capacity unit="LBS"> 3778.5 </capacity>
-     <contents unit="LBS"> 3778.5 </contents>
+     <priority>1</priority>
+     <capacity unit="LBS"> 1395.5 </capacity>
+     <contents unit="LBS"> 1395.5 </contents>
+<density unit="LBS/GAL"> 6.643 </density>
+
   </tank>
 
+  <tank type="FUEL" number="2">
+     <location unit="M">
+       <x>-2.0 </x>
+       <y>-2.2 </y>
+       <z> 3.2 </z>
+     </location>
+     <priority>1</priority>
+     <capacity unit="LBS"> 2182.6 </capacity>
+     <contents unit="LBS"> 2182.6 </contents>
+<density unit="LBS/GAL"> 6.643 </density>
+
+  </tank>
+
+  <tank type="FUEL" number="3">
+     <location unit="M">
+       <x>-2.0 </x>
+       <y> 2.2 </y>
+       <z> 3.2 </z>
+     </location>
+     <priority>1</priority>
+     <capacity unit="LBS"> 2182.6 </capacity>
+     <contents unit="LBS"> 2182.6 </contents>
+<density unit="LBS/GAL"> 6.643 </density>
+
+  </tank>
+
+  <tank type="FUEL" number="4">
+     <location unit="M">
+       <x>-2.0 </x>
+       <y> 5.0 </y>
+       <z> 3.2 </z>
+     </location>
+     <priority>1</priority>
+     <capacity unit="LBS"> 1395.5 </capacity>
+     <contents unit="LBS"> 1395.5 </contents>
+<density unit="LBS/GAL"> 6.643 </density>
+
+  </tank>
+
+  <tank type="FUEL" number="5"><!--feeder tank-->
+     <location unit="M">
+       <x>-2.0 </x>
+       <y> 7.634 </y>
+       <z> 3.1 </z>
+     </location>
+     <priority>1</priority>
+     <capacity unit="LBS"> 187.4 </capacity>
+     <contents unit="LBS"> 187.4 </contents>
+<density unit="LBS/GAL"> 6.643 </density>
+
+  </tank>
 
  </propulsion>
 
