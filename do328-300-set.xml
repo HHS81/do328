@@ -393,16 +393,16 @@ Started by Heiko Schulz
 		</weight>
 </payload>
 
- <consumables>
-  <fuel> <!-- 13365 litres -->
-   <tank n="0">
-    <level-gal_us archive="y">572.3</level-gal_us>
-   </tank>
-   <tank n="1">
-    <level-gal_us archive="y">572.3</level-gal_us>
-   </tank>
-  </fuel>
- </consumables>
+  <consumables>
+    <fuel>
+      <tank n="0"><name>Left wing feeder tank</name></tank>
+      <tank n="1"><name>Left wing outer tank</name></tank>
+      <tank n="2"><name>Left wing inner tank</name></tank>
+      <tank n="3"><name>Right wing inner tank</name></tank>
+      <tank n="4"><name>Right wing outer tank</name></tank>
+      <tank n="5"><name>Right wing feeder tank</name></tank>
+    </fuel>
+  </consumables>
 
     <instrumentation>
 
