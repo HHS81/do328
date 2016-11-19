@@ -1458,12 +1458,15 @@
 <animation>
         <type>rotate</type>
         <object-name>blade21</object-name>
-        <expression>
-          <sum>
-            <property>fdm/jsbsim/propulsion/engine[1]/blade-angle</property>
-            <value>60</value>
-          </sum>
-        </expression>
+        <property>fdm/jsbsim/propulsion/engine[1]/blade-angle</property>
+        <interpolation>
+            <entry>
+                <ind>77.0</ind><dep>0.0</dep>
+            </entry>
+            <entry>
+                <ind>0</ind><dep>77.0</dep>
+            </entry>
+        </interpolation>
        <center>
 			<x-m>-5.08434</x-m>
 			<y-m>3.54583</y-m>
@@ -1479,12 +1482,15 @@
     <animation>
         <type>rotate</type>
         <object-name>blade22</object-name>
-        <expression>
-          <sum>
-            <property>fdm/jsbsim/propulsion/engine[1]/blade-angle</property>
-            <value>60</value>
-          </sum>
-        </expression>
+        <property>fdm/jsbsim/propulsion/engine[1]/blade-angle</property>
+        <interpolation>
+            <entry>
+                <ind>77.0</ind><dep>0.0</dep>
+            </entry>
+            <entry>
+                <ind>0</ind><dep>77.0</dep>
+            </entry>
+        </interpolation>
       <center>
 			<x-m>-5.08434</x-m>
 			<y-m>3.54583</y-m>
@@ -1500,12 +1506,15 @@
     <animation>
         <type>rotate</type>
         <object-name>blade23</object-name>
-        <expression>
-          <sum>
-            <property>fdm/jsbsim/propulsion/engine[1]/blade-angle</property>
-            <value>60</value>
-          </sum>
-        </expression>
+        <property>fdm/jsbsim/propulsion/engine[1]/blade-angle</property>
+        <interpolation>
+            <entry>
+                <ind>77.0</ind><dep>0.0</dep>
+            </entry>
+            <entry>
+                <ind>0</ind><dep>77.0</dep>
+            </entry>
+        </interpolation>
      <center>
 			<x-m>-5.08434</x-m>
 			<y-m>3.54583</y-m>
@@ -1521,12 +1530,15 @@
     <animation>
         <type>rotate</type>
         <object-name>blade24</object-name>
-        <expression>
-          <sum>
-            <property>fdm/jsbsim/propulsion/engine[1]/blade-angle</property>
-            <value>60</value>
-          </sum>
-        </expression>
+        <property>fdm/jsbsim/propulsion/engine[1]/blade-angle</property>
+        <interpolation>
+            <entry>
+                <ind>77.0</ind><dep>0.0</dep>
+            </entry>
+            <entry>
+                <ind>0</ind><dep>77.0</dep>
+            </entry>
+        </interpolation>
      <center>
 			<x-m>-5.08434</x-m>
 			<y-m>3.54583</y-m>
@@ -1542,12 +1554,15 @@
     <animation>
         <type>rotate</type>
         <object-name>blade25</object-name>
-        <expression>
-          <sum>
-            <property>fdm/jsbsim/propulsion/engine[1]/blade-angle</property>
-            <value>60</value>
-          </sum>
-        </expression>
+        <property>fdm/jsbsim/propulsion/engine[1]/blade-angle</property>
+        <interpolation>
+            <entry>
+                <ind>77.0</ind><dep>0.0</dep>
+            </entry>
+            <entry>
+                <ind>0</ind><dep>77.0</dep>
+            </entry>
+        </interpolation>
     <center>
 			<x-m>-5.08434</x-m>
 			<y-m>3.54583</y-m>
@@ -1563,12 +1578,15 @@
     <animation>
         <type>rotate</type>
         <object-name>blade26</object-name>
-        <expression>
-          <sum>
-            <property>fdm/jsbsim/propulsion/engine[1]/blade-angle</property>
-            <value>60</value>
-          </sum>
-        </expression>
+        <property>fdm/jsbsim/propulsion/engine[1]/blade-angle</property>
+        <interpolation>
+            <entry>
+                <ind>77.0</ind><dep>0.0</dep>
+            </entry>
+            <entry>
+                <ind>0</ind><dep>77.0</dep>
+            </entry>
+        </interpolation>
     <center>
 			<x-m>-5.08434</x-m>
 			<y-m>3.54583</y-m>
@@ -1607,12 +1625,15 @@
 <animation>
         <type>rotate</type>
         <object-name>blade11</object-name>
-        <expression>
-          <sum>
-            <property>fdm/jsbsim/propulsion/engine[0]/blade-angle</property>
-            <value>60</value>
-          </sum>
-        </expression>
+        <property>fdm/jsbsim/propulsion/engine[0]/blade-angle</property>
+        <interpolation>
+            <entry>
+                <ind>0.0</ind><dep>77.0</dep>
+            </entry>
+            <entry>
+                <ind>77.0</ind><dep>0.0</dep>
+            </entry>
+        </interpolation>
         <center>
 			<x-m>-5.08434</x-m>
 			<y-m>-3.54584</y-m>
@@ -1628,12 +1649,15 @@
     <animation>
         <type>rotate</type>
         <object-name>blade12</object-name>
-        <expression>
-          <sum>
-            <property>fdm/jsbsim/propulsion/engine[0]/blade-angle</property>
-            <value>60</value>
-          </sum>
-        </expression>
+        <property>fdm/jsbsim/propulsion/engine[0]/blade-angle</property>
+        <interpolation>
+            <entry>
+                <ind>0.0</ind><dep>77.0</dep>
+            </entry>
+            <entry>
+                <ind>77.0</ind><dep>0.0</dep>
+            </entry>
+        </interpolation>
        <center>
 			<x-m>-5.08434</x-m>
 			<y-m>-3.54584</y-m>
@@ -1649,12 +1673,15 @@
      <animation>
         <type>rotate</type>
         <object-name>blade13</object-name>
-        <expression>
-          <sum>
-            <property>fdm/jsbsim/propulsion/engine[0]/blade-angle</property>
-            <value>60</value>
-          </sum>
-        </expression>
+        <property>fdm/jsbsim/propulsion/engine[0]/blade-angle</property>
+        <interpolation>
+            <entry>
+                <ind>0.0</ind><dep>77.0</dep>
+            </entry>
+            <entry>
+                <ind>77.0</ind><dep>0.0</dep>
+            </entry>
+        </interpolation>
        <center>
 			<x-m>-5.08434</x-m>
 			<y-m>-3.54584</y-m>
@@ -1670,12 +1697,15 @@
     <animation>
         <type>rotate</type>
         <object-name>blade14</object-name>
-        <expression>
-          <sum>
-            <property>fdm/jsbsim/propulsion/engine[0]/blade-angle</property>
-            <value>60</value>
-          </sum>
-        </expression>
+        <property>fdm/jsbsim/propulsion/engine[0]/blade-angle</property>
+        <interpolation>
+            <entry>
+                <ind>0.0</ind><dep>77.0</dep>
+            </entry>
+            <entry>
+                <ind>77.0</ind><dep>0.0</dep>
+            </entry>
+        </interpolation>
        <center>
 			<x-m>-5.08434</x-m>
 			<y-m>-3.54584</y-m>
@@ -1691,12 +1721,15 @@
     <animation>
         <type>rotate</type>
         <object-name>blade15</object-name>
-        <expression>
-          <sum>
-            <property>fdm/jsbsim/propulsion/engine[0]/blade-angle</property>
-            <value>60</value>
-          </sum>
-        </expression>
+        <property>fdm/jsbsim/propulsion/engine[0]/blade-angle</property>
+        <interpolation>
+            <entry>
+                <ind>0.0</ind><dep>77.0</dep>
+            </entry>
+            <entry>
+                <ind>77.0</ind><dep>0.0</dep>
+            </entry>
+        </interpolation>
        <center>
 			<x-m>-5.08434</x-m>
 			<y-m>-3.54584</y-m>
@@ -1712,12 +1745,15 @@
     <animation>
         <type>rotate</type>
         <object-name>blade16</object-name>
-        <expression>
-          <sum>
-            <property>fdm/jsbsim/propulsion/engine[0]/blade-angle</property>
-            <value>60</value>
-          </sum>
-        </expression>
+        <property>fdm/jsbsim/propulsion/engine[0]/blade-angle</property>
+        <interpolation>
+            <entry>
+                <ind>0.0</ind><dep>77.0</dep>
+            </entry>
+            <entry>
+                <ind>77.0</ind><dep>0.0</dep>
+            </entry>
+        </interpolation>
        <center>
 			<x-m>-5.08434</x-m>
 			<y-m>-3.54584</y-m>
