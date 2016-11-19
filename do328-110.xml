@@ -527,15 +527,18 @@ Landing Distance MLW unfactored (what the aircraft demostrated without any safet
     </thruster>
   </engine>
 
-  <tank type="FUEL" number="0">
+<!--http://328.eu/wp-content/uploads/2013/04/easa-tcds-do328.pdf-->
+  <tank type="FUEL" number="0"><!--feeder tank-->
      <location unit="M">
        <x>-2.0 </x>
-       <y>-7.6 </y>
+       <y>-7.634 </y>
        <z> 3.1 </z>
      </location>
      <priority>1</priority>
-     <capacity unit="LBS"> 190 </capacity>
-     <contents unit="LBS"> 20 </contents>
+     <capacity unit="LBS"> 187.4 </capacity>
+     <contents unit="LBS"> 187.4 </contents>
+<density unit="LBS/GAL"> 6.643 </density>
+
   </tank>
 
   <tank type="FUEL" number="1">
@@ -545,8 +548,10 @@ Landing Distance MLW unfactored (what the aircraft demostrated without any safet
        <z> 3.2 </z>
      </location>
      <priority>1</priority>
-     <capacity unit="LBS"> 1450 </capacity>
-     <contents unit="LBS"> 300 </contents>
+     <capacity unit="LBS"> 1395.5 </capacity>
+     <contents unit="LBS"> 1395.5 </contents>
+<density unit="LBS/GAL"> 6.643 </density>
+
   </tank>
 
   <tank type="FUEL" number="2">
@@ -556,8 +561,10 @@ Landing Distance MLW unfactored (what the aircraft demostrated without any safet
        <z> 3.2 </z>
      </location>
      <priority>1</priority>
-     <capacity unit="LBS"> 2350 </capacity>
-     <contents unit="LBS"> 100 </contents>
+     <capacity unit="LBS"> 2182.6 </capacity>
+     <contents unit="LBS"> 2182.6 </contents>
+<density unit="LBS/GAL"> 6.643 </density>
+
   </tank>
 
   <tank type="FUEL" number="3">
@@ -567,8 +574,10 @@ Landing Distance MLW unfactored (what the aircraft demostrated without any safet
        <z> 3.2 </z>
      </location>
      <priority>1</priority>
-     <capacity unit="LBS"> 2350 </capacity>
-     <contents unit="LBS"> 100 </contents>
+     <capacity unit="LBS"> 2182.6 </capacity>
+     <contents unit="LBS"> 2182.6 </contents>
+<density unit="LBS/GAL"> 6.643 </density>
+
   </tank>
 
   <tank type="FUEL" number="4">
@@ -578,19 +587,23 @@ Landing Distance MLW unfactored (what the aircraft demostrated without any safet
        <z> 3.2 </z>
      </location>
      <priority>1</priority>
-     <capacity unit="LBS"> 1450 </capacity>
-     <contents unit="LBS"> 300 </contents>
+     <capacity unit="LBS"> 1395.5 </capacity>
+     <contents unit="LBS"> 1395.5 </contents>
+<density unit="LBS/GAL"> 6.643 </density>
+
   </tank>
 
-  <tank type="FUEL" number="5">
+  <tank type="FUEL" number="5"><!--feeder tank-->
      <location unit="M">
        <x>-2.0 </x>
-       <y> 7.6 </y>
+       <y> 7.634 </y>
        <z> 3.1 </z>
      </location>
      <priority>1</priority>
-     <capacity unit="LBS"> 190 </capacity>
-     <contents unit="LBS"> 20 </contents>
+     <capacity unit="LBS"> 187.4 </capacity>
+     <contents unit="LBS"> 187.4 </contents>
+<density unit="LBS/GAL"> 6.643 </density>
+
   </tank>
 
  </propulsion>
