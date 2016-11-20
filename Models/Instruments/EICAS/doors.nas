@@ -1,7 +1,7 @@
 var canvasGroup = {};
 
 var canvas_doors = {
-	new: func(canvasGroup, id)
+	new: func(canvasGroup)
 	{
 		var m = { parents: [canvas_doors] };
 		
@@ -13,9 +13,6 @@ var canvas_doors = {
 		};
 		
 		canvas.parsesvg(canvasGroup, "Aircraft/do328/Models/Instruments/EICAS/doors.svg", {'font-mapper': font_mapper});
-
-		var sk = canvasGroup.createChild('group');
-		canvas_softkeys.new(sk, id);
 
 		return m;
 	}

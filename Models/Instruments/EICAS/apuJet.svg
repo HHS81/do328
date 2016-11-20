@@ -15,7 +15,7 @@
    width="160mm"
    height="190mm"
    viewBox="0 0 566.92912 673.22834"
-   sodipodi:docname="apu.svg">
+   sodipodi:docname="apuJet.svg">
   <metadata
      id="metadata8">
     <rdf:RDF>
@@ -24,7 +24,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -44,9 +44,9 @@
      id="namedview4"
      showgrid="false"
      units="mm"
-     inkscape:zoom="0.72951781"
-     inkscape:cx="163.81294"
-     inkscape:cy="309.08105"
+     inkscape:zoom="0.51584699"
+     inkscape:cx="162.74598"
+     inkscape:cy="317.3521"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -166,22 +166,18 @@
        d="m 62.5,79.228346 -15,0"
        style="fill:none;fill-rule:evenodd;stroke:#ff0000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
   </g>
-  <g
-     id="g4273"
-     transform="translate(0,-9.9998845)">
-    <path
-       sodipodi:nodetypes="cccc"
-       inkscape:connector-curvature="0"
-       id="path4306-6"
-       d="m 130,304.83321 0,218.39512 145,0 0,25"
-       style="fill:none;fill-rule:evenodd;stroke:#00ff00;stroke-width:3.00000048;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-    <path
-       sodipodi:nodetypes="cccc"
-       inkscape:connector-curvature="0"
-       id="path4930"
-       d="m 130,294.83322 -7.5,15 15,0 z"
-       style="fill:#00ff00;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
-  </g>
+  <path
+     style="fill:none;fill-rule:evenodd;stroke:#00ff00;stroke-width:3.00000048;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     d="m 130,294.83333 0,218.39512 145,0 0,25"
+     id="path4306-6"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cccc" />
+  <path
+     style="fill:#00ff00;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="m 130,285.72835 -7.5,15 15,0 z"
+     id="path4930"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cccc" />
   <path
      style="fill:none;fill-opacity:1;stroke:#00ff00;stroke-width:3.00044656;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      d="m 439.08369,480.11809 c -10.21715,0 -18.49978,-8.28263 -18.49978,-18.49978 0,-10.21715 8.28263,-18.49978 18.49978,-18.49978 10.21714,0 18.49978,8.28264 18.49978,18.49978 0,10.21715 -8.28264,18.49978 -18.49978,18.49978"
@@ -201,13 +197,6 @@
        id="tspan3800-5-7-6"
        sodipodi:role="line"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';text-align:center;text-anchor:middle">ELECTRIC</tspan></text>
-  <rect
-     style="fill:#000000;fill-opacity:1;stroke:#3282dc;stroke-width:3.0002501;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-     id="rect4229-9"
-     width="56.999748"
-     height="16.99975"
-     x="102.02166"
-     y="311.57458" />
   <text
      inkscape:label="#text3022"
      sodipodi:linespacing="125%"
@@ -236,13 +225,13 @@
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';text-align:center;text-anchor:middle">BLEED</tspan></text>
   <path
      style="fill:none;fill-rule:evenodd;stroke:#00ff00;stroke-width:3.00000048;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-     d="m 440,303.22845 0,210.00002 -145,0 0,25"
+     d="m 295,538.22847 0,-25 145,0 0,-180.00012 -35,0 0,-30"
      id="path4306-6-6"
      inkscape:connector-curvature="0"
-     sodipodi:nodetypes="cccc" />
+     sodipodi:nodetypes="cccccc" />
   <path
      style="fill:#00ff00;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-     d="m 440,298.22847 7.5,15 -15,0 z"
+     d="m 405,295.72835 7.5,15 -15,0 z"
      id="path4930-0"
      inkscape:connector-curvature="0"
      sodipodi:nodetypes="cccc" />
@@ -286,23 +275,92 @@
        sodipodi:role="line"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';text-align:center;text-anchor:middle">APU</tspan></text>
   <rect
-     style="fill:#000000;fill-opacity:1;stroke:#3282dc;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     style="fill:#000000;fill-opacity:1;stroke:#3282dc;stroke-width:3.00008059;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      id="rect4229-9-3"
-     width="160.88069"
-     height="15.22921"
-     x="203.55859"
-     y="248.03174" />
+     width="160.71342"
+     height="16.99992"
+     x="203.64224"
+     y="246.1774" />
   <text
      inkscape:label="#text3022"
      sodipodi:linespacing="125%"
      id="apuegt-7-2-3-7"
-     y="293.22833"
-     x="438.98682"
+     y="293.05743"
+     x="404.07715"
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.20881367px;line-height:125%;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;display:inline;fill:#ffffff;fill-opacity:1;stroke:none"
      xml:space="preserve"><tspan
-       y="293.22833"
-       x="438.98682"
+       y="293.05743"
+       x="404.07715"
        id="tspan3800-5-7-6-5"
        sodipodi:role="line"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';text-align:center;text-anchor:middle">AIR</tspan></text>
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';text-align:center;text-anchor:middle">ECS</tspan></text>
+  <rect
+     style="fill:#000000;fill-opacity:1;stroke:#3282dc;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     id="rect4229-9"
+     width="56.999748"
+     height="16.99975"
+     x="101.5"
+     y="314.72861" />
+  <text
+     inkscape:label="#text3022"
+     sodipodi:linespacing="125%"
+     id="apuegt-7-2-3-7-3"
+     y="330.72833"
+     x="170.81055"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.20881367px;line-height:125%;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;display:inline;fill:#ffffff;fill-opacity:1;stroke:none"
+     xml:space="preserve"><tspan
+       y="330.72833"
+       x="170.81055"
+       id="tspan3800-5-7-6-5-6"
+       sodipodi:role="line"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';text-align:center;text-anchor:middle">A</tspan></text>
+  <text
+     inkscape:label="#text3022"
+     sodipodi:linespacing="125%"
+     id="apuegt-7-2-3-0-3"
+     y="428.22833"
+     x="495.60303"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.20881367px;line-height:125%;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;display:inline;fill:#ffffff;fill-opacity:1;stroke:none"
+     xml:space="preserve"><tspan
+       y="428.22833"
+       x="495.60303"
+       id="tspan3800-5-7-6-9-6"
+       sodipodi:role="line"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';text-align:center;text-anchor:middle">EXT</tspan></text>
+  <path
+     style="fill:#00ff00;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="m 475,290.72835 7.5,15 -15,0 z"
+     id="path4930-0-7"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cccc" />
+  <path
+     style="fill:none;fill-rule:evenodd;stroke:#00ff00;stroke-width:3.00000048;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     d="m 440,333.22835 35,0 0,-30"
+     id="path4306-6-6-5"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="ccc" />
+  <text
+     inkscape:label="#text3022"
+     sodipodi:linespacing="100%"
+     id="apuegt-7-2-3-7-35"
+     y="270.72833"
+     x="477.12891"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.20881367px;line-height:100%;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;display:inline;fill:#ffffff;fill-opacity:1;stroke:none"
+     xml:space="preserve"><tspan
+       y="270.72833"
+       x="477.12891"
+       id="tspan3800-5-7-6-5-62"
+       sodipodi:role="line"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;line-height:100%;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';text-align:center;text-anchor:middle">ENGINE</tspan><tspan
+       y="288.22833"
+       x="477.12891"
+       sodipodi:role="line"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;line-height:100%;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';text-align:center;text-anchor:middle"
+       id="tspan4330">AIR</tspan></text>
+  <path
+     style="fill:none;fill-rule:evenodd;stroke:#00ff00;stroke-width:3.00000048;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     d="m 440,423.22835 35,0"
+     id="path4306-6-6-5-8"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cc" />
 </svg>

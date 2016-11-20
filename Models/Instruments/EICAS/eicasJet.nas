@@ -1,7 +1,7 @@
 var canvasGroup = {};
 
 var canvas_eicas = {
-	new: func(canvasGroup, id)
+	new: func(canvasGroup)
 	{
 		var m = { parents: [canvas_eicas] };
 		
@@ -22,9 +22,6 @@ var canvas_eicas = {
 		foreach(var key; svg_keys) {
 			m[key] = eicasP.getElementById(key);
 		}
-
-		var sk = canvasGroup.createChild('group');
-		canvas_softkeys.new(sk, id);
 
 		return m;
 	},

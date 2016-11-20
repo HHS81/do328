@@ -24,7 +24,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -46,9 +46,9 @@
      units="mm"
      showguides="true"
      inkscape:guide-bbox="true"
-     inkscape:zoom="0.787621"
-     inkscape:cx="269.90576"
-     inkscape:cy="247.29918"
+     inkscape:zoom="1.1138643"
+     inkscape:cx="319.5059"
+     inkscape:cy="144.41521"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -65,7 +65,7 @@
        x="276.79688"
        id="tspan3800-5-7-6"
        sodipodi:role="line"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';text-align:center;text-anchor:middle">TITLE</tspan></text>
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.5px;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';text-align:center;text-anchor:middle">TITLE</tspan></text>
   <text
      inkscape:label="#text3022"
      sodipodi:linespacing="125%"
@@ -137,4 +137,17 @@
      id="path4478-3-6"
      inkscape:connector-curvature="0"
      sodipodi:nodetypes="cc" />
+  <text
+     inkscape:label="#text3022"
+     sodipodi:linespacing="125%"
+     id="knob"
+     y="623.00861"
+     x="505.05859"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.20881367px;line-height:125%;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;display:inline;fill:#ffffff;fill-opacity:1;stroke:none"
+     xml:space="preserve"><tspan
+       y="623.00861"
+       x="505.05859"
+       id="tspan3800-5-7-6-67"
+       sodipodi:role="line"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.5px;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';text-align:center;text-anchor:middle">KNOB</tspan></text>
 </svg>

@@ -1,7 +1,7 @@
 var canvasGroup = {};
 
 var canvas_apu = {
-	new: func(canvasGroup, id)
+	new: func(canvasGroup)
 	{
 		var m = { parents: [canvas_apu] };
 		
@@ -13,9 +13,6 @@ var canvas_apu = {
 		};
 		
 		canvas.parsesvg(canvasGroup, "Aircraft/do328/Models/Instruments/EICAS/apuJet.svg", {'font-mapper': font_mapper});
-
-		var sk = canvasGroup.createChild('group');
-		canvas_softkeys.new(sk, id);
 
 		return m;
 	}
