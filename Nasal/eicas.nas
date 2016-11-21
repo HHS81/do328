@@ -4,6 +4,7 @@ var eicasPages = {};
 var eicasInstance = {};
 var activeSoftkeysEicas = 0;
 var sk_instance = {};
+var activatedSk = [0,0];
 var softkeysEicas = [["MAIN","CAPT\nSYSTEM","REF\nDATA","COPY","AHRS","F/O\nSYSTEM","MSG"],
 		["SYSTEM 1/3","FLIGHT\nCONTROL","HYDR","ENGINE","FUEL","NEXT",""],
 		["SYSTEM 2/3","ELECTR","ECS","ICE\nPROTECT","APU","NEXT",""],
@@ -30,72 +31,111 @@ var activateEicasPage = func(input = -1) {
 var eicasBtClick = func(input = -1) {
 
 	if(input == 0) {
+		# back button pressed
 		if(activeSoftkeysEicas > 4) {
+			# go back to "REF DATA"
 			sk_instance.setSoftkeys(softkeysEicas[4]);
 			activeSoftkeysEicas = 4;
 		}
 		else {
+			# go back to main menu
 			sk_instance.setSoftkeys(softkeysEicas[0]);
 			activateEicasPage(0);
 			activeSoftkeysEicas = 0;
+			activatedSk = [0,0];
 		}
 	}
 	else {
+		# softkey pressed
 		if(activeSoftkeysEicas == 0) {
+			# main menu
 			if(input == 2) {
+				# activate "REF DATA" page
 				sk_instance.setSoftkeys(softkeysEicas[4]);
 				activeSoftkeysEicas = 4;
 			}
 			else if(input == 5) {
+				# activate "F/O SYSTEM" page
 				sk_instance.setSoftkeys(softkeysEicas[1]);
 				activeSoftkeysEicas = 1;
 			}
 		}
 		else if(activeSoftkeysEicas == 1) {
+			# "SYSTEM 1/3" page
 			if(input == 4) {
+				# activate "FUEL" page
 				activateEicasPage(2);
+				activatedSk = [1,4];
 			}
 			else if(input == 5) {
+				# activate "SYSTEM 2/3" page
 				sk_instance.setSoftkeys(softkeysEicas[2]);
 				activeSoftkeysEicas = 2;
 			}
 		}
 		else if(activeSoftkeysEicas == 2) {
+			# "SYSTEM 2/3" page
 			if(input == 4) {
+				# activate "APU" page
 				activateEicasPage(3);
+				activatedSk = [2,4];
 			}
 			else if(input == 5) {
+				# activate "SYSTEM 3/3" page
 				sk_instance.setSoftkeys(softkeysEicas[3]);
 				activeSoftkeysEicas = 3;
 			}
 		}
 		else if(activeSoftkeysEicas == 3) {
+			# "SYSTEM 3/3" page
 			if(input == 2) {
+				# activate "DOORS" page
 				activateEicasPage(1);
+				activatedSk = [3,2];
 			}
 			else if(input == 5) {
+				# activate "SYSTEM 1/3" page
 				sk_instance.setSoftkeys(softkeysEicas[1]);
 				activeSoftkeysEicas = 1;
 			}
 		}
 		else if(activeSoftkeysEicas == 4) {
+			# "REF DATA" page
 			if(input == 1) {
+				# activate "T/O"
 				sk_instance.setSoftkeys(softkeysEicas[5]);
+				sk_instance.drawFrames([1,1,1,1,0]);
 				activeSoftkeysEicas = 5;
+				activatedSk = [4,1];
 			}
 			else if(input == 2) {
+				# activate "CLIMB"
 				sk_instance.setSoftkeys(softkeysEicas[6]);
+				sk_instance.drawFrames([1,1,1,1,0]);
 				activeSoftkeysEicas = 6;
+				activatedSk = [4,2];
 			}
 			else if(input == 3) {
+				# activate "CRUISE"
 				sk_instance.setSoftkeys(softkeysEicas[7]);
+				sk_instance.drawFrames([1,1,1,1,0]);
 				activeSoftkeysEicas = 7;
+				activatedSk = [4,3];
 			}
 			else if(input == 4) {
+				# activate "LANDG"
 				sk_instance.setSoftkeys(softkeysEicas[8]);
+				sk_instance.drawFrames([1,1,1,1,0]);
 				activeSoftkeysEicas = 8;
+				activatedSk = [4,4];
 			}
 		}
+	}
+
+	if(activeSoftkeysEicas == activatedSk[0] and activeSoftkeysEicas > 0) {
+		var softkeyFrames = [0,0,0,0,0];
+		softkeyFrames[activatedSk[1]-1] = 1;
+		sk_instance.drawFrames(softkeyFrames);
 	}
 }
 
