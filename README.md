@@ -2,7 +2,7 @@
 Dornier 328-1XXTurboprop / Dornier 328-3XX Jet
 
 Goal:
-This project aims a realistic Turboprop and Jet model of the Dornier 328 for FlightGear. Main goal is to be realistic as possible, detailed as possible and be framerate friendly as possible. Other Airliner models in FlightGear show very bad framerates due to overdone use of vertices and too many meshes instead of combining them. Also are textures used in a very less efficient way. This model, like the Cessna 182 S should show, how it could be done much better!
+This project aims a realistic Turboprop and Jet model of the Dornier 328 for FlightGear. Main goal is to be realistic as possible, detailed as possible and be framerate friendly as possible. Other Airliner models in FlightGear show very bad framerates due to overdone use of vertices and too many meshes instead of combining them. Also are textures used in a very less efficient way. This model, like the Cessna 182 S, should show how it could be done much better!
 
 Keys:
 Tab-key: Auto-Spoiler
