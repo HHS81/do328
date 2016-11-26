@@ -800,31 +800,35 @@ Started by Heiko Schulz
 
 
    <nasal>
-         <systems>
-            <file>Aircraft/do328/Nasal/tyresmoke.nas</file>
+      <systems>
+         <file>Aircraft/do328/Nasal/tyresmoke.nas</file>
          <file>Aircraft/do328/Nasal/lightmap.nas</file>
-            <file>Aircraft/do328/Nasal/jetsystems.nas</file>
-	 	 <!--<file>Aircraft/do328/Nasal/lightmap.nas</file>-->
-	 <!--<file>Aircraft/do328/Nasal/reversethrust.nas</file>-->
-	 	<file>Aircraft/do328/Nasal/Autostart.nas</file>
-	 <file>Aircraft/do328/Models/Instruments/EICAS/eicas.nas</file>
-	</systems>
-	    <do328>
-	<file>Aircraft/do328/Nasal/Electrical.nas</file>
-	<file>Aircraft/do328/Nasal/ground_steering.nas</file>
-	<!--<file>Aircraft/do328/Nasal/flightdirector.nas</file>-->
-	<file>Aircraft/do328/Nasal/limits.nas</file>
-	    </do328>
-        <!--<dialogs>
-            <file>Aircraft/do328/Nasal/dialogs.nas</file>
-        </dialogs>-->
-	<groundspoilers>
-	 <file>Aircraft/do328/Nasal/groundspoilers.nas</file>
-	</groundspoilers>
-	<testpilot>
-	 <file>Aircraft/do328/Nasal/testpilot.nas</file>
-	</testpilot>
-</nasal>
- 
+         <file>Aircraft/do328/Nasal/jetsystems.nas</file>
+     <!--<file>Aircraft/do328/Nasal/lightmap.nas</file>-->
+         <file>Aircraft/do328/Nasal/Autostart.nas</file>
+         <file>Aircraft/do328/Models/Instruments/EICAS/softkeys.nas</file>
+         <file>Aircraft/do328/Models/Instruments/EICAS/eicasJet.nas</file>
+         <file>Aircraft/do328/Models/Instruments/EICAS/doors.nas</file>
+         <file>Aircraft/do328/Models/Instruments/EICAS/fuel.nas</file>
+         <file>Aircraft/do328/Models/Instruments/EICAS/apuJet.nas</file>
+         <file>Aircraft/do328/Nasal/eicas.nas</file>
+         <file>Aircraft/do328/Nasal/mfd2.nas</file>
+      </systems>
+      <do328>
+         <file>Aircraft/do328/Nasal/Electrical.nas</file>
+         <file>Aircraft/do328/Nasal/ground_steering.nas</file>
+     <!--<file>Aircraft/do328/Nasal/flightdirector.nas</file>-->
+     <!--<file>Aircraft/do328/Nasal/limits.nas</file>-->
+      </do328>
+      <dialogs>
+         <file>Aircraft/do328/Nasal/dialogs.nas</file>
+      </dialogs>
+      <groundspoilers>
+         <file>Aircraft/do328/Nasal/groundspoilers.nas</file>
+      </groundspoilers>
+     <!--<testpilot>
+         <file>Aircraft/do328/Nasal/testpilot.nas</file>
+      </testpilot>-->
+   </nasal>
 
 </PropertyList>
