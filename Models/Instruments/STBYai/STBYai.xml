@@ -11,7 +11,7 @@ Syd Adams
         <type>texmultiple</type>
         <object-name>STBYai.ball</object-name>
         <transform>
-            <property>orientation/pitch-deg</property>
+            <property>instrumentation/attitude-indicator/indicated-pitch-deg</property>
             <subtype>textranslate</subtype>
             <factor>0.00423</factor>
             <axis>
@@ -21,7 +21,7 @@ Syd Adams
             </axis>
         </transform>
         <transform>
-            <property>orientation/roll-deg</property>
+            <property>instrumentation/attitude-indicator/indicated-roll-deg</property>
             <subtype>texrotate</subtype>
             <center>
                 <x>0.25</x>
@@ -38,7 +38,7 @@ Syd Adams
     <animation>
         <type>rotate</type>
         <object-name>STBYai.rollneedle</object-name>
-        <property>orientation/roll-deg</property>
+        <property>instrumentation/attitude-indicator/indicated-roll-deg</property>
         <axis>
             <x>1</x>
             <y>0</y>

@@ -152,6 +152,7 @@ var init_switches = func{
     props.globals.getNode("controls/electric/external-power",0,"BOOL");
     setprop("controls/lighting/instrument-lights-norm",0.8);
     setprop("controls/lighting/efis-norm",0.8);
+    setprop("controls/lighting/cdu",0.8);
     setprop("controls/lighting/panel-norm",0.8);
 
     append(lights_input,props.globals.initNode("controls/lighting/landing-light[0]",0,"BOOL"));

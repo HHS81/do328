@@ -19,8 +19,7 @@ var canvas_softkeys = {
 			m[key] = canvasGroup.getElementById(key);
 		}
 
-		m["path"] = canvasGroup.createChild("path").setStrokeLineWidth(4).set("stroke", "rgba(255,255,255,1)");
-	        #.moveTo(100, 100).arcSmallCCW(50, 50, 0,  50, 50);
+		m["path"] = canvasGroup.createChild("path").setStrokeLineWidth(3).set("stroke", "rgba(255,255,255,1)");
 
 		return m;
 	},
