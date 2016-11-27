@@ -7,7 +7,7 @@ var canvas_softkeys = {
 		
 		var font_mapper = func(family, weight)
 		{
-			if(family == "Liberation Sans" and weight == "normal") {
+			if(family == "'Liberation Sans'" and weight == "normal") {
 				return "LiberationFonts/LiberationSans-Regular.ttf";
 			}
 		};
@@ -25,6 +25,8 @@ var canvas_softkeys = {
 	},
 	drawFrames: func(selectedSoftkeys)
 	{
+		me["path"].reset();
+
 		if(size(selectedSoftkeys) == 5) {
 
 			for(var n = 0; n<5; n=n+1) {

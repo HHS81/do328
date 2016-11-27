@@ -1,9 +1,9 @@
 var canvasGroup = {};
 
-var canvas_doors = {
+var canvas_flightctrl = {
 	new: func(canvasGroup)
 	{
-		var m = { parents: [canvas_doors] };
+		var m = { parents: [canvas_flightctrl] };
 		
 		var font_mapper = func(family, weight)
 		{
@@ -12,7 +12,7 @@ var canvas_doors = {
 			}
 		};
 		
-		canvas.parsesvg(canvasGroup, "Aircraft/do328/Models/Instruments/EICAS/doors.svg", {'font-mapper': font_mapper});
+		canvas.parsesvg(canvasGroup, "Aircraft/do328/Models/Instruments/EICAS/flightctrl.svg", {'font-mapper': font_mapper});
 		m["group"] = canvasGroup;
 
 		return m;

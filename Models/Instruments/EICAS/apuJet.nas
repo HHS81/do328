@@ -7,7 +7,7 @@ var canvas_apu = {
 		
 		var font_mapper = func(family, weight)
 		{
-			if(family == "Liberation Sans" and weight == "normal") {
+			if(family == "'Liberation Sans'" and weight == "normal") {
 				return "LiberationFonts/LiberationSans-Regular.ttf";
 			}
 		};
