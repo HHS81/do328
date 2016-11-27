@@ -133,7 +133,7 @@
     </model>-->
     
     <model>
-        <path>Aircraft/do328/Models/Instruments/ALT.xml</path>
+        <path>Aircraft/do328/Models/Instruments/ALT/ALT.xml</path>
         <offsets>
             <x-m>-8.840</x-m>
             <y-m>-0.140</y-m>
@@ -143,7 +143,7 @@
     </model>
     
     <model>
-        <path>Aircraft/do328/Models/Instruments/STBYai.xml</path>
+        <path>Aircraft/do328/Models/Instruments/STBYai/STBYai.xml</path>
         <offsets>
             <x-m>-8.852</x-m>
             <y-m>-0.140</y-m>
@@ -154,7 +154,7 @@
     
     <model>
         <name>RMU1</name>
-        <path>Aircraft/do328/Models/Instruments/RMU1.xml</path>
+        <path>Aircraft/do328/Models/Instruments/RMU/RMU1.xml</path>
         <offsets>
             <x-m>-8.666</x-m>
             <y-m>-0.143</y-m>
@@ -165,7 +165,7 @@
     
     <model>
         <name>RMU2</name>
-        <path>Aircraft/do328/Models/Instruments/RMU2.xml</path>
+        <path>Aircraft/do328/Models/Instruments/RMU/RMU2.xml</path>
         <offsets>
             <x-m>-8.666</x-m>
             <y-m>0.143</y-m>
@@ -176,7 +176,7 @@
 
     <model>
         <name>CDU</name>
-        <path>Aircraft/do328/Models/Instruments/CDU.xml</path>
+        <path>Aircraft/do328/Models/Instruments/CDU/CDU.xml</path>
         <offsets>
             <x-m>-8.705</x-m>
             <y-m>0.002</y-m>
@@ -980,15 +980,4 @@
         </action>
     </animation>
 
-
-
-
-
-
-
-
-  
-  
   </PropertyList>
-
-
