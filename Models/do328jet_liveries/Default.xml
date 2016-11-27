@@ -18,9 +18,9 @@
 							<blue>1.0</blue>
 						</diffuse>
  					         <specular>
-							<red>0.85</red>
-							<green>0.85</green>
-							<blue>0.85</blue>
+							<red>0.15</red>
+							<green>0.15</green>
+							<blue>0.15</blue>
 						</specular>
 						<ambient>
 							<red>1.0</red>
@@ -32,7 +32,9 @@
 			       </do328>
 		</model>
 	  <rendering>
-    <refl_correction type="string">-0.15</refl_correction>
+	<refl_correction type="float">-0.125</refl_correction>
+	<fresnel-factor type="float">0.5</fresnel-factor>
+	<refl-type type="int">1</refl-type>
     </rendering>
 	</sim>
 </PropertyList>
