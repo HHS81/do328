@@ -62,7 +62,7 @@
 
 <!--shader-->
 <effect>
-		<inherits-from>Aircraft/do328/Models/Effects/do328reflect</inherits-from>
+		<inherits-from>Aircraft/do328/Models/Effects/do328propreflect</inherits-from>
 		<object-name>Fuselage</object-name>
 		<object-name>FuselageTop</object-name>
 		<object-name>Frontdoor</object-name>

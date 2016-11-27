@@ -59,7 +59,7 @@
 <!--shader-->
 <effect>
 <!--<inherits-from>Effects/reflect-lightmap</inherits-from>-->
-		<inherits-from>Aircraft/do328/Models/Effects/do328reflect</inherits-from>
+		<inherits-from>Aircraft/do328/Models/Effects/do328jetreflect</inherits-from>
 		<object-name>Fuselage</object-name>
 		<object-name>FuselageTop</object-name>
 		<object-name>Frontdoor</object-name>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PropertyList>
-    <name>do328reflect</name>
+    <name>do328jetreflect</name>
     <inherits-from>Effects/model-combined-deferred</inherits-from>
 		<parameters>
 	    <rain-enabled type="int">2</rain-enabled>
@@ -25,7 +25,7 @@
 		<lightmap-factor type="float" n="3"><use>/systems/electrical/outputs/wing-lights-itensity</use></lightmap-factor>
 		<lightmap-color type="vec3d" n="3">1.0 1.0 1.0</lightmap-color>
 		<texture n="3">
-			<image>Aircraft/do328/Models/Effects/LM.png</image>
+			<image>Aircraft/do328/Models/Effects/JetLM.png</image>
 			<filter>linear-mipmap-linear</filter>
 			<wrap-s>clamp</wrap-s>
 			<wrap-t>clamp</wrap-t>
