@@ -20,7 +20,7 @@
 		<lightmap-color type="vec3d" n="0">1.0 0.1 0.0 </lightmap-color>
 		<lightmap-factor type="float" n="1"><use>systems/electrical/outputs/logo-lights-itensity</use></lightmap-factor>
 		<lightmap-color type="vec3d" n="1">1.0 1.0 1.0</lightmap-color>
-		<lightmap-factor type="float" n="2"><use>/systems/electrical/outputs/landing-light-intensity</use></lightmap-factor>
+		<lightmap-factor type="float" n="2"><use>systems/electrical/outputs/landing-lights-intensity</use></lightmap-factor>
 		<lightmap-color type="vec3d" n="2">1.0 1.0 1.0</lightmap-color>
 		<lightmap-factor type="float" n="3"><use>/systems/electrical/outputs/wing-lights-itensity</use></lightmap-factor>
 		<lightmap-color type="vec3d" n="3">1.0 1.0 1.0</lightmap-color>

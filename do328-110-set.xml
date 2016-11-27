@@ -44,9 +44,9 @@ Started by Heiko Schulz
 							<blue>1.0</blue>
 						</diffuse>
  					         <specular>
-							<red>0.15</red>
-							<green>0.15</green>
-							<blue>0.15</blue>
+							<red>1.0</red>
+							<green>1.0</green>
+							<blue>1.0</blue>
 						</specular>
 						<ambient>
 							<red>1.0</red>
@@ -58,7 +58,7 @@ Started by Heiko Schulz
 			       </do328>
 		</model>
       <rendering>
-    <refl_correction type="string">-0.75</refl_correction>
+    <refl_correction type="string">-0.3</refl_correction>
     </rendering>
 
 
@@ -326,8 +326,7 @@ V1 --> Vr --> Rotate to 8deg --> @50ft Rotate to 15deg -->Climb @V2 + 15ktn --> 
             <int n="0" alias="/systems/electrical/outputs/strobe"/>
             <int n="1" alias="/systems/electrical/outputs/beacon"/>
             <int n="2" alias="/systems/electrical/outputs/taxi-lights"/>
-            <int n="3" alias="/systems/electrical/outputs/landing-light[0]"/>
-            <int n="4" alias="/systems/electrical/outputs/landing-light[1]"/>
+            <int n="3" alias="/systems/electrical/outputs/landing-lights"/>
             <int n="5" alias="/systems/electrical/outputs/recog-lights"/>
             <int n="6" alias="/systems/electrical/outputs/nav-lights"/>
             <float  alias="/controls/cabin-door/position-norm"/>

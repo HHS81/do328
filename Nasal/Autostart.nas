@@ -27,6 +27,9 @@ var Startup = func{
 	setprop("controls/lighting/strobe",1);
 	setprop("controls/lighting/instruments-norm",0.5);
 	setprop("controls/lighting/nav-lights",1);
+	setprop("controls/lighting/landing-lights",1);
+	setprop("controls/lighting/wing-lights",1);
+	setprop("controls/lighting/taxi-lights",1);
 	setprop("controls/engines/engine[0]/condition",1);
 	setprop("controls/engines/engine[1]/condition",1);
     setprop("controls/engines/engine[0]/cutoff",0);
@@ -44,8 +47,11 @@ var Shutdown = func{
 	setprop("controls/electric/avionics-switch",0);
 	setprop("controls/lighting/beacon",0);
 	setprop("controls/lighting/strobe",0);
-	setprop("controls/lighting/instruments-norm",0.5);
+	setprop("controls/lighting/instruments-norm",0.0);
 	setprop("controls/lighting/nav-lights",0);
+	setprop("controls/lighting/landing-lights",0);
+	setprop("controls/lighting/wing-lights",0);
+	setprop("controls/lighting/taxi-lights",0);
 	setprop("controls/engines/engine[0]/condition",0);
 	setprop("controls/engines/engine[1]/condition",0);
     setprop("controls/engines/engine[0]/cutoff",1);

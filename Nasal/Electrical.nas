@@ -154,11 +154,8 @@ var init_switches = func{
     setprop("controls/lighting/efis-norm",0.8);
     setprop("controls/lighting/panel-norm",0.8);
 
-    append(lights_input,props.globals.initNode("controls/lighting/landing-light[0]",0,"BOOL"));
-    append(lights_output,props.globals.initNode("systems/electrical/outputs/landing-light[0]",0,"DOUBLE"));
-    append(lights_load,1);
-    append(lights_input,props.globals.initNode("controls/lighting/landing-light[1]",0,"BOOL"));
-    append(lights_output,props.globals.initNode("systems/electrical/outputs/landing-light[1]",0,"DOUBLE"));
+    append(lights_input,props.globals.initNode("controls/lighting/landing-lights",0,"BOOL"));
+    append(lights_output,props.globals.initNode("systems/electrical/outputs/landing-lights",0,"DOUBLE"));
     append(lights_load,1);
     append(lights_input,props.globals.initNode("controls/lighting/nav-lights",0,"BOOL"));
     append(lights_output,props.globals.initNode("systems/electrical/outputs/nav-lights",0,"DOUBLE"));

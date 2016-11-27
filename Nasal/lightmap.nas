@@ -6,7 +6,7 @@ call_lightmap = func {
 LL = getprop("/systems/electrical/outputs/logo-lights") or 0;
 WL = getprop("/systems/electrical/outputs/wing-lights") or 0;
 BL = getprop("/systems/electrical/outputs/beacon") or 0;
-LaL = getprop("/systems/electrical/outputs/landing-light[1]") or 0;
+LaL = getprop("/systems/electrical/outputs/landing-lights") or 0;
 
 SUN_ANGLE = getprop("sim/time/sun-angle-rad");
 #INSTR_DIMMER = getprop("controls/lighting/instruments-norm");
@@ -20,10 +20,10 @@ WING = getprop("controls/lighting/wing-lights");
 #setprop("systems/electrical/outputs/eng-lights",(Rbus * ENG_DIMMER));
 #setprop("systems/electrical/outputs/panel-lights",(Rbus * PANEL_DIMMER));
 #setprop("systems/electrical/outputs/efis-lights",(Rbus * EFIS_DIMMER));
-setprop("/systems/electrical/outputs/logo-lights-itensity",(SUN_ANGLE * (LL * 0.0416)));
-setprop("/systems/electrical/outputs/wing-lights-itensity",(SUN_ANGLE * (WL * 0.0216)));
-setprop("/systems/electrical/outputs/beacon-itensity",(SUN_ANGLE * (BL * 0.0416)));
-setprop("/systems/electrical/outputs/landing-light-intensity",(LaL * 0.0316));
+setprop("/systems/electrical/outputs/logo-lights-itensity",((SUN_ANGLE) * (LL * 0.0316)));
+setprop("/systems/electrical/outputs/wing-lights-itensity",((SUN_ANGLE) * (WL * 0.0316)));
+setprop("/systems/electrical/outputs/beacon-itensity",((SUN_ANGLE) * (BL * 0.0216)));
+setprop("/systems/electrical/outputs/landing-lights-intensity",((SUN_ANGLE)*(LaL * 0.0316)));
 
    settimer(call_lightmap, 0.0);   
 }

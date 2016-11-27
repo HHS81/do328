@@ -134,6 +134,24 @@
 		<object-name>glas</object-name>
 </effect>
 
+<effect>
+       <inherits-from>Effects/model-transparent</inherits-from>
+       <object-name>propfast.L</object-name>
+       <object-name>propfast.R</object-name>
+        <object-name>TLL</object-name>
+		<object-name>TLR</object-name>
+		<object-name>LLL</object-name>
+		<object-name>LLR</object-name>
+        <object-name>WLL</object-name>
+        <object-name>WLR</object-name>
+        <object-name>PlaneTailLight</object-name>
+        <object-name>NavLightRed</object-name>
+        <object-name>NavLightGreen</object-name>
+        <object-name>PlaneX</object-name>
+        <object-name>Plane.002X</object-name>
+        <object-name>Plane.003X</object-name>
+   </effect>
+
 
 
 <!--material animation-->
@@ -282,6 +300,8 @@
     <object-name>flgwheel</object-name>
     <object-name>flgstrut2</object-name>
     <object-name>flgstrut1</object-name>
+            <object-name>TLR</object-name>
+        <object-name>TLL</object-name>
     
     <property>gear/gear[0]/position-norm</property>
     <interpolation>
@@ -1835,6 +1855,71 @@
 	</animation>
     
 <!--Lights-->
+
+<animation>
+        <type>flash</type>
+        <object-name>TLR</object-name>
+        <center>
+            <x-m>-8.749</x-m>
+            <y-m>0.141</y-m>
+            <z-m>0.578</z-m>
+        </center>
+        <axis>
+            <x>-1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+        <power>8</power>
+        <factor>3</factor>
+        <offset>0</offset>
+        <two-sides type="bool">false</two-sides>
+        <min>0.5</min>
+        <max>10</max>
+    </animation>
+    
+<animation>
+        <type>flash</type>
+        <object-name>TLL</object-name>
+        <center>
+            <x-m>-8.762</x-m>
+            <y-m>-0.136</y-m>
+            <z-m>0.578</z-m>
+        </center>
+        <axis>
+            <x>-1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+        <power>8</power>
+        <factor>3</factor>
+        <offset>0</offset>
+        <two-sides type="bool">false</two-sides>
+        <min>0.5</min>
+        <max>10</max>
+    </animation>
+    
+    
+<animation>
+	<type>select</type>
+        <object-name>TLR</object-name>
+        <object-name>TLL</object-name>
+	<condition>
+	<and>
+	<property>systems/electrical/outputs/taxi-lights</property>
+	<property>gear/gear[0]/position-norm</property>
+	</and>
+	</condition>
+</animation>
+
+<animation>
+	<type>select</type>
+        <object-name>WLR</object-name>
+        <object-name>WLL</object-name>
+	<condition>
+	<property>systems/electrical/outputs/wing-lights</property>
+	</condition>
+</animation>
+
  <animation>
         <type>flash</type>
         <object-name>LLR</object-name>
@@ -1861,7 +1946,7 @@
 	<type>select</type>
         <object-name>LLR</object-name>
 	<condition>
-	<property>/systems/electrical/outputs/landing-light-intensity</property>
+	<property>/systems/electrical/outputs/landing-lights-intensity</property>
 	</condition>
 </animation>
     
@@ -1890,7 +1975,7 @@
 	<type>select</type>
         <object-name>LLL</object-name>
 	<condition>
-	<property>/systems/electrical/outputs/landing-light-intensity</property>
+	<property>/systems/electrical/outputs/landing-lights-intensity</property>
 	</condition>
 </animation>
     
