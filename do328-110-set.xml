@@ -58,7 +58,9 @@ Started by Heiko Schulz
 			       </do328>
 		</model>
       <rendering>
-    <refl_correction type="string">-0.3</refl_correction>
+	<refl_correction type="float">-0.15</refl_correction>
+	<fresnel-factor type="float">0.33</fresnel-factor>
+	<refl-type type="int">1</refl-type>
     </rendering>
 
 
