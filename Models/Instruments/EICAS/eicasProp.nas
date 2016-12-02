@@ -4,9 +4,7 @@ var canvas_eicas = {
 	new: func(canvasGroup)
 	{
 		var m = { parents: [canvas_eicas] };
-		
-		var eicasP = canvasGroup;
-		
+
 		var font_mapper = func(family, weight)
 		{
 			if(family == "'Liberation Sans'" and weight == "normal") {
@@ -14,7 +12,7 @@ var canvas_eicas = {
 			}
 		};
 		
-		canvas.parsesvg(eicasP, "Aircraft/do328/Models/Instruments/EICAS/eicasProp.svg", {'font-mapper': font_mapper});
+		canvas.parsesvg(canvasGroup, "Aircraft/do328/Models/Instruments/EICAS/eicasProp.svg", {'font-mapper': font_mapper});
 		m["group"] = canvasGroup;
 		m["active"] = 0;
 		
@@ -24,7 +22,7 @@ var canvas_eicas = {
 				"readout_itt1","readout_itt2","dial_itt1","dial_itt2",
 				"readout_nh1","readout_nh2","dial_nh1","dial_nh2"];
 		foreach(var key; svg_keys) {
-			m[key] = eicasP.getElementById(key);
+			m[key] = canvasGroup.getElementById(key);
 		}
 
 		return m;

@@ -5,11 +5,35 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    viewBox="0 0 566.92917 673.22836"
    height="190mm"
    width="160mm"
    version="1.1"
-   id="svg2">
+   id="svg2"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="fuel.svg">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1366"
+     inkscape:window-height="711"
+     id="namedview107"
+     showgrid="false"
+     inkscape:zoom="0.35054971"
+     inkscape:cx="283.46457"
+     inkscape:cy="336.61417"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2" />
   <metadata
      id="metadata8">
     <rdf:RDF>
@@ -88,25 +112,28 @@
      d="m 355.00004,188.22834 -5,10 10.00001,0 z"
      style="fill:#00ff00;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
   <rect
-     y="413.22836"
-     x="40.000004"
-     height="40.000004"
-     width="60.000008"
+     y="412.5"
+     x="40"
+     height="40"
+     width="60"
      id="indicator_t1"
+     inkscape:transform-center-y="-20"
      style="fill:#3282dc;fill-opacity:1;stroke:none;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
   <rect
-     y="405.22836"
-     x="100.00002"
-     height="48.000008"
-     width="80.000008"
+     y="405"
+     x="100"
+     height="48"
+     width="80"
      id="indicator_t2"
+     inkscape:transform-center-y="-24"
      style="fill:#3282dc;fill-opacity:1;stroke:none;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
   <rect
-     y="393.22836"
-     x="180.00002"
-     height="60.000008"
-     width="95.000015"
+     y="392.5"
+     x="180"
+     height="60"
+     width="95"
      id="indicator_t3"
+     inkscape:transform-center-y="-30"
      style="fill:#3282dc;fill-opacity:1;stroke:none;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
   <g
      id="g4209">
@@ -124,25 +151,28 @@
        id="path4150" />
   </g>
   <rect
-     y="393.22836"
-     x="290.00003"
-     height="60.000008"
-     width="95.000023"
+     y="392.5"
+     x="290"
+     height="60"
+     width="95"
      id="indicator_t4"
+     inkscape:transform-center-y="-30"
      style="fill:#3282dc;fill-opacity:1;stroke:none;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
   <rect
-     y="405.22836"
-     x="385.00006"
-     height="48.000008"
-     width="80.000015"
+     y="405"
+     x="385"
+     height="48"
+     width="80"
      id="indicator_t5"
+     inkscape:transform-center-y="-24"
      style="fill:#3282dc;fill-opacity:1;stroke:none;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
   <rect
-     y="413.22836"
-     x="465.00006"
-     height="40.000004"
-     width="60.000015"
+     y="412.5"
+     x="465"
+     height="40"
+     width="60"
      id="indicator_t6"
+     inkscape:transform-center-y="-20"
      style="fill:#3282dc;fill-opacity:1;stroke:none;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
   <g
      id="g4209-3"

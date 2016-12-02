@@ -13,7 +13,16 @@ var canvas_apu = {
 		};
 		
 		canvas.parsesvg(canvasGroup, "Aircraft/do328/Models/Instruments/EICAS/apuJet.svg", {'font-mapper': font_mapper});
+		m["group"] = canvasGroup;
 
 		return m;
+	},
+	show: func()
+	{
+		me["group"].show();
+	},
+	hide: func()
+	{
+		me["group"].hide();
 	}
 };
