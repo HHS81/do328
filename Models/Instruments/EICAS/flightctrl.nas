@@ -49,7 +49,7 @@ var canvas_flightctrl = {
 		m["indicator_rud"].createTransform().setTranslation(-center[0], -center[1]);
 		m["indicator_rud_scale"] = m["indicator_rud"].createTransform();
 		m["indicator_rud"].createTransform().setTranslation(center[0], center[1]);
-		m["indicator_rud_scale"].setScale(1,0);
+		m["indicator_rud_scale"].setScale(0,1);
 
 		return m;
 	},
@@ -63,7 +63,7 @@ var canvas_flightctrl = {
 
 		me["indicator_elev1_scale"].setScale(1,flctrl[0]);
 		me["indicator_elev2_scale"].setScale(1,flctrl[0]);
-		me["indicator_rud_scale"].setScale(1,flctrl[1]);
+		me["indicator_rud_scale"].setScale(flctrl[1],1);
 		me["indicator_ail1_scale"].setScale(1,-flctrl[2]);
 		me["indicator_ail2_scale"].setScale(1,flctrl[2]);
 		me["indicator_flaps1_scale"].setScale(1,flctrl[4]);
