@@ -27,13 +27,14 @@
      inkscape:window-height="711"
      id="namedview107"
      showgrid="false"
-     inkscape:zoom="0.35054971"
-     inkscape:cx="283.46457"
-     inkscape:cy="336.61417"
+     inkscape:zoom="0.70109941"
+     inkscape:cx="288.99212"
+     inkscape:cy="288.25817"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg2" />
+     inkscape:current-layer="svg2"
+     showguides="false" />
   <metadata
      id="metadata8">
     <rdf:RDF>
@@ -42,7 +43,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -622,4 +623,195 @@
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.50000191px;line-height:100%;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';text-align:center;text-anchor:middle"
        x="281.97269"
        y="63.057426">USED LBS</tspan></text>
+  <text
+     sodipodi:linespacing="125%"
+     transform="scale(1.0095311,0.99055888)"
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.58720207px;line-height:125%;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;display:inline;fill:#ffffff;fill-opacity:1;stroke:none"
+     x="201.65187"
+     y="508.86334"
+     id="readout_tl"
+     inkscape:label="#readout_t1-7"><tspan
+       style="font-size:17.50000191px;text-align:end;text-anchor:end"
+       id="tspan3800-5-1-5"
+       x="201.65187"
+       y="508.86334">99.9</tspan></text>
+  <text
+     sodipodi:linespacing="125%"
+     transform="scale(1.0095311,0.99055888)"
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.58720207px;line-height:125%;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;display:inline;fill:#ffffff;fill-opacity:1;stroke:none"
+     x="305.66055"
+     y="513.91101"
+     id="readout_tt"
+     inkscape:label="#readout_t1-7"><tspan
+       style="font-size:17.50000191px;text-align:end;text-anchor:end"
+       id="tspan3800-5-1-5-5"
+       x="305.66055"
+       y="513.91101">99.9</tspan></text>
+  <text
+     sodipodi:linespacing="125%"
+     transform="scale(1.0095311,0.99055888)"
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.58720207px;line-height:125%;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;display:inline;fill:#ffffff;fill-opacity:1;stroke:none"
+     x="404.71646"
+     y="513.91101"
+     id="readout_tr"
+     inkscape:label="#readout_t1-7"><tspan
+       style="font-size:17.50000191px;text-align:end;text-anchor:end"
+       id="tspan3800-5-1-5-5-2"
+       x="404.71646"
+       y="513.91101">99.9</tspan></text>
+  <text
+     sodipodi:linespacing="125%"
+     transform="scale(1.0095311,0.99055888)"
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.58720207px;line-height:125%;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;display:inline;fill:#ffffff;fill-opacity:1;stroke:none"
+     x="211.55746"
+     y="44.478966"
+     id="readout_ffl"
+     inkscape:label="#readout_t1-7"><tspan
+       style="font-size:17.50000191px;text-align:end;text-anchor:end"
+       id="tspan3800-5-1-5-5-2-1"
+       x="211.55746"
+       y="44.478966">99.9</tspan></text>
+  <text
+     sodipodi:linespacing="125%"
+     transform="scale(1.0095311,0.99055888)"
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.58720207px;line-height:125%;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;display:inline;fill:#ffffff;fill-opacity:1;stroke:none"
+     x="385.89584"
+     y="44.478966"
+     id="readout_ffr"
+     inkscape:label="#readout_t1-7"><tspan
+       style="font-size:17.50000191px;text-align:end;text-anchor:end"
+       id="tspan3800-5-1-5-5-2-1-7"
+       x="385.89584"
+       y="44.478966">99.9</tspan></text>
+  <text
+     sodipodi:linespacing="125%"
+     transform="scale(1.0095311,0.99055888)"
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.58720207px;line-height:125%;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;display:inline;fill:#ffffff;fill-opacity:1;stroke:none"
+     x="211.55746"
+     y="64.669594"
+     id="readout_usedl"
+     inkscape:label="#readout_t1-7"><tspan
+       style="font-size:17.50000191px;text-align:end;text-anchor:end"
+       id="tspan3800-5-1-5-5-2-1-9"
+       x="211.55746"
+       y="64.669594">99.9</tspan></text>
+  <text
+     sodipodi:linespacing="125%"
+     transform="scale(1.0095311,0.99055888)"
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.58720207px;line-height:125%;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;display:inline;fill:#ffffff;fill-opacity:1;stroke:none"
+     x="385.89584"
+     y="64.669594"
+     id="readout_usedr"
+     inkscape:label="#readout_t1-7"><tspan
+       style="font-size:17.50000191px;text-align:end;text-anchor:end"
+       id="tspan3800-5-1-5-5-2-1-6"
+       x="385.89584"
+       y="64.669594">99.9</tspan></text>
+  <text
+     sodipodi:linespacing="125%"
+     transform="scale(1.0095311,0.99055888)"
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.58720207px;line-height:125%;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;display:inline;fill:#ffffff;fill-opacity:1;stroke:none"
+     x="154.60031"
+     y="110.0985"
+     id="readout_tmpl"
+     inkscape:label="#readout_t1-7"><tspan
+       style="font-size:17.50000191px;text-align:end;text-anchor:end"
+       id="tspan3800-5-1-5-5-2-1-2"
+       x="154.60031"
+       y="110.0985">33</tspan></text>
+  <text
+     sodipodi:linespacing="125%"
+     transform="scale(1.0095311,0.99055888)"
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.58720207px;line-height:125%;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;display:inline;fill:#ffffff;fill-opacity:1;stroke:none"
+     x="422.05124"
+     y="110.0985"
+     id="readout_tmpr"
+     inkscape:label="#readout_t1-7"><tspan
+       style="font-size:17.50000191px;text-align:end;text-anchor:end"
+       id="tspan3800-5-1-5-5-2-1-1"
+       x="422.05124"
+       y="110.0985">33</tspan></text>
+  <text
+     sodipodi:linespacing="125%"
+     transform="scale(1.0095311,0.99055888)"
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.58720207px;line-height:125%;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;display:inline;fill:#ffff00;fill-opacity:1;stroke:none;"
+     x="305.22437"
+     y="536.14502"
+     id="readout_qty"
+     inkscape:label="#readout_t1-7"><tspan
+       style="font-size:35.00000381px;text-align:end;text-anchor:end;fill:#ffff00;fill-opacity:1;"
+       id="tspan3800-5-1-5-5-6"
+       x="305.22437"
+       y="536.14502">----</tspan></text>
+  <text
+     sodipodi:linespacing="125%"
+     transform="scale(1.0095311,0.99055888)"
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.58720207px;line-height:125%;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;display:inline;fill:#ffffff;fill-opacity:1;stroke:none"
+     x="305.41153"
+     y="553.45361"
+     id="readout_ttmp"
+     inkscape:label="#readout_t1-7"><tspan
+       style="font-size:17.50000191px;text-align:end;text-anchor:end"
+       id="tspan3800-5-1-5-5-5"
+       x="305.41153"
+       y="553.45361">14</tspan></text>
+  <text
+     sodipodi:linespacing="100%"
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.20881367px;line-height:100%;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;display:inline;fill:#3282dc;fill-opacity:1;stroke:none;"
+     x="88.664558"
+     y="344.55746"
+     id="info1"
+     inkscape:label="#text-2-3"><tspan
+       id="tspan4510-8-5"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.50000191px;line-height:100%;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';text-align:center;text-anchor:middle;fill:#3282dc;fill-opacity:1;"
+       x="88.664558"
+       y="344.55746">ELPMP ON</tspan></text>
+  <text
+     sodipodi:linespacing="100%"
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.20881367px;line-height:100%;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;display:inline;fill:#3282dc;fill-opacity:1;stroke:none"
+     x="87.555183"
+     y="364.05746"
+     id="info1-6"
+     inkscape:label="#text-2-3"><tspan
+       id="tspan4510-8-5-2"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.50000191px;line-height:100%;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';text-align:center;text-anchor:middle;fill:#3282dc;fill-opacity:1"
+       x="87.555183"
+       y="364.05746">JETPMP OFF</tspan></text>
+  <text
+     sodipodi:linespacing="100%"
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.20881367px;line-height:100%;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;display:inline;fill:#3282dc;fill-opacity:1;stroke:none"
+     x="473.66461"
+     y="344.55746"
+     id="info1-9"
+     inkscape:label="#text-2-3"><tspan
+       id="tspan4510-8-5-1"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.50000191px;line-height:100%;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';text-align:center;text-anchor:middle;fill:#3282dc;fill-opacity:1"
+       x="473.66461"
+       y="344.55746">ELPMP ON</tspan></text>
+  <text
+     sodipodi:linespacing="100%"
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.20881367px;line-height:100%;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;display:inline;fill:#3282dc;fill-opacity:1;stroke:none"
+     x="472.55524"
+     y="364.05746"
+     id="info1-6-2"
+     inkscape:label="#text-2-3"><tspan
+       id="tspan4510-8-5-2-7"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.50000191px;line-height:100%;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';text-align:center;text-anchor:middle;fill:#3282dc;fill-opacity:1"
+       x="472.55524"
+       y="364.05746">JETPMP OFF</tspan></text>
 </svg>

@@ -32,7 +32,8 @@ var canvas_nd = {
 		var type = r('APT');
 		var style_apt = {
 		    scale_factor:0.6,
-		    color:[1,1,1],
+		    label_font_color:[1,1,1],
+		    color_default:[1,1,1],
 		    line_width:4
 		};
 		ndmap.addLayer(factory: canvas.SymbolLayer, type_arg: type.name, visible: type.vis, priority: type.zindex, style: style_apt);
@@ -40,7 +41,7 @@ var canvas_nd = {
 		type = r('DME');
 		var style_vor = {
 		    scale_factor:0.6,
-		    color:[0,0,1],
+		    color_default:[0,1,0],
 		    line_width:4
 		};
 		ndmap.addLayer(factory: canvas.SymbolLayer, type_arg: type.name, visible: type.vis, priority: type.zindex, style: style_vor);
