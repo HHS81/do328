@@ -8,7 +8,7 @@ Started by Heiko Schulz
 <PropertyList>
     <sim>
   <description>Dornier 328-300</description>
-  <author>HHS</author>
+<author>HHS (3d, config, fdm); xcvb85 (Primus 2000 Canvas, debug); clm76 (RMU); Jentron (prop and turbine files)</author>
   <status>devel</status>
   <flight-model>jsb</flight-model>
   <aero>do328-300</aero>
