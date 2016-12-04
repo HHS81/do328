@@ -1,0 +1,23 @@
+AC3Db
+MATERIAL "ac3dmat1" rgb 1 1 1  amb 0.2 0.2 0.2  emis 1 1 1  spec 0.2 0.2 0.2  shi 128  trans 0
+OBJECT world
+kids 1
+OBJECT poly
+name "RMU.screenR"
+loc 0.001823 -0.00109925 -0.000339444
+texture "transparent.png"
+crease 30.000002
+numvert 4
+0 0.0547195 -0.0374539
+0 0.0547195 0.0372216
+0 -0.030536 0.0372216
+0 -0.030536 -0.0374539
+numsurf 1
+SURF 0x10
+mat 0
+refs 4
+3 1.00202 0.000933111
+0 1.00202 0.998178
+1 -0.00560594 0.998178
+2 -0.00560594 0.000933111
+kids 0

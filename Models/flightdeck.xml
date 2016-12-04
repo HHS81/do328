@@ -5,6 +5,78 @@
 
 <animation>
 	<type>pick</type>
+	<object-name>MFD1_Menu</object-name>
+	<action>
+		<button>0</button>
+		<repeatable>false</repeatable>	
+		<binding>
+			<command>nasal</command>
+			<script>systems.mfd1BtClick(0)</script>
+		</binding>
+	</action>
+</animation>
+<animation>
+	<type>pick</type>
+	<object-name>MFD1_BT1</object-name>
+	<action>
+		<button>0</button>
+		<repeatable>false</repeatable>	
+		<binding>
+			<command>nasal</command>
+			<script>systems.mfd1BtClick(1)</script>
+		</binding>
+	</action>
+</animation>
+<animation>
+	<type>pick</type>
+	<object-name>MFD1_BT2</object-name>
+	<action>
+		<button>0</button>
+		<repeatable>false</repeatable>	
+		<binding>
+			<command>nasal</command>
+			<script>systems.mfd1BtClick(2)</script>
+		</binding>
+	</action>
+</animation>
+<animation>
+	<type>pick</type>
+	<object-name>MFD1_BT3</object-name>
+	<action>
+		<button>0</button>
+		<repeatable>false</repeatable>	
+		<binding>
+			<command>nasal</command>
+			<script>systems.mfd1BtClick(3)</script>
+		</binding>
+	</action>
+</animation>
+<animation>
+	<type>pick</type>
+	<object-name>MFD1_BT4</object-name>
+	<action>
+		<button>0</button>
+		<repeatable>false</repeatable>	
+		<binding>
+			<command>nasal</command>
+			<script>systems.mfd1BtClick(4)</script>
+		</binding>
+	</action>
+</animation>
+<animation>
+	<type>pick</type>
+	<object-name>MFD1_BT5</object-name>
+	<action>
+		<button>0</button>
+		<repeatable>false</repeatable>	
+		<binding>
+			<command>nasal</command>
+			<script>systems.mfd1BtClick(5)</script>
+		</binding>
+	</action>
+</animation>
+<animation>
+	<type>pick</type>
 	<object-name>EICAS_Menu</object-name>
 	<action>
 		<button>0</button>
@@ -75,6 +147,78 @@
 		</binding>
 	</action>
 </animation>
+<animation>
+	<type>pick</type>
+	<object-name>MFD2_Menu</object-name>
+	<action>
+		<button>0</button>
+		<repeatable>false</repeatable>	
+		<binding>
+			<command>nasal</command>
+			<script>systems.mfd2BtClick(0)</script>
+		</binding>
+	</action>
+</animation>
+<animation>
+	<type>pick</type>
+	<object-name>MFD2_BT1</object-name>
+	<action>
+		<button>0</button>
+		<repeatable>false</repeatable>	
+		<binding>
+			<command>nasal</command>
+			<script>systems.mfd2BtClick(1)</script>
+		</binding>
+	</action>
+</animation>
+<animation>
+	<type>pick</type>
+	<object-name>MFD2_BT2</object-name>
+	<action>
+		<button>0</button>
+		<repeatable>false</repeatable>	
+		<binding>
+			<command>nasal</command>
+			<script>systems.mfd2BtClick(2)</script>
+		</binding>
+	</action>
+</animation>
+<animation>
+	<type>pick</type>
+	<object-name>MFD2_BT3</object-name>
+	<action>
+		<button>0</button>
+		<repeatable>false</repeatable>	
+		<binding>
+			<command>nasal</command>
+			<script>systems.mfd2BtClick(3)</script>
+		</binding>
+	</action>
+</animation>
+<animation>
+	<type>pick</type>
+	<object-name>MFD2_BT4</object-name>
+	<action>
+		<button>0</button>
+		<repeatable>false</repeatable>	
+		<binding>
+			<command>nasal</command>
+			<script>systems.mfd2BtClick(4)</script>
+		</binding>
+	</action>
+</animation>
+<animation>
+	<type>pick</type>
+	<object-name>MFD2_BT5</object-name>
+	<action>
+		<button>0</button>
+		<repeatable>false</repeatable>	
+		<binding>
+			<command>nasal</command>
+			<script>systems.mfd2BtClick(5)</script>
+		</binding>
+	</action>
+</animation>
 
     <model>
         <name>PFD1</name>
@@ -82,29 +226,6 @@
         <offsets>
             <x-m>-8.844</x-m>
             <y-m>-0.487</y-m>
-            <z-m>1.910</z-m>
-            <pitch-deg>-6</pitch-deg>
-        </offsets>
-    </model>
-
-<!--hide screen for future canvas solution-->
- <animation>
-   <object-name>MFD1_Screen</object-name>
-   <type>select</type>
-    <condition>
-	<equals>
-	  <value>1</value>
-	  <value>0</value>
-	</equals>
-    </condition>
-  </animation>
-    <model>
-<!--use classic mfd instead-->
-        <name>MFD1</name>
-        <path>Aircraft/do328/Models/Instruments/MFD/MFD3d.xml</path>
-        <offsets>
-            <x-m>-8.844</x-m>
-            <y-m>-0.285</y-m>
             <z-m>1.910</z-m>
             <pitch-deg>-6</pitch-deg>
         </offsets>
@@ -120,18 +241,7 @@
             <pitch-deg>-6</pitch-deg>
         </offsets>
     </model>
-    
-    <!--<model>
-        <name>MFD2</name>
-        <path>Aircraft/do328/Models/Instruments/MFD/MFD3d.xml</path>
-        <offsets>
-            <x-m>-8.844</x-m>
-            <y-m>0.285</y-m>
-            <z-m>1.910</z-m>
-            <pitch-deg>-6</pitch-deg>
-        </offsets>
-    </model>-->
-    
+        
     <model>
         <path>Aircraft/do328/Models/Instruments/ALT/ALT.xml</path>
         <offsets>

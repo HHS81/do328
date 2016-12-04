@@ -5,22 +5,23 @@ var canvas_eicas = {
 	{
 		var m = { parents: [canvas_eicas] };
 		
-		var eicasP = canvasGroup;
-		
 		var font_mapper = func(family, weight)
 		{
-			if(family == "Liberation Sans" and weight == "normal")
+			if(family == "'Liberation Sans'" and weight == "normal") {
 				return "LiberationFonts/LiberationSans-Regular.ttf";
+			}
 		};
 		
-		canvas.parsesvg(eicasP, "Aircraft/do328/Models/Instruments/EICAS/eicasJet.svg", {'font-mapper': font_mapper});
-		
+		canvas.parsesvg(canvasGroup, "Aircraft/do328/Models/Instruments/EICAS/eicasJet.svg", {'font-mapper': font_mapper});
+		m["group"] = canvasGroup;
+		m["active"] = 0;
+
 		var svg_keys = ["msgMemo","msgWarning","msgCaution","msgAdvisory",
 				"readout_n1_1","readout_n1_2","dial_n1_1","dial_n1_2",
 				"readout_itt1","readout_itt2","dial_itt1","dial_itt2",
 				"readout_n2_1","readout_n2_2","dial_n2_1","dial_n2_2"];
 		foreach(var key; svg_keys) {
-			m[key] = eicasP.getElementById(key);
+			m[key] = canvasGroup.getElementById(key);
 		}
 
 		return m;
@@ -65,6 +66,20 @@ var canvas_eicas = {
 
 		}
 
-		settimer(func me.fast_update(), 0.1);
+		if(me["active"] == 1) {
+			settimer(func me.fast_update(), 0.1);
+		}
+	},
+	show: func()
+	{
+		me["active"] = 1;
+		me.fast_update();
+		me.slow_update();
+		me["group"].show();
+	},
+	hide: func()
+	{
+		me["active"] = 0;
+		me["group"].hide();
 	}
 };
