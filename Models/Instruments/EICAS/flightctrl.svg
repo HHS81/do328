@@ -27,13 +27,15 @@
      inkscape:window-height="711"
      id="namedview69"
      showgrid="false"
-     inkscape:zoom="0.70109941"
-     inkscape:cx="302.48693"
-     inkscape:cy="349.88217"
+     inkscape:zoom="1.4021988"
+     inkscape:cx="137.43771"
+     inkscape:cy="96.50979"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg2" />
+     inkscape:current-layer="svg2"
+     showguides="true"
+     inkscape:guide-bbox="true" />
   <metadata
      id="metadata8">
     <rdf:RDF>
@@ -42,7 +44,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -369,26 +371,26 @@
      sodipodi:linespacing="125%"
      xml:space="preserve"
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.20881367px;line-height:125%;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;display:inline;fill:#ffffff;fill-opacity:1;stroke:none"
-     x="279.29932"
-     y="493.05743"
+     x="271.16699"
+     y="510.72833"
      id="flaps5"
      inkscape:label="#textRudder-5"><tspan
        id="tspan4296-62-3"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';text-align:start;text-anchor:start"
-       x="279.29932"
-       y="493.05743">5</tspan></text>
+       x="271.16699"
+       y="510.72833">12</tspan></text>
   <text
      sodipodi:linespacing="125%"
      xml:space="preserve"
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.20881367px;line-height:125%;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;display:inline;fill:#ffffff;fill-opacity:1;stroke:none"
      x="271.16699"
-     y="518.05743"
+     y="533.05743"
      id="flaps5-5"
      inkscape:label="#textRudder-5"><tspan
        id="tspan4296-62-3-6"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';text-align:start;text-anchor:start"
        x="271.16699"
-       y="518.05743">15</tspan></text>
+       y="533.05743">20</tspan></text>
   <text
      sodipodi:linespacing="125%"
      xml:space="preserve"
@@ -400,7 +402,7 @@
        id="tspan4296-62-3-6-9"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';text-align:start;text-anchor:start"
        x="271.16699"
-       y="568.08722">35</tspan></text>
+       y="568.08722">32</tspan></text>
   <g
      id="g4452">
     <text
@@ -557,12 +559,12 @@
      inkscape:connector-curvature="0" />
   <path
      style="fill:none;fill-rule:evenodd;stroke:#ffffff;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-     d="m 257.5,487.22835 10,0"
+     d="m 257.5,504.72835 10,0"
      id="path4322-61"
      inkscape:connector-curvature="0" />
   <path
      style="fill:none;fill-rule:evenodd;stroke:#ffffff;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-     d="m 257.5,512.22835 10,0"
+     d="m 257.5,527.22835 10,0"
      id="path4322-29"
      inkscape:connector-curvature="0" />
   <path
@@ -572,12 +574,12 @@
      inkscape:connector-curvature="0" />
   <path
      style="fill:none;fill-rule:evenodd;stroke:#ffffff;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-     d="m 292.5,487.22835 10,0"
+     d="m 292.5,504.72835 10,0"
      id="path4322-94"
      inkscape:connector-curvature="0" />
   <path
      style="fill:none;fill-rule:evenodd;stroke:#ffffff;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-     d="m 292.5,512.22835 10,0"
+     d="m 292.5,527.22835 10,0"
      id="path4322-78"
      inkscape:connector-curvature="0" />
   <path

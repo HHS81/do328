@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+
+<PropertyList>
+
+<path>screenL.ac</path>
+
+    <animation>
+        <type>select</type>
+        <condition>
+            <greater-than>
+               <property>systems/electrical/outputs/comm</property>
+               <value>5</value>
+              </greater-than>
+        </condition>
+        <object-name>RMU.screenL</object-name>
+    </animation>
+
+    <animation>
+        <type>material</type>
+        <object-name>RMU.screenL</object-name>
+        <condition>
+						<or>
+	           	<property>systems/electrical/left-emer-bus</property>
+	           	<property>systems/electrical/left-bus-norm</property>
+						</or>
+        </condition>
+        <emission>
+            <red>1</red>
+            <green>1</green>
+            <blue>1</blue>
+            <factor-prop>controls/lighting/rmu</factor-prop>
+        </emission>
+    </animation>
+
+</PropertyList>

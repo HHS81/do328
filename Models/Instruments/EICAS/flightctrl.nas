@@ -68,8 +68,8 @@ var canvas_flightctrl = {
 		me["indicator_ail2_scale"].setScale(1,flctrl[2]);
 		me["indicator_flaps1_scale"].setScale(1,flctrl[4]);
 		me["indicator_flaps2_scale"].setScale(1,flctrl[4]);
-		me["readout_flaps1"].setText(sprintf("%2.0f",35*flctrl[3]));
-		me["readout_flaps2"].setText(sprintf("%2.0f",35*flctrl[3]));
+		me["readout_flaps1"].setText(sprintf("%2.0f",32*flctrl[3]));
+		me["readout_flaps2"].setText(sprintf("%2.0f",32*flctrl[3]));
 
 		if(me["active"] == 1) {
 			settimer(func me.update(), 0.1);

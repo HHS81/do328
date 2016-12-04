@@ -544,24 +544,23 @@ V1 --> Vr --> Rotate to 8deg --> @50ft Rotate to 15deg -->Climb @V2 + 15ktn --> 
         </alerts>
 
     <rmu>
-    <unit n="0">
-        <serviceable type="bool">1</serviceable>
-        <selected type="int">0</selected>
-        <selected-xoffset type="int">0</selected-xoffset>
-        <selected-yoffset type="int">0</selected-yoffset>
-        <com-num type="int">0</com-num>
-        <nav-num type="int">0</nav-num>
-        <adf-num type="int">0</adf-num>
-    </unit>
-    <unit n="1">
-        <serviceable type="bool">1</serviceable>
-        <selected type="int">0</selected>
-        <selected-xoffset type="int">0</selected-xoffset>
-        <selected-yoffset type="int">0</selected-yoffset>
-        <com-num type="int">1</com-num>
-        <nav-num type="int">1</nav-num>
-        <adf-num type="int">1</adf-num>
-    </unit>
+        <trsp-num type="string">0</trsp-num>
+        <unit n="0">
+            <serviceable type="bool">1</serviceable>
+            <selected type="int">0</selected>
+            <com-num type="int">1</com-num>
+            <nav-num type="int">1</nav-num>
+            <adf-num type="int">1</adf-num>
+            <mls-num type="int">1</mls-num>
+        </unit>
+        <unit n="1">
+            <serviceable type="bool">1</serviceable>
+            <selected type="int">0</selected>
+            <com-num type="int">2</com-num>
+            <nav-num type="int">2</nav-num>
+            <adf-num type="int">2</adf-num>
+            <mls-num type="int">2</mls-num>
+        </unit>
     </rmu>
 
     <airspeed-indicator>
@@ -884,6 +883,9 @@ V1 --> Vr --> Rotate to 8deg --> @50ft Rotate to 15deg -->Climb @V2 + 15ktn --> 
          <file>Aircraft/do328/Models/Instruments/EICAS/mfd1.nas</file>
          <file>Aircraft/do328/Models/Instruments/EICAS/mfd2.nas</file>
       </systems>
+      <rmu>
+         <file>Aircraft/do328/Models/Instruments/RMU/RMU1.nas</file>
+      </rmu>
       <do328>
          <file>Aircraft/do328/Nasal/Electrical.nas</file>
          <file>Aircraft/do328/Nasal/ground_steering.nas</file>
