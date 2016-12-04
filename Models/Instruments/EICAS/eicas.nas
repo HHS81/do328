@@ -155,7 +155,7 @@ setlistener("/nasal/canvas/loaded", func {
 
 	eicasCanvas = canvas.new({
 		"name": "EICAS",
-		"size": [1024, 1024],
+		"size": [512, 512],
 		"view": [567, 673],
 		"mipmapping": 1
 	});

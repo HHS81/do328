@@ -59,7 +59,7 @@ var canvas_nd = {
 		}
 
 		if(me["active"] == 1) {
-			settimer(func me.fast_update(), 0.1);
+			settimer(func me.fast_update(), 0.3);
 		}
 	},
 	show: func()
