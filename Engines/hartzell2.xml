@@ -20,7 +20,7 @@ prop-pitch - -14.5 reversed - +79 feathered
 -->
 
 <propeller name="prop">
- <ixx> 4.25 </ixx>
+ <ixx> 150.25 </ixx>
   <diameter unit="IN"> 141.7 </diameter>
   <numblades> 6 </numblades>
   <gearratio> 16.4 </gearratio>
