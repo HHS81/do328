@@ -1,9 +1,8 @@
-var canvasGroup = {};
-
 var canvas_eicas = {
 	new: func(canvasGroup)
 	{
 		var m = { parents: [canvas_eicas] };
+		m.group = canvasGroup;
 
 		var font_mapper = func(family, weight)
 		{
@@ -13,8 +12,6 @@ var canvas_eicas = {
 		};
 		
 		canvas.parsesvg(canvasGroup, "Aircraft/do328/Models/Instruments/EICAS/eicasProp.svg", {'font-mapper': font_mapper});
-		m["group"] = canvasGroup;
-		m["active"] = 0;
 		
 		var svg_keys = ["msgMemo","msgWarning","msgCaution","msgAdvisory",
 				"readout_tq1","readout_tq2","dial_tq1","dial_tq2",
@@ -25,6 +22,7 @@ var canvas_eicas = {
 			m[key] = canvasGroup.getElementById(key);
 		}
 
+		m.active = 0;
 		return m;
 	},
 	slow_update: func()
@@ -34,7 +32,7 @@ var canvas_eicas = {
 		me["msgAdvisory"].setText(getprop("instrumentation/eicas/msg/advisory"));
 		me["msgMemo"].setText(getprop("instrumentation/eicas/msg/memo"));
 
-		if(me["active"] == 1) {
+		if(me.active == 1) {
 			settimer(func me.slow_update(), 0.3);
 		}
 	},
@@ -71,20 +69,20 @@ var canvas_eicas = {
 
 		}
 
-		if(me["active"] == 1) {
+		if(me.active == 1) {
 			settimer(func me.fast_update(), 0.1);
 		}
 	},
 	show: func()
 	{
-		me["active"] = 1;
+		me.active = 1;
 		me.fast_update();
 		me.slow_update();
-		me["group"].show();
+		me.group.show();
 	},
 	hide: func()
 	{
-		me["active"] = 0;
-		me["group"].hide();
+		me.active = 0;
+		me.group.hide();
 	}
 };

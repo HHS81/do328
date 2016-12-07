@@ -1,9 +1,8 @@
-var canvasGroup = {};
-
 var canvas_flightctrl = {
 	new: func(canvasGroup)
 	{
 		var m = { parents: [canvas_flightctrl] };
+		m.group = canvasGroup;
 		
 		var font_mapper = func(family, weight)
 		{
@@ -13,8 +12,6 @@ var canvas_flightctrl = {
 		};
 		
 		canvas.parsesvg(canvasGroup, "Aircraft/do328/Models/Instruments/EICAS/flightctrl.svg", {'font-mapper': font_mapper});
-		m["group"] = canvasGroup;
-		m["active"] = 0;
 		
 		var svg_keys = ["indicator_elev1","indicator_elev2",
 				"indicator_rud",
@@ -51,6 +48,7 @@ var canvas_flightctrl = {
 		m["indicator_rud"].createTransform().setTranslation(center[0], center[1]);
 		m["indicator_rud_scale"].setScale(0,1);
 
+		m.active = 0;
 		return m;
 	},
 	update: func()
@@ -71,19 +69,19 @@ var canvas_flightctrl = {
 		me["readout_flaps1"].setText(sprintf("%2.0f",32*flctrl[3]));
 		me["readout_flaps2"].setText(sprintf("%2.0f",32*flctrl[3]));
 
-		if(me["active"] == 1) {
+		if(me.active == 1) {
 			settimer(func me.update(), 0.1);
 		}
 	},
 	show: func()
 	{
-		me["active"] = 1;
+		me.active = 1;
 		me.update();
-		me["group"].show();
+		me.group.show();
 	},
 	hide: func()
 	{
-		me["active"] = 0;
-		me["group"].hide();
+		me.active = 0;
+		me.group.hide();
 	}
 };

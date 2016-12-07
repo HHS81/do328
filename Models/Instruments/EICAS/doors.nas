@@ -1,5 +1,3 @@
-var canvasGroup = {};
-
 var canvas_doors = {
 	new: func(canvasGroup)
 	{

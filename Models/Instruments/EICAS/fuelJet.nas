@@ -1,10 +1,9 @@
-var canvasGroup = {};
-
 var canvas_fuel = {
 	new: func(canvasGroup)
 	{
 		var m = { parents: [canvas_fuel] };
-		
+		m.group = canvasGroup;
+
 		var font_mapper = func(family, weight)
 		{
 			if(family == "'Liberation Sans'" and weight == "normal") {
@@ -12,17 +11,14 @@ var canvas_fuel = {
 			}
 		};
 		
-		canvas.parsesvg(canvasGroup, "Aircraft/do328/Models/Instruments/EICAS/fuel.svg", {'font-mapper': font_mapper});
-		m["group"] = canvasGroup;
-		m["active"] = 0;
+		canvas.parsesvg(canvasGroup, "Aircraft/do328/Models/Instruments/EICAS/fuelJet.svg", {'font-mapper': font_mapper});
 		
 		var svg_keys = ["indicator_t1","indicator_t2","indicator_t3",
 				"indicator_t4","indicator_t5","indicator_t6",
 				"readout_t1","readout_t2","readout_t3",
 				"readout_t4","readout_t5","readout_t6",
 				"readout_tl","readout_tt","readout_tr",
-				"readout_usedl","readout_usedr",
-				"warnings"];
+				"readout_usedl","readout_usedr"];
 		foreach(var key; svg_keys) {
 			m[key] = canvasGroup.getElementById(key);
 		}
@@ -34,7 +30,7 @@ var canvas_fuel = {
 			m["indicator_t"~n].createTransform().setTranslation(center[0], center[1]);
 		}
 
-		m["warnings"].hide();
+		m.active = 0;
 		return m;
 	},
 	slow_update: func()
@@ -71,19 +67,19 @@ var canvas_fuel = {
 			me["readout_usedr"].setText(sprintf("%3.0f",fuelUsed[1]));
 		}
 
-		if(me["active"] == 1) {
+		if(me.active == 1) {
 			settimer(func me.slow_update(), 0.5);
 		}
 	},
 	show: func()
 	{
-		me["active"] = 1;
+		me.active = 1;
 		me.slow_update();
-		me["group"].show();
+		me.group.show();
 	},
 	hide: func()
 	{
-		me["active"] = 0;
-		me["group"].hide();
+		me.active = 0;
+		me.group.hide();
 	}
 };

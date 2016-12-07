@@ -808,17 +808,22 @@ Started by Heiko Schulz
          <file>Aircraft/do328/Nasal/jetsystems.nas</file>
      <!--<file>Aircraft/do328/Nasal/lightmap.nas</file>-->
          <file>Aircraft/do328/Nasal/Autostart.nas</file>
+      </systems>
+      <eicas>
          <file>Aircraft/do328/Models/Instruments/EICAS/softkeys.nas</file>
          <file>Aircraft/do328/Models/Instruments/EICAS/eicasJet.nas</file>
          <file>Aircraft/do328/Models/Instruments/EICAS/flightctrl.nas</file>
          <file>Aircraft/do328/Models/Instruments/EICAS/doors.nas</file>
-         <file>Aircraft/do328/Models/Instruments/EICAS/fuel.nas</file>
+         <file>Aircraft/do328/Models/Instruments/EICAS/fuelJet.nas</file>
          <file>Aircraft/do328/Models/Instruments/EICAS/apuJet.nas</file>
          <file>Aircraft/do328/Models/Instruments/EICAS/eicas.nas</file>
          <file>Aircraft/do328/Models/Instruments/EICAS/nd.nas</file>
          <file>Aircraft/do328/Models/Instruments/EICAS/mfd1.nas</file>
          <file>Aircraft/do328/Models/Instruments/EICAS/mfd2.nas</file>
-      </systems>
+      </eicas>
+      <rmu>
+         <file>Aircraft/do328/Models/Instruments/RMU/RMU1.nas</file>
+      </rmu>
       <do328>
          <file>Aircraft/do328/Nasal/Electrical.nas</file>
          <file>Aircraft/do328/Nasal/ground_steering.nas</file>

@@ -1,9 +1,8 @@
-var canvasGroup = {};
-
 var canvas_apu = {
 	new: func(canvasGroup)
 	{
 		var m = { parents: [canvas_apu] };
+		m.group = canvasGroup;
 		
 		var font_mapper = func(family, weight)
 		{
@@ -13,16 +12,15 @@ var canvas_apu = {
 		};
 		
 		canvas.parsesvg(canvasGroup, "Aircraft/do328/Models/Instruments/EICAS/apuJet.svg", {'font-mapper': font_mapper});
-		m["group"] = canvasGroup;
 
 		return m;
 	},
 	show: func()
 	{
-		me["group"].show();
+		me.group.show();
 	},
 	hide: func()
 	{
-		me["group"].hide();
+		me.group.hide();
 	}
 };
