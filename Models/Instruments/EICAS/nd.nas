@@ -1,12 +1,35 @@
-var canvasGroup = {};
+var ndlayers = [{name:'APT',style:{scale_factor:0.6,label_font_color:[1,1,1],color_default:[1,1,1],line_width:4}},
+		{name:'DME',style:{scale_factor:0.6,color_default:[0,1,0],line_width:4}},
+		{name:'WPT',style:{scale_factor:0.6,color_default:[0,1,0],line_width:4}}];
+
+var hdg = props.globals.getNode("orientation/heading-magnetic-deg");
+var lon = props.globals.getNode("position/longitude-deg");
+var lat = props.globals.getNode("position/latitude-deg");
+
+var do328_controller = {
+	parents: [canvas.Map.Controller],
+
+	new: func(map) {
+		var m = { parents: [do328_controller],map:map };
+		m.timer = maketimer(0.1, m, m.update_layers);
+		m.timer.start();
+		return m;
+	},
+
+	update_layers: func() {
+		me.map.setPos(lat.getValue(),lon.getValue(),hdg.getValue());
+		me.map.update();
+	},
+
+	del: func() {print("cleaning up nd controller");}
+};
 
 var canvas_nd = {
 	new: func(canvasGroup)
 	{
 		var m = { parents: [canvas_nd] };
-		var ndmap = canvasGroup.createChild('map');
-		var ndsvg = canvasGroup.createChild('group');
-		m["group"] = canvasGroup;
+		m.group = canvasGroup;
+		m.map = canvasGroup.createChild('map');
 
 		var font_mapper = func(family, weight)
 		{
@@ -15,62 +38,56 @@ var canvas_nd = {
 			}
 		};
 
-		canvas.parsesvg(ndsvg, "Aircraft/do328/Models/Instruments/EICAS/nd.svg", {'font-mapper': font_mapper});
+		canvas.parsesvg(canvasGroup, "Aircraft/do328/Models/Instruments/EICAS/nd.svg", {'font-mapper': font_mapper});
 
 		var svg_keys = ["compass","hdg"];
 		foreach(var key; svg_keys) {
-			m[key] = ndsvg.getElementById(key);
+			m[key] = canvasGroup.getElementById(key);
 		}
 
 		### NavDisplay ###
-		ndmap.setController("Aircraft position");
-		ndmap.setRange(20);
-		ndmap.setTranslation(264,334);
+		m.map.setRange(20);
+		m.map.setTranslation(283,310);
+		m.map.setPos(lat.getValue(),lon.getValue(),hdg.getValue());
 
-		var r = func(name,vis=1,zindex=nil) return caller(0)[0];
+		#var controller = do328_controller.new(m.map);
+		m.map.setController(do328_controller);
 
-		var type = r('APT');
-		var style_apt = {
-		    scale_factor:0.6,
-		    label_font_color:[1,1,1],
-		    color_default:[1,1,1],
-		    line_width:4
-		};
-		ndmap.addLayer(factory: canvas.SymbolLayer, type_arg: type.name, visible: type.vis, priority: type.zindex, style: style_apt);
-
-		type = r('DME');
-		var style_vor = {
-		    scale_factor:0.6,
-		    color_default:[0,1,0],
-		    line_width:4
-		};
-		ndmap.addLayer(factory: canvas.SymbolLayer, type_arg: type.name, visible: type.vis, priority: type.zindex, style: style_vor);
-
-		m["active"] = 0;
-		return m;
-	},
-	fast_update: func()
-	{
-		var heading = getprop("orientation/heading-magnetic-deg");
-
-		if(heading != nil){
-			me["hdg"].setText(sprintf("%3.0f",heading));
-			me["compass"].setRotation(-heading*math.pi/180);
+		foreach(var layer; ndlayers) {
+			m.map.addLayer(
+				factory: canvas.SymbolLayer,
+				type_arg: layer.name,
+				visible: 1,
+				style: layer.style,
+				priority: layer['z-index']
+			);
 		}
 
-		if(me["active"] == 1) {
-			settimer(func me.fast_update(), 0.3);
+		m.active = 0;
+		return m;
+	},
+	update: func()
+	{
+		var heading = hdg.getValue();
+
+		if(heading != nil) {
+			me.hdg.setText(sprintf("%3.0f",heading));
+			me.compass.setRotation(-heading*math.pi/180);
+		}
+
+		if(me.active == 1) {
+			settimer(func me.update(), 0.1);
 		}
 	},
 	show: func()
 	{
-		me["active"] = 1;
-		me.fast_update();
-		me["group"].show();
+		me.active = 1;
+		me.update();
+		me.group.show();
 	},
 	hide: func()
 	{
-		me["active"] = 0;
-		me["group"].hide();
+		me.active = 0;
+		me.group.hide();
 	}
 };
