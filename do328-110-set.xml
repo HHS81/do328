@@ -8,7 +8,7 @@ Started by Heiko Schulz
 <PropertyList>
     <sim>
   <description>Dornier 328-110</description>
-  <author>HHS (3d, config, fdm); xcvb85 (Primus 2000 Canvas, debug); clm76 (RMU); Jentron (prop and turbine files)</author>
+  <author>HHS (3d, config, fdm); xcvb85 (Primus 2000 Canvas, debug); clm76 (CDU, RMU); Jentron (prop and turbine files)</author>
   <status>devel</status>
   <flight-model>jsb</flight-model>
   <aero>do328-110</aero>
@@ -217,11 +217,11 @@ Started by Heiko Schulz
         <autopilot>
             <path>Aircraft/do328/Systems/generic-autopilot.xml</path>
         </autopilot>
- <wingflexer include="Systems/wingflexer-params.xml"/>
+<!-- <wingflexer include="Systems/wingflexer-params.xml"/>
     <property-rule n="100">
         <name>wing flexer property rule</name>
         <path>Aircraft/Generic/wingflexer.xml</path>
-    </property-rule>
+    </property-rule> -->
     </systems>
 
   
@@ -467,76 +467,6 @@ V1 --> Vr --> Rotate to 8deg --> @50ft Rotate to 15deg -->Climb @V2 + 15ktn --> 
            </speaker>
         </mk-viii>
 
-        <tcas>
-            <serviceable type="bool">true</serviceable>
-            <inputs>
-                <mode type="int">0</mode>       <!-- 0=off, 1=standby, 2=TA-only, 3=auto(TA/RA) -->
-            </inputs>
-            <!--voice>
-                <file-prefix type="string">Sounds/tcas/</file-prefix>
-            </voice-->
-            <speaker>                           <!-- Speaker Configuration -->
-                <max-dist type="double">7</max-dist>        <!-- Max. distance where speaker is heard -->
-                <reference-dist type="double">5</reference-dist> <!-- Distance to pilot -->
-                <volume type="double"> 1 </volume>          <!-- Volume at reference distance -->
-            </speaker>
-            <range type="int">6</range>
-        </tcas>
-
-        <nd>
-            <radar-texture-path type="string">Aircraft/do328/Models/Instruments/MFD/radar.png</radar-texture-path>
-            <symbol-texture-path type="string">Aircraft/do328/Models/Instruments/MFD/symbols.png</symbol-texture-path>
-            <font>
-                <color>
-                    <red type="float">0.7</red>
-                    <green type="float">0.7</green>
-                    <blue type="float">0.7</blue>
-                    <alpha type="float">1</alpha>
-                </color>
-                <name type="string">helvetica_bold.txf</name>
-                <size type="float">14</size>
-                <line-spacing type="float">0.01</line-spacing>
-            </font>
-            <serviceable type="bool">true</serviceable>
-            <range type="int" archive="y">100</range>
-            <aircraft-heading-up type="bool">true</aircraft-heading-up>
-            <heading-up-deg type="float">0.01</heading-up-deg>
-            <x-center type="float">0.5</x-center>
-            <y-center type="float">0.5</y-center>
-            <display>
-                <arpt type="bool">1</arpt>
-                <vor type="bool">1</vor>
-                <fix type="bool">0</fix>
-                <tcas type="bool">0</tcas>
-            </display>
-            <line-width type="double">3</line-width>
-        </nd>
-
-        <tcas-display>
-            <radar-texture-path type="string">Aircraft/do328/Models/Instruments/MFD/tcas-display.png</radar-texture-path>
-            <symbol-texture-path type="string">Aircraft/do328/Models/Instruments/MFD/symbols.png</symbol-texture-path>
-            <font>
-                <color>
-                    <red type="float">0.7</red>
-                    <green type="float">0.7</green>
-                    <blue type="float">0.7</blue>
-                    <alpha type="float">1</alpha>
-                </color>
-                <name type="string">helvetica_bold.txf</name>
-                <size type="float">14</size>
-                <line-spacing type="float">0.01</line-spacing>
-            </font>
-            <serviceable type="bool">true</serviceable>
-            <range type="int" archive="y">6</range>
-            <aircraft-heading-up type="bool">true</aircraft-heading-up>
-            <heading-up-deg type="float">0.01</heading-up-deg>
-            <x-center type="float">0.5</x-center>
-            <y-center type="float">0.5</y-center>
-            <display>
-            </display>
-            <line-width type="double">3</line-width>
-        </tcas-display>
-
         <alerts>
             <gear-horn type="bool">0</gear-horn>
             <master-warning type="bool">0</master-warning>
@@ -576,37 +506,6 @@ V1 --> Vr --> Rotate to 8deg --> @50ft Rotate to 15deg -->Climb @V2 + 15ktn --> 
             <audio-btn>0</audio-btn>
         </inputs>
     </kr-87>
-
-<primus2000>
-    <dc840>
-        <hsi type="bool">0</hsi>
-        <wx type="bool">0</wx>
-        <et type="bool">0</et>
-        <tcas type="bool">0</tcas>
-        <acft-sys type="bool">0</acft-sys>
-        <mfd-map type="bool">1</mfd-map>
-        <mfd-wx type="bool">0</mfd-wx>
-        <norm type="bool">0</norm>
-        <abn type="bool">0</abn>
-        <emer type="bool">0</emer>
-        <skp type="bool">0</skp>
-        <pag type="bool">0</pag>
-        <rcl type="bool">0</rcl>
-        <ent type="bool">0</ent>
-    </dc840>
-    <sc840>
-        <nav1ptr type="double">0</nav1ptr>
-        <nav2ptr type="double">0</nav2ptr>
-    </sc840>
-    <eicas>
-        <serviceable type="bool">1</serviceable>
-    </eicas>
-    <mfd>
-        <menu-num type="int">0</menu-num>
-    </mfd>
-    <pfd>
-    </pfd>
-</primus2000>
 
     <cdu n="0">
         <page type="string">PROGRESS</page>

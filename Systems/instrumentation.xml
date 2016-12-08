@@ -120,22 +120,4 @@ This file selects the instrumentation modules that should be available.
     <update-interval-sec>0.1</update-interval-sec>
   </radar-altimeter>
 
-
-    <tcas>
-        <name>tcas</name>
-        <number>0</number>
-    </tcas>
-
-    <navigation-display>
-        <name>nd</name>
-        <number>0</number>
-        <symbols include="nav-display.xml"/>
-    </navigation-display>
-
-   <navigation-display>
-        <name>tcas-display</name>
-        <number>0</number>
-        <symbols include="tcas-display.xml"/>
-    </navigation-display>
-
 </PropertyList>
