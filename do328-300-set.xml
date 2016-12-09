@@ -207,11 +207,11 @@ Started by Heiko Schulz
         <autopilot>
             <path>Aircraft/do328/Systems/generic-autopilot.xml</path>
         </autopilot>
-<!-- <wingflexer include="Systems/wingflexer-params.xml"/>
+ <wingflexer include="Systems/wingflexer-params.xml"/>
     <property-rule n="100">
         <name>wing flexer property rule</name>
         <path>Aircraft/Generic/wingflexer.xml</path>
-    </property-rule> -->
+    </property-rule>
     </systems>
 
   
