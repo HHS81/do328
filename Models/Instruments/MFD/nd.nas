@@ -46,7 +46,7 @@ var canvas_nd = {
 			}
 		};
 
-		canvas.parsesvg(canvasGroup, "Aircraft/do328/Models/Instruments/EICAS/nd.svg", {'font-mapper': font_mapper});
+		canvas.parsesvg(canvasGroup, "Aircraft/do328/Models/Instruments/MFD/nd.svg", {'font-mapper': font_mapper});
 
 		var svg_keys = ["compass","hdg"];
 		foreach(var key; svg_keys) {

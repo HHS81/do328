@@ -7,7 +7,7 @@ var canvas_flightctrl = {
 		var font_mapper = func(family, weight)
 		{
 			if(family == "'Liberation Sans'" and weight == "normal") {
-				return "LiberationFonts/LiberationSans-Regular.ttf";
+				return "osifont-gpl2fe.ttf";
 			}
 		};
 		

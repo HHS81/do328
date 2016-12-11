@@ -707,7 +707,7 @@ Started by Heiko Schulz
      <!--<file>Aircraft/do328/Nasal/lightmap.nas</file>-->
          <file>Aircraft/do328/Nasal/Autostart.nas</file>
       </systems>
-      <eicas>
+      <efis>
          <file>Aircraft/do328/Models/Instruments/EICAS/softkeys.nas</file>
          <file>Aircraft/do328/Models/Instruments/EICAS/eicasJet.nas</file>
          <file>Aircraft/do328/Models/Instruments/EICAS/flightctrl.nas</file>
@@ -715,10 +715,10 @@ Started by Heiko Schulz
          <file>Aircraft/do328/Models/Instruments/EICAS/fuelJet.nas</file>
          <file>Aircraft/do328/Models/Instruments/EICAS/apuJet.nas</file>
          <file>Aircraft/do328/Models/Instruments/EICAS/eicas.nas</file>
-         <file>Aircraft/do328/Models/Instruments/EICAS/nd.nas</file>
-         <file>Aircraft/do328/Models/Instruments/EICAS/mfd1.nas</file>
-         <file>Aircraft/do328/Models/Instruments/EICAS/mfd2.nas</file>
-      </eicas>
+         <file>Aircraft/do328/Models/Instruments/MFD/nd.nas</file>
+         <file>Aircraft/do328/Models/Instruments/MFD/mfd1.nas</file>
+         <file>Aircraft/do328/Models/Instruments/MFD/mfd2.nas</file>
+      </efis>
       <rmu>
          <file>Aircraft/do328/Models/Instruments/RMU/RMU1.nas</file>
       </rmu>

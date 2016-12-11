@@ -772,7 +772,7 @@ V1 --> Vr --> Rotate to 8deg --> @50ft Rotate to 15deg -->Climb @V2 + 15ktn --> 
      <!--<file>Aircraft/do328/Nasal/lightmap.nas</file>-->
          <file>Aircraft/do328/Nasal/Autostart.nas</file>
       </systems>
-      <eicas>
+      <efis>
          <file>Aircraft/do328/Models/Instruments/EICAS/softkeys.nas</file>
          <file>Aircraft/do328/Models/Instruments/EICAS/eicasProp.nas</file>
          <file>Aircraft/do328/Models/Instruments/EICAS/flightctrl.nas</file>
@@ -780,10 +780,10 @@ V1 --> Vr --> Rotate to 8deg --> @50ft Rotate to 15deg -->Climb @V2 + 15ktn --> 
          <file>Aircraft/do328/Models/Instruments/EICAS/fuelProp.nas</file>
          <file>Aircraft/do328/Models/Instruments/EICAS/apuProp.nas</file>
          <file>Aircraft/do328/Models/Instruments/EICAS/eicas.nas</file>
-         <file>Aircraft/do328/Models/Instruments/EICAS/nd.nas</file>
-         <file>Aircraft/do328/Models/Instruments/EICAS/mfd1.nas</file>
-         <file>Aircraft/do328/Models/Instruments/EICAS/mfd2.nas</file>
-      </eicas>
+         <file>Aircraft/do328/Models/Instruments/MFD/nd.nas</file>
+         <file>Aircraft/do328/Models/Instruments/MFD/mfd1.nas</file>
+         <file>Aircraft/do328/Models/Instruments/MFD/mfd2.nas</file>
+      </efis>
       <rmu>
          <file>Aircraft/do328/Models/Instruments/RMU/RMU1.nas</file>
       </rmu>

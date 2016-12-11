@@ -11,7 +11,7 @@
 		<repeatable>false</repeatable>	
 		<binding>
 			<command>nasal</command>
-			<script>eicas.mfd1BtClick(0)</script>
+			<script>efis.mfd1BtClick(0)</script>
 		</binding>
 	</action>
 </animation>
@@ -23,7 +23,7 @@
 		<repeatable>false</repeatable>	
 		<binding>
 			<command>nasal</command>
-			<script>eicas.mfd1BtClick(1)</script>
+			<script>efis.mfd1BtClick(1)</script>
 		</binding>
 	</action>
 </animation>
@@ -35,7 +35,7 @@
 		<repeatable>false</repeatable>	
 		<binding>
 			<command>nasal</command>
-			<script>eicas.mfd1BtClick(2)</script>
+			<script>efis.mfd1BtClick(2)</script>
 		</binding>
 	</action>
 </animation>
@@ -47,7 +47,7 @@
 		<repeatable>false</repeatable>	
 		<binding>
 			<command>nasal</command>
-			<script>eicas.mfd1BtClick(3)</script>
+			<script>efis.mfd1BtClick(3)</script>
 		</binding>
 	</action>
 </animation>
@@ -59,7 +59,7 @@
 		<repeatable>false</repeatable>	
 		<binding>
 			<command>nasal</command>
-			<script>eicas.mfd1BtClick(4)</script>
+			<script>efis.mfd1BtClick(4)</script>
 		</binding>
 	</action>
 </animation>
@@ -71,7 +71,7 @@
 		<repeatable>false</repeatable>	
 		<binding>
 			<command>nasal</command>
-			<script>eicas.mfd1BtClick(5)</script>
+			<script>efis.mfd1BtClick(5)</script>
 		</binding>
 	</action>
 </animation>
@@ -83,7 +83,7 @@
 		<repeatable>false</repeatable>	
 		<binding>
 			<command>nasal</command>
-			<script>eicas.eicasBtClick(0)</script>
+			<script>efis.eicasBtClick(0)</script>
 		</binding>
 	</action>
 </animation>
@@ -95,7 +95,7 @@
 		<repeatable>false</repeatable>	
 		<binding>
 			<command>nasal</command>
-			<script>eicas.eicasBtClick(1)</script>
+			<script>efis.eicasBtClick(1)</script>
 		</binding>
 	</action>
 </animation>
@@ -107,7 +107,7 @@
 		<repeatable>false</repeatable>	
 		<binding>
 			<command>nasal</command>
-			<script>eicas.eicasBtClick(2)</script>
+			<script>efis.eicasBtClick(2)</script>
 		</binding>
 	</action>
 </animation>
@@ -119,7 +119,7 @@
 		<repeatable>false</repeatable>	
 		<binding>
 			<command>nasal</command>
-			<script>eicas.eicasBtClick(3)</script>
+			<script>efis.eicasBtClick(3)</script>
 		</binding>
 	</action>
 </animation>
@@ -131,7 +131,7 @@
 		<repeatable>false</repeatable>	
 		<binding>
 			<command>nasal</command>
-			<script>eicas.eicasBtClick(4)</script>
+			<script>efis.eicasBtClick(4)</script>
 		</binding>
 	</action>
 </animation>
@@ -143,7 +143,7 @@
 		<repeatable>false</repeatable>	
 		<binding>
 			<command>nasal</command>
-			<script>eicas.eicasBtClick(5)</script>
+			<script>efis.eicasBtClick(5)</script>
 		</binding>
 	</action>
 </animation>
@@ -155,7 +155,7 @@
 		<repeatable>false</repeatable>	
 		<binding>
 			<command>nasal</command>
-			<script>eicas.mfd2BtClick(0)</script>
+			<script>efis.mfd2BtClick(0)</script>
 		</binding>
 	</action>
 </animation>
@@ -167,7 +167,7 @@
 		<repeatable>false</repeatable>	
 		<binding>
 			<command>nasal</command>
-			<script>eicas.mfd2BtClick(1)</script>
+			<script>efis.mfd2BtClick(1)</script>
 		</binding>
 	</action>
 </animation>
@@ -179,7 +179,7 @@
 		<repeatable>false</repeatable>	
 		<binding>
 			<command>nasal</command>
-			<script>eicas.mfd2BtClick(2)</script>
+			<script>efis.mfd2BtClick(2)</script>
 		</binding>
 	</action>
 </animation>
@@ -191,7 +191,7 @@
 		<repeatable>false</repeatable>	
 		<binding>
 			<command>nasal</command>
-			<script>eicas.mfd2BtClick(3)</script>
+			<script>efis.mfd2BtClick(3)</script>
 		</binding>
 	</action>
 </animation>
@@ -203,7 +203,7 @@
 		<repeatable>false</repeatable>	
 		<binding>
 			<command>nasal</command>
-			<script>eicas.mfd2BtClick(4)</script>
+			<script>efis.mfd2BtClick(4)</script>
 		</binding>
 	</action>
 </animation>
@@ -215,7 +215,7 @@
 		<repeatable>false</repeatable>	
 		<binding>
 			<command>nasal</command>
-			<script>eicas.mfd2BtClick(5)</script>
+			<script>efis.mfd2BtClick(5)</script>
 		</binding>
 	</action>
 </animation>
