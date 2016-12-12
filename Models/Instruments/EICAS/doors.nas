@@ -1,5 +1,3 @@
-var canvasGroup = {};
-
 var canvas_doors = {
 	new: func(canvasGroup)
 	{
@@ -8,7 +6,7 @@ var canvas_doors = {
 		var font_mapper = func(family, weight)
 		{
 			if(family == "'Liberation Sans'" and weight == "normal") {
-				return "LiberationFonts/LiberationSans-Regular.ttf";
+				return "osifont-gpl2fe.ttf";
 			}
 		};
 		

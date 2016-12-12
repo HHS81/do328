@@ -1,5 +1,3 @@
-var canvasGroup = {};
-
 var canvas_softkeys = {
 	new: func(canvasGroup)
 	{
@@ -8,7 +6,7 @@ var canvas_softkeys = {
 		var font_mapper = func(family, weight)
 		{
 			if(family == "'Liberation Sans'" and weight == "normal") {
-				return "LiberationFonts/LiberationSans-Regular.ttf";
+				return "osifont-gpl2fe.ttf";
 			}
 		};
 		
@@ -19,13 +17,13 @@ var canvas_softkeys = {
 			m[key] = canvasGroup.getElementById(key);
 		}
 
-		m["path"] = canvasGroup.createChild("path").setStrokeLineWidth(3).set("stroke", "rgba(255,255,255,1)");
+		m.path = canvasGroup.createChild("path").setStrokeLineWidth(3).set("stroke", "rgba(255,255,255,1)");
 
 		return m;
 	},
 	drawFrames: func(selectedSoftkeys)
 	{
-		me["path"].reset();
+		me.path.reset();
 
 		if(size(selectedSoftkeys) == 5) {
 

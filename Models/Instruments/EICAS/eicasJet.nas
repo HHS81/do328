@@ -1,20 +1,17 @@
-var canvasGroup = {};
-
 var canvas_eicas = {
 	new: func(canvasGroup)
 	{
 		var m = { parents: [canvas_eicas] };
+		m.group = canvasGroup;
 		
 		var font_mapper = func(family, weight)
 		{
 			if(family == "'Liberation Sans'" and weight == "normal") {
-				return "LiberationFonts/LiberationSans-Regular.ttf";
+				return "osifont-gpl2fe.ttf";
 			}
 		};
 		
 		canvas.parsesvg(canvasGroup, "Aircraft/do328/Models/Instruments/EICAS/eicasJet.svg", {'font-mapper': font_mapper});
-		m["group"] = canvasGroup;
-		m["active"] = 0;
 
 		var svg_keys = ["msgMemo","msgWarning","msgCaution","msgAdvisory",
 				"readout_n1_1","readout_n1_2","dial_n1_1","dial_n1_2",
@@ -24,6 +21,7 @@ var canvas_eicas = {
 			m[key] = canvasGroup.getElementById(key);
 		}
 
+		m.active = 0;
 		return m;
 	},
 	slow_update: func()
@@ -66,20 +64,20 @@ var canvas_eicas = {
 
 		}
 
-		if(me["active"] == 1) {
+		if(me.active == 1) {
 			settimer(func me.fast_update(), 0.1);
 		}
 	},
 	show: func()
 	{
-		me["active"] = 1;
+		me.active = 1;
 		me.fast_update();
 		me.slow_update();
-		me["group"].show();
+		me.group.show();
 	},
 	hide: func()
 	{
-		me["active"] = 0;
-		me["group"].hide();
+		me.active = 0;
+		me.group.hide();
 	}
 };
