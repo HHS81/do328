@@ -1,0 +1,6 @@
+Honeywell Font
+--------------
+
+License: GPLv2 with font exception
+
+Based on osifont: https://github.com/hikikomori82/osifont
