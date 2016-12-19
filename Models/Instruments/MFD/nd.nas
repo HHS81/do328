@@ -1,6 +1,6 @@
-var ndlayers = [{name:'APT',visible:1,style:{scale_factor:0.6,font:"honeywellfont.ttf",label_font_color:[1,1,1],color_default:[1,1,1],line_width:4}},
-		{name:'DME',visible:1,style:{scale_factor:0.6,font:"honeywellfont.ttf",color_default:[0,1,0],line_width:4}},
-		{name:'WPT',visible:1,style:{scale_factor:0.6,font:"honeywellfont.ttf",line_width:4}},
+var ndlayers = [{name:'APT',visible:1,style:{scale_factor:0.6,label_font_color:[1,1,1],color_default:[1,1,1],line_width:4}},
+		{name:'DME',visible:1,style:{scale_factor:0.6,color_default:[0,1,0],line_width:4}},
+		{name:'WPT',visible:1,style:{scale_factor:0.6,line_width:4}},
 		{name:'RTE',visible:0,style:{scale_factor:0.6,color:[0,1,0],line_width:3}}];
 
 var hdg = props.globals.getNode("orientation/heading-magnetic-deg");
