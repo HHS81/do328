@@ -42,7 +42,7 @@ var canvas_nd = {
 		var font_mapper = func(family, weight)
 		{
 			if(family == "'Liberation Sans'" and weight == "normal") {
-				return "LiberationFonts/LiberationSans-Regular.ttf";
+				return "honeywellfont.ttf";
 			}
 		};
 

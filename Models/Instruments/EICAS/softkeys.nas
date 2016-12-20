@@ -6,7 +6,7 @@ var canvas_softkeys = {
 		var font_mapper = func(family, weight)
 		{
 			if(family == "'Liberation Sans'" and weight == "normal") {
-				return "osifont-gpl2fe.ttf";
+				return "honeywellfont.ttf";
 			}
 		};
 		
