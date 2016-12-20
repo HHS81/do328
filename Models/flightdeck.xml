@@ -219,28 +219,6 @@
 		</binding>
 	</action>
 </animation>
-
-    <model>
-        <name>PFD1</name>
-        <path>Aircraft/do328/Models/Instruments/PFD/PFD3d.xml</path>
-        <offsets>
-            <x-m>-8.844</x-m>
-            <y-m>-0.487</y-m>
-            <z-m>1.910</z-m>
-            <pitch-deg>-6</pitch-deg>
-        </offsets>
-    </model>
-    
-    <model>
-        <name>PFD2</name>
-        <path>Aircraft/do328/Models/Instruments/PFD/PFD3d.xml</path>
-        <offsets>
-            <x-m>-8.844</x-m>
-            <y-m>0.487</y-m>
-            <z-m>1.910</z-m>
-            <pitch-deg>-6</pitch-deg>
-        </offsets>
-    </model>
         
     <model>
         <path>Aircraft/do328/Models/Instruments/ALT/ALT.xml</path>

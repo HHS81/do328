@@ -783,6 +783,7 @@ V1 --> Vr --> Rotate to 8deg --> @50ft Rotate to 15deg -->Climb @V2 + 15ktn --> 
          <file>Aircraft/do328/Models/Instruments/MFD/nd.nas</file>
          <file>Aircraft/do328/Models/Instruments/MFD/mfd1.nas</file>
          <file>Aircraft/do328/Models/Instruments/MFD/mfd2.nas</file>
+         <file>Aircraft/do328/Models/Instruments/PFD/pfd.nas</file>
       </efis>
       <rmu>
          <file>Aircraft/do328/Models/Instruments/RMU/RMU1.nas</file>
