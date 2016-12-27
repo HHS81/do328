@@ -24,9 +24,9 @@ var canvas_PFD = {
 				return "honeywellfont.ttf";
 		};
 		
-		canvas.parsesvg(pfd, "Aircraft/do328/Models/Instruments/PFD/pfd.svg", {'font-mapper': font_mapper});
+		canvas.parsesvg(pfd, "Aircraft/do328/Models/Instruments/EFIS/pfd.svg", {'font-mapper': font_mapper});
 		
-		var svg_keys = ["altTape","altText","altMeters","atMode","bankPointer","baroSet","compass","curAlt1","curAlt2","curAlt3","curAltBox","curSpd","curSpdTen","fdX","fdY","gpwsAlert","gsPtr","gsScale","horizon","locPtr","locScale","machText","markerBeacon","markerBeaconText","maxSpdInd","minSpdInd","pitchMode","rollMode","selHdgText","spdTape","spdTrend","speedText","tenThousand","v1","v2","vertSpd","vr","vref","vsiNeedle"];
+		var svg_keys = ["altTape","altText","altMeters","bankPointer","baroSet","compass","curAlt1","curAlt2","curAlt3","curAltBox","curSpd","curSpdTen","fdX","fdY","gpwsAlert","ground","gsPtr","gsScale","horizon","locPtr","locScale","machText","markerBeacon","markerBeaconText","maxSpdInd","minSpdInd","pitchMode","rollMode","selHdgText","spdTape","spdTrend","speedText","tenThousand","v1","v2","vertSpd","vr","vref","vsiNeedle"];
 		foreach(var key; svg_keys) {
 			m[key] = pfd.getElementById(key);
 		}
@@ -44,11 +44,17 @@ var canvas_PFD = {
 		m["maxSpdInd"].set("clip", "rect(156, 1024, 829, 0)");
 		m["spdTape"].set("clip", "rect(110, 800, 510, 0)");
 		m["altTape"].set("clip", "rect(110, 800, 510, 0)");
-		m["vsiNeedle"].set("clip", "rect(633, 791, 917, 678)");
+		m["vsiNeedle"].set("clip", "rect(633, 750, 917, 648)");
 		m["compass"].set("clip", "rect(0, 800, 900, 0)");
 		m["curAlt3"].set("clip", "rect(270, 800, 330, 0)");
 		m["curSpdTen"].set("clip", "rect(263, 800, 355, 0)");
 		
+		var center = m["ground"].getCenter();
+		m["ground"].createTransform().setTranslation(-center[0], -center[1]);
+		m["ground_scale"] = m["ground"].createTransform();
+		m["ground"].createTransform().setTranslation(center[0], center[1]);
+		m["ground_scale"].setScale(1,0);
+
 		setlistener("autopilot/locks/passive-mode",            func { m.update_ap_modes() } );
 		setlistener("autopilot/locks/altitude",                func { m.update_ap_modes() } );
 		setlistener("autopilot/locks/heading",                 func { m.update_ap_modes() } );
@@ -60,12 +66,22 @@ var canvas_PFD = {
 	update: func()
 	{
 		var radioAlt = getprop("instrumentation/radar-altimeter/radar-altitude-ft") or 0;
+		if(radioAlt > 460) {
+			me.ground_scale.setScale(1,0);
+		} else {
+			me.ground_scale.setScale(1,1-(radioAlt/460));
+		}
+
 		var alt = getprop("instrumentation/altimeter/indicated-altitude-ft");
-		if (alt < 0)
+		if (alt < 0) {
 			alt = 0;
+		}
+
 		var ias = getprop("velocities/airspeed-kt");
-		if (ias < 30)
+		if(ias < 30) {
 			ias = 30;
+		}
+
 		var pitch = getprop("orientation/pitch-deg");
 		var roll =  getprop("orientation/roll-deg");
 		var hdg =  getprop("orientation/heading-deg");
@@ -169,8 +185,9 @@ var canvas_PFD = {
 		me["spdTape"].setTranslation(0,ias*5.93);
 		me["altTape"].setTranslation(0,alt*0.45);
 		
-		if(var vsiDeg = getprop("instrumentation/pfd/vsi-needle-deg") != nil)
+		if(var vsiDeg = getprop("instrumentation/pfd/vsi-needle-deg") != nil) {
 			me["vsiNeedle"].setRotation(vsiDeg*D2R);
+		}
 		
 		me.frameCounter = me.frameCounter + 1;
 		if(me.frameCounter > 3) {
@@ -182,33 +199,27 @@ var canvas_PFD = {
 	update_ap_modes: func()
 	{
 		# Modes
-		var apSpd = getprop("/autopilot/locks/speed");
-		if (apSpd == "speed-with-throttle")
-			me["atMode"].setText("SPD");
-		elsif (apSpd ==  "speed-with-pitch-trim")
-			me["atMode"].setText("THR");
-		else
-			me["atMode"].setText("");
 		var apRoll = getprop("/autopilot/locks/heading");
 		if (apRoll == "wing-leveler")
-			me["rollMode"].setText("HDG HOLD");
+			me["rollMode"].setText("ROLL");
 		elsif (apRoll ==  "dg-heading-hold")
-			me["rollMode"].setText("HDG SEL");
+			me["rollMode"].setText("HDG");
 		elsif (apRoll ==  "nav1-hold")
-			me["rollMode"].setText("LNAV");
+			me["rollMode"].setText("NAV");
 		else
-			me["rollMode"].setText("");
+			me["rollMode"].setText("ROLL");
+
 		var apPitch = getprop("/autopilot/locks/altitude");
 		if (apPitch == "vertical-speed-hold") {
-			me["pitchMode"].setText("V/S");
+			me["pitchMode"].setText("VS");
 		} elsif (apPitch ==  "altitude-hold")
 			me["pitchMode"].setText("ALT");
 		elsif (apPitch ==  "gs1-hold")
-			me["pitchMode"].setText("G/S");
+			me["pitchMode"].setText("GS");
 		elsif (apPitch ==  "speed-with-pitch-trim")
-			me["pitchMode"].setText("FLCH SPD");
+			me["pitchMode"].setText("FLC");
 		else
-			me["pitchMode"].setText("");
+			me["pitchMode"].setText("PTCH");
 	},
 	update_slow: func()
 	{
@@ -218,33 +229,25 @@ var canvas_PFD = {
 		var apSpd = getprop("autopilot/settings/target-speed-kt");
 		var dh = getprop("instrumentation/mk-viii/inputs/arinc429/decision-height");
 		
-		var v1 = getprop("instrumentation/fmc/speeds/v1-kt") or 0;
-		if (v1 > 0) {
-			if (wow) {
-				me["v1"].show();
-				me["v1"].setTranslation(0,-getprop("instrumentation/fmc/speeds/v1-kt")*5.63915);
-				me["vr"].show();
-				me["vr"].setTranslation(0,-getprop("instrumentation/fmc/speeds/vr-kt")*5.63915);
-			} else {
-				me["v1"].hide();
-				me["vr"].hide();
-			}
-			me["v2"].setTranslation(0,-getprop("instrumentation/fmc/speeds/v2-kt")*5.63915);
+		if(getprop("instrumentation/fmc/phase-name") == "TO") {
+			me["v1"].show();
+			me["vr"].show();
+			me["v2"].show();
+			me["v1"].setTranslation(0,-getprop("instrumentation/fmc/vspeeds/V1")*5.63915);
+			me["vr"].setTranslation(0,-getprop("instrumentation/fmc/vspeeds/VR")*5.63915);
+			me["v2"].setTranslation(0,-getprop("instrumentation/fmc/vspeeds/V2")*5.63915);
 		} else {
 			me["v1"].hide();
 			me["vr"].hide();
+			me["v2"].hide();
 		}
-
 		
-		if (getprop("instrumentation/fmc/phase-name") == "APPROACH") {
-			if (flaps == 1)
-				var vref = getprop("instrumentation/pfd/flaps-30-kt");
-			else
-				var vref = getprop("instrumentation/pfd/flaps-25-kt");
+		if(getprop("instrumentation/fmc/phase-name") == "LANDG") {
 			me["vref"].show();
-			me["vref"].setTranslation(0,-vref*5.63915);
-		} else
+			me["vref"].setTranslation(0,-getprop("instrumentation/fmc/vspeeds/Vref")*5.63915);
+		} else {
 			me["vref"].hide();
+		}
 		
 		if (getprop("instrumentation/weu/state/stall-speed") != nil)
 			me["minSpdInd"].setTranslation(0,-getprop("instrumentation/weu/state/stall-speed")*5.63915);
@@ -269,7 +272,7 @@ setlistener("sim/signals/fdm-initialized", func() {
 
 	pfd1_display = canvas.new({
 		"name": "PFD1",
-		"size": [1024, 1024],
+		"size": [512, 512],
 		"view": [800, 950],
 		"mipmapping": 1
 	});

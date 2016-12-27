@@ -11,7 +11,7 @@ var canvas_fuel = {
 			}
 		};
 		
-		canvas.parsesvg(canvasGroup, "Aircraft/do328/Models/Instruments/EICAS/fuelProp.svg", {'font-mapper': font_mapper});
+		canvas.parsesvg(canvasGroup, "Aircraft/do328/Models/Instruments/EFIS/fuelProp.svg", {'font-mapper': font_mapper});
 		
 		var svg_keys = ["indicator_t1","indicator_t2","indicator_t3",
 				"indicator_t4","indicator_t5","indicator_t6",

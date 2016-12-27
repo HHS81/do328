@@ -11,7 +11,7 @@ var canvas_flightctrl = {
 			}
 		};
 		
-		canvas.parsesvg(canvasGroup, "Aircraft/do328/Models/Instruments/EICAS/flightctrl.svg", {'font-mapper': font_mapper});
+		canvas.parsesvg(canvasGroup, "Aircraft/do328/Models/Instruments/EFIS/flightctrl.svg", {'font-mapper': font_mapper});
 		
 		var svg_keys = ["indicator_elev1","indicator_elev2",
 				"indicator_rud",

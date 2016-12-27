@@ -11,7 +11,7 @@ var canvas_eicas = {
 			}
 		};
 		
-		canvas.parsesvg(canvasGroup, "Aircraft/do328/Models/Instruments/EICAS/eicasJet.svg", {'font-mapper': font_mapper});
+		canvas.parsesvg(canvasGroup, "Aircraft/do328/Models/Instruments/EFIS/eicasJet.svg", {'font-mapper': font_mapper});
 
 		var svg_keys = ["msgMemo","msgWarning","msgCaution","msgAdvisory",
 				"readout_n1_1","readout_n1_2","dial_n1_1","dial_n1_2",

@@ -24,6 +24,9 @@ var mfd2ActivatePage = func(input = -1) {
 # input: 0=back, 1=sk1...5=sk5
 var mfd2BtClick = func(input = -1) {
 
+	if(getprop("systems/electrical/outputs/efis") < 1) {
+		return;
+	}
 	if(input == 0) {
 		# back button pressed
 		# go back to main menu
@@ -105,7 +108,7 @@ setlistener("/nasal/canvas/loaded", func {
 	mfd2Canvas = canvas.new({
 		"name": "EICAS",
 		"size": [512, 512],
-		"view": [567, 673],
+		"view": [800, 950],
 		"mipmapping": 1
 	});
 	mfd2Canvas.addPlacement({"node": "MFD2_Screen"});

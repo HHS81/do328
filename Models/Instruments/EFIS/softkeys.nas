@@ -10,7 +10,7 @@ var canvas_softkeys = {
 			}
 		};
 		
-		canvas.parsesvg(canvasGroup, "Aircraft/do328/Models/Instruments/EICAS/softkeys.svg", {'font-mapper': font_mapper});
+		canvas.parsesvg(canvasGroup, "Aircraft/do328/Models/Instruments/EFIS/softkeys.svg", {'font-mapper': font_mapper});
 
 		var svg_keys = ["title","sk1","sk2","sk3","sk4","sk5","knob","frame1","frame2","frame3","frame4","frame5"];
 		foreach(var key; svg_keys) {

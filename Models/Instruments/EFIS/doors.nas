@@ -10,7 +10,7 @@ var canvas_doors = {
 			}
 		};
 		
-		canvas.parsesvg(canvasGroup, "Aircraft/do328/Models/Instruments/EICAS/doors.svg", {'font-mapper': font_mapper});
+		canvas.parsesvg(canvasGroup, "Aircraft/do328/Models/Instruments/EFIS/doors.svg", {'font-mapper': font_mapper});
 		m["group"] = canvasGroup;
 
 		return m;

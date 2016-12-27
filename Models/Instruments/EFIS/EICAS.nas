@@ -31,6 +31,9 @@ var eicasActivatePage = func(input = -1) {
 # input: 0=back, 1=sk1...5=sk5
 var eicasBtClick = func(input = -1) {
 
+	if(getprop("systems/electrical/outputs/efis") < 1) {
+		return;
+	}
 	if(input == 0) {
 		# back button pressed
 		if(eicasActiveSoftkeys > 4) {
@@ -110,6 +113,10 @@ var eicasBtClick = func(input = -1) {
 			# "REF DATA" page
 			if(input == 1) {
 				# activate "T/O"
+				setprop("instrumentation/fmc/phase-name", "TO");
+				eicasSoftkeys[5][2] = sprintf("V1\n%3.0f",getprop("/instrumentation/fmc/vspeeds/V1"));
+				eicasSoftkeys[5][3] = sprintf("VR\n%3.0f",getprop("/instrumentation/fmc/vspeeds/VR"));
+				eicasSoftkeys[5][4] = sprintf("V2\n%3.0f",getprop("/instrumentation/fmc/vspeeds/V2"));
 				eicasSkInstance.setSoftkeys(eicasSoftkeys[5]);
 				eicasSkInstance.drawFrames([1,1,1,1,0]);
 				eicasActiveSoftkeys = 5;
@@ -131,6 +138,8 @@ var eicasBtClick = func(input = -1) {
 			}
 			else if(input == 4) {
 				# activate "LANDG"
+				setprop("instrumentation/fmc/phase-name", "LANDG");
+				eicasSoftkeys[8][3] = sprintf("VREF\n%3.0f",getprop("/instrumentation/fmc/vspeeds/Vref"));
 				eicasSkInstance.setSoftkeys(eicasSoftkeys[8]);
 				eicasSkInstance.drawFrames([1,1,1,1,0]);
 				eicasActiveSoftkeys = 8;
@@ -156,7 +165,7 @@ setlistener("/nasal/canvas/loaded", func {
 	eicasCanvas = canvas.new({
 		"name": "EICAS",
 		"size": [512, 512],
-		"view": [567, 673],
+		"view": [800, 950],
 		"mipmapping": 1
 	});
 	eicasCanvas.addPlacement({"node": "EICAS_Screen"});

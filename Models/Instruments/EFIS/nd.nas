@@ -46,7 +46,7 @@ var canvas_nd = {
 			}
 		};
 
-		canvas.parsesvg(canvasGroup, "Aircraft/do328/Models/Instruments/MFD/nd.svg", {'font-mapper': font_mapper});
+		canvas.parsesvg(canvasGroup, "Aircraft/do328/Models/Instruments/EFIS/nd.svg", {'font-mapper': font_mapper});
 
 		var svg_keys = ["compass","hdg"];
 		foreach(var key; svg_keys) {
@@ -55,7 +55,7 @@ var canvas_nd = {
 
 		### NavDisplay ###
 		m.map.setRange(20);
-		m.map.setTranslation(283,310);
+		m.map.setTranslation(400,440);
 		m.map.setPos(lat.getValue(),lon.getValue(),hdg.getValue());
 		m.map.setController(do328_controller);
 
