@@ -4,7 +4,7 @@
 <path>Flightdeck11.ac</path>
 
 <animation>
-  <type>material</type>
+  <type>select</type>
   <object-name>PFD1_Screen</object-name>
   <object-name>PFD2_Screen</object-name>
   <object-name>MFD1_Screen</object-name>
@@ -16,16 +16,6 @@
      <value>1</value>
    </greater-than>
   </condition>
-  <ambient>
-    <red>   1.0 </red>
-    <green> 1.0 </green>
-    <blue>  1.0 </blue>
-  </ambient>
-  <emission>
-    <red>   1.0 </red>
-    <green> 1.0 </green>
-    <blue>  1.0 </blue>
-  </emission>
 </animation>
 
 <animation>
@@ -681,7 +671,7 @@
     
     <model>
         <name>RMU1</name>
-        <path>Aircraft/do328/Models/Instruments/RMU/RMU1.xml</path>
+        <path>Aircraft/do328/Models/Instruments/RMU/RMU.xml</path>
         <offsets>
             <x-m>-8.666</x-m>
             <y-m>-0.143</y-m>
@@ -692,7 +682,7 @@
     
     <model>
         <name>RMU2</name>
-        <path>Aircraft/do328/Models/Instruments/RMU/RMU2.xml</path>
+        <path>Aircraft/do328/Models/Instruments/RMU/RMU.xml</path>
         <offsets>
             <x-m>-8.666</x-m>
             <y-m>0.143</y-m>

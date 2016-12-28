@@ -5,42 +5,16 @@
 
 <path>rmu.ac</path>
 
-    <animation>
-        <type>material</type>
-        <object-name>RMU.sq</object-name>
-        <object-name>RMU.dim</object-name>
-        <object-name>RMU.half</object-name>
-        <object-name>RMU.sto</object-name>
-        <object-name>RMU.id</object-name>
-        <object-name>RMU.dim</object-name>
-        <object-name>RMU.pge</object-name>
-        <object-name>RMU.tst</object-name>
-        <object-name>RMU.dme</object-name>
-        <object-name>RMU.swp1</object-name>
-        <object-name>RMU.swp2</object-name>
-        <object-name>RMU.comm</object-name>
-        <object-name>RMU.atc</object-name>
-        <object-name>RMU.btn1</object-name>
-        <object-name>RMU.btn2</object-name>
-        <object-name>RMU.btn3</object-name>
-        <object-name>RMU.btn4</object-name>
-        <object-name>RMU.btn5</object-name>
-        <object-name>RMU.btn6</object-name>
-        <object-name>RMU.nav</object-name>
-        <object-name>RMU.adf</object-name>
-        <condition>
-						<or>
-	           	<property>systems/electrical/left-emer-bus</property>
-	           	<property>systems/electrical/left-bus-norm</property>
-						</or>
-        </condition>
-        <emission>
-            <red>1</red>
-            <green>1</green>
-            <blue>1</blue>
-            <factor-prop>controls/lighting/rmu</factor-prop>
-        </emission>
-    </animation>
+<animation>
+  <type>select</type>
+  <object-name>RMU.screen</object-name>
+  <condition>
+   <greater-than>
+     <property>systems/electrical/outputs/efis</property>
+     <value>1</value>
+   </greater-than>
+  </condition>
+</animation>
 
     <animation>
         <type>select</type>

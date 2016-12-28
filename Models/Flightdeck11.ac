@@ -4,13 +4,13 @@ MATERIAL "WhiteInterior" rgb 1.0000 1.0000 1.0000  amb 1.0000 1.0000 1.0000  emi
 MATERIAL "BlkMetal_CLOCK" rgb 0.0500 0.0500 0.0500  amb 0.5000 0.5000 0.5000  emis 0.0000 0.0000 0.0000  spec 0.7642 0.7642 0.7642  shi 32 trans 0.0000
 MATERIAL "DefaultWhite.001" rgb 1.0000 1.0000 1.0000  amb 1.0000 1.0000 1.0000  emis 0.0000 0.0000 0.0000  spec 0.5000 0.5000 0.5000  shi 64 trans 0.0000
 MATERIAL "dark" rgb 0.8000 0.8000 0.8000  amb 0.5000 0.5000 0.5000  emis 0.0000 0.0000 0.0000  spec 0.0123 0.0123 0.0123  shi 32 trans 0.0000
-MATERIAL "Screens" rgb 1.0000 1.0000 1.0000  amb 0.0000 0.0000 0.0000  emis 0.0000 0.0000 0.0000  spec 0.0000 0.0000 0.0000  shi 32 trans 0.0000
+MATERIAL "Screens" rgb 1.0000 1.0000 1.0000  amb 1.0000 1.0000 1.0000  emis 1.0000 1.0000 1.0000  spec 0.0000 0.0000 0.0000  shi 32 trans 0.0000
 MATERIAL "full-illum_interior.p" rgb 0.8000 0.8000 0.8000  amb 0.5000 0.5000 0.5000  emis 0.0000 0.0000 0.0000  spec 0.0000 0.0000 0.0000  shi 32 trans 0.0000
 MATERIAL "BlkMetal" rgb 0.0000 0.0000 0.0000  amb 0.0000 0.0000 0.0000  emis 0.0000 0.0000 0.0000  spec 0.7642 0.7642 0.7642  shi 32 trans 0.0000
 MATERIAL "darkerBlue" rgb 1.0000 1.0000 1.0000  amb 0.5000 0.5000 0.5000  emis 0.0000 0.0000 0.0000  spec 0.2800 0.2800 0.2800  shi 32 trans 0.0000
 OBJECT world
 name "Blender_export__Flightdeck11.ac"
-kids 149
+kids 154
 OBJECT poly
 name "APPanel"
 crease 80.0
@@ -33495,6 +33495,7 @@ refs 4
 kids 0
 OBJECT poly
 name "EICAS_Screen"
+loc 0.0010000 0.0000000 0.0000000
 crease 35.0
 texture "MainPanel.png"
 texrep 1 1
@@ -33511,6 +33512,25 @@ refs 4
 1 0.000000 0.000000
 3 1.000000 0.000000
 2 1.000000 1.000000
+kids 0
+OBJECT poly
+name "EICAS_Screen_Off"
+crease 35.0
+texture "MainPanel.png"
+texrep 1 1
+numvert 4
+-8.8544273 2.0174110 0.0739230
+-8.8303833 1.8289390 0.0739230
+-8.8544273 2.0174110 -0.0860770
+-8.8303833 1.8289390 -0.0860770
+numsurf 1
+SURF 0X0
+mat 5
+refs 4
+0 0.108212 0.722816
+1 0.108212 0.676147
+3 0.146729 0.676147
+2 0.146729 0.722816
 kids 0
 OBJECT poly
 name "FD.alt"
@@ -62146,6 +62166,7 @@ refs 4
 kids 0
 OBJECT poly
 name "MFD1_Screen"
+loc 0.0010000 0.0000000 0.0000000
 crease 35.0
 texture "MainPanel.png"
 texrep 1 1
@@ -62162,6 +62183,25 @@ refs 4
 1 0.000000 0.000000
 3 1.000000 0.000000
 2 1.000000 1.000000
+kids 0
+OBJECT poly
+name "MFD1_Screen_Off"
+crease 35.0
+texture "MainPanel.png"
+texrep 1 1
+numvert 4
+-8.8544273 2.0174110 0.3639380
+-8.8303833 1.8289390 0.3639380
+-8.8544273 2.0174110 0.2039380
+-8.8303833 1.8289390 0.2039380
+numsurf 1
+SURF 0X0
+mat 5
+refs 4
+0 0.063987 0.722785
+1 0.063987 0.676386
+3 0.101671 0.676386
+2 0.101671 0.722785
 kids 0
 OBJECT poly
 name "MFD2_BT1"
@@ -64714,6 +64754,7 @@ refs 4
 kids 0
 OBJECT poly
 name "MFD2_Screen"
+loc 0.0010000 0.0000000 0.0000000
 crease 35.0
 texture "MainPanel.png"
 texrep 1 1
@@ -64730,6 +64771,25 @@ refs 4
 1 0.000000 0.000000
 3 1.000000 0.000000
 2 1.000000 1.000000
+kids 0
+OBJECT poly
+name "MFD2_Screen_Off"
+crease 35.0
+texture "MainPanel.png"
+texrep 1 1
+numvert 4
+-8.8544273 2.0174110 -0.2150860
+-8.8303833 1.8289390 -0.2150860
+-8.8544273 2.0174110 -0.3750860
+-8.8303833 1.8289390 -0.3750860
+numsurf 1
+SURF 0X0
+mat 5
+refs 4
+0 0.101812 0.722814
+1 0.101812 0.676109
+3 0.063881 0.676109
+2 0.063881 0.722814
 kids 0
 OBJECT poly
 name "Panel.002_Plane.003"
@@ -65715,6 +65775,7 @@ refs 4
 kids 0
 OBJECT poly
 name "PFD1_Screen"
+loc 0.0010000 0.0000000 0.0000000
 crease 35.0
 texture "MainPanel.png"
 texrep 1 1
@@ -65731,6 +65792,25 @@ refs 4
 1 0.000000 0.000000
 3 1.000000 0.000000
 2 1.000000 1.000000
+kids 0
+OBJECT poly
+name "PFD1_Screen_Off"
+crease 35.0
+texture "MainPanel.png"
+texrep 1 1
+numvert 4
+-8.8544273 2.0174110 0.5672001
+-8.8303833 1.8289390 0.5672001
+-8.8544273 2.0174110 0.4072000
+-8.8303833 1.8289390 0.4072000
+numsurf 1
+SURF 0X0
+mat 5
+refs 4
+0 0.019059 0.722910
+1 0.019059 0.676686
+3 0.063126 0.676686
+2 0.063126 0.722910
 kids 0
 OBJECT poly
 name "PFD2_Frame"
@@ -66538,6 +66618,7 @@ refs 4
 kids 0
 OBJECT poly
 name "PFD2_Screen"
+loc 0.0010000 0.0000000 0.0000000
 crease 35.0
 texture "MainPanel.png"
 texrep 1 1
@@ -66554,6 +66635,25 @@ refs 4
 1 0.000000 0.000000
 3 1.000000 0.000000
 2 1.000000 1.000000
+kids 0
+OBJECT poly
+name "PFD2_Screen_Off"
+crease 35.0
+texture "MainPanel.png"
+texrep 1 1
+numvert 4
+-8.8544273 2.0174110 -0.4205000
+-8.8303833 1.8289390 -0.4205000
+-8.8544273 2.0174110 -0.5804999
+-8.8303833 1.8289390 -0.5804999
+numsurf 1
+SURF 0X0
+mat 5
+refs 4
+0 0.065990 0.722980
+1 0.065990 0.676207
+3 0.018682 0.676207
+2 0.018682 0.722980
 kids 0
 OBJECT poly
 name "Plane"

@@ -62,13 +62,17 @@ var RMU1_canvas = {
 		var obj = {parents:[RMU1_canvas]};
 		obj.canvas = canvas.new({
 			"name": "RMU1", 
-			"size": [1024, 1024],
-			"view": [800, 1024],
+			"size": [512, 512],
+			"view": [700, 1000],
 			"mipmapping": 1 
 		});
-		obj.canvas.addPlacement({"node": "RMU.screenL"});
+		var font_mapper = func(family, weight)
+		{
+			return "honeywellfont.ttf";
+		};
+		obj.canvas.addPlacement({"node": "RMU.screen"});
 		obj.mfd1 = obj.canvas.createGroup();
-		canvas.parsesvg(obj.mfd1, "Aircraft/do328/Models/Instruments/RMU/RMU.svg");
+		canvas.parsesvg(obj.mfd1, "Aircraft/do328/Models/Instruments/RMU/RMU.svg", {'font-mapper': font_mapper});
 
 		obj.text = {};
 		obj.text_val = ["comFreq","navFreq","comStby", "navStby",
