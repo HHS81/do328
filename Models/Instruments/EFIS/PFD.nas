@@ -9,9 +9,6 @@ var roundToNearest = func(n, m) {
 	return x;
 }
 
-var pfd1_canvas = nil;
-var pfd1_display = nil;
-
 var canvas_PFD = {
 	new: func(canvas_group)
 	{
@@ -26,7 +23,7 @@ var canvas_PFD = {
 		
 		canvas.parsesvg(pfd, "Aircraft/do328/Models/Instruments/EFIS/pfd.svg", {'font-mapper': font_mapper});
 		
-		var svg_keys = ["altTape","altText","altMeters","bankPointer","baroSet","compass","curAlt1","curAlt2","curAlt3","curAltBox","curSpd","curSpdTen","fdX","fdY","gpwsAlert","ground","gsPtr","gsScale","horizon","locPtr","locScale","machText","markerBeacon","markerBeaconText","maxSpdInd","minSpdInd","pitchMode","rollMode","selHdgText","spdTape","spdTrend","speedText","tenThousand","v1","v2","vertSpd","vr","vref","vsiNeedle"];
+		var svg_keys = ["altTape","altText","altMeters","bankPointer","baroSet","circNeedle","compass","curAlt1","curAlt2","curAlt3","curAltBox","curSpd","curSpdTen","fdX","fdY","gpwsAlert","ground","gsPtr","gsScale","horizon","locPtr","locScale","machText","markerBeacon","markerBeaconText","maxSpdInd","minSpdInd","pitchMode","rollMode","selHdgText","spdTape","spdTrend","speedText","tenThousand","v1","v2","vertSpd","vr","vref","vsiNeedle"];
 		foreach(var key; svg_keys) {
 			m[key] = pfd.getElementById(key);
 		}
@@ -98,20 +95,20 @@ var canvas_PFD = {
 		me["compass"].setRotation(-hdg*D2R);
 			
 		# Flight director
-		if (getprop("autopilot/locks/passive-mode") == 1) {
+		if(getprop("autopilot/locks/passive-mode") == 1) {
 			if (getprop("autopilot/internal/target-roll-deg") != nil) {
 				var fdRoll = (roll-getprop("/autopilot/internal/target-roll-deg"))*10.5;
 				if (fdRoll > 200)
 					fdRoll = 200;
 				elsif (fdRoll < -200)
 					fdRoll = -200;
-				me["fdX"].setTranslation(-fdRoll,0);
+				me.fdX.setTranslation(-fdRoll,0);
 			}
-			me["fdX"].show();
-			#fdY.show();
+			me.fdX.show();
+			me.fdY.show();
 		} else {
-			me["fdX"].hide();
-			me["fdY"].hide();
+			me.fdX.hide();
+			me.fdY.hide();
 		}
 		
 		me["machText"].setText(sprintf("%.2f",getprop("velocities/mach")));
@@ -122,7 +119,7 @@ var canvas_PFD = {
 		me["curAlt2"].setText(sprintf("%1.0f",math.mod(math.floor(alt/100),10)));
 		me["curAlt3"].setTranslation(0,(math.mod(alt,100)/20)*26);
 		me["curSpd"].setText(sprintf("%2.0f",math.floor(ias/10)));
-		me["curSpdTen"].setTranslation(0,math.mod(ias,10)*32);
+		me["curSpdTen"].setTranslation(0,math.mod(ias,10)*32.4);
 		
 		if (getprop("instrumentation/marker-beacon/outer")) {
 			me["markerBeacon"].show();
@@ -136,8 +133,9 @@ var canvas_PFD = {
 		} else {
 			me["markerBeacon"].hide();
 		}
-		
-		if(getprop("instrumentation/nav/signal-quality-norm") or 0 > 0.95) {
+
+		var quality = getprop("instrumentation/nav/signal-quality-norm") or 0;
+		if(quality > 0.95) {
 			var deflection = getprop("instrumentation/nav/heading-needle-deflection-norm"); # 1 dot = 1 degree, full needle deflection is 10 deg
 			if (deflection > 0.3)
 				deflection = 0.3;
@@ -145,17 +143,12 @@ var canvas_PFD = {
 				deflection = -0.3;
 				
 			me["locPtr"].show();
+			me["locScale"].show();
 			
-			if(abs(deflection) < 0.233) # 2 1/3 dot
-				me["locPtr"].setColorFill(0,1,0,1);
-			else
-				me["locPtr"].setColorFill(0,1,0,0);
 			if(abs(deflection) < 0.1) {
 				me["locPtr"].setTranslation(deflection*500,0);
-				me["locScale"].hide();
 			} else {
 				me["locPtr"].setTranslation(deflection*250,0);
-				me["locScale"].show();
 			}
 		} else {
 			me["locPtr"].hide();
@@ -176,25 +169,30 @@ var canvas_PFD = {
 		else 
 			me["tenThousand"].hide();
 		if (vSpd != nil) {
-			var vertSpd = vSpd*60;
-			me["vertSpd"].setText(sprintf("%4.0f",roundToNearest(vertSpd,50)));
-			if (getprop("instrumentation/pfd/target-vs") != nil)
-				me["vsPointer"].setTranslation(0,-getprop("instrumentation/pfd/target-vs"));
+			vSpd = vSpd * 60;
+			var vsiDeg = vSpd*0.014;
+			if(vSpd > 1000) {
+				var vsiDeg = vSpd*0.00775+7.33;
+			}
+			if(vSpd < -1000) {
+				var vsiDeg = vSpd*0.00775-7.33;
+			}
+			me["vertSpd"].setText(sprintf("%4.0f",roundToNearest(vSpd,50)));
+			me["vsiNeedle"].setRotation(vsiDeg * D2R);
 		}
-		
+
+		if (getprop("instrumentation/pfd/speed-trend-up") != nil)
+			me["spdTrend_scale"].setScale(1, (getprop("instrumentation/pfd/speed-lookahead")-ias)/20);
+
 		me["spdTape"].setTranslation(0,ias*5.93);
 		me["altTape"].setTranslation(0,alt*0.45);
-		
-		if(var vsiDeg = getprop("instrumentation/pfd/vsi-needle-deg") != nil) {
-			me["vsiNeedle"].setRotation(vsiDeg*D2R);
-		}
-		
+
 		me.frameCounter = me.frameCounter + 1;
 		if(me.frameCounter > 3) {
 			me.frameCounter = 0;
 			me.update_slow();
 		}
-		settimer(func me.update(), 0.15);
+		settimer(func me.update(), 0.1);
 	},
 	update_ap_modes: func()
 	{
@@ -233,9 +231,9 @@ var canvas_PFD = {
 			me["v1"].show();
 			me["vr"].show();
 			me["v2"].show();
-			me["v1"].setTranslation(0,-getprop("instrumentation/fmc/vspeeds/V1")*5.63915);
-			me["vr"].setTranslation(0,-getprop("instrumentation/fmc/vspeeds/VR")*5.63915);
-			me["v2"].setTranslation(0,-getprop("instrumentation/fmc/vspeeds/V2")*5.63915);
+			me["v1"].setTranslation(0,-getprop("instrumentation/fmc/vspeeds/V1")*5.93);
+			me["vr"].setTranslation(0,-getprop("instrumentation/fmc/vspeeds/VR")*5.93);
+			me["v2"].setTranslation(0,-getprop("instrumentation/fmc/vspeeds/V2")*5.93);
 		} else {
 			me["v1"].hide();
 			me["vr"].hide();
@@ -244,15 +242,15 @@ var canvas_PFD = {
 		
 		if(getprop("instrumentation/fmc/phase-name") == "LANDG") {
 			me["vref"].show();
-			me["vref"].setTranslation(0,-getprop("instrumentation/fmc/vspeeds/Vref")*5.63915);
+			me["vref"].setTranslation(0,-getprop("instrumentation/fmc/vspeeds/Vref")*5.93);
 		} else {
 			me["vref"].hide();
 		}
 		
 		if (getprop("instrumentation/weu/state/stall-speed") != nil)
-			me["minSpdInd"].setTranslation(0,-getprop("instrumentation/weu/state/stall-speed")*5.63915);
+			me["minSpdInd"].setTranslation(0,-getprop("instrumentation/weu/state/stall-speed")*5.93);
 		if (getprop("instrumentation/pfd/overspeed-kt") != nil)
-			me["maxSpdInd"].setTranslation(0,-getprop("instrumentation/pfd/overspeed-kt")*5.63915);
+			me["maxSpdInd"].setTranslation(0,-getprop("instrumentation/pfd/overspeed-kt")*5.93);
 		
 		if(wow) {
 			me["minSpdInd"].hide();
@@ -270,7 +268,7 @@ var canvas_PFD = {
 setlistener("sim/signals/fdm-initialized", func() {
 	var group = {};
 
-	pfd1_display = canvas.new({
+	var pfd1_display = canvas.new({
 		"name": "PFD1",
 		"size": [512, 512],
 		"view": [800, 950],
@@ -278,10 +276,10 @@ setlistener("sim/signals/fdm-initialized", func() {
 	});
 	pfd1_display.addPlacement({"node": "PFD1_Screen"});
 	group = pfd1_display.createGroup();
-	pfd1_canvas = canvas_PFD.new(group);
+	var pfd1_canvas = canvas_PFD.new(group);
 	pfd1_canvas.update();
 
-	pfd2_display = canvas.new({
+	var pfd2_display = canvas.new({
 		"name": "PFD2",
 		"size": [1024, 1024],
 		"view": [800, 950],
@@ -289,7 +287,7 @@ setlistener("sim/signals/fdm-initialized", func() {
 	});
 	pfd2_display.addPlacement({"node": "PFD2_Screen"});
 	group = pfd2_display.createGroup();
-	pfd2_canvas = canvas_PFD.new(group);
+	var pfd2_canvas = canvas_PFD.new(group);
 	pfd2_canvas.update();
 });
 
