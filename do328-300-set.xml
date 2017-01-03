@@ -706,21 +706,24 @@ Started by Heiko Schulz
          <file>Aircraft/do328/Nasal/jetsystems.nas</file>
      <!--<file>Aircraft/do328/Nasal/lightmap.nas</file>-->
          <file>Aircraft/do328/Nasal/Autostart.nas</file>
+     <!--<file>Aircraft/do328/Nasal/pressurization.nas</file>-->
+	<file>Aircraft/do328/Nasal/vspeeds.nas</file>
       </systems>
       <efis>
-         <file>Aircraft/do328/Models/Instruments/EICAS/softkeys.nas</file>
-         <file>Aircraft/do328/Models/Instruments/EICAS/eicasJet.nas</file>
-         <file>Aircraft/do328/Models/Instruments/EICAS/flightctrl.nas</file>
-         <file>Aircraft/do328/Models/Instruments/EICAS/doors.nas</file>
-         <file>Aircraft/do328/Models/Instruments/EICAS/fuelJet.nas</file>
-         <file>Aircraft/do328/Models/Instruments/EICAS/apuJet.nas</file>
-         <file>Aircraft/do328/Models/Instruments/EICAS/eicas.nas</file>
-         <file>Aircraft/do328/Models/Instruments/MFD/nd.nas</file>
-         <file>Aircraft/do328/Models/Instruments/MFD/mfd1.nas</file>
-         <file>Aircraft/do328/Models/Instruments/MFD/mfd2.nas</file>
+         <file>Aircraft/do328/Models/Instruments/EFIS/PFD.nas</file>
+         <file>Aircraft/do328/Models/Instruments/EFIS/softkeys.nas</file>
+         <file>Aircraft/do328/Models/Instruments/EFIS/eicasJet.nas</file>
+         <file>Aircraft/do328/Models/Instruments/EFIS/flightctrl.nas</file>
+         <file>Aircraft/do328/Models/Instruments/EFIS/doors.nas</file>
+         <file>Aircraft/do328/Models/Instruments/EFIS/fuelJet.nas</file>
+         <file>Aircraft/do328/Models/Instruments/EFIS/apuJet.nas</file>
+         <file>Aircraft/do328/Models/Instruments/EFIS/EICAS.nas</file>
+         <file>Aircraft/do328/Models/Instruments/EFIS/nd.nas</file>
+         <file>Aircraft/do328/Models/Instruments/EFIS/MFD1.nas</file>
+         <file>Aircraft/do328/Models/Instruments/EFIS/MFD2.nas</file>
       </efis>
       <rmu>
-         <file>Aircraft/do328/Models/Instruments/RMU/RMU1.nas</file>
+         <file>Aircraft/do328/Models/Instruments/RMU/RMU.nas</file>
       </rmu>
       <do328>
          <file>Aircraft/do328/Nasal/Electrical.nas</file>

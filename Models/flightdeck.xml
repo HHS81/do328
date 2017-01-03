@@ -1,8 +1,34 @@
 <?xml version = '1.0' encoding = 'UTF-8' ?>
 <PropertyList>
 
-    <path>Flightdeck11.ac</path>
+<path>Flightdeck11.ac</path>
 
+<animation>
+  <type>select</type>
+  <object-name>PFD1_Screen</object-name>
+  <object-name>PFD2_Screen</object-name>
+  <object-name>MFD1_Screen</object-name>
+  <object-name>MFD2_Screen</object-name>
+  <object-name>EICAS_Screen</object-name>
+  <condition>
+   <greater-than>
+     <property>systems/electrical/outputs/efis</property>
+     <value>1</value>
+   </greater-than>
+  </condition>
+</animation>
+
+<animation>
+	<type>translate</type>
+	<object-name>MFD1_Menu</object-name>	
+	<property>instrumentation/efis/mfd1btn0</property>
+	<factor>0.0032</factor>
+	<axis>
+		<x>-1</x>
+		<y>0</y>
+		<z>0</z>
+	</axis>
+</animation>
 <animation>
 	<type>pick</type>
 	<object-name>MFD1_Menu</object-name>
@@ -13,7 +39,30 @@
 			<command>nasal</command>
 			<script>efis.mfd1BtClick(0)</script>
 		</binding>
+		<binding>
+			<command>property-assign</command>
+			<property>instrumentation/efis/mfd1btn0</property>
+			<value>1</value>
+		</binding>
+		<mod-up>
+			<binding>
+				<command>property-assign</command>
+				<property>instrumentation/efis/mfd1btn0</property>
+				<value>0</value>
+			</binding>
+		</mod-up>
 	</action>
+</animation>
+<animation>
+	<type>translate</type>
+	<object-name>MFD1_BT1</object-name>	
+	<property>instrumentation/efis/mfd1btn1</property>
+	<factor>0.0032</factor>
+	<axis>
+		<x>-1</x>
+		<y>0</y>
+		<z>0</z>
+	</axis>
 </animation>
 <animation>
 	<type>pick</type>
@@ -25,7 +74,30 @@
 			<command>nasal</command>
 			<script>efis.mfd1BtClick(1)</script>
 		</binding>
+		<binding>
+			<command>property-assign</command>
+			<property>instrumentation/efis/mfd1btn1</property>
+			<value>1</value>
+		</binding>
+		<mod-up>
+			<binding>
+				<command>property-assign</command>
+				<property>instrumentation/efis/mfd1btn1</property>
+				<value>0</value>
+			</binding>
+		</mod-up>
 	</action>
+</animation>
+<animation>
+	<type>translate</type>
+	<object-name>MFD1_BT2</object-name>	
+	<property>instrumentation/efis/mfd1btn2</property>
+	<factor>0.0032</factor>
+	<axis>
+		<x>-1</x>
+		<y>0</y>
+		<z>0</z>
+	</axis>
 </animation>
 <animation>
 	<type>pick</type>
@@ -37,7 +109,30 @@
 			<command>nasal</command>
 			<script>efis.mfd1BtClick(2)</script>
 		</binding>
+		<binding>
+			<command>property-assign</command>
+			<property>instrumentation/efis/mfd1btn2</property>
+			<value>1</value>
+		</binding>
+		<mod-up>
+			<binding>
+				<command>property-assign</command>
+				<property>instrumentation/efis/mfd1btn2</property>
+				<value>0</value>
+			</binding>
+		</mod-up>
 	</action>
+</animation>
+<animation>
+	<type>translate</type>
+	<object-name>MFD1_BT3</object-name>	
+	<property>instrumentation/efis/mfd1btn3</property>
+	<factor>0.0032</factor>
+	<axis>
+		<x>-1</x>
+		<y>0</y>
+		<z>0</z>
+	</axis>
 </animation>
 <animation>
 	<type>pick</type>
@@ -49,7 +144,30 @@
 			<command>nasal</command>
 			<script>efis.mfd1BtClick(3)</script>
 		</binding>
+		<binding>
+			<command>property-assign</command>
+			<property>instrumentation/efis/mfd1btn3</property>
+			<value>1</value>
+		</binding>
+		<mod-up>
+			<binding>
+				<command>property-assign</command>
+				<property>instrumentation/efis/mfd1btn3</property>
+				<value>0</value>
+			</binding>
+		</mod-up>
 	</action>
+</animation>
+<animation>
+	<type>translate</type>
+	<object-name>MFD1_BT4</object-name>	
+	<property>instrumentation/efis/mfd1btn4</property>
+	<factor>0.0032</factor>
+	<axis>
+		<x>-1</x>
+		<y>0</y>
+		<z>0</z>
+	</axis>
 </animation>
 <animation>
 	<type>pick</type>
@@ -61,7 +179,30 @@
 			<command>nasal</command>
 			<script>efis.mfd1BtClick(4)</script>
 		</binding>
+		<binding>
+			<command>property-assign</command>
+			<property>instrumentation/efis/mfd1btn4</property>
+			<value>1</value>
+		</binding>
+		<mod-up>
+			<binding>
+				<command>property-assign</command>
+				<property>instrumentation/efis/mfd1btn4</property>
+				<value>0</value>
+			</binding>
+		</mod-up>
 	</action>
+</animation>
+<animation>
+	<type>translate</type>
+	<object-name>MFD1_BT5</object-name>	
+	<property>instrumentation/efis/mfd1btn5</property>
+	<factor>0.0032</factor>
+	<axis>
+		<x>-1</x>
+		<y>0</y>
+		<z>0</z>
+	</axis>
 </animation>
 <animation>
 	<type>pick</type>
@@ -73,7 +214,30 @@
 			<command>nasal</command>
 			<script>efis.mfd1BtClick(5)</script>
 		</binding>
+		<binding>
+			<command>property-assign</command>
+			<property>instrumentation/efis/mfd1btn5</property>
+			<value>1</value>
+		</binding>
+		<mod-up>
+			<binding>
+				<command>property-assign</command>
+				<property>instrumentation/efis/mfd1btn5</property>
+				<value>0</value>
+			</binding>
+		</mod-up>
 	</action>
+</animation>
+<animation>
+	<type>translate</type>
+	<object-name>EICAS_Menu</object-name>	
+	<property>instrumentation/efis/eicasbtn0</property>
+	<factor>0.0032</factor>
+	<axis>
+		<x>-1</x>
+		<y>0</y>
+		<z>0</z>
+	</axis>
 </animation>
 <animation>
 	<type>pick</type>
@@ -85,7 +249,30 @@
 			<command>nasal</command>
 			<script>efis.eicasBtClick(0)</script>
 		</binding>
+		<binding>
+			<command>property-assign</command>
+			<property>instrumentation/efis/eicasbtn0</property>
+			<value>1</value>
+		</binding>
+		<mod-up>
+			<binding>
+				<command>property-assign</command>
+				<property>instrumentation/efis/eicasbtn0</property>
+				<value>0</value>
+			</binding>
+		</mod-up>
 	</action>
+</animation>
+<animation>
+	<type>translate</type>
+	<object-name>EICAS_BT1</object-name>	
+	<property>instrumentation/efis/eicasbtn1</property>
+	<factor>0.0032</factor>
+	<axis>
+		<x>-1</x>
+		<y>0</y>
+		<z>0</z>
+	</axis>
 </animation>
 <animation>
 	<type>pick</type>
@@ -97,7 +284,30 @@
 			<command>nasal</command>
 			<script>efis.eicasBtClick(1)</script>
 		</binding>
+		<binding>
+			<command>property-assign</command>
+			<property>instrumentation/efis/eicasbtn1</property>
+			<value>1</value>
+		</binding>
+		<mod-up>
+			<binding>
+				<command>property-assign</command>
+				<property>instrumentation/efis/eicasbtn1</property>
+				<value>0</value>
+			</binding>
+		</mod-up>
 	</action>
+</animation>
+<animation>
+	<type>translate</type>
+	<object-name>EICAS_BT2</object-name>	
+	<property>instrumentation/efis/eicasbtn2</property>
+	<factor>0.0032</factor>
+	<axis>
+		<x>-1</x>
+		<y>0</y>
+		<z>0</z>
+	</axis>
 </animation>
 <animation>
 	<type>pick</type>
@@ -109,7 +319,30 @@
 			<command>nasal</command>
 			<script>efis.eicasBtClick(2)</script>
 		</binding>
+		<binding>
+			<command>property-assign</command>
+			<property>instrumentation/efis/eicasbtn2</property>
+			<value>1</value>
+		</binding>
+		<mod-up>
+			<binding>
+				<command>property-assign</command>
+				<property>instrumentation/efis/eicasbtn2</property>
+				<value>0</value>
+			</binding>
+		</mod-up>
 	</action>
+</animation>
+<animation>
+	<type>translate</type>
+	<object-name>EICAS_BT3</object-name>	
+	<property>instrumentation/efis/eicasbtn3</property>
+	<factor>0.0032</factor>
+	<axis>
+		<x>-1</x>
+		<y>0</y>
+		<z>0</z>
+	</axis>
 </animation>
 <animation>
 	<type>pick</type>
@@ -121,7 +354,30 @@
 			<command>nasal</command>
 			<script>efis.eicasBtClick(3)</script>
 		</binding>
+		<binding>
+			<command>property-assign</command>
+			<property>instrumentation/efis/eicasbtn3</property>
+			<value>1</value>
+		</binding>
+		<mod-up>
+			<binding>
+				<command>property-assign</command>
+				<property>instrumentation/efis/eicasbtn3</property>
+				<value>0</value>
+			</binding>
+		</mod-up>
 	</action>
+</animation>
+<animation>
+	<type>translate</type>
+	<object-name>EICAS_BT4</object-name>	
+	<property>instrumentation/efis/eicasbtn4</property>
+	<factor>0.0032</factor>
+	<axis>
+		<x>-1</x>
+		<y>0</y>
+		<z>0</z>
+	</axis>
 </animation>
 <animation>
 	<type>pick</type>
@@ -133,7 +389,30 @@
 			<command>nasal</command>
 			<script>efis.eicasBtClick(4)</script>
 		</binding>
+		<binding>
+			<command>property-assign</command>
+			<property>instrumentation/efis/eicasbtn4</property>
+			<value>1</value>
+		</binding>
+		<mod-up>
+			<binding>
+				<command>property-assign</command>
+				<property>instrumentation/efis/eicasbtn4</property>
+				<value>0</value>
+			</binding>
+		</mod-up>
 	</action>
+</animation>
+<animation>
+	<type>translate</type>
+	<object-name>EICAS_BT5</object-name>	
+	<property>instrumentation/efis/eicasbtn5</property>
+	<factor>0.0032</factor>
+	<axis>
+		<x>-1</x>
+		<y>0</y>
+		<z>0</z>
+	</axis>
 </animation>
 <animation>
 	<type>pick</type>
@@ -145,7 +424,30 @@
 			<command>nasal</command>
 			<script>efis.eicasBtClick(5)</script>
 		</binding>
+		<binding>
+			<command>property-assign</command>
+			<property>instrumentation/efis/eicasbtn5</property>
+			<value>1</value>
+		</binding>
+		<mod-up>
+			<binding>
+				<command>property-assign</command>
+				<property>instrumentation/efis/eicasbtn5</property>
+				<value>0</value>
+			</binding>
+		</mod-up>
 	</action>
+</animation>
+<animation>
+	<type>translate</type>
+	<object-name>MFD2_Menu</object-name>	
+	<property>instrumentation/efis/mfd2btn0</property>
+	<factor>0.0032</factor>
+	<axis>
+		<x>-1</x>
+		<y>0</y>
+		<z>0</z>
+	</axis>
 </animation>
 <animation>
 	<type>pick</type>
@@ -157,7 +459,30 @@
 			<command>nasal</command>
 			<script>efis.mfd2BtClick(0)</script>
 		</binding>
+		<binding>
+			<command>property-assign</command>
+			<property>instrumentation/efis/mfd2btn0</property>
+			<value>1</value>
+		</binding>
+		<mod-up>
+			<binding>
+				<command>property-assign</command>
+				<property>instrumentation/efis/mfd2btn0</property>
+				<value>0</value>
+			</binding>
+		</mod-up>
 	</action>
+</animation>
+<animation>
+	<type>translate</type>
+	<object-name>MFD2_BT1</object-name>	
+	<property>instrumentation/efis/mfd2btn1</property>
+	<factor>0.0032</factor>
+	<axis>
+		<x>-1</x>
+		<y>0</y>
+		<z>0</z>
+	</axis>
 </animation>
 <animation>
 	<type>pick</type>
@@ -169,7 +494,30 @@
 			<command>nasal</command>
 			<script>efis.mfd2BtClick(1)</script>
 		</binding>
+		<binding>
+			<command>property-assign</command>
+			<property>instrumentation/efis/mfd2btn1</property>
+			<value>1</value>
+		</binding>
+		<mod-up>
+			<binding>
+				<command>property-assign</command>
+				<property>instrumentation/efis/mfd2btn1</property>
+				<value>0</value>
+			</binding>
+		</mod-up>
 	</action>
+</animation>
+<animation>
+	<type>translate</type>
+	<object-name>MFD2_BT2</object-name>	
+	<property>instrumentation/efis/mfd2btn2</property>
+	<factor>0.0032</factor>
+	<axis>
+		<x>-1</x>
+		<y>0</y>
+		<z>0</z>
+	</axis>
 </animation>
 <animation>
 	<type>pick</type>
@@ -181,7 +529,30 @@
 			<command>nasal</command>
 			<script>efis.mfd2BtClick(2)</script>
 		</binding>
+		<binding>
+			<command>property-assign</command>
+			<property>instrumentation/efis/mfd2btn2</property>
+			<value>1</value>
+		</binding>
+		<mod-up>
+			<binding>
+				<command>property-assign</command>
+				<property>instrumentation/efis/mfd2btn2</property>
+				<value>0</value>
+			</binding>
+		</mod-up>
 	</action>
+</animation>
+<animation>
+	<type>translate</type>
+	<object-name>MFD2_BT3</object-name>	
+	<property>instrumentation/efis/mfd2btn3</property>
+	<factor>0.0032</factor>
+	<axis>
+		<x>-1</x>
+		<y>0</y>
+		<z>0</z>
+	</axis>
 </animation>
 <animation>
 	<type>pick</type>
@@ -193,7 +564,30 @@
 			<command>nasal</command>
 			<script>efis.mfd2BtClick(3)</script>
 		</binding>
+		<binding>
+			<command>property-assign</command>
+			<property>instrumentation/efis/mfd2btn3</property>
+			<value>1</value>
+		</binding>
+		<mod-up>
+			<binding>
+				<command>property-assign</command>
+				<property>instrumentation/efis/mfd2btn3</property>
+				<value>0</value>
+			</binding>
+		</mod-up>
 	</action>
+</animation>
+<animation>
+	<type>translate</type>
+	<object-name>MFD2_BT4</object-name>	
+	<property>instrumentation/efis/mfd2btn4</property>
+	<factor>0.0032</factor>
+	<axis>
+		<x>-1</x>
+		<y>0</y>
+		<z>0</z>
+	</axis>
 </animation>
 <animation>
 	<type>pick</type>
@@ -205,7 +599,30 @@
 			<command>nasal</command>
 			<script>efis.mfd2BtClick(4)</script>
 		</binding>
+		<binding>
+			<command>property-assign</command>
+			<property>instrumentation/efis/mfd2btn4</property>
+			<value>1</value>
+		</binding>
+		<mod-up>
+			<binding>
+				<command>property-assign</command>
+				<property>instrumentation/efis/mfd2btn4</property>
+				<value>0</value>
+			</binding>
+		</mod-up>
 	</action>
+</animation>
+<animation>
+	<type>translate</type>
+	<object-name>MFD2_BT5</object-name>	
+	<property>instrumentation/efis/mfd2btn5</property>
+	<factor>0.0032</factor>
+	<axis>
+		<x>-1</x>
+		<y>0</y>
+		<z>0</z>
+	</axis>
 </animation>
 <animation>
 	<type>pick</type>
@@ -217,30 +634,20 @@
 			<command>nasal</command>
 			<script>efis.mfd2BtClick(5)</script>
 		</binding>
+		<binding>
+			<command>property-assign</command>
+			<property>instrumentation/efis/mfd2btn5</property>
+			<value>1</value>
+		</binding>
+		<mod-up>
+			<binding>
+				<command>property-assign</command>
+				<property>instrumentation/efis/mfd2btn5</property>
+				<value>0</value>
+			</binding>
+		</mod-up>
 	</action>
 </animation>
-
-    <model>
-        <name>PFD1</name>
-        <path>Aircraft/do328/Models/Instruments/PFD/PFD3d.xml</path>
-        <offsets>
-            <x-m>-8.844</x-m>
-            <y-m>-0.487</y-m>
-            <z-m>1.910</z-m>
-            <pitch-deg>-6</pitch-deg>
-        </offsets>
-    </model>
-    
-    <model>
-        <name>PFD2</name>
-        <path>Aircraft/do328/Models/Instruments/PFD/PFD3d.xml</path>
-        <offsets>
-            <x-m>-8.844</x-m>
-            <y-m>0.487</y-m>
-            <z-m>1.910</z-m>
-            <pitch-deg>-6</pitch-deg>
-        </offsets>
-    </model>
         
     <model>
         <path>Aircraft/do328/Models/Instruments/ALT/ALT.xml</path>
@@ -264,7 +671,7 @@
     
     <model>
         <name>RMU1</name>
-        <path>Aircraft/do328/Models/Instruments/RMU/RMU1.xml</path>
+        <path>Aircraft/do328/Models/Instruments/RMU/RMU.xml</path>
         <offsets>
             <x-m>-8.666</x-m>
             <y-m>-0.143</y-m>
@@ -275,7 +682,7 @@
     
     <model>
         <name>RMU2</name>
-        <path>Aircraft/do328/Models/Instruments/RMU/RMU2.xml</path>
+        <path>Aircraft/do328/Models/Instruments/RMU/RMU.xml</path>
         <offsets>
             <x-m>-8.666</x-m>
             <y-m>0.143</y-m>
