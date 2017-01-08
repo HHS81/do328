@@ -19,6 +19,71 @@
 </animation>
 
 <animation>
+	<type>pick</type>
+	<object-name>PFD1_BT_Circle</object-name>
+	<action>
+		<button>0</button>
+		<repeatable>false</repeatable>  
+ 		<binding>
+			<command>property-cycle</command>
+			<property>instrumentation/efis/PFD1_Circle</property>
+			<value type="string"></value>
+			<value type="string">VOR1</value>
+			<value type="string">ADF1</value>
+			<value type="string">FMS1</value>
+ 		</binding>
+ 	</action>
+</animation>
+<animation>
+	<type>pick</type>
+	<object-name>PFD1_BT_Rhombus</object-name>
+	<action>
+		<button>0</button>
+		<repeatable>false</repeatable>  
+ 		<binding>
+			<command>property-cycle</command>
+			<property>instrumentation/efis/PFD1_Rhombus</property>
+			<value type="string"></value>
+			<value type="string">VOR2</value>
+			<value type="string">ADF2</value>
+			<value type="string">FMS2</value>
+ 		</binding>
+ 	</action>
+</animation>
+<animation>
+	<type>pick</type>
+	<object-name>PFD2_BT_Circle</object-name>
+	<action>
+		<button>0</button>
+		<repeatable>false</repeatable>  
+ 		<binding>
+			<command>property-cycle</command>
+			<property>instrumentation/efis/PFD2_Circle</property>
+			<value type="string"></value>
+			<value type="string">VOR1</value>
+			<value type="string">ADF1</value>
+			<value type="string">FMS1</value>
+ 		</binding>
+ 	</action>
+</animation>
+<animation>
+	<type>pick</type>
+	<object-name>PFD2_BT_Rhombus</object-name>
+	<action>
+		<button>0</button>
+		<repeatable>false</repeatable>  
+ 		<binding>
+			<command>property-cycle</command>
+			<property>instrumentation/efis/PFD2_Rhombus</property>
+			<value type="string"></value>
+			<value type="string">VOR2</value>
+			<value type="string">ADF2</value>
+			<value type="string">FMS2</value>
+ 		</binding>
+ 	</action>
+</animation>
+
+<animation>
 	<type>translate</type>
 	<object-name>MFD1_Menu</object-name>	
 	<property>instrumentation/efis/mfd1btn0</property>
@@ -671,7 +736,7 @@
     
     <model>
         <name>RMU1</name>
-        <path>Aircraft/do328/Models/Instruments/RMU/RMU.xml</path>
+        <path>Aircraft/do328/Models/Instruments/RMU/RMU1.xml</path>
         <offsets>
             <x-m>-8.666</x-m>
             <y-m>-0.143</y-m>
@@ -679,10 +744,10 @@
             <pitch-deg>-75</pitch-deg>
         </offsets>
     </model>
-    
+
     <model>
         <name>RMU2</name>
-        <path>Aircraft/do328/Models/Instruments/RMU/RMU.xml</path>
+        <path>Aircraft/do328/Models/Instruments/RMU/RMU2.xml</path>
         <offsets>
             <x-m>-8.666</x-m>
             <y-m>0.143</y-m>
@@ -1036,7 +1101,7 @@
             </not-equals>
         </condition>
     </animation>
-
+<!--
     <animation>
         <type>select</type>
         <object-name>FD.stby-annun</object-name>
@@ -1053,7 +1118,7 @@
             </and>
         </condition>
     </animation>
-    
+    -->
     <animation>
         <type>select</type>
         <object-name>FD.YD-annun</object-name>

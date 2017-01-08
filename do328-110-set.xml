@@ -784,10 +784,10 @@ V1 --> Vr --> Rotate to 8deg --> @50ft Rotate to 15deg -->Climb @V2 + 15ktn --> 
          <file>Aircraft/do328/Models/Instruments/EFIS/apuProp.nas</file>
          <file>Aircraft/do328/Models/Instruments/EFIS/EICAS.nas</file>
          <file>Aircraft/do328/Models/Instruments/EFIS/nd.nas</file>
-         <file>Aircraft/do328/Models/Instruments/EFIS/MFD1.nas</file>
-         <file>Aircraft/do328/Models/Instruments/EFIS/MFD2.nas</file>
+         <file>Aircraft/do328/Models/Instruments/EFIS/MFD.nas</file>
       </efis>
       <rmu>
+         <file>Aircraft/do328/Models/Instruments/RMU/frequencies.nas</file>
          <file>Aircraft/do328/Models/Instruments/RMU/RMU.nas</file>
       </rmu>
       <do328>

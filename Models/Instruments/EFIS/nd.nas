@@ -48,7 +48,7 @@ var canvas_nd = {
 
 		canvas.parsesvg(canvasGroup, "Aircraft/do328/Models/Instruments/EFIS/nd.svg", {'font-mapper': font_mapper});
 
-		var svg_keys = ["compass","hdg"];
+		var svg_keys = ["compass","hdg","heading"];
 		foreach(var key; svg_keys) {
 			m[key] = canvasGroup.getElementById(key);
 		}
@@ -78,7 +78,8 @@ var canvas_nd = {
 
 		if(heading != nil) {
 			me.hdg.setText(sprintf("%3.0f",heading));
-			me.compass.setRotation(-heading*math.pi/180);
+			me.compass.setRotation(-heading*D2R);
+			#me.heading.setRotation(-heading*D2R);
 		}
 
 		if(me.active == 1) {

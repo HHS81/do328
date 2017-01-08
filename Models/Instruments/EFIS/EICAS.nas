@@ -10,10 +10,10 @@ var eicasSoftkeys = [["MAIN","CAPT\nSYSTEM","REF\nDATA","COPY","AHRS","F/O\nSYST
 		["SYSTEM 3/3","CPCS/\nOXYGEN","DOORS","SYS\nMAINT","SENSOR\nDATA","NEXT",""], #3
 		["REF DATA","T/O","CLIMB","CRUISE","LANDG","SINGLE\nENGINE","MSG"], #4
 		["T/O","FLAPS\n12","V1\n102","VR\n108","V2\n113","T/O TQ","MSG"], #5
-		["CLIMB","VCL\n200","","","L 94%\nR 94%","","MSG"], #6
-		["CRUISE","VC\n130","???","VSTD\n180","L 80%\nR 80%","","MSG"], #7
-		["LANDG","FLAPS\n32","VFL0\n170","VREF\n110","L100%\nR100%","","MSG"], #8
-		["T/O TQ","TEMP °C\n18","TEMP °F\n64","","L100\nR100","","MSG"], #9
+		["CLIMB","VCL\n200","","","L 84.6\nR 84.6","","MSG"], #6
+		["CRUISE","VC\n239","","VSTD\n180","L 80.7\nR 80.7","","MSG"], #7
+		["LANDG","FLAPS\n32","VFL0\n170","VREF\n110","L100.0\nR100.0","","MSG"], #8
+		["T/O TQ","TEMP °C\n18","TEMP °F\n64","","L100.0\nR100.0","","MSG"], #9
 		["MAINT","TREND","EXCEED","FAULT","GNDMNT","","RNG"]]; #10
 
 var eicasActivatePage = func(input = -1) {
@@ -124,6 +124,7 @@ var eicasBtClick = func(input = -1) {
 			}
 			else if(input == 2) {
 				# activate "CLIMB"
+				setprop("instrumentation/fmc/phase-name", "CLIMB");
 				eicasSkInstance.setSoftkeys(eicasSoftkeys[6]);
 				eicasSkInstance.drawFrames([0,0,0,1,0]);
 				eicasActiveSoftkeys = 6;
@@ -131,8 +132,9 @@ var eicasBtClick = func(input = -1) {
 			}
 			else if(input == 3) {
 				# activate "CRUISE"
+				setprop("instrumentation/fmc/phase-name", "CRUISE");
 				eicasSkInstance.setSoftkeys(eicasSoftkeys[7]);
-				eicasSkInstance.drawFrames([1,1,1,1,0]);
+				eicasSkInstance.drawFrames([1,0,1,1,0]);
 				eicasActiveSoftkeys = 7;
 				eicasActivatedSk = [4,3];
 			}

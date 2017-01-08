@@ -719,10 +719,10 @@ Started by Heiko Schulz
          <file>Aircraft/do328/Models/Instruments/EFIS/apuJet.nas</file>
          <file>Aircraft/do328/Models/Instruments/EFIS/EICAS.nas</file>
          <file>Aircraft/do328/Models/Instruments/EFIS/nd.nas</file>
-         <file>Aircraft/do328/Models/Instruments/EFIS/MFD1.nas</file>
-         <file>Aircraft/do328/Models/Instruments/EFIS/MFD2.nas</file>
+         <file>Aircraft/do328/Models/Instruments/EFIS/MFD.nas</file>
       </efis>
       <rmu>
+         <file>Aircraft/do328/Models/Instruments/RMU/frequencies.nas</file>
          <file>Aircraft/do328/Models/Instruments/RMU/RMU.nas</file>
       </rmu>
       <do328>

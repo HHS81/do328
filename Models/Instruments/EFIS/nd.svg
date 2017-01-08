@@ -27,9 +27,9 @@
      inkscape:window-height="711"
      id="namedview50"
      showgrid="false"
-     inkscape:zoom="0.70109941"
-     inkscape:cx="347.80784"
-     inkscape:cy="480.93205"
+     inkscape:zoom="0.70710678"
+     inkscape:cx="-1.2201474"
+     inkscape:cy="703.45002"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -277,9 +277,11 @@
      d="m 400.05,46.888933 0,28.222222"
      style="fill:none;fill-rule:evenodd;stroke:#ffffff;stroke-width:2.82222223;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
   <path
-     id="altitude_set"
-     d="m 400.83951,65.905941 -18.14727,-18.433443 -11.13879,0 0,27.840841 56.44445,0 0,-28.222222 -10.13741,0 z"
+     id="heading"
+     d="M 400.05546,65.666676 382.05108,47.378378 371,47.378378 371,75 l 56,0 0,-28 -10.05759,0 z"
      style="opacity:1;fill:#00ffff;fill-opacity:1;stroke:none;stroke-width:3;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     inkscape:transform-center-x="-14"
+     inkscape:transform-center-y="-425"
      inkscape:connector-curvature="0" />
   <rect
      y="10.200217"
