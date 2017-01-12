@@ -4,6 +4,7 @@ var ndlayers = [{name:'APT',visible:1,style:{scale_factor:0.6,label_font_color:[
 		{name:'RTE',visible:0,style:{scale_factor:0.6,color:[0,1,0],line_width:3}}];
 
 var hdg = props.globals.getNode("orientation/heading-magnetic-deg");
+var hdgBug = props.globals.getNode("autopilot/settings/heading-bug-deg");
 var lon = props.globals.getNode("position/longitude-deg");
 var lat = props.globals.getNode("position/latitude-deg");
 
@@ -48,7 +49,7 @@ var canvas_nd = {
 
 		canvas.parsesvg(canvasGroup, "Aircraft/do328/Models/Instruments/EFIS/nd.svg", {'font-mapper': font_mapper});
 
-		var svg_keys = ["compass","hdg","heading"];
+		var svg_keys = ["compass","hdg","hdgBug","arrowL","arrowR"];
 		foreach(var key; svg_keys) {
 			m[key] = canvasGroup.getElementById(key);
 		}
@@ -77,9 +78,29 @@ var canvas_nd = {
 		var heading = hdg.getValue();
 
 		if(heading != nil) {
+			var hdg = hdgBug.getValue()-heading;
 			me.hdg.setText(sprintf("%3.0f",heading));
 			me.compass.setRotation(-heading*D2R);
-			#me.heading.setRotation(-heading*D2R);
+
+			if(hdg < -180) hdg = hdg + 360;
+			if(hdg < 50 and hdg > -50) {
+				me.hdgBug.setRotation(hdg*D2R);
+				me.hdgBug.show();
+				me.arrowL.hide();
+				me.arrowR.hide();
+			}
+			else {
+				me.hdgBug.hide();
+
+				if(hdg < 180 and hdg > 0) {
+					me.arrowR.show();
+					me.arrowL.hide();
+				}
+				else {
+					me.arrowL.show();
+					me.arrowR.hide();
+				}
+			}
 		}
 
 		if(me.active == 1) {

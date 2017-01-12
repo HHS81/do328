@@ -3,6 +3,7 @@ var canvas_frequencies = {
 	{
 		var m = { parents: [canvas_frequencies], rects:{} };
 		m.group = canvasGroup;
+		m.Instance = instance;
 
 		var font_mapper = func(family, weight)
 		{
@@ -31,7 +32,6 @@ var canvas_frequencies = {
 		m.memCom.setText("MEMORY-1");
 		m.memNav.setText("MEMORY-1");
 
-		m.Instance = instance;
 		m.ActivateRect(0);
 		m.update();
 		return m;
@@ -79,6 +79,9 @@ var canvas_frequencies = {
 		}
 		if(input == 5) {
 			me.ActivateRect(3);
+		}
+		if(input == 17) {
+			setprop("instrumentation/rmu["~me.Instance~"]/page", 1);
 		}
 		me.update();
 	},

@@ -35,12 +35,12 @@
 	</emission>
     </animation>
 
-<!--#########  Buttons ########## -->
+<!--#########  Upper Buttons ########## -->
 
     <animation>
 	<type>translate</type>
 	<object-name>RMU1.bt00</object-name>
-	<property>instrumentation/rmu/unit/bt00</property>
+	<property>instrumentation/rmu/bt00</property>
 	<factor>0.0016</factor>
 	<axis>
 		<x>-1</x>
@@ -61,12 +61,12 @@
 		</binding>
 		<binding>
 			<command>property-toggle</command>
-			<property>instrumentation/rmu/unit/bt00</property>
+			<property>instrumentation/rmu/bt00</property>
 		</binding>
 		<mod-up>
 			<binding>
 				<command>property-toggle</command>
-				<property>instrumentation/rmu/unit/bt00</property>
+				<property>instrumentation/rmu/bt00</property>
 			</binding>
 		</mod-up>
         </action>
@@ -75,7 +75,7 @@
     <animation>
 	<type>translate</type>
 	<object-name>RMU1.bt01</object-name>
-	<property>instrumentation/rmu/unit/bt01</property>
+	<property>instrumentation/rmu/bt01</property>
 	<factor>0.0016</factor>
 	<axis>
 		<x>-1</x>
@@ -96,12 +96,12 @@
 		</binding>
 		<binding>
 			<command>property-toggle</command>
-			<property>instrumentation/rmu/unit/bt01</property>
+			<property>instrumentation/rmu/bt01</property>
 		</binding>
 		<mod-up>
 			<binding>
 				<command>property-toggle</command>
-				<property>instrumentation/rmu/unit/bt01</property>
+				<property>instrumentation/rmu/bt01</property>
 			</binding>
 		</mod-up>
         </action>
@@ -110,7 +110,7 @@
     <animation>
 	<type>translate</type>
 	<object-name>RMU1.bt02</object-name>
-	<property>instrumentation/rmu/unit/bt02</property>
+	<property>instrumentation/rmu/bt02</property>
 	<factor>0.0016</factor>
 	<axis>
 		<x>-1</x>
@@ -131,12 +131,12 @@
 		</binding>
 		<binding>
 			<command>property-toggle</command>
-			<property>instrumentation/rmu/unit/bt02</property>
+			<property>instrumentation/rmu/bt02</property>
 		</binding>
 		<mod-up>
 			<binding>
 				<command>property-toggle</command>
-				<property>instrumentation/rmu/unit/bt02</property>
+				<property>instrumentation/rmu/bt02</property>
 			</binding>
 		</mod-up>
         </action>
@@ -145,7 +145,7 @@
     <animation>
 	<type>translate</type>
 	<object-name>RMU1.bt03</object-name>
-	<property>instrumentation/rmu/unit/bt03</property>
+	<property>instrumentation/rmu/bt03</property>
 	<factor>0.0016</factor>
 	<axis>
 		<x>-1</x>
@@ -166,12 +166,12 @@
 		</binding>
 		<binding>
 			<command>property-toggle</command>
-			<property>instrumentation/rmu/unit/bt03</property>
+			<property>instrumentation/rmu/bt03</property>
 		</binding>
 		<mod-up>
 			<binding>
 				<command>property-toggle</command>
-				<property>instrumentation/rmu/unit/bt03</property>
+				<property>instrumentation/rmu/bt03</property>
 			</binding>
 		</mod-up>
         </action>
@@ -180,7 +180,7 @@
     <animation>
 	<type>translate</type>
 	<object-name>RMU1.bt04</object-name>
-	<property>instrumentation/rmu/unit/bt04</property>
+	<property>instrumentation/rmu/bt04</property>
 	<factor>0.0016</factor>
 	<axis>
 		<x>-1</x>
@@ -201,12 +201,12 @@
 		</binding>
 		<binding>
 			<command>property-toggle</command>
-			<property>instrumentation/rmu/unit/bt04</property>
+			<property>instrumentation/rmu/bt04</property>
 		</binding>
 		<mod-up>
 			<binding>
 				<command>property-toggle</command>
-				<property>instrumentation/rmu/unit/bt04</property>
+				<property>instrumentation/rmu/bt04</property>
 			</binding>
 		</mod-up>
         </action>
@@ -215,7 +215,7 @@
     <animation>
 	<type>translate</type>
 	<object-name>RMU1.bt05</object-name>
-	<property>instrumentation/rmu/unit/bt05</property>
+	<property>instrumentation/rmu/bt05</property>
 	<factor>0.0016</factor>
 	<axis>
 		<x>-1</x>
@@ -236,12 +236,12 @@
 		</binding>
 		<binding>
 			<command>property-toggle</command>
-			<property>instrumentation/rmu/unit/bt05</property>
+			<property>instrumentation/rmu/bt05</property>
 		</binding>
 		<mod-up>
 			<binding>
 				<command>property-toggle</command>
-				<property>instrumentation/rmu/unit/bt05</property>
+				<property>instrumentation/rmu/bt05</property>
 			</binding>
 		</mod-up>
         </action>
@@ -250,7 +250,7 @@
     <animation>
 	<type>translate</type>
 	<object-name>RMU1.bt06</object-name>	
-	<property>instrumentation/rmu/unit/bt06</property>
+	<property>instrumentation/rmu/bt06</property>
 	<factor>0.0016</factor>
 	<axis>
 		<x>-1</x>
@@ -271,12 +271,12 @@
 		</binding>
 		<binding>
 			<command>property-toggle</command>
-			<property>instrumentation/rmu/unit/bt06</property>
+			<property>instrumentation/rmu/bt06</property>
 		</binding>
 		<mod-up>
 			<binding>
 				<command>property-toggle</command>
-				<property>instrumentation/rmu/unit/bt06</property>
+				<property>instrumentation/rmu/bt06</property>
 			</binding>
 		</mod-up>
         </action>
@@ -285,7 +285,7 @@
     <animation>
 	<type>translate</type>
 	<object-name>RMU1.bt07</object-name>
-	<property>instrumentation/rmu/unit/bt07</property>
+	<property>instrumentation/rmu/bt07</property>
 	<factor>0.0016</factor>
 	<axis>
 		<x>-1</x>
@@ -306,12 +306,12 @@
 		</binding>
 		<binding>
 			<command>property-toggle</command>
-			<property>instrumentation/rmu/unit/bt07</property>
+			<property>instrumentation/rmu/bt07</property>
 		</binding>
 		<mod-up>
 			<binding>
 				<command>property-toggle</command>
-				<property>instrumentation/rmu/unit/bt07</property>
+				<property>instrumentation/rmu/bt07</property>
 			</binding>
 		</mod-up>
         </action>
@@ -320,7 +320,7 @@
     <animation>
 	<type>translate</type>
 	<object-name>RMU1.bt08</object-name>
-	<property>instrumentation/rmu/unit/bt08</property>
+	<property>instrumentation/rmu/bt08</property>
 	<factor>0.0016</factor>
 	<axis>
 		<x>-1</x>
@@ -341,12 +341,12 @@
 		</binding>
 		<binding>
 			<command>property-toggle</command>
-			<property>instrumentation/rmu/unit/bt08</property>
+			<property>instrumentation/rmu/bt08</property>
 		</binding>
 		<mod-up>
 			<binding>
 				<command>property-toggle</command>
-				<property>instrumentation/rmu/unit/bt08</property>
+				<property>instrumentation/rmu/bt08</property>
 			</binding>
 		</mod-up>
         </action>
@@ -355,7 +355,7 @@
     <animation>
 	<type>translate</type>
 	<object-name>RMU1.bt09</object-name>
-	<property>instrumentation/rmu/unit/bt09</property>
+	<property>instrumentation/rmu/bt09</property>
 	<factor>0.0016</factor>
 	<axis>
 		<x>-1</x>
@@ -376,12 +376,12 @@
 		</binding>
 		<binding>
 			<command>property-toggle</command>
-			<property>instrumentation/rmu/unit/bt09</property>
+			<property>instrumentation/rmu/bt09</property>
 		</binding>
 		<mod-up>
 			<binding>
 				<command>property-toggle</command>
-				<property>instrumentation/rmu/unit/bt09</property>
+				<property>instrumentation/rmu/bt09</property>
 			</binding>
 		</mod-up>
         </action>
@@ -390,7 +390,7 @@
     <animation>
 	<type>translate</type>
 	<object-name>RMU1.bt10</object-name>
-	<property>instrumentation/rmu/unit/bt10</property>
+	<property>instrumentation/rmu/bt10</property>
 	<factor>0.0016</factor>
 	<axis>
 		<x>-1</x>
@@ -411,12 +411,12 @@
 		</binding>
 		<binding>
 			<command>property-toggle</command>
-			<property>instrumentation/rmu/unit/bt10</property>
+			<property>instrumentation/rmu/bt10</property>
 		</binding>
 		<mod-up>
 			<binding>
 				<command>property-toggle</command>
-				<property>instrumentation/rmu/unit/bt10</property>
+				<property>instrumentation/rmu/bt10</property>
 			</binding>
 		</mod-up>
         </action>
@@ -425,7 +425,7 @@
     <animation>
 	<type>translate</type>
 	<object-name>RMU1.bt11</object-name>
-	<property>instrumentation/rmu/unit/bt11</property>
+	<property>instrumentation/rmu/bt11</property>
 	<factor>0.0016</factor>
 	<axis>
 		<x>-1</x>
@@ -446,12 +446,49 @@
 		</binding>
 		<binding>
 			<command>property-toggle</command>
-			<property>instrumentation/rmu/unit/bt11</property>
+			<property>instrumentation/rmu/bt11</property>
 		</binding>
 		<mod-up>
 			<binding>
 				<command>property-toggle</command>
-				<property>instrumentation/rmu/unit/bt11</property>
+				<property>instrumentation/rmu/bt11</property>
+			</binding>
+		</mod-up>
+        </action>
+    </animation>
+
+<!--#########  Lower Buttons ########## -->
+
+    <animation>
+	<type>translate</type>
+	<object-name>RMU1.pge</object-name>
+	<property>instrumentation/rmu/bt17</property>
+	<factor>0.0016</factor>
+	<axis>
+		<x>-1</x>
+		<y> 0</y>
+		<z> 0</z>
+	</axis>
+    </animation>
+    <animation>
+        <type>pick</type>
+        <object-name>RMU1.pge</object-name>
+        <visible>true</visible>
+        <action>
+          <button>0</button>
+          <repeatable>false</repeatable>
+		<binding>
+			<command>nasal</command>
+			<script>rmu.rmu1BtClick(17)</script>
+		</binding>
+		<binding>
+			<command>property-toggle</command>
+			<property>instrumentation/rmu/bt17</property>
+		</binding>
+		<mod-up>
+			<binding>
+				<command>property-toggle</command>
+				<property>instrumentation/rmu/bt17</property>
 			</binding>
 		</mod-up>
         </action>
@@ -462,7 +499,7 @@
     <animation>
 	<type>rotate</type>
 	<object-name>RMU1.knob</object-name>
-	<property>instrumentation/rmu/unit/knob</property>
+	<property>instrumentation/rmu/knob</property>
 	<factor>-18</factor>
 	<center>
 		<x-m>0</x-m>
@@ -486,7 +523,7 @@
 		<interval-sec>0.1</interval-sec>
 		<binding>
 		        <command>property-adjust</command>
-			<property>instrumentation/rmu/unit/knob</property>
+			<property>instrumentation/rmu/knob</property>
 			<mask>integer</mask>
 			<step>1</step>
 			<resolution>1</resolution>
@@ -507,7 +544,7 @@
 		<interval-sec>0.1</interval-sec>
 		<binding>
 		        <command>property-adjust</command>
-			<property>instrumentation/rmu/unit/knob</property>
+			<property>instrumentation/rmu/knob</property>
 			<mask>integer</mask>
 			<step>-1</step>
 			<resolution>1</resolution>
@@ -522,7 +559,7 @@
     <animation>
 	<type>rotate</type>
 	<object-name>RMU1.knob1</object-name>
-	<property>instrumentation/rmu/unit/knob1</property>
+	<property>instrumentation/rmu/knob1</property>
 	<factor>-18</factor>
 	<center>
 		<x-m>0</x-m>
@@ -546,7 +583,7 @@
 		<interval-sec>0.1</interval-sec>
 		<binding>
 		        <command>property-adjust</command>
-			<property>instrumentation/rmu/unit/knob1</property>
+			<property>instrumentation/rmu/knob1</property>
 			<mask>integer</mask>
 			<step>1</step>
 			<resolution>1</resolution>
@@ -567,7 +604,7 @@
 		<interval-sec>0.1</interval-sec>
 		<binding>
 		        <command>property-adjust</command>
-			<property>instrumentation/rmu/unit/knob1</property>
+			<property>instrumentation/rmu/knob1</property>
 			<mask>integer</mask>
 			<step>-1</step>
 			<resolution>1</resolution>

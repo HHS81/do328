@@ -788,6 +788,8 @@ V1 --> Vr --> Rotate to 8deg --> @50ft Rotate to 15deg -->Climb @V2 + 15ktn --> 
       </efis>
       <rmu>
          <file>Aircraft/do328/Models/Instruments/RMU/frequencies.nas</file>
+         <file>Aircraft/do328/Models/Instruments/RMU/pagemenu.nas</file>
+         <file>Aircraft/do328/Models/Instruments/RMU/navigation.nas</file>
          <file>Aircraft/do328/Models/Instruments/RMU/RMU.nas</file>
       </rmu>
       <do328>

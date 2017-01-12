@@ -67,7 +67,7 @@
        height="18.146837"
        width="57.146839"
        id="rect3596-3-6-7-5"
-       style="fill:none;fill-rule:evenodd;stroke:#3282dc;stroke-width:2.02192616;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+       style="fill:none;fill-rule:evenodd;stroke:#00cccc;stroke-width:2.02192616;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
     <path
        sodipodi:nodetypes="cssc"
        inkscape:connector-curvature="0"
@@ -121,7 +121,7 @@
        height="18.146837"
        width="57.146839"
        id="rect3596-3-6-7-5-6"
-       style="fill:none;fill-rule:evenodd;stroke:#3282dc;stroke-width:2.02192616;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+       style="fill:none;fill-rule:evenodd;stroke:#00cccc;stroke-width:2.02192616;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
     <path
        sodipodi:nodetypes="cssc"
        inkscape:connector-curvature="0"
@@ -275,7 +275,7 @@
        sodipodi:role="line"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24.69443893px;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';text-align:center;text-anchor:middle">APU</tspan></text>
   <rect
-     style="fill:#000000;fill-opacity:1;stroke:#3282dc;stroke-width:3.00008035;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     style="fill:#000000;fill-opacity:1;stroke:#00cccc;stroke-width:3.00008035;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      id="rect4229-9-3"
      width="226.78445"
      height="23.988771"
@@ -295,7 +295,7 @@
        sodipodi:role="line"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24.69443893px;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';text-align:center;text-anchor:middle">ECS</tspan></text>
   <rect
-     style="fill:#000000;fill-opacity:1;stroke:#3282dc;stroke-width:3.00000024;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     style="fill:#000000;fill-opacity:1;stroke:#00cccc;stroke-width:3.00000024;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      id="rect4229-9"
      width="80.432961"
      height="23.988533"

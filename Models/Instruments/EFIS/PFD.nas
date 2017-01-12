@@ -241,16 +241,27 @@ var canvas_PFD = {
 				me.circSource.setText(pfdCircle);
 				me.circIndicator.show();
 				if(pfdCircle == "VOR1") {
-					me.circNeedle.setRotation(getprop("instrumentation/nav[0]/radials/reciprocal-radial-deg")*D2R);
+					if(getprop("instrumentation/nav[0]/in-range")) {
+						me.circNeedle.setRotation(getprop("instrumentation/nav[0]/radials/reciprocal-radial-deg")*D2R);
+						me.circNeedle.show();
+					}
+					else {
+						me.circNeedle.hide();
+					}
 				}
 				else if(pfdCircle == "ADF1") {
-					me.circNeedle.setRotation((getprop("instrumentation/adf[0]/indicated-bearing-deg")+
+					if(getprop("instrumentation/adf[0]/in-range")) {
+						me.circNeedle.setRotation((getprop("instrumentation/adf[0]/indicated-bearing-deg")+
 									getprop("orientation/heading-deg"))*D2R);
+						me.circNeedle.show();
+					}
+					else {
+						me.circNeedle.hide();
+					}
 				}
 				else {
-					me.circNeedle.setRotation(0);
+					me.circNeedle.hide();
 				}
-				me.circNeedle.show();
 			}
 		}
 		else {
@@ -266,16 +277,27 @@ var canvas_PFD = {
 				me.rhombSource.setText(pfdRhombus);
 				me.rhombIndicator.show();
 				if(pfdRhombus == "VOR2") {
-					me.rhombNeedle.setRotation(getprop("instrumentation/nav[1]/radials/reciprocal-radial-deg")*D2R);
+					if(getprop("instrumentation/nav[1]/in-range")) {
+						me.rhombNeedle.setRotation(getprop("instrumentation/nav[1]/radials/reciprocal-radial-deg")*D2R);
+						me.rhombNeedle.show();
+					}
+					else {
+						me.rhombNeedle.hide();
+					}
 				}
-				else if(pfdCircle == "ADF1") {
-					me.circNeedle.setRotation((getprop("instrumentation/adf[1]/indicated-bearing-deg")+
-									getprop("orientation/heading-deg"))*D2R);
+				else if(pfdRhombus == "ADF2") {
+					if(getprop("instrumentation/adf[1]/in-range")) {
+						me.rhombNeedle.setRotation((getprop("instrumentation/adf[1]/indicated-bearing-deg")+
+										getprop("orientation/heading-deg"))*D2R);
+						me.rhombNeedle.show();
+					}
+					else {
+						me.rhombNeedle.hide();
+					}
 				}
 				else {
-					me.rhombNeedle.setRotation(0);
+					me.rhombNeedle.hide();
 				}
-				me.rhombNeedle.show();
 			}
 		}
 		else {
@@ -330,7 +352,7 @@ var canvas_PFD = {
 			me["maxSpdInd"].show();
 		}
 		me["baroSet"].setText(sprintf("%4.0f",getprop("instrumentation/altimeter/setting-hpa")));
-		me["selHdgText"].setText(sprintf("%3.0f",getprop("autopilot/settings/true-heading-deg")));
+		me["selHdgText"].setText(sprintf("%3.0f",getprop("autopilot/settings/heading-bug-deg")));
 		me["speedText"].setText(sprintf("%3.0f",apSpd));
 	},
 };
