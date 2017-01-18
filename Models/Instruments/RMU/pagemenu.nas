@@ -14,8 +14,20 @@ var canvas_pagemenu = {
 		return m;
 	},
 	BtClick: func(input = -1) {
-		if(input == 3) {
+		if(input == 0) {
 			setprop("instrumentation/rmu["~me.Instance~"]/page", 2);
+		}
+		if(input == 2) {
+			setprop("instrumentation/rmu["~me.Instance~"]/page", 3);
+		}
+		if(input == 3) {
+			setprop("instrumentation/rmu["~me.Instance~"]/page", 4);
+		}
+		if(input == 9) {
+			setprop("instrumentation/rmu["~me.Instance~"]/page", 5);
+		}
+		if(input == 11) {
+			setprop("instrumentation/rmu["~me.Instance~"]/page", 6);
 		}
 		if(input == 10 or input == 17) {
 			setprop("instrumentation/rmu["~me.Instance~"]/page", 0);

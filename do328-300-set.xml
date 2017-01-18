@@ -724,9 +724,15 @@ Started by Heiko Schulz
       <rmu>
          <file>Aircraft/do328/Models/Instruments/RMU/frequencies.nas</file>
          <file>Aircraft/do328/Models/Instruments/RMU/pagemenu.nas</file>
+         <file>Aircraft/do328/Models/Instruments/RMU/memorycom.nas</file>
          <file>Aircraft/do328/Models/Instruments/RMU/navigation.nas</file>
+         <file>Aircraft/do328/Models/Instruments/RMU/sysselect.nas</file>
+         <file>Aircraft/do328/Models/Instruments/RMU/maintenance.nas</file>
          <file>Aircraft/do328/Models/Instruments/RMU/RMU.nas</file>
       </rmu>
+      <rcu>
+         <file>Aircraft/do328/Models/Instruments/RCU/RCU.nas</file>
+      </rcu>
       <do328>
          <file>Aircraft/do328/Nasal/Electrical.nas</file>
          <file>Aircraft/do328/Nasal/ground_steering.nas</file>

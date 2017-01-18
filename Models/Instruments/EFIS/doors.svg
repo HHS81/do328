@@ -24,7 +24,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -44,9 +44,9 @@
      id="namedview4"
      showgrid="false"
      units="px"
-     inkscape:zoom="0.37207209"
-     inkscape:cx="614.66579"
-     inkscape:cy="398.02787"
+     inkscape:zoom="0.5261894"
+     inkscape:cx="271.09116"
+     inkscape:cy="499.33285"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -59,7 +59,7 @@
      x="0"
      y="-5.0175633e-05" />
   <path
-     style="fill:none;fill-rule:evenodd;stroke:#ffffff;stroke-width:4.23333406;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     style="fill:none;fill-rule:evenodd;stroke:#ffffff;stroke-width:4.00000036;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      d="m 282.22223,632.50001 0,-409.2223 0,-56.44445 35.27779,-70.555574 84.66649,-42.33335 84.66684,42.33335 35.27778,70.555574 0,56.44445 0,409.2223 -35.27778,77.61112 -169.33333,0 z"
      id="path4138-3"
      inkscape:connector-curvature="0"
@@ -189,7 +189,7 @@
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:28.22222519px;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';text-align:start;text-anchor:start"
        id="tspan4338">N</tspan></text>
   <path
-     style="fill:none;fill-rule:evenodd;stroke:#ffffff;stroke-width:4.23333406;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     style="fill:none;fill-rule:evenodd;stroke:#ffffff;stroke-width:4.00000036;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      d="m 282.22223,223.27771 239.8889,0"
      id="path4340"
      inkscape:connector-curvature="0"
@@ -238,7 +238,7 @@
      y="716.48279"
      transform="matrix(0.91771774,-0.39723312,0.39723302,0.91771778,0,0)" />
   <path
-     style="fill:none;fill-rule:evenodd;stroke:#ffffff;stroke-width:4.23333406;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     style="fill:none;fill-rule:evenodd;stroke:#ffffff;stroke-width:4.00000036;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      d="m 282.22223,632.50001 239.8889,0"
      id="path4410"
      inkscape:connector-curvature="0"

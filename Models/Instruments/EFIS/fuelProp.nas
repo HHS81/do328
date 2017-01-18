@@ -18,8 +18,7 @@ var canvas_fuel = {
 				"readout_t1","readout_t2","readout_t3",
 				"readout_t4","readout_t5","readout_t6",
 				"readout_tl","readout_tt","readout_tr",
-				"readout_usedl","readout_usedr",
-				"warnings"];
+				"readout_usedl","readout_usedr"];
 		foreach(var key; svg_keys) {
 			m[key] = canvasGroup.getElementById(key);
 		}
@@ -31,7 +30,6 @@ var canvas_fuel = {
 			m["indicator_t"~n].createTransform().setTranslation(center[0], center[1]);
 		}
 
-		m.warnings.hide();
 		m.active = 0;
 		return m;
 	},

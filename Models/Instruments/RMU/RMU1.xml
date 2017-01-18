@@ -461,6 +461,76 @@
 
     <animation>
 	<type>translate</type>
+	<object-name>RMU1.dim</object-name>
+	<property>instrumentation/rmu/bt13</property>
+	<factor>0.0016</factor>
+	<axis>
+		<x>-1</x>
+		<y> 0</y>
+		<z> 0</z>
+	</axis>
+    </animation>
+    <animation>
+        <type>pick</type>
+        <object-name>RMU1.dim</object-name>
+        <visible>true</visible>
+        <action>
+          <button>0</button>
+          <repeatable>false</repeatable>
+		<binding>
+			<command>nasal</command>
+			<script>rmu.rmu1BtClick(13)</script>
+		</binding>
+		<binding>
+			<command>property-toggle</command>
+			<property>instrumentation/rmu/bt13</property>
+		</binding>
+		<mod-up>
+			<binding>
+				<command>property-toggle</command>
+				<property>instrumentation/rmu/bt13</property>
+			</binding>
+		</mod-up>
+        </action>
+    </animation>
+
+    <animation>
+	<type>translate</type>
+	<object-name>RMU1.half</object-name>
+	<property>instrumentation/rmu/bt14</property>
+	<factor>0.0016</factor>
+	<axis>
+		<x>-1</x>
+		<y> 0</y>
+		<z> 0</z>
+	</axis>
+    </animation>
+    <animation>
+        <type>pick</type>
+        <object-name>RMU1.half</object-name>
+        <visible>true</visible>
+        <action>
+          <button>0</button>
+          <repeatable>false</repeatable>
+		<binding>
+			<command>nasal</command>
+			<script>rmu.rmu1BtClick(14)</script>
+		</binding>
+		<binding>
+			<command>property-toggle</command>
+			<property>instrumentation/rmu/bt14</property>
+		</binding>
+		<mod-up>
+			<binding>
+				<command>property-toggle</command>
+				<property>instrumentation/rmu/bt14</property>
+			</binding>
+		</mod-up>
+        </action>
+    </animation>
+
+    <animation>
+	<type>translate</type>
 	<object-name>RMU1.pge</object-name>
 	<property>instrumentation/rmu/bt17</property>
 	<factor>0.0016</factor>
@@ -489,6 +559,41 @@
 			<binding>
 				<command>property-toggle</command>
 				<property>instrumentation/rmu/bt17</property>
+			</binding>
+		</mod-up>
+        </action>
+    </animation>
+
+    <animation>
+	<type>translate</type>
+	<object-name>RMU1.dme</object-name>
+	<property>instrumentation/rmu/bt19</property>
+	<factor>0.0016</factor>
+	<axis>
+		<x>-1</x>
+		<y> 0</y>
+		<z> 0</z>
+	</axis>
+    </animation>
+    <animation>
+        <type>pick</type>
+        <object-name>RMU1.dme</object-name>
+        <visible>true</visible>
+        <action>
+          <button>0</button>
+          <repeatable>false</repeatable>
+		<binding>
+			<command>nasal</command>
+			<script>rmu.rmu1BtClick(19)</script>
+		</binding>
+		<binding>
+			<command>property-toggle</command>
+			<property>instrumentation/rmu/bt19</property>
+		</binding>
+		<mod-up>
+			<binding>
+				<command>property-toggle</command>
+				<property>instrumentation/rmu/bt19</property>
 			</binding>
 		</mod-up>
         </action>
