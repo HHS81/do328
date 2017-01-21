@@ -473,26 +473,6 @@ V1 --> Vr --> Rotate to 8deg --> @50ft Rotate to 15deg -->Climb @V2 + 15ktn --> 
             <master-caution type="bool">0</master-caution>
         </alerts>
 
-    <rmu>
-        <trsp-num type="string">0</trsp-num>
-        <unit n="0">
-            <serviceable type="bool">1</serviceable>
-            <selected type="int">0</selected>
-            <com-num type="int">1</com-num>
-            <nav-num type="int">1</nav-num>
-            <adf-num type="int">1</adf-num>
-            <mls-num type="int">1</mls-num>
-        </unit>
-        <unit n="1">
-            <serviceable type="bool">1</serviceable>
-            <selected type="int">0</selected>
-            <com-num type="int">2</com-num>
-            <nav-num type="int">2</nav-num>
-            <adf-num type="int">2</adf-num>
-            <mls-num type="int">2</mls-num>
-        </unit>
-    </rmu>
-
     <airspeed-indicator>
         <index n="0" type="double">112</index>
         <index n="1" type="double">117</index>
@@ -791,8 +771,8 @@ V1 --> Vr --> Rotate to 8deg --> @50ft Rotate to 15deg -->Climb @V2 + 15ktn --> 
          <file>Aircraft/do328/Models/Instruments/RMU/pagemenu.nas</file>
          <file>Aircraft/do328/Models/Instruments/RMU/memorycom.nas</file>
          <file>Aircraft/do328/Models/Instruments/RMU/navigation.nas</file>
-         <file>Aircraft/do328/Models/Instruments/RMU/sysselect.nas</file>
          <file>Aircraft/do328/Models/Instruments/RMU/maintenance.nas</file>
+         <file>Aircraft/do328/Models/Instruments/RMU/displaydim.nas</file>
          <file>Aircraft/do328/Models/Instruments/RMU/RMU.nas</file>
       </rmu>
       <rcu>

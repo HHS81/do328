@@ -23,7 +23,13 @@ var canvas_PFD = {
 		
 		canvas.parsesvg(pfd, "Aircraft/do328/Models/Instruments/EFIS/pfd.svg", {'font-mapper': font_mapper});
 		
-		var svg_keys = ["altTape","altText","altMeters","bankPointer","baroSet","circIndicator","circNeedle","circSource","compass","curAlt1","curAlt2","curAlt3","curAltBox","curSpd","curSpdTen","fdX","fdY","gpwsAlert","ground","gsPtr","gsScale","horizon","locPtr","locScale","machText","markerBeacon","markerBeaconText","maxSpdInd","minSpdInd","pitchMode","rhombIndicator","rhombNeedle","rhombSource","rollMode","selHdgText","spdTape","spdTrend","speedText","tenThousand","v1","v2","vc","vcl","vertSpd","vr","vref","vsiNeedle"];
+		var svg_keys = ["altTape","altText","altMeters","bankPointer","baroSet","circIndicator","circNeedle",
+				"circSource","compass","curAlt1","curAlt2","curAlt3","curAltBox","curSpd","curSpdTen",
+				"fdX","fdY","gpwsAlert","ground","gsPtr","gsScale","horizon","locPtr","locScale",
+				"machText","markerBeacon","markerBeaconText","maxSpdInd","minSpdInd","pitchMode",
+				"rhombIndicator","rhombNeedle","rhombSource","rollMode","selHdgText","spdTape",
+				"spdTrend","speedText","tenThousand","v1","v2","vc","vcl","vertSpd","vr","vref",
+				"vsiNeedle"];
 		foreach(var key; svg_keys) {
 			m[key] = pfd.getElementById(key);
 		}
@@ -359,6 +365,11 @@ var canvas_PFD = {
 
 setlistener("sim/signals/fdm-initialized", func() {
 	var group = {};
+
+	setprop("instrumentation/efis/PFD1_Circle","VOR1");
+	setprop("instrumentation/efis/PFD1_Rhombus","VOR2");
+	setprop("instrumentation/efis/PFD2_Circle","VOR1");
+	setprop("instrumentation/efis/PFD2_Rhombus","VOR2");
 
 	var pfd1_display = canvas.new({
 		"name": "PFD1",

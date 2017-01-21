@@ -40,10 +40,10 @@
  		<binding>
 			<command>property-cycle</command>
 			<property>instrumentation/efis/PFD1_Circle</property>
-			<value type="string"></value>
-			<value type="string">VOR1</value>
 			<value type="string">ADF1</value>
 			<value type="string">FMS1</value>
+			<value type="string"></value>
+			<value type="string">VOR1</value>
  		</binding>
  	</action>
 </animation>
@@ -56,10 +56,10 @@
  		<binding>
 			<command>property-cycle</command>
 			<property>instrumentation/efis/PFD1_Rhombus</property>
-			<value type="string"></value>
-			<value type="string">VOR2</value>
 			<value type="string">ADF2</value>
 			<value type="string">FMS2</value>
+			<value type="string"></value>
+			<value type="string">VOR2</value>
  		</binding>
  	</action>
 </animation>
@@ -72,10 +72,10 @@
  		<binding>
 			<command>property-cycle</command>
 			<property>instrumentation/efis/PFD2_Circle</property>
-			<value type="string"></value>
-			<value type="string">VOR1</value>
 			<value type="string">ADF1</value>
 			<value type="string">FMS1</value>
+			<value type="string"></value>
+			<value type="string">VOR1</value>
  		</binding>
  	</action>
 </animation>
@@ -88,10 +88,10 @@
  		<binding>
 			<command>property-cycle</command>
 			<property>instrumentation/efis/PFD2_Rhombus</property>
-			<value type="string"></value>
-			<value type="string">VOR2</value>
 			<value type="string">ADF2</value>
 			<value type="string">FMS2</value>
+			<value type="string"></value>
+			<value type="string">VOR2</value>
  		</binding>
  	</action>
 </animation>

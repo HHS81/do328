@@ -15,13 +15,16 @@ var canvas_pagemenu = {
 	},
 	BtClick: func(input = -1) {
 		if(input == 0) {
-			setprop("instrumentation/rmu["~me.Instance~"]/page", 2);
+			setprop("instrumentation/rmu["~me.Instance~"]/page", 0);
 		}
 		if(input == 2) {
-			setprop("instrumentation/rmu["~me.Instance~"]/page", 3);
+			setprop("instrumentation/rmu["~me.Instance~"]/page", 2);
 		}
 		if(input == 3) {
 			setprop("instrumentation/rmu["~me.Instance~"]/page", 4);
+		}
+		if(input == 4) {
+			setprop("instrumentation/rmu["~me.Instance~"]/page", 3);
 		}
 		if(input == 9) {
 			setprop("instrumentation/rmu["~me.Instance~"]/page", 5);

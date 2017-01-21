@@ -18,8 +18,11 @@ var RMU = {
 		m.Pages[2] = canvas_memorycom.new(group.createChild('group'), instance);
 		m.Pages[3] = canvas_memorycom.new(group.createChild('group'), instance);
 		m.Pages[4] = canvas_navigation.new(group.createChild('group'), instance);
-		m.Pages[5] = canvas_sysselect.new(group.createChild('group'), instance);
+		m.Pages[5] = canvas_maintenance.new(group.createChild('group'), instance);
 		m.Pages[6] = canvas_maintenance.new(group.createChild('group'), instance);
+		m.DisplayDim = canvas_displaydim.new(group.createChild('group'), instance);
+		m.DisplayDim.hide();
+		m.DimActive = 0;
 		canvas.parsesvg(group.createChild('group'), "Aircraft/do328/Models/Instruments/RMU/mask.svg");
 
 		setlistener("instrumentation/rmu["~m.Instance~"]/page", func {
@@ -28,7 +31,6 @@ var RMU = {
 		}, 1);
 
 		m.ActivatePage(0);
-
 		return m;
 	},
 	ActivatePage: func(input = -1)
@@ -44,18 +46,48 @@ var RMU = {
 		}
 	},
 	BtClick: func(input = -1) {
-		me.Pages[me.activePage].BtClick(input);
+		me.DisplayDim.hide();
+
+		if(input == 13) {
+			if(me.DimActive) {
+				me.DisplayDim.hide();
+				me.DimActive = 0;
+			}
+			else {
+				me.DisplayDim.show();
+				me.DimActive = 1;
+			}
+		}
+		else {
+			if(me.DimActive) {
+				me.DisplayDim.hide();
+				me.DimActive = 0;
+			}
+			else {
+				me.Pages[me.activePage].BtClick(input);
+				me.DimActive = 0;
+			}
+		}
 	},
 	Knob: func(input = -1) {
+		var value = 0;
+
 		if(input == 0) {
 			var knob = getprop("instrumentation/rmu["~me.Instance~"]/knob");
-			me.Pages[me.activePage].Knob(0, knob - me.knob);
+			value = knob - me.knob;
 			me.knob = knob;
 		}
 		else {
 			var knob1 = getprop("instrumentation/rmu["~me.Instance~"]/knob1");
-			me.Pages[me.activePage].Knob(1, knob1 - me.knob1);
+			value = knob1 - me.knob1;
 			me.knob1 = knob1;
+		}
+
+		if(me.DimActive) {
+			me.DisplayDim.Knob(input, value);
+		}
+		else {
+			me.Pages[me.activePage].Knob(input, value);
 		}
 	}
 };
@@ -78,6 +110,9 @@ var rmu2Knob = func(input = -1) {
 
 ###### Main #####
 var setl = setlistener("/sim/signals/fdm-initialized", func () {
+
+	setprop("instrumentation/rmu[0]/offside", 0);
+	setprop("instrumentation/rmu[1]/offside", 0);
 
 	var rmu1Canvas = canvas.new({
 		"name": "RMU1", 
