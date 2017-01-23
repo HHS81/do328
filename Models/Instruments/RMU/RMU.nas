@@ -4,6 +4,14 @@
 var RMU1Instance = {};
 var RMU2Instance = {};
 
+# colors:
+var amber = [1,0.93,0];
+#var cyan = [0,0.57,1];
+var cyan = [0.33,0.73,0.93];
+var green = [0,1,0];
+var magenta = [0.93,0.05,0.35];
+var white = [1,1,1];
+
 ### RMU ###
 var RMU = {
 	new: func(group, instance) {
@@ -18,7 +26,7 @@ var RMU = {
 		m.Pages[2] = canvas_memorycom.new(group.createChild('group'), instance);
 		m.Pages[3] = canvas_memorycom.new(group.createChild('group'), instance);
 		m.Pages[4] = canvas_navigation.new(group.createChild('group'), instance);
-		m.Pages[5] = canvas_maintenance.new(group.createChild('group'), instance);
+		m.Pages[5] = canvas_engine1.new(group.createChild('group'), instance);
 		m.Pages[6] = canvas_maintenance.new(group.createChild('group'), instance);
 		m.DisplayDim = canvas_displaydim.new(group.createChild('group'), instance);
 		m.DisplayDim.hide();
@@ -111,6 +119,8 @@ var rmu2Knob = func(input = -1) {
 ###### Main #####
 var setl = setlistener("/sim/signals/fdm-initialized", func () {
 
+	setprop("instrumentation/rmu[0]/lighting", 1);
+	setprop("instrumentation/rmu[1]/lighting", 1);
 	setprop("instrumentation/rmu[0]/offside", 0);
 	setprop("instrumentation/rmu[1]/offside", 0);
 

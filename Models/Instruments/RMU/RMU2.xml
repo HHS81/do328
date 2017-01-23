@@ -10,13 +10,34 @@
     <animation>
 	<type>select</type>
 	<object-name>RMU2.screen</object-name>
-	<object-name>RMU2.lamp</object-name>
 	<condition>
 		<greater-than>
-			<property>systems/electrical/outputs/comm</property>
-			<value>5</value>
+			<property>systems/electrical/outputs/efis</property>
+			<value>1</value>
 		</greater-than>
 	</condition>
+    </animation>
+    <animation>
+	<type>material</type>
+	<object-name>RMU2.screen</object-name>
+	<ambient>
+		<red>1</red>
+		<green>1</green>
+		<blue>1</blue>
+		<factor-prop>instrumentation/rmu[1]/lighting</factor-prop>
+	</ambient>
+	<diffuse>
+		<red>1</red>
+		<green>1</green>
+		<blue>1</blue>
+		<factor-prop>instrumentation/rmu[1]/lighting</factor-prop>
+	</diffuse>
+	<emission>
+		<red>1</red>
+		<green>1</green>
+		<blue>1</blue>
+		<factor-prop>instrumentation/rmu[1]/lighting</factor-prop>
+	</emission>
     </animation>
 
     <animation>

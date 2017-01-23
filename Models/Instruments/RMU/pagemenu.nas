@@ -26,7 +26,7 @@ var canvas_pagemenu = {
 		if(input == 4) {
 			setprop("instrumentation/rmu["~me.Instance~"]/page", 3);
 		}
-		if(input == 9) {
+		if(input == 5) {
 			setprop("instrumentation/rmu["~me.Instance~"]/page", 5);
 		}
 		if(input == 11) {

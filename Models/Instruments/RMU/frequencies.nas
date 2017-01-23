@@ -66,13 +66,6 @@ var canvas_frequencies = {
 			offside = 1;
 		}
 
-		# colors:
-		var amber = [1,0.93,0];
-		var cyan = [0,0.57,1];
-		var green = [0,1,0];
-		var magenta = [0.93,0.05,0.35];
-		var white = [1,1,1];
-
 		if(getprop("instrumentation/rmu["~me.Instance~"]/offside")) {
 			# this rmu controlls offside system
 			me.com.setColor(magenta);
@@ -81,16 +74,16 @@ var canvas_frequencies = {
 			me.navNum.setColor(magenta);
 			me.comFreq.setColor(amber);
 			me.comStby.setColor(amber);
-			me.navFreq.setColor(amber);
-			me.navStby.setColor(amber);
-			me.memNav.setColor(amber);
+			me.navFreq.setColor(white);
+			me.navStby.setColor(cyan);
 			me.memCom.setColor(amber);
+			me.memNav.setColor(cyan);
 
 			me.atc.setColor(magenta);
 			me.adf1.setColor(magenta);
 			me.adfNum.setColor(magenta);
 			me.trspCode.setColor(amber);
-			me.adfFreq.setColor(amber);
+			me.adfFreq.setColor(white);
 			me.tcas.setColor(magenta);
 			me.tcasNum.setColor(magenta);
 
