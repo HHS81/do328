@@ -36,8 +36,8 @@ var canvas_navigation = {
 			me.crsNeedle.setRotation((crs-heading)*D2R);
 		}
 
-		me.navFreq.setText(sprintf("%.3f",getprop("instrumentation/nav["~me.Instance~"]/frequencies/selected-mhz")));
-		me.adfFreq.setText(sprintf("%.3f",getprop("instrumentation/adf["~me.Instance~"]/frequencies/selected-khz")));
+		me.navFreq.setText(sprintf("%.2f",getprop("instrumentation/nav["~me.Instance~"]/frequencies/selected-mhz")));
+		me.adfFreq.setText(sprintf("%.1f",getprop("instrumentation/adf["~me.Instance~"]/frequencies/selected-khz")));
 		me.crs.setText(sprintf("%3.0f",getprop("instrumentation/nav["~me.Instance~"]/radials/selected-deg")));
 
 	 	if(getprop("instrumentation/nav["~me.Instance~"]/dme-in-range")) {
@@ -54,7 +54,7 @@ var canvas_navigation = {
 	BtClick: func(input = -1) {
 
 		if(input == 17) {
-			setprop("instrumentation/rmu["~me.Instance~"]/page", 1);
+			setprop("instrumentation/rmu["~me.Instance~"]/page", PageEnum.pagemenu);
 		}
 	},
 	Knob: func(index = -1, input = -1) {

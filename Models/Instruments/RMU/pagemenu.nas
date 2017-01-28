@@ -15,25 +15,25 @@ var canvas_pagemenu = {
 	},
 	BtClick: func(input = -1) {
 		if(input == 0) {
-			setprop("instrumentation/rmu["~me.Instance~"]/page", 0);
+			setprop("instrumentation/rmu["~me.Instance~"]/page", PageEnum.frequencies);
 		}
 		if(input == 2) {
-			setprop("instrumentation/rmu["~me.Instance~"]/page", 2);
+			setprop("instrumentation/rmu["~me.Instance~"]/page", PageEnum.memorycom);
 		}
 		if(input == 3) {
-			setprop("instrumentation/rmu["~me.Instance~"]/page", 4);
+			setprop("instrumentation/rmu["~me.Instance~"]/page", PageEnum.navigation);
 		}
 		if(input == 4) {
-			setprop("instrumentation/rmu["~me.Instance~"]/page", 3);
+			setprop("instrumentation/rmu["~me.Instance~"]/page", PageEnum.memorycom);
 		}
 		if(input == 5) {
-			setprop("instrumentation/rmu["~me.Instance~"]/page", 5);
+			setprop("instrumentation/rmu["~me.Instance~"]/page", PageEnum.engine1);
 		}
 		if(input == 11) {
-			setprop("instrumentation/rmu["~me.Instance~"]/page", 6);
+			setprop("instrumentation/rmu["~me.Instance~"]/page", PageEnum.maintenance);
 		}
 		if(input == 10 or input == 17) {
-			setprop("instrumentation/rmu["~me.Instance~"]/page", 0);
+			setprop("instrumentation/rmu["~me.Instance~"]/page", PageEnum.frequencies);
 		}
 	},
 	Knob: func(index = -1, input = -1) {

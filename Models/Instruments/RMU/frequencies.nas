@@ -183,7 +183,7 @@ var canvas_frequencies = {
 			}
 		}
 		if(input == 17) {
-			setprop("instrumentation/rmu["~me.Instance~"]/page", 1);
+			setprop("instrumentation/rmu["~me.Instance~"]/page", PageEnum.pagemenu);
 		}
 		me.update();
 	},

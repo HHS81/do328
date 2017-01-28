@@ -12,6 +12,18 @@ var green = [0,1,0];
 var magenta = [0.93,0.05,0.35];
 var white = [1,1,1];
 
+var PageEnum = {frequencies:0,
+	pagemenu:1,
+	memorycom:2,
+	navigation:3,
+	engine1:4,
+	maintenance:5,
+	strapsmenu:6,
+	straps:7,
+	software:8,
+	maintlogmenu:9
+};
+
 ### RMU ###
 var RMU = {
 	new: func(group, instance) {
@@ -21,13 +33,16 @@ var RMU = {
 		m.knob1 = 0;
 
 		canvas.parsesvg(group.createChild('group'), "Aircraft/do328/Models/Instruments/RMU/background.svg");
-		m.Pages[0] = canvas_frequencies.new(group.createChild('group'), instance);
-		m.Pages[1] = canvas_pagemenu.new(group.createChild('group'), instance);
-		m.Pages[2] = canvas_memorycom.new(group.createChild('group'), instance);
-		m.Pages[3] = canvas_memorycom.new(group.createChild('group'), instance);
-		m.Pages[4] = canvas_navigation.new(group.createChild('group'), instance);
-		m.Pages[5] = canvas_engine1.new(group.createChild('group'), instance);
-		m.Pages[6] = canvas_maintenance.new(group.createChild('group'), instance);
+		m.Pages[PageEnum.frequencies] = canvas_frequencies.new(group.createChild('group'), instance);
+		m.Pages[PageEnum.pagemenu] = canvas_pagemenu.new(group.createChild('group'), instance);
+		m.Pages[PageEnum.memorycom] = canvas_memorycom.new(group.createChild('group'), instance);
+		m.Pages[PageEnum.navigation] = canvas_navigation.new(group.createChild('group'), instance);
+		m.Pages[PageEnum.engine1] = canvas_engine1.new(group.createChild('group'), instance);
+		m.Pages[PageEnum.maintenance] = canvas_maintenance.new(group.createChild('group'), instance);
+		m.Pages[PageEnum.strapsmenu] = canvas_strapsmenu.new(group.createChild('group'), instance);
+		m.Pages[PageEnum.straps] = canvas_straps.new(group.createChild('group'), instance);
+		m.Pages[PageEnum.software] = canvas_software.new(group.createChild('group'), instance);
+		m.Pages[PageEnum.maintlogmenu] = canvas_maintlogmenu.new(group.createChild('group'), instance);
 		m.DisplayDim = canvas_displaydim.new(group.createChild('group'), instance);
 		m.DisplayDim.hide();
 		m.DimActive = 0;
@@ -38,7 +53,7 @@ var RMU = {
 			m.ActivatePage(page);
 		}, 1);
 
-		m.ActivatePage(0);
+		m.ActivatePage(PageEnum.frequencies);
 		return m;
 	},
 	ActivatePage: func(input = -1)

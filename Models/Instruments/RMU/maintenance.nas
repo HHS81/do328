@@ -14,11 +14,20 @@ var canvas_maintenance = {
 		return m;
 	},
 	BtClick: func(input = -1) {
+		if(input == 0 or input == 1) {
+			setprop("instrumentation/rmu["~me.Instance~"]/page", PageEnum.strapsmenu);
+		}
+		if(input == 2 or input == 3) {
+			setprop("instrumentation/rmu["~me.Instance~"]/page", PageEnum.software);
+		}
+		if(input == 4 or input == 5) {
+			setprop("instrumentation/rmu["~me.Instance~"]/page", PageEnum.maintlogmenu);
+		}
 		if(input == 10) {
-			setprop("instrumentation/rmu["~me.Instance~"]/page", 0);
+			setprop("instrumentation/rmu["~me.Instance~"]/page", PageEnum.frequencies);
 		}
 		if(input == 17) {
-			setprop("instrumentation/rmu["~me.Instance~"]/page", 1);
+			setprop("instrumentation/rmu["~me.Instance~"]/page", PageEnum.pagemenu);
 		}
 	},
 	Knob: func(index = -1, input = -1) {

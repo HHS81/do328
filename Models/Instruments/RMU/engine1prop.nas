@@ -15,10 +15,10 @@ var canvas_engine1 = {
 	},
 	BtClick: func(input = -1) {
 		if(input == 10) {
-			setprop("instrumentation/rmu["~me.Instance~"]/page", 0);
+			setprop("instrumentation/rmu["~me.Instance~"]/page", PageEnum.frequencies);
 		}
 		if(input == 17) {
-			setprop("instrumentation/rmu["~me.Instance~"]/page", 1);
+			setprop("instrumentation/rmu["~me.Instance~"]/page", PageEnum.pagemenu);
 		}
 	},
 	Knob: func(index = -1, input = -1) {

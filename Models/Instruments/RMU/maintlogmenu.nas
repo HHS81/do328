@@ -1,7 +1,7 @@
-var canvas_memorycom = {
+var canvas_maintlogmenu = {
 	new: func(canvasGroup, instance)
 	{
-		var m = { parents: [canvas_memorycom], rects:{} };
+		var m = { parents: [canvas_maintlogmenu], rects:{} };
 		m.group = canvasGroup;
 		m.Instance = instance;
 
@@ -9,7 +9,7 @@ var canvas_memorycom = {
 		{
 			return "honeywellfont.ttf";
 		};
-		canvas.parsesvg(canvasGroup, "Aircraft/do328/Models/Instruments/RMU/memorycom.svg", {'font-mapper': font_mapper});
+		canvas.parsesvg(canvasGroup, "Aircraft/do328/Models/Instruments/RMU/maintlogmenu.svg", {'font-mapper': font_mapper});
 
 		return m;
 	},
@@ -17,8 +17,8 @@ var canvas_memorycom = {
 		if(input == 10) {
 			setprop("instrumentation/rmu["~me.Instance~"]/page", PageEnum.frequencies);
 		}
-		if(input == 17) {
-			setprop("instrumentation/rmu["~me.Instance~"]/page", PageEnum.pagemenu);
+		if(input == 11 or input == 17) {
+			setprop("instrumentation/rmu["~me.Instance~"]/page", PageEnum.maintenance);
 		}
 	},
 	Knob: func(index = -1, input = -1) {

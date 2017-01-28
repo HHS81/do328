@@ -215,7 +215,7 @@ Started by Heiko Schulz
     <systems>
         <path>Aircraft/do328/Systems/systems.xml</path>
         <autopilot>
-            <path>Aircraft/do328/Systems/generic-autopilot.xml</path>
+            <path>Aircraft/do328/Systems/autopilot.xml</path>
         </autopilot>
  <wingflexer include="Systems/wingflexer-params.xml"/>
     <property-rule n="100">
@@ -773,6 +773,10 @@ V1 --> Vr --> Rotate to 8deg --> @50ft Rotate to 15deg -->Climb @V2 + 15ktn --> 
          <file>Aircraft/do328/Models/Instruments/RMU/navigation.nas</file>
          <file>Aircraft/do328/Models/Instruments/RMU/engine1prop.nas</file>
          <file>Aircraft/do328/Models/Instruments/RMU/maintenance.nas</file>
+         <file>Aircraft/do328/Models/Instruments/RMU/strapsmenu.nas</file>
+         <file>Aircraft/do328/Models/Instruments/RMU/straps.nas</file>
+         <file>Aircraft/do328/Models/Instruments/RMU/maintlogmenu.nas</file>
+         <file>Aircraft/do328/Models/Instruments/RMU/software.nas</file>
          <file>Aircraft/do328/Models/Instruments/RMU/displaydim.nas</file>
          <file>Aircraft/do328/Models/Instruments/RMU/RMU.nas</file>
       </rmu>

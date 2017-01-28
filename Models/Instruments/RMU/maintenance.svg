@@ -2,6 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -9,10 +12,21 @@
    width="350"
    height="400"
    viewBox="0 0 350 400"
-   id="maint"
+   id="svg4150"
    version="1.1"
    inkscape:version="0.91 r13725"
    sodipodi:docname="maintenance.svg">
+  <metadata
+     id="metadata20">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
   <defs
      id="defsMaint" />
   <sodipodi:namedview
@@ -22,11 +36,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="1"
      inkscape:pageshadow="2"
-     inkscape:zoom="1"
-     inkscape:cx="13.09339"
-     inkscape:cy="194.24251"
+     inkscape:zoom="2"
+     inkscape:cx="180.2949"
+     inkscape:cy="361.14686"
      inkscape:document-units="px"
-     inkscape:current-layer="maint"
+     inkscape:current-layer="svg4150"
      showgrid="false"
      units="px"
      inkscape:window-width="1366"
@@ -41,114 +55,111 @@
      fit-margin-left="0"
      fit-margin-right="0"
      fit-margin-bottom="0"
-     inkscape:showpageshadow="false" />
+     inkscape:showpageshadow="false">
+    <sodipodi:guide
+       position="175.00893,346.30555"
+       orientation="1,0"
+       id="guide4148" />
+  </sodipodi:namedview>
   <text
-     transform="scale(1.0138736,0.98631624)"
-     inkscape:transform-center-y="17.437376"
-     inkscape:transform-center-x="178.14606"
-     sodipodi:linespacing="125%"
-     id="atctcas"
-     y="248.19681"
-     x="172.59749"
-     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:26.8347702px;line-height:125%;font-family:'Liberation Mono';-inkscape-font-specification:'Liberation Mono, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#00ff00;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-     xml:space="preserve"><tspan
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20.70890808px;line-height:125%;font-family:'Liberation Mono';-inkscape-font-specification:'Liberation Mono, Normal';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#00ff00;fill-opacity:1;stroke:none;stroke-opacity:1"
-       id="tspan4341-2"
-       sodipodi:role="line"
-       x="172.59749"
-       y="248.19681">RMU SETUP</tspan></text>
-  <text
-     transform="scale(0.97469183,1.0259653)"
-     inkscape:transform-center-y="18.867508"
-     inkscape:transform-center-x="178.14605"
-     sodipodi:linespacing="125%"
-     id="atctcas-3-9"
-     y="121.6261"
-     x="179.75023"
-     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:27.91350555px;line-height:125%;font-family:'Liberation Mono';-inkscape-font-specification:'Liberation Mono, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#00ff00;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-     xml:space="preserve"><tspan
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.54138947px;line-height:125%;font-family:'Liberation Mono';-inkscape-font-specification:'Liberation Mono, Normal';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#00ff00;fill-opacity:1;stroke:none;stroke-opacity:1"
-       id="tspan4341-2-6-1"
-       sodipodi:role="line"
-       x="179.75023"
-       y="121.6261">SOFTWARE VERSIONS</tspan></text>
-  <text
-     transform="scale(0.97469183,1.0259653)"
-     inkscape:transform-center-y="18.8675"
-     inkscape:transform-center-x="178.14605"
-     sodipodi:linespacing="125%"
-     id="atctcas-3-2"
-     y="77.764954"
-     x="179.50153"
-     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:27.91350555px;line-height:125%;font-family:'Liberation Mono';-inkscape-font-specification:'Liberation Mono, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#00ff00;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-     xml:space="preserve"><tspan
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.54138947px;line-height:125%;font-family:'Liberation Mono';-inkscape-font-specification:'Liberation Mono, Normal';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#00ff00;fill-opacity:1;stroke:none;stroke-opacity:1"
-       id="tspan4341-2-6-7"
-       sodipodi:role="line"
-       x="179.50153"
-       y="77.764954">STRAPS</tspan></text>
-  <text
-     transform="scale(0.97469183,1.0259653)"
-     inkscape:transform-center-y="18.867533"
-     inkscape:transform-center-x="178.14606"
-     sodipodi:linespacing="125%"
-     id="atctcas-3-36"
-     y="194.72797"
-     x="179.64545"
-     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:27.91350555px;line-height:125%;font-family:'Liberation Mono';-inkscape-font-specification:'Liberation Mono, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#00ff00;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-     xml:space="preserve"><tspan
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.54138947px;line-height:125%;font-family:'Liberation Mono';-inkscape-font-specification:'Liberation Mono, Normal';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#00ff00;fill-opacity:1;stroke:none;stroke-opacity:1"
-       id="tspan4341-2-6-0"
-       sodipodi:role="line"
-       x="179.64545"
-       y="194.72797">MAINTENANCE LOG</tspan></text>
-  <text
-     transform="scale(0.97469183,1.0259653)"
-     inkscape:transform-center-y="18.867467"
-     inkscape:transform-center-x="178.14606"
-     sodipodi:linespacing="125%"
-     id="atctcas-3-62"
-     y="42.676083"
-     x="179.59172"
-     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:27.91350555px;line-height:125%;font-family:'Liberation Mono';-inkscape-font-specification:'Liberation Mono, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-     xml:space="preserve"><tspan
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.54138947px;line-height:125%;font-family:'Liberation Mono';-inkscape-font-specification:'Liberation Mono, Normal';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1"
+     sodipodi:linespacing="100%"
+     id="heading"
+     y="42.602623"
+     x="182.53427"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:29.34287071px;line-height:100%;font-family:'Liberation Mono';-inkscape-font-specification:'Liberation Mono, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     xml:space="preserve"
+     transform="scale(0.95128751,1.0512069)"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.0241375px;line-height:125%;font-family:'Liberation Mono';-inkscape-font-specification:'Liberation Mono, Normal';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1"
        id="tspan4341-2-6-6"
        sodipodi:role="line"
-       x="179.59171"
-       y="42.676083">MAINTENANCE DATA SYSTEM 1</tspan></text>
+       x="182.53427"
+       y="42.602623">MAINTENANCE DATA SYSTEM 1</tspan></text>
   <path
      sodipodi:nodetypes="cc"
      inkscape:connector-curvature="0"
-     id="path4489"
-     d="m 25,47.90002 300,0"
+     id="path"
+     d="m 35,47.90002 275,0"
      style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#ffffff;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+  <text
+     sodipodi:linespacing="100%"
+     id="straps"
+     y="75.89769"
+     x="184.17679"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:29.34287071px;line-height:100%;font-family:'Liberation Mono';-inkscape-font-specification:'Liberation Mono, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#00ff00;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     xml:space="preserve"
+     transform="scale(0.95128751,1.0512069)"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.0241375px;line-height:125%;font-family:'Liberation Mono';-inkscape-font-specification:'Liberation Mono, Normal';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#00ff00;fill-opacity:1;stroke:none;stroke-opacity:1"
+       id="tspan4341-2-6-7"
+       sodipodi:role="line"
+       x="184.17679"
+       y="75.89769">STRAPS</tspan></text>
+  <text
+     sodipodi:linespacing="100%"
+     id="software"
+     y="118.70563"
+     x="185.18282"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:29.34287071px;line-height:100%;font-family:'Liberation Mono';-inkscape-font-specification:'Liberation Mono, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#00ff00;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     xml:space="preserve"
+     transform="scale(0.95128751,1.0512069)"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.0241375px;line-height:125%;font-family:'Liberation Mono';-inkscape-font-specification:'Liberation Mono, Normal';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#00ff00;fill-opacity:1;stroke:none;stroke-opacity:1"
+       id="tspan4341-2-6-1"
+       sodipodi:role="line"
+       x="185.18282"
+       y="118.70563">SOFTWARE VERSIONS</tspan></text>
+  <text
+     sodipodi:linespacing="100%"
+     id="maint"
+     y="190.05219"
+     x="182.57533"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:29.34287071px;line-height:100%;font-family:'Liberation Mono';-inkscape-font-specification:'Liberation Mono, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#00ff00;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     xml:space="preserve"
+     transform="scale(0.95128751,1.0512069)"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.0241375px;line-height:125%;font-family:'Liberation Mono';-inkscape-font-specification:'Liberation Mono, Normal';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#00ff00;fill-opacity:1;stroke:none;stroke-opacity:1"
+       id="tspan4341-2-6-0"
+       sodipodi:role="line"
+       x="182.57533"
+       y="190.05219">MAINTENANCE LOG</tspan></text>
+  <text
+     sodipodi:linespacing="100%"
+     id="setup"
+     y="232.86012"
+     x="181.21001"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:28.20889664px;line-height:100%;font-family:'Liberation Mono';-inkscape-font-specification:'Liberation Mono, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#00ff00;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     xml:space="preserve"
+     transform="scale(0.95128751,1.0512069)"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.0241375px;line-height:125%;font-family:'Liberation Mono';-inkscape-font-specification:'Liberation Mono, Normal';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#00ff00;fill-opacity:1;stroke:none;stroke-opacity:1"
+       id="tspan4341-2"
+       sodipodi:role="line"
+       x="181.21001"
+       y="232.86012">RMU SETUP</tspan></text>
   <text
      xml:space="default"
      sodipodi:linespacing="125%"
      id="return"
-     y="349.7912"
-     x="33.308598"
-     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:27.70781326px;line-height:125%;font-family:'Liberation Mono';-inkscape-font-specification:'Liberation Mono, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#00ff00;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1">
+     y="332.74533"
+     x="35.1292"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:29.12664413px;line-height:125%;font-family:'Liberation Mono';-inkscape-font-specification:'Liberation Mono, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#00ff00;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     transform="scale(0.95128751,1.0512069)">
     <tspan
        id="tspan4437"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.38265228px;line-height:125%;font-family:'Liberation Mono';-inkscape-font-specification:'Liberation Mono, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#00ff00;fill-opacity:1;stroke:none;stroke-opacity:1"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.0241375px;line-height:125%;font-family:'Liberation Mono';-inkscape-font-specification:'Liberation Mono, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#00ff00;fill-opacity:1;stroke:none;stroke-opacity:1"
        sodipodi:role="line"
-       x="33.308598"
-       y="349.7912">RETURN TO</tspan>
+       x="35.1292"
+       y="332.74533">RETURN TO</tspan>
   </text>
   <text
      xml:space="default"
-     sodipodi:linespacing="125%"
-     id="return-3"
-     y="369.7912"
-     x="33.308598"
-     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:27.70781326px;line-height:125%;font-family:'Liberation Mono';-inkscape-font-specification:'Liberation Mono, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#00ff00;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1">
+     sodipodi:linespacing="100%"
+     id="radios"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:30.61812973px;line-height:100%;font-family:'Liberation Mono';-inkscape-font-specification:'Liberation Mono, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#00ff00;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     x="35.1292"
+     y="351.77106"
+     transform="scale(0.95128751,1.0512069)">
     <tspan
        id="tspan4437-7"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.38265228px;line-height:125%;font-family:'Liberation Mono';-inkscape-font-specification:'Liberation Mono, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#00ff00;fill-opacity:1;stroke:none;stroke-opacity:1"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.0241375px;line-height:125%;font-family:'Liberation Mono';-inkscape-font-specification:'Liberation Mono, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#00ff00;fill-opacity:1;stroke:none;stroke-opacity:1"
        sodipodi:role="line"
-       x="33.308598"
-       y="369.7912">RADIOS</tspan>
+       x="35.1292"
+       y="351.77106">RADIOS</tspan>
   </text>
 </svg>
