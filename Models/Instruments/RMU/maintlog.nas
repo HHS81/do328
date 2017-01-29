@@ -1,7 +1,7 @@
-var canvas_straps = {
+var canvas_maintlog = {
 	new: func(canvasGroup, instance)
 	{
-		var m = { parents: [canvas_straps], rects:{} };
+		var m = { parents: [canvas_maintlog], rects:{} };
 		m.group = canvasGroup;
 		m.Instance = instance;
 
@@ -9,7 +9,7 @@ var canvas_straps = {
 		{
 			return "honeywellfont.ttf";
 		};
-		canvas.parsesvg(canvasGroup, "Aircraft/do328/Models/Instruments/RMU/straps.svg", {'font-mapper': font_mapper});
+		canvas.parsesvg(canvasGroup, "Aircraft/do328/Models/Instruments/RMU/maintlog.svg", {'font-mapper': font_mapper});
 
 		var svg_keys = ["title","linel"];
 		foreach(var key; svg_keys) {
@@ -23,7 +23,7 @@ var canvas_straps = {
 			setprop("instrumentation/rmu["~me.Instance~"]/page", PageEnum.frequencies);
 		}
 		if(input == 11 or input == 17) {
-			setprop("instrumentation/rmu["~me.Instance~"]/page", PageEnum.strapsmenu);
+			setprop("instrumentation/rmu["~me.Instance~"]/page", PageEnum.maintlogmenu);
 		}
 	},
 	Knob: func(index = -1, input = -1) {
@@ -39,7 +39,7 @@ var canvas_straps = {
 			me.linel.hide();
 		}
 
-		me.title.setText(sprintf("%s %d STRAPS", topic, me.Instance+1));
+		me.title.setText(sprintf("%s %d MAINTENANCE LOG", topic, me.Instance+1));
 		me.group.show();
 	},
 	hide: func()

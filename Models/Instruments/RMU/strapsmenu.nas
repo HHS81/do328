@@ -11,16 +11,25 @@ var canvas_strapsmenu = {
 		};
 		canvas.parsesvg(canvasGroup, "Aircraft/do328/Models/Instruments/RMU/strapsmenu.svg", {'font-mapper': font_mapper});
 
+		var svg_keys = ["title"];
+		foreach(var key; svg_keys) {
+			m[key] = canvasGroup.getElementById(key);
+		}
+		m.title.setText(sprintf("SYSTEM %d STRAPS", m.Instance+1));
+
 		return m;
 	},
 	BtClick: func(input = -1) {
 		if(input == 2) {
+			setprop("instrumentation/rmu["~me.Instance~"]/topic", "COM UNIT");
 			setprop("instrumentation/rmu["~me.Instance~"]/page", PageEnum.straps);
 		}
 		if(input == 3) {
+			setprop("instrumentation/rmu["~me.Instance~"]/topic", "NAV UNIT");
 			setprop("instrumentation/rmu["~me.Instance~"]/page", PageEnum.straps);
 		}
 		if(input == 4) {
+			setprop("instrumentation/rmu["~me.Instance~"]/topic", "RMU");
 			setprop("instrumentation/rmu["~me.Instance~"]/page", PageEnum.straps);
 		}
 		if(input == 10) {

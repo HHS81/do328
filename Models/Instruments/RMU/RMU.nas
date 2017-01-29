@@ -21,7 +21,8 @@ var PageEnum = {frequencies:0,
 	strapsmenu:6,
 	straps:7,
 	software:8,
-	maintlogmenu:9
+	maintlogmenu:9,
+	maintlog:10
 };
 
 ### RMU ###
@@ -43,6 +44,7 @@ var RMU = {
 		m.Pages[PageEnum.straps] = canvas_straps.new(group.createChild('group'), instance);
 		m.Pages[PageEnum.software] = canvas_software.new(group.createChild('group'), instance);
 		m.Pages[PageEnum.maintlogmenu] = canvas_maintlogmenu.new(group.createChild('group'), instance);
+		m.Pages[PageEnum.maintlog] = canvas_maintlog.new(group.createChild('group'), instance);
 		m.DisplayDim = canvas_displaydim.new(group.createChild('group'), instance);
 		m.DisplayDim.hide();
 		m.DimActive = 0;

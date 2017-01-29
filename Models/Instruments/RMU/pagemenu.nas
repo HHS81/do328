@@ -11,6 +11,12 @@ var canvas_pagemenu = {
 		};
 		canvas.parsesvg(canvasGroup, "Aircraft/do328/Models/Instruments/RMU/pagemenu.svg", {'font-mapper': font_mapper});
 
+		var svg_keys = ["title"];
+		foreach(var key; svg_keys) {
+			m[key] = canvasGroup.getElementById(key);
+		}
+		m.title.setText(sprintf("SYSTEM %d PAGE MENU", m.Instance+1));
+
 		return m;
 	},
 	BtClick: func(input = -1) {

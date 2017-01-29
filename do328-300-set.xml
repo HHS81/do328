@@ -711,6 +711,7 @@ Started by Heiko Schulz
          <file>Aircraft/do328/Models/Instruments/RMU/strapsmenu.nas</file>
          <file>Aircraft/do328/Models/Instruments/RMU/straps.nas</file>
          <file>Aircraft/do328/Models/Instruments/RMU/maintlogmenu.nas</file>
+         <file>Aircraft/do328/Models/Instruments/RMU/maintlog.nas</file>
          <file>Aircraft/do328/Models/Instruments/RMU/software.nas</file>
          <file>Aircraft/do328/Models/Instruments/RMU/displaydim.nas</file>
          <file>Aircraft/do328/Models/Instruments/RMU/RMU.nas</file>
