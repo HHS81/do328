@@ -1,12 +1,12 @@
-### Canvas MFD ###
-### C. Le Moigne (clm76) - 2016 ###
+### Canvas RMU ###
+### clm76 - 2016 ###
+### xcvb - 2017 ###
 
 var RMU1Instance = {};
 var RMU2Instance = {};
 
 # colors:
 var amber = [1,0.93,0];
-#var cyan = [0,0.57,1];
 var cyan = [0.33,0.73,0.93];
 var green = [0,1,0];
 var magenta = [0.93,0.05,0.35];
@@ -17,12 +17,14 @@ var PageEnum = {frequencies:0,
 	memorycom:2,
 	navigation:3,
 	engine1:4,
-	maintenance:5,
-	strapsmenu:6,
-	straps:7,
-	software:8,
-	maintlogmenu:9,
-	maintlog:10
+	atctcas:5,
+	maintenance:6,
+	strapsmenu:7,
+	straps:8,
+	software:9,
+	maintlogmenu:10,
+	maintlog:11,
+	rmusetup:12
 };
 
 ### RMU ###
@@ -39,12 +41,14 @@ var RMU = {
 		m.Pages[PageEnum.memorycom] = canvas_memorycom.new(group.createChild('group'), instance);
 		m.Pages[PageEnum.navigation] = canvas_navigation.new(group.createChild('group'), instance);
 		m.Pages[PageEnum.engine1] = canvas_engine1.new(group.createChild('group'), instance);
+		m.Pages[PageEnum.atctcas] = canvas_atctcas.new(group.createChild('group'), instance);
 		m.Pages[PageEnum.maintenance] = canvas_maintenance.new(group.createChild('group'), instance);
 		m.Pages[PageEnum.strapsmenu] = canvas_strapsmenu.new(group.createChild('group'), instance);
 		m.Pages[PageEnum.straps] = canvas_straps.new(group.createChild('group'), instance);
 		m.Pages[PageEnum.software] = canvas_software.new(group.createChild('group'), instance);
 		m.Pages[PageEnum.maintlogmenu] = canvas_maintlogmenu.new(group.createChild('group'), instance);
 		m.Pages[PageEnum.maintlog] = canvas_maintlog.new(group.createChild('group'), instance);
+		m.Pages[PageEnum.rmusetup] = canvas_rmusetup.new(group.createChild('group'), instance);
 		m.DisplayDim = canvas_displaydim.new(group.createChild('group'), instance);
 		m.DisplayDim.hide();
 		m.DimActive = 0;
@@ -140,6 +144,12 @@ var setl = setlistener("/sim/signals/fdm-initialized", func () {
 	setprop("instrumentation/rmu[1]/lighting", 1);
 	setprop("instrumentation/rmu[0]/offside", 0);
 	setprop("instrumentation/rmu[1]/offside", 0);
+	setprop("instrumentation/rmu[0]/atcId", 0);
+	setprop("instrumentation/rmu[1]/atcId", 0);
+	setprop("instrumentation/rmu[0]/tcasDisplay", 1);
+	setprop("instrumentation/rmu[1]/tcasDisplay", 1);
+	setprop("instrumentation/rmu[0]/tcasRange", 1);
+	setprop("instrumentation/rmu[1]/tcasRange", 1);
 
 	var rmu1Canvas = canvas.new({
 		"name": "RMU1", 

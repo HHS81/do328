@@ -35,6 +35,9 @@ var canvas_pagemenu = {
 		if(input == 5) {
 			setprop("instrumentation/rmu["~me.Instance~"]/page", PageEnum.engine1);
 		}
+		if(input == 6) {
+			setprop("instrumentation/rmu["~me.Instance~"]/page", PageEnum.atctcas);
+		}
 		if(input == 11) {
 			setprop("instrumentation/rmu["~me.Instance~"]/page", PageEnum.maintenance);
 		}

@@ -29,6 +29,9 @@ var canvas_maintenance = {
 		if(input == 4 or input == 5) {
 			setprop("instrumentation/rmu["~me.Instance~"]/page", PageEnum.maintlogmenu);
 		}
+		if(input == 6 or input == 7) {
+			setprop("instrumentation/rmu["~me.Instance~"]/page", PageEnum.rmusetup);
+		}
 		if(input == 10) {
 			setprop("instrumentation/rmu["~me.Instance~"]/page", PageEnum.frequencies);
 		}

@@ -37,8 +37,8 @@
      inkscape:pageopacity="1"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4142136"
-     inkscape:cx="175.08926"
-     inkscape:cy="258.28336"
+     inkscape:cx="50.63847"
+     inkscape:cy="115.44779"
      inkscape:document-units="px"
      inkscape:current-layer="menu"
      showgrid="false"
@@ -111,7 +111,7 @@
      sodipodi:linespacing="100%"
      id="maint"
      y="332.4808"
-     x="343.24173"
+     x="345.90936"
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:29.78544044px;line-height:100%;font-family:'Liberation Mono';-inkscape-font-specification:'Liberation Mono, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#00ff00;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      xml:space="default"
      transform="scale(0.93715275,1.0670619)">
@@ -119,7 +119,7 @@
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.34123802px;line-height:125%;font-family:'Liberation Mono';-inkscape-font-specification:'Liberation Mono, Normal';text-align:end;writing-mode:lr-tb;text-anchor:end;fill:#00ff00;fill-opacity:1;stroke:none;stroke-opacity:1"
        id="tspan4341-2-6-2"
        sodipodi:role="line"
-       x="343.24173"
+       x="345.90936"
        y="332.4808">MAINT LOG</tspan>
   </text>
   <text
@@ -156,7 +156,7 @@
      sodipodi:linespacing="100%"
      id="maint-6"
      y="351.69647"
-     x="340.60458"
+     x="343.25089"
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:29.54725075px;line-height:100%;font-family:'Liberation Mono';-inkscape-font-specification:'Liberation Mono, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#00ff00;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      xml:space="default"
      transform="scale(0.9447074,1.0585288)">
@@ -164,7 +164,7 @@
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.19898605px;line-height:125%;font-family:'Liberation Mono';-inkscape-font-specification:'Liberation Mono, Normal';text-align:end;writing-mode:lr-tb;text-anchor:end;fill:#00ff00;fill-opacity:1;stroke:none;stroke-opacity:1"
        id="tspan4341-2-6-2-2"
        sodipodi:role="line"
-       x="340.60458"
+       x="343.25089"
        y="351.69647">MENU</tspan>
   </text>
   <text
