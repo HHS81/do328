@@ -1,5 +1,4 @@
 var hdg = props.globals.getNode("orientation/heading-magnetic-deg");
-#instrumentation/nav/heading-needle-deflection
 
 var canvas_navigation = {
 	new: func(canvasGroup, instance)
@@ -15,7 +14,8 @@ var canvas_navigation = {
 		canvas.parsesvg(canvasGroup, "Aircraft/do328/Models/Instruments/RMU/navigation.svg", {'font-mapper': font_mapper});
 
 		var svg_keys = ["compass","hdg","navFreq","adfFreq","crs","crsPtr","dme","crsNeedle",
-				"circle","circNeedle", "circIndicator",
+				"vorDirection","markerBeacon","arrowCL","arrowRL","arrowRR","arrowCR",
+				"circle","circNeedle", "circIndicator","gsScale","gsPtr",
 				"rhombus","rhombNeedle", "rhombIndicator"];
 		foreach(var key; svg_keys) {
 			m[key] = canvasGroup.getElementById(key);
@@ -26,7 +26,7 @@ var canvas_navigation = {
 			m.rects[i] = canvasGroup.getElementById(svg_rects[i]);
 		}
 
-		m.compass.set("clip", "rect(0, 350, 220, 0)");# top,right,bottom,left
+		m.compass.set("clip", "rect(0, 350, 190, 0)");# top,right,bottom,left
 		m.crsNeedle.set("clip", "rect(0, 250, 350, 100)");# top,right,bottom,left
 
 		m.ActivateRect(0);
@@ -47,7 +47,7 @@ var canvas_navigation = {
 	update: func()
 	{
 		var heading = hdg.getValue();
-		var crs = getprop("instrumentation/nav["~me.Instance~"]/radials/selected-deg") or 0;
+		var crs = getprop("instrumentation/nav["~me.Instance~"]/radials/selected-deg");
 
 		if(heading != nil) {
 			me.hdg.setText(sprintf("%3.0f",heading));
@@ -70,28 +70,109 @@ var canvas_navigation = {
 
 		if(getprop("instrumentation/nav["~me.Instance~"]/in-range")) {
 			var vorDeg = getprop("instrumentation/nav["~me.Instance~"]/radials/reciprocal-radial-deg");
-			me.circIndicator.setText(sprintf("%d°", vorDeg));
-			me.circNeedle.setRotation(vorDeg*D2R);
-			me.circle.show();
-			me.circNeedle.show();
+
+			if(getprop("instrumentation/nav["~me.Instance~"]/has-gs")) {
+				# ILS Mode
+				if(getprop("instrumentation/nav["~me.Instance~"]/gs-in-range")) {
+					me.gsPtr.setTranslation(0,-getprop("instrumentation/nav/gs-needle-deflection-norm")*50);
+					me.gsPtr.show();
+				}
+				else {
+					me.gsPtr.hide();
+				}
+
+				me.gsScale.show();
+				me.vorDirection.hide();
+				me.circle.hide();
+				me.circNeedle.hide();
+				me.arrowCL.hide();
+				me.arrowCR.hide();
+			}
+			else {
+				# VOR Mode
+				var circDeg = vorDeg - heading;
+
+				if(circDeg < -180) circDeg = circDeg + 360;
+				if(circDeg > 180) circDeg = circDeg - 360;
+
+				if(circDeg > 40 and circDeg < 140) {
+					me.arrowCL.hide();
+					me.arrowCR.show();
+				}
+				else if(circDeg < -40 and circDeg > -140) {
+					me.arrowCL.show();
+					me.arrowCR.hide();
+				}
+				else {
+					me.arrowCL.hide();
+					me.arrowCR.hide();
+				}
+
+				var direction = abs(crs-vorDeg);
+				if(direction > 360) {
+					diff = diff - 360;
+				}
+				if(direction < 80 or direction > 280) {
+					me.vorDirection.setText("TO");
+					me.vorDirection.show();
+				}
+				else if(direction > 100 and direction < 260) {
+					me.vorDirection.setText("FROM");
+					me.vorDirection.show();
+				}
+				else {
+					me.vorDirection.hide();
+				}
+
+				me.circIndicator.setText(sprintf("%d°", vorDeg));
+				me.circNeedle.setRotation(circDeg*D2R);
+				me.circle.show();
+				me.circNeedle.show();
+				me.gsScale.hide();
+			}
+
 		}
 		else {
 			me.circle.hide();
 			me.circNeedle.hide();
+			me.vorDirection.hide();
+			me.arrowCL.hide();
+			me.arrowCR.hide();
+			me.gsScale.hide();
 		}
 
 		if(getprop("instrumentation/adf["~me.Instance~"]/in-range")) {
 			var adfDeg = getprop("instrumentation/adf["~me.Instance~"]/indicated-bearing-deg")+heading;
 			if(adfDeg > 360) adfDeg = adfDeg - 360;
 			if(adfDeg < 0) adfDeg = adfDeg + 360;
+			var rhombDeg = adfDeg - heading;
+
+			if(rhombDeg < -180) rhombDeg = rhombDeg + 360;
+			if(rhombDeg > 180) rhombDeg = rhombDeg - 360;
+
+			if(rhombDeg > 40 and rhombDeg < 140) {
+				me.arrowRL.hide();
+				me.arrowRR.show();
+			}
+			else if(rhombDeg < -40 and rhombDeg > -140) {
+				me.arrowRL.show();
+				me.arrowRR.hide();
+			}
+			else {
+				me.arrowRL.hide();
+				me.arrowRR.hide();
+			}
+
 			me.rhombIndicator.setText(sprintf("%d°", adfDeg));
-			me.rhombNeedle.setRotation(adfDeg*D2R);
+			me.rhombNeedle.setRotation(rhombDeg*D2R);
 			me.rhombus.show();
 			me.rhombNeedle.show();
 		}
 		else {
 			me.rhombus.hide();
 			me.rhombNeedle.hide();
+			me.arrowRL.hide();
+			me.arrowRR.hide();
 		}
 
 		var quality = getprop("instrumentation/nav["~me.Instance~"]/signal-quality-norm") or 0;
@@ -101,6 +182,19 @@ var canvas_navigation = {
 		}
 		else {
 			me.crsPtr.setTranslation(0, 0);
+		}
+
+		if (getprop("instrumentation/marker-beacon/outer")) {
+			me.markerBeacon.show();
+			me.markerBeacon.setText("OM");
+		} elsif (getprop("instrumentation/marker-beacon/middle")) {
+			me.markerBeacon.show();
+			me.markerBeacon.setText("MM");
+		} elsif (getprop("instrumentation/marker-beacon/inner")) {
+			me.markerBeacon.show();
+			me.markerBeacon.setText("IM");
+		} else {
+			me.markerBeacon.hide();
 		}
 
 		if(me.active == 1) {

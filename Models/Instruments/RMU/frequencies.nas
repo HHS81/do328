@@ -90,48 +90,25 @@ var canvas_frequencies = {
 			me.Id = offside;
 		}
 		else {
-			if(getprop("instrumentation/rmu["~offside~"]/offside")) {
-				# offside rmu controlls this system
-				me.com.setColor(amber);
-				me.comNum.setColor(amber);
-				me.nav.setColor(amber);
-				me.navNum.setColor(amber);
-				me.comFreq.setColor(amber);
-				me.comStby.setColor(green);
-				me.navFreq.setColor(amber);
-				me.navStby.setColor(green);
-				me.memNav.setColor(amber);
-				me.memCom.setColor(amber);
+			# normal mode
+			me.com.setColor(white);
+			me.comNum.setColor(white);
+			me.nav.setColor(white);
+			me.navNum.setColor(white);
+			me.comFreq.setColor(white);
+			me.comStby.setColor(cyan);
+			me.navFreq.setColor(white);
+			me.navStby.setColor(cyan);
+			me.memNav.setColor(cyan);
+			me.memCom.setColor(cyan);
 
-				me.atc.setColor(amber);
-				me.adf1.setColor(amber);
-				me.adfNum.setColor(amber);
-				me.trspCode.setColor(amber);
-				me.adfFreq.setColor(amber);
-				me.tcas.setColor(amber);
-				me.tcasNum.setColor(amber);
-			}
-			else {
-				# normal mode
-				me.com.setColor(white);
-				me.comNum.setColor(white);
-				me.nav.setColor(white);
-				me.navNum.setColor(white);
-				me.comFreq.setColor(white);
-				me.comStby.setColor(cyan);
-				me.navFreq.setColor(white);
-				me.navStby.setColor(cyan);
-				me.memNav.setColor(cyan);
-				me.memCom.setColor(cyan);
-
-				me.atc.setColor(white);
-				me.adf1.setColor(white);
-				me.adfNum.setColor(white);
-				me.trspCode.setColor(white);
-				me.adfFreq.setColor(white);
-				me.tcas.setColor(white);
-				me.tcasNum.setColor(white);
-			}
+			me.atc.setColor(white);
+			me.adf1.setColor(white);
+			me.adfNum.setColor(white);
+			me.trspCode.setColor(white);
+			me.adfFreq.setColor(white);
+			me.tcas.setColor(white);
+			me.tcasNum.setColor(white);
 		}
 
 		me.comNum.setText(sprintf("%d",me.Id+1));

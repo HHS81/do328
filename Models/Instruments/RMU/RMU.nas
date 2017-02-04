@@ -137,6 +137,34 @@ var rmu2Knob = func(input = -1) {
 	RMU2Instance.Knob(input);
 }
 
+var frequencyStorage = func() {
+	# initialize property tree in case that xml file is not available
+	var node = "/instrumentation/rmu";
+	var path = getprop("/sim/fg-home")~"/aircraft-data/do328-RMU.xml";
+
+	var tree = {
+		"memory": {
+			"comm": {
+				"mem": [0, 0, 0, 0, 0, 0,
+					0, 0, 0, 0, 0, 0]
+			},
+			"nav": {
+				"mem": [0, 0, 0, 0, 0, 0,
+					0, 0, 0, 0, 0, 0]
+			}
+		}
+	};
+	props.globals.getNode("/instrumentation/rmu").setValues(tree);
+
+	# read data from xml file
+	io.read_properties(path, node~"/memory");
+
+	# store data
+	setlistener("/sim/signals/save", func () {
+		io.write_properties(path, props.globals.getNode(node~"/memory"));
+	});
+}
+
 ###### Main #####
 var setl = setlistener("/sim/signals/fdm-initialized", func () {
 
@@ -150,6 +178,8 @@ var setl = setlistener("/sim/signals/fdm-initialized", func () {
 	setprop("instrumentation/rmu[1]/tcasDisplay", 1);
 	setprop("instrumentation/rmu[0]/tcasRange", 1);
 	setprop("instrumentation/rmu[1]/tcasRange", 1);
+
+	frequencyStorage();
 
 	var rmu1Canvas = canvas.new({
 		"name": "RMU1", 

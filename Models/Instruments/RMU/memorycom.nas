@@ -11,6 +11,8 @@ var canvas_memorycom = {
 		};
 		canvas.parsesvg(canvasGroup, "Aircraft/do328/Models/Instruments/RMU/memorycom.svg", {'font-mapper': font_mapper});
 
+		var xmlPath = getprop("/sim/fg-home")~"/aircraft-data/do328-RMU.xml";
+
 		return m;
 	},
 	BtClick: func(input = -1) {
