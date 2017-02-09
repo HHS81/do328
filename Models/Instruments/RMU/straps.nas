@@ -1,7 +1,7 @@
 var canvas_straps = {
 	new: func(canvasGroup, instance)
 	{
-		var m = { parents: [canvas_straps], rects:{} };
+		var m = { parents: [canvas_straps] };
 		m.group = canvasGroup;
 		m.Instance = instance;
 

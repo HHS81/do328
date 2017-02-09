@@ -311,7 +311,7 @@ var canvas_PFD = {
 			me.rhombNeedle.hide();
 		}
 
-		if(getprop("instrumentation/fmc/phase-name") == "TO") {
+		if(getprop("instrumentation/fmc/phase-name") == "T/O") {
 			me["v1"].show();
 			me["vr"].show();
 			me["v2"].show();

@@ -1,7 +1,7 @@
 var canvas_strapsmenu = {
 	new: func(canvasGroup, instance)
 	{
-		var m = { parents: [canvas_strapsmenu], rects:{} };
+		var m = { parents: [canvas_strapsmenu] };
 		m.group = canvasGroup;
 		m.Instance = instance;
 

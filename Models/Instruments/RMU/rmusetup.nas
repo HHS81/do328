@@ -1,7 +1,7 @@
 var canvas_rmusetup = {
 	new: func(canvasGroup, instance)
 	{
-		var m = { parents: [canvas_rmusetup], rects:{} };
+		var m = { parents: [canvas_rmusetup] };
 		m.group = canvasGroup;
 		m.Instance = instance;
 

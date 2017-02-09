@@ -1,7 +1,7 @@
 var canvas_software = {
 	new: func(canvasGroup, instance)
 	{
-		var m = { parents: [canvas_software], rects:{} };
+		var m = { parents: [canvas_software] };
 		m.group = canvasGroup;
 		m.Instance = instance;
 

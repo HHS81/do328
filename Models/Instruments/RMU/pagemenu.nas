@@ -1,7 +1,7 @@
 var canvas_pagemenu = {
 	new: func(canvasGroup, instance)
 	{
-		var m = { parents: [canvas_pagemenu], rects:{} };
+		var m = { parents: [canvas_pagemenu] };
 		m.group = canvasGroup;
 		m.Instance = instance;
 
@@ -37,6 +37,9 @@ var canvas_pagemenu = {
 		}
 		if(input == 6) {
 			setprop("instrumentation/rmu["~me.Instance~"]/page", PageEnum.atctcas);
+		}
+		if(input == 7) {
+			setprop("instrumentation/rmu["~me.Instance~"]/page", PageEnum.engine2);
 		}
 		if(input == 11) {
 			setprop("instrumentation/rmu["~me.Instance~"]/page", PageEnum.maintenance);

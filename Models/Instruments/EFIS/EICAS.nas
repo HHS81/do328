@@ -113,7 +113,7 @@ var eicasBtClick = func(input = -1) {
 			# "REF DATA" page
 			if(input == 1) {
 				# activate "T/O"
-				setprop("instrumentation/fmc/phase-name", "TO");
+				setprop("instrumentation/fmc/phase-name", "T/O");
 				eicasSoftkeys[5][2] = sprintf("V1\n%3.0f",getprop("/instrumentation/fmc/vspeeds/V1"));
 				eicasSoftkeys[5][3] = sprintf("VR\n%3.0f",getprop("/instrumentation/fmc/vspeeds/VR"));
 				eicasSoftkeys[5][4] = sprintf("V2\n%3.0f",getprop("/instrumentation/fmc/vspeeds/V2"));

@@ -17,14 +17,15 @@ var PageEnum = {frequencies:0,
 	memorycom:2,
 	navigation:3,
 	engine1:4,
-	atctcas:5,
-	maintenance:6,
-	strapsmenu:7,
-	straps:8,
-	software:9,
-	maintlogmenu:10,
-	maintlog:11,
-	rmusetup:12
+	engine2:5,
+	atctcas:6,
+	maintenance:7,
+	strapsmenu:8,
+	straps:9,
+	software:10,
+	maintlogmenu:11,
+	maintlog:12,
+	rmusetup:13
 };
 
 ### RMU ###
@@ -41,6 +42,7 @@ var RMU = {
 		m.Pages[PageEnum.memorycom] = canvas_memorycom.new(group.createChild('group'), instance);
 		m.Pages[PageEnum.navigation] = canvas_navigation.new(group.createChild('group'), instance);
 		m.Pages[PageEnum.engine1] = canvas_engine1.new(group.createChild('group'), instance);
+		m.Pages[PageEnum.engine2] = canvas_engine2.new(group.createChild('group'), instance);
 		m.Pages[PageEnum.atctcas] = canvas_atctcas.new(group.createChild('group'), instance);
 		m.Pages[PageEnum.maintenance] = canvas_maintenance.new(group.createChild('group'), instance);
 		m.Pages[PageEnum.strapsmenu] = canvas_strapsmenu.new(group.createChild('group'), instance);
@@ -77,24 +79,17 @@ var RMU = {
 	BtClick: func(input = -1) {
 		me.DisplayDim.hide();
 
-		if(input == 13) {
-			if(me.DimActive) {
-				me.DisplayDim.hide();
-				me.DimActive = 0;
-			}
-			else {
+		if(me.DimActive) {
+			me.DisplayDim.hide();
+			me.DimActive = 0;
+		}
+		else {
+			if(input == 13) {
 				me.DisplayDim.show();
 				me.DimActive = 1;
 			}
-		}
-		else {
-			if(me.DimActive) {
-				me.DisplayDim.hide();
-				me.DimActive = 0;
-			}
 			else {
 				me.Pages[me.activePage].BtClick(input);
-				me.DimActive = 0;
 			}
 		}
 	},
@@ -154,7 +149,7 @@ var frequencyStorage = func() {
 			}
 		}
 	};
-	props.globals.getNode("/instrumentation/rmu").setValues(tree);
+	props.globals.getNode(node).setValues(tree);
 
 	# read data from xml file
 	io.read_properties(path, node~"/memory");

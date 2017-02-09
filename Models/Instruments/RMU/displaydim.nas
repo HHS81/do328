@@ -1,7 +1,7 @@
 var canvas_displaydim = {
 	new: func(canvasGroup, instance)
 	{
-		var m = { parents: [canvas_displaydim], rects:{} };
+		var m = { parents: [canvas_displaydim] };
 		m.group = canvasGroup;
 		m.Instance = instance;
 		m.Dim = 1;

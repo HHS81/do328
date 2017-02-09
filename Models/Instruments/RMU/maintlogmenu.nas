@@ -1,7 +1,7 @@
 var canvas_maintlogmenu = {
 	new: func(canvasGroup, instance)
 	{
-		var m = { parents: [canvas_maintlogmenu], rects:{} };
+		var m = { parents: [canvas_maintlogmenu] };
 		m.group = canvasGroup;
 		m.Instance = instance;
 

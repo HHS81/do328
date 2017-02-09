@@ -1,7 +1,7 @@
 var canvas_maintenance = {
 	new: func(canvasGroup, instance)
 	{
-		var m = { parents: [canvas_maintenance], rects:{} };
+		var m = { parents: [canvas_maintenance] };
 		m.group = canvasGroup;
 		m.Instance = instance;
 
