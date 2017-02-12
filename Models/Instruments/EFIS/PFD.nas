@@ -10,7 +10,7 @@ var roundToNearest = func(n, m) {
 }
 
 var canvas_PFD = {
-	new: func(canvas_group)
+	new: func(canvas_group, instance)
 	{
 		var m = { parents: [canvas_PFD] };
 		m["frameCounter"] = 0;
@@ -23,7 +23,13 @@ var canvas_PFD = {
 		
 		canvas.parsesvg(pfd, "Aircraft/do328/Models/Instruments/EFIS/pfd.svg", {'font-mapper': font_mapper});
 		
-		var svg_keys = ["altTape","altText","altMeters","bankPointer","baroSet","circNeedle","compass","curAlt1","curAlt2","curAlt3","curAltBox","curSpd","curSpdTen","fdX","fdY","gpwsAlert","ground","gsPtr","gsScale","horizon","locPtr","locScale","machText","markerBeacon","markerBeaconText","maxSpdInd","minSpdInd","pitchMode","rollMode","selHdgText","spdTape","spdTrend","speedText","tenThousand","v1","v2","vertSpd","vr","vref","vsiNeedle"];
+		var svg_keys = ["altTape","altText","altMeters","bankPointer","baroSet","circIndicator","circNeedle",
+				"circSource","compass","curAlt1","curAlt2","curAlt3","curAltBox","curSpd","curSpdTen",
+				"fdX","fdY","gpwsAlert","ground","gsPtr","gsScale","horizon","locPtr","locScale",
+				"machText","markerBeacon","markerBeaconText","maxSpdInd","minSpdInd","pitchMode",
+				"rhombIndicator","rhombNeedle","rhombSource","rollMode","selHdgText","spdTape",
+				"spdTrend","speedText","tenThousand","v1","v2","vc","vcl","vertSpd","vr","vref",
+				"vsiNeedle"];
 		foreach(var key; svg_keys) {
 			m[key] = pfd.getElementById(key);
 		}
@@ -56,8 +62,11 @@ var canvas_PFD = {
 		setlistener("autopilot/locks/altitude",                func { m.update_ap_modes() } );
 		setlistener("autopilot/locks/heading",                 func { m.update_ap_modes() } );
 		setlistener("autopilot/locks/speed",                   func { m.update_ap_modes() } );
-		m.update_ap_modes();
 
+		m.Instance = instance;
+		m.update_ap_modes();
+		m.update_slow();
+		m.update();
 		return m;
 	},
 	update: func()
@@ -226,8 +235,83 @@ var canvas_PFD = {
 		var alt = getprop("instrumentation/altimeter/indicated-altitude-ft");
 		var apSpd = getprop("autopilot/settings/target-speed-kt");
 		var dh = getprop("instrumentation/mk-viii/inputs/arinc429/decision-height");
-		
-		if(getprop("instrumentation/fmc/phase-name") == "TO") {
+		var pfdCircle = getprop("instrumentation/efis/PFD"~(me.Instance+1)~"_Circle");
+		var pfdRhombus = getprop("instrumentation/efis/PFD"~(me.Instance+1)~"_Rhombus");
+
+		if(pfdCircle != nil) {
+			if(pfdCircle == "") {
+				me.circIndicator.hide();
+				me.circNeedle.hide();
+			}
+			else {
+				me.circSource.setText(pfdCircle);
+				me.circIndicator.show();
+				if(pfdCircle == "VOR1") {
+					if(getprop("instrumentation/nav[0]/in-range")) {
+						me.circNeedle.setRotation(getprop("instrumentation/nav[0]/radials/reciprocal-radial-deg")*D2R);
+						me.circNeedle.show();
+					}
+					else {
+						me.circNeedle.hide();
+					}
+				}
+				else if(pfdCircle == "ADF1") {
+					if(getprop("instrumentation/adf[0]/in-range")) {
+						me.circNeedle.setRotation((getprop("instrumentation/adf[0]/indicated-bearing-deg")+
+									getprop("orientation/heading-deg"))*D2R);
+						me.circNeedle.show();
+					}
+					else {
+						me.circNeedle.hide();
+					}
+				}
+				else {
+					me.circNeedle.hide();
+				}
+			}
+		}
+		else {
+			me.circIndicator.hide();
+			me.circNeedle.hide();
+		}
+		if(pfdRhombus != nil) {
+			if(pfdRhombus == "") {
+				me.rhombIndicator.hide();
+				me.rhombNeedle.hide();
+			}
+			else {
+				me.rhombSource.setText(pfdRhombus);
+				me.rhombIndicator.show();
+				if(pfdRhombus == "VOR2") {
+					if(getprop("instrumentation/nav[1]/in-range")) {
+						me.rhombNeedle.setRotation(getprop("instrumentation/nav[1]/radials/reciprocal-radial-deg")*D2R);
+						me.rhombNeedle.show();
+					}
+					else {
+						me.rhombNeedle.hide();
+					}
+				}
+				else if(pfdRhombus == "ADF2") {
+					if(getprop("instrumentation/adf[1]/in-range")) {
+						me.rhombNeedle.setRotation((getprop("instrumentation/adf[1]/indicated-bearing-deg")+
+										getprop("orientation/heading-deg"))*D2R);
+						me.rhombNeedle.show();
+					}
+					else {
+						me.rhombNeedle.hide();
+					}
+				}
+				else {
+					me.rhombNeedle.hide();
+				}
+			}
+		}
+		else {
+			me.rhombIndicator.hide();
+			me.rhombNeedle.hide();
+		}
+
+		if(getprop("instrumentation/fmc/phase-name") == "T/O") {
 			me["v1"].show();
 			me["vr"].show();
 			me["v2"].show();
@@ -239,14 +323,28 @@ var canvas_PFD = {
 			me["vr"].hide();
 			me["v2"].hide();
 		}
-		
+
+		if(getprop("instrumentation/fmc/phase-name") == "CLIMB") {
+			me["vcl"].show();
+			me["vcl"].setTranslation(0,-200*5.93);
+		} else {
+			me["vcl"].hide();
+		}
+
+		if(getprop("instrumentation/fmc/phase-name") == "CRUISE") {
+			me["vc"].show();
+			me["vc"].setTranslation(0,-239*5.93);
+		} else {
+			me["vc"].hide();
+		}
+
 		if(getprop("instrumentation/fmc/phase-name") == "LANDG") {
 			me["vref"].show();
 			me["vref"].setTranslation(0,-getprop("instrumentation/fmc/vspeeds/Vref")*5.93);
 		} else {
 			me["vref"].hide();
 		}
-		
+
 		if (getprop("instrumentation/weu/state/stall-speed") != nil)
 			me["minSpdInd"].setTranslation(0,-getprop("instrumentation/weu/state/stall-speed")*5.93);
 		if (getprop("instrumentation/pfd/overspeed-kt") != nil)
@@ -260,13 +358,18 @@ var canvas_PFD = {
 			me["maxSpdInd"].show();
 		}
 		me["baroSet"].setText(sprintf("%4.0f",getprop("instrumentation/altimeter/setting-hpa")));
-		me["selHdgText"].setText(sprintf("%3.0f",getprop("autopilot/settings/true-heading-deg")));
+		me["selHdgText"].setText(sprintf("%3.0f",getprop("autopilot/settings/heading-bug-deg")));
 		me["speedText"].setText(sprintf("%3.0f",apSpd));
 	},
 };
 
 setlistener("sim/signals/fdm-initialized", func() {
 	var group = {};
+
+	setprop("instrumentation/efis/PFD1_Circle","VOR1");
+	setprop("instrumentation/efis/PFD1_Rhombus","VOR2");
+	setprop("instrumentation/efis/PFD2_Circle","VOR1");
+	setprop("instrumentation/efis/PFD2_Rhombus","VOR2");
 
 	var pfd1_display = canvas.new({
 		"name": "PFD1",
@@ -276,7 +379,7 @@ setlistener("sim/signals/fdm-initialized", func() {
 	});
 	pfd1_display.addPlacement({"node": "PFD1_Screen"});
 	group = pfd1_display.createGroup();
-	var pfd1_canvas = canvas_PFD.new(group);
+	var pfd1_canvas = canvas_PFD.new(group, 0);
 	pfd1_canvas.update();
 
 	var pfd2_display = canvas.new({
@@ -287,7 +390,7 @@ setlistener("sim/signals/fdm-initialized", func() {
 	});
 	pfd2_display.addPlacement({"node": "PFD2_Screen"});
 	group = pfd2_display.createGroup();
-	var pfd2_canvas = canvas_PFD.new(group);
+	var pfd2_canvas = canvas_PFD.new(group, 1);
 	pfd2_canvas.update();
 });
 

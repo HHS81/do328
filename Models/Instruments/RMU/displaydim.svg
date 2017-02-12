@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="350"
+   height="400"
+   viewBox="0 0 350 400"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="displaydim.svg">
+  <defs />
+  <sodipodi:namedview
+     pagecolor="#585858"
+     inkscape:zoom="0.6334155"
+     inkscape:cx="171.97894"
+     inkscape:cy="364.9529"
+     inkscape:window-width="1366"
+     inkscape:window-height="711"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1" />
+  <path
+     style="opacity:1;fill:#141711;fill-opacity:1;fill-rule:nonzero;stroke:#ed0e58;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     d="m 26.5,278.99976 297,0 0,94.50024 -297,0 z"
+     id="background"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="ccccc" />
+  <text
+     xml:space="default"
+     sodipodi:linespacing="125%"
+     id="tune"
+     y="302.25586"
+     x="173.97949"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:27.70781326px;line-height:125%;font-family:'Liberation Mono';-inkscape-font-specification:'Liberation Mono, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ed0e58;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1">
+    <tspan
+       id="tspan4437"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25px;line-height:125%;font-family:'Liberation Mono';-inkscape-font-specification:'Liberation Mono, Normal';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#ed0e58;fill-opacity:1;stroke:none;stroke-opacity:1"
+       sodipodi:role="line"
+       x="173.97949"
+       y="302.25586">TUNE TO DIM DISPLAY</tspan>
+  </text>
+  <text
+     xml:space="default"
+     sodipodi:linespacing="125%"
+     id="anykey"
+     y="364.7912"
+     x="172.41699"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:27.70781326px;line-height:125%;font-family:'Liberation Mono';-inkscape-font-specification:'Liberation Mono, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffee00;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1">
+    <tspan
+       id="tspan4437-6"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25px;line-height:125%;font-family:'Liberation Mono';-inkscape-font-specification:'Liberation Mono, Normal';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#ffee00;fill-opacity:1;stroke:none;stroke-opacity:1"
+       sodipodi:role="line"
+       x="172.41699"
+       y="364.7912">ANY KEY TO RETURN</tspan>
+  </text>
+  <rect
+     y="312.5"
+     x="60"
+     height="30"
+     width="230"
+     inkscape:transform-center-x="-115"
+     id="indicator_dim"
+     style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+  <path
+     sodipodi:nodetypes="ccccc"
+     inkscape:connector-curvature="0"
+     id="frame"
+     d="m 60,312.5 230,0 0,30 -230,0 z"
+     style="opacity:1;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#00ff00;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+</svg>

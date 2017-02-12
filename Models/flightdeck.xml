@@ -3,6 +3,19 @@
 
 <path>Flightdeck11.ac</path>
 
+<!-- hide clocks and RCU -->
+<animation>
+  <type>select</type>
+  <object-name>Mainpanel.004_Plane.0</object-name>
+  <object-name>clocks</object-name>
+  <condition>
+   <greater-than>
+     <value>1</value>
+     <value>1</value>
+   </greater-than>
+  </condition>
+</animation>
+
 <animation>
   <type>select</type>
   <object-name>PFD1_Screen</object-name>
@@ -16,6 +29,71 @@
      <value>1</value>
    </greater-than>
   </condition>
+</animation>
+
+<animation>
+	<type>pick</type>
+	<object-name>PFD1_BT_Circle</object-name>
+	<action>
+		<button>0</button>
+		<repeatable>false</repeatable>  
+ 		<binding>
+			<command>property-cycle</command>
+			<property>instrumentation/efis/PFD1_Circle</property>
+			<value type="string">ADF1</value>
+			<value type="string">FMS1</value>
+			<value type="string"></value>
+			<value type="string">VOR1</value>
+ 		</binding>
+ 	</action>
+</animation>
+<animation>
+	<type>pick</type>
+	<object-name>PFD1_BT_Rhombus</object-name>
+	<action>
+		<button>0</button>
+		<repeatable>false</repeatable>  
+ 		<binding>
+			<command>property-cycle</command>
+			<property>instrumentation/efis/PFD1_Rhombus</property>
+			<value type="string">ADF2</value>
+			<value type="string">FMS2</value>
+			<value type="string"></value>
+			<value type="string">VOR2</value>
+ 		</binding>
+ 	</action>
+</animation>
+<animation>
+	<type>pick</type>
+	<object-name>PFD2_BT_Circle</object-name>
+	<action>
+		<button>0</button>
+		<repeatable>false</repeatable>  
+ 		<binding>
+			<command>property-cycle</command>
+			<property>instrumentation/efis/PFD2_Circle</property>
+			<value type="string">ADF1</value>
+			<value type="string">FMS1</value>
+			<value type="string"></value>
+			<value type="string">VOR1</value>
+ 		</binding>
+ 	</action>
+</animation>
+<animation>
+	<type>pick</type>
+	<object-name>PFD2_BT_Rhombus</object-name>
+	<action>
+		<button>0</button>
+		<repeatable>false</repeatable>  
+ 		<binding>
+			<command>property-cycle</command>
+			<property>instrumentation/efis/PFD2_Rhombus</property>
+			<value type="string">ADF2</value>
+			<value type="string">FMS2</value>
+			<value type="string"></value>
+			<value type="string">VOR2</value>
+ 		</binding>
+ 	</action>
 </animation>
 
 <animation>
@@ -671,7 +749,7 @@
     
     <model>
         <name>RMU1</name>
-        <path>Aircraft/do328/Models/Instruments/RMU/RMU.xml</path>
+        <path>Aircraft/do328/Models/Instruments/RMU/RMU1.xml</path>
         <offsets>
             <x-m>-8.666</x-m>
             <y-m>-0.143</y-m>
@@ -679,15 +757,48 @@
             <pitch-deg>-75</pitch-deg>
         </offsets>
     </model>
-    
+
     <model>
         <name>RMU2</name>
-        <path>Aircraft/do328/Models/Instruments/RMU/RMU.xml</path>
+        <path>Aircraft/do328/Models/Instruments/RMU/RMU2.xml</path>
         <offsets>
             <x-m>-8.666</x-m>
             <y-m>0.143</y-m>
             <z-m>1.721</z-m>
             <pitch-deg>-75</pitch-deg>
+        </offsets>
+    </model>
+
+    <model>
+        <name>RCU</name>
+        <path>Aircraft/do328/Models/Instruments/RCU/RCU.xml</path>
+        <offsets>
+            <x-m>-8.851</x-m>
+            <y-m>0.152</y-m>
+            <z-m>1.997</z-m>
+            <pitch-deg>-7</pitch-deg>
+        </offsets>
+    </model>
+
+    <model>
+        <name>clock1</name>
+        <path>Aircraft/do328/Models/Instruments/Clock/clock.xml</path>
+        <offsets>
+            <x-m>-8.675</x-m>
+            <y-m>-0.325</y-m>
+            <z-m>2.207</z-m>
+            <pitch-deg>-18</pitch-deg>
+        </offsets>
+    </model>
+
+    <model>
+        <name>clock2</name>
+        <path>Aircraft/do328/Models/Instruments/Clock/clock.xml</path>
+        <offsets>
+            <x-m>-8.675</x-m>
+            <y-m>0.325</y-m>
+            <z-m>2.207</z-m>
+            <pitch-deg>-18</pitch-deg>
         </offsets>
     </model>
 
@@ -1036,7 +1147,7 @@
             </not-equals>
         </condition>
     </animation>
-
+<!--
     <animation>
         <type>select</type>
         <object-name>FD.stby-annun</object-name>
@@ -1053,7 +1164,7 @@
             </and>
         </condition>
     </animation>
-    
+    -->
     <animation>
         <type>select</type>
         <object-name>FD.YD-annun</object-name>

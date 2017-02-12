@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="350"
+   height="400"
+   viewBox="0 0 350 400"
+   id="menu"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="pagemenu.svg">
+  <metadata
+     id="metadata28">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defsMenu" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#585858"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="1"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.266831"
+     inkscape:cx="52.480386"
+     inkscape:cy="183.14584"
+     inkscape:document-units="px"
+     inkscape:current-layer="menu"
+     showgrid="false"
+     units="px"
+     inkscape:window-width="1366"
+     inkscape:window-height="711"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:snap-to-guides="true"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:showpageshadow="false" />
+  <text
+     transform="scale(0.97469182,1.0259653)"
+     inkscape:transform-center-y="18.867467"
+     inkscape:transform-center-x="178.14606"
+     sodipodi:linespacing="125%"
+     id="title"
+     y="42.676083"
+     x="184.66951"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:27.91350555px;line-height:125%;font-family:'Liberation Mono';-inkscape-font-specification:'Liberation Mono, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     xml:space="preserve"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.54138947px;line-height:125%;font-family:'Liberation Mono';-inkscape-font-specification:'Liberation Mono, Normal';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1"
+       id="tspan4341-2-6-6"
+       sodipodi:role="line"
+       x="184.66951"
+       y="42.676083">SYSTEM 1 PAGE MENU</tspan></text>
+  <path
+     sodipodi:nodetypes="cc"
+     inkscape:connector-curvature="0"
+     id="line"
+     d="m 75,47.5 210,0"
+     style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#ffffff;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+  <text
+     transform="scale(0.97469183,1.0259653)"
+     inkscape:transform-center-y="18.8675"
+     inkscape:transform-center-x="178.14605"
+     sodipodi:linespacing="125%"
+     id="radio"
+     y="77.764954"
+     x="26.510088"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:27.91350555px;line-height:125%;font-family:'Liberation Mono';-inkscape-font-specification:'Liberation Mono, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#00ff00;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     xml:space="preserve"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.54138947px;line-height:125%;font-family:'Liberation Mono';-inkscape-font-specification:'Liberation Mono, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#00ff00;fill-opacity:1;stroke:none;stroke-opacity:1"
+       id="tspan4341-2-6-7"
+       sodipodi:role="line"
+       x="26.510088"
+       y="77.764954">RADIO PAGE</tspan></text>
+  <text
+     transform="scale(0.97469183,1.0259653)"
+     inkscape:transform-center-y="18.867508"
+     inkscape:transform-center-x="178.14605"
+     sodipodi:linespacing="125%"
+     id="comm"
+     y="121.6261"
+     x="27.025484"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:27.91350555px;line-height:125%;font-family:'Liberation Mono';-inkscape-font-specification:'Liberation Mono, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#00ff00;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     xml:space="preserve"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.54138947px;line-height:125%;font-family:'Liberation Mono';-inkscape-font-specification:'Liberation Mono, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#00ff00;fill-opacity:1;stroke:none;stroke-opacity:1"
+       id="tspan4341-2-6-1"
+       sodipodi:role="line"
+       x="27.025484"
+       y="121.6261">COM MEMORY</tspan></text>
+  <text
+     transform="scale(0.97469183,1.0259653)"
+     inkscape:transform-center-y="18.867508"
+     inkscape:transform-center-x="178.14606"
+     sodipodi:linespacing="125%"
+     id="nav"
+     y="121.62613"
+     x="333.16589"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:27.91350555px;line-height:125%;font-family:'Liberation Mono';-inkscape-font-specification:'Liberation Mono, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#00ff00;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     xml:space="preserve"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.54138947px;line-height:125%;font-family:'Liberation Mono';-inkscape-font-specification:'Liberation Mono, Normal';text-align:end;writing-mode:lr-tb;text-anchor:end;fill:#00ff00;fill-opacity:1;stroke:none;stroke-opacity:1"
+       id="tspan4341-2-6-9"
+       sodipodi:role="line"
+       x="333.16589"
+       y="121.62613">NAVIGATION</tspan></text>
+  <text
+     transform="scale(0.97469183,1.0259653)"
+     inkscape:transform-center-y="18.867508"
+     inkscape:transform-center-x="178.14605"
+     sodipodi:linespacing="125%"
+     id="navm"
+     y="194.72803"
+     x="26.510088"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:27.91350555px;line-height:125%;font-family:'Liberation Mono';-inkscape-font-specification:'Liberation Mono, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#00ff00;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     xml:space="preserve"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.54138947px;line-height:125%;font-family:'Liberation Mono';-inkscape-font-specification:'Liberation Mono, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#00ff00;fill-opacity:1;stroke:none;stroke-opacity:1"
+       id="tspan4341-2-6-1-6"
+       sodipodi:role="line"
+       x="26.510088"
+       y="194.72803">NAV MEMORY</tspan></text>
+  <text
+     transform="scale(0.97469183,1.0259653)"
+     inkscape:transform-center-y="18.867533"
+     inkscape:transform-center-x="178.14606"
+     sodipodi:linespacing="125%"
+     id="engine1"
+     y="194.728"
+     x="331.77252"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:27.91350555px;line-height:125%;font-family:'Liberation Mono';-inkscape-font-specification:'Liberation Mono, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#00ff00;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     xml:space="preserve"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.54138947px;line-height:125%;font-family:'Liberation Mono';-inkscape-font-specification:'Liberation Mono, Normal';text-align:end;writing-mode:lr-tb;text-anchor:end;fill:#00ff00;fill-opacity:1;stroke:none;stroke-opacity:1"
+       id="tspan4341-2-6-0"
+       sodipodi:role="line"
+       x="331.77252"
+       y="194.728">ENGINE PG 1</tspan></text>
+  <text
+     transform="scale(0.97469183,1.0259653)"
+     inkscape:transform-center-y="18.867508"
+     inkscape:transform-center-x="178.14605"
+     sodipodi:linespacing="125%"
+     id="atctcas"
+     y="238.58911"
+     x="28.214048"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:27.91350555px;line-height:125%;font-family:'Liberation Mono';-inkscape-font-specification:'Liberation Mono, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#00ff00;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     xml:space="preserve"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.54138947px;line-height:125%;font-family:'Liberation Mono';-inkscape-font-specification:'Liberation Mono, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#00ff00;fill-opacity:1;stroke:none;stroke-opacity:1"
+       id="tspan4341-2-6-1-6-5"
+       sodipodi:role="line"
+       x="28.214048"
+       y="238.58911">ATC/TCAS</tspan></text>
+  <text
+     transform="scale(0.97469183,1.0259653)"
+     inkscape:transform-center-y="18.867533"
+     inkscape:transform-center-x="178.14606"
+     sodipodi:linespacing="125%"
+     id="engine2"
+     y="238.58914"
+     x="331.77252"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:27.91350555px;line-height:125%;font-family:'Liberation Mono';-inkscape-font-specification:'Liberation Mono, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#00ff00;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     xml:space="preserve"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.54138947px;line-height:125%;font-family:'Liberation Mono';-inkscape-font-specification:'Liberation Mono, Normal';text-align:end;writing-mode:lr-tb;text-anchor:end;fill:#00ff00;fill-opacity:1;stroke:none;stroke-opacity:1"
+       id="tspan4341-2-6-0-5"
+       sodipodi:role="line"
+       x="331.77252"
+       y="238.58914">ENGINE PG 2</tspan></text>
+  <text
+     transform="scale(1.0138736,0.98631624)"
+     inkscape:transform-center-y="17.437376"
+     inkscape:transform-center-x="178.14606"
+     sodipodi:linespacing="125%"
+     id="mls"
+     y="324.23734"
+     x="25.819279"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:26.8347702px;line-height:125%;font-family:'Liberation Mono';-inkscape-font-specification:'Liberation Mono, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#00ff00;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     xml:space="preserve"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20.70890808px;line-height:125%;font-family:'Liberation Mono';-inkscape-font-specification:'Liberation Mono, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#00ff00;fill-opacity:1;stroke:none;stroke-opacity:1"
+       id="tspan4341-2"
+       sodipodi:role="line"
+       x="25.819279"
+       y="324.23734">MLS</tspan></text>
+  <text
+     xml:space="default"
+     sodipodi:linespacing="125%"
+     id="return"
+     y="364.7912"
+     x="25.808599"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:27.70781326px;line-height:125%;font-family:'Liberation Mono';-inkscape-font-specification:'Liberation Mono, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#00ff00;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1">
+    <tspan
+       id="tspan4437"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.38265228px;line-height:125%;font-family:'Liberation Mono';-inkscape-font-specification:'Liberation Mono, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#00ff00;fill-opacity:1;stroke:none;stroke-opacity:1"
+       sodipodi:role="line"
+       x="25.808599"
+       y="364.7912">RETURN</tspan>
+  </text>
+  <text
+     transform="scale(0.97469183,1.0259653)"
+     inkscape:transform-center-y="18.867405"
+     inkscape:transform-center-x="178.14609"
+     sodipodi:linespacing="125%"
+     id="maint"
+     y="355.55215"
+     x="333.09189"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:27.91350555px;line-height:125%;font-family:'Liberation Mono';-inkscape-font-specification:'Liberation Mono, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#00ff00;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     xml:space="preserve"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.54138947px;line-height:125%;font-family:'Liberation Mono';-inkscape-font-specification:'Liberation Mono, Normal';text-align:end;writing-mode:lr-tb;text-anchor:end;fill:#00ff00;fill-opacity:1;stroke:none;stroke-opacity:1"
+       id="tspan4341-2-6-2"
+       sodipodi:role="line"
+       x="333.09189"
+       y="355.55215">MAINTENANCE</tspan></text>
+</svg>
