@@ -687,7 +687,6 @@ Started by Heiko Schulz
      <!--<file>Aircraft/do328/Nasal/lightmap.nas</file>-->
          <file>Aircraft/do328/Nasal/Autostart.nas</file>
      <!--<file>Aircraft/do328/Nasal/pressurization.nas</file>-->
-	<file>Aircraft/do328/Nasal/vspeeds.nas</file>
       </systems>
       <efis>
          <file>Aircraft/do328/Models/Instruments/EFIS/PFD.nas</file>

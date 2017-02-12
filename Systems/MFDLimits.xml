@@ -1,0 +1,142 @@
+<?xml version="1.0"?>
+<!--
+    Copyright (c) 2017 HHS81 
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 2 of the License, or
+    (at your option) any later version.
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+    You should have received a copy of the GNU General Public License
+    along with this program. If not, see <http://www.gnu.org/licenses/>.
+-->
+
+    <system name="MFDLimits">
+
+
+        <channel name="VSpeeds">
+<!--
+  Takeoff speeds at 12deg Flap setting from Dornier 328 TP
+					V1	Vr	V2 
+29762lbs = 13500kg		110	114	117
+28660lbs = 13000kg		108	111	115
+27557lbs = 12500kg		106	109	113
+26455lbs = 12000kg		104	107	111	
+25353lbs = 11500kg		102	105	109
+24250lbs = 11000kg		100	103	107
+23148lbs = 10500kg		98	101	105
+22046lbs = 10000kg		96	98	102
+20943lbs = 9500kg		93	95	99
+
+
+  Vref speeds at 32deg Flap setting
+					
+29762lbs = 13500kg		111	
+28660lbs = 13000kg		109	
+27557lbs = 12500kg		107	
+26455lbs = 12000kg		104	
+25353lbs = 11500kg		102	
+24250lbs = 11000kg		100	
+23148lbs = 10500kg		98	
+22046lbs = 10000kg		95	
+20943lbs = 9500kg		92	
+ -->
+ 
+          <fcs_function name="/systems/vspeeds/takeoff/v1">
+             <function>      
+                  <table>
+                      <independentVar>inertia/weight-lbs</independentVar>
+                      <tableData>
+		      20943	93
+		      22046	96
+		      23148	98
+		      24250	100
+		      25353	102
+		      26455	104
+		      27557	106
+		      28660	108
+		      29760	110
+		      35000	124
+                       </tableData>
+                  </table>
+               </function>
+<output> /instrumentation/fmc/vspeeds/V1</output>
+        </fcs_function> 
+
+	
+       <fcs_function name="systems/vspeeds/takeoff/vr">
+             <function>      
+            <product>
+                  <table>
+                      <independentVar>inertia/weight-lbs</independentVar>
+                      <tableData>
+		      20943	95
+		      22046	98
+		      23148	101
+		      24250	103
+		      25353	105
+		      26455	107
+		      27557	109
+		      28660	111
+		      29760	114 
+		      35000	133
+                       </tableData>
+                  </table>
+            </product>
+               </function>
+
+<output> /instrumentation/fmc/vspeeds/VR</output>
+        </fcs_function>
+	
+        <fcs_function name="systems/vspeeds/takeoff/v2">
+           <function>      
+            <product>
+                  <table>
+                      <independentVar>inertia/weight-lbs</independentVar>
+                      <tableData>
+		      20943	99
+		      22046	102
+		      23148	105
+		      24250	107
+		      25353	109
+		      26455	111
+		      27557	112
+		      28660	114
+		      29760	117  
+		      35000	138
+                       </tableData>
+                  </table>
+            </product>
+          </function>
+
+<output> /instrumentation/fmc/vspeeds/V2</output>
+        </fcs_function>
+	
+        <fcs_function name="systems/vspeeds/landing/vref32">
+           <function>       
+            <product>
+                  <table>
+                      <independentVar>inertia/weight-lbs</independentVar>
+                      <tableData>
+		      20943	92
+		      22046	95
+		      23148	98
+		      24250	100
+		      25353	102
+		      26455	104
+		      27557	107
+		      28660	109
+		      29760	111  
+		      35000	128
+                       </tableData>
+                  </table>
+            </product>
+               </function>
+
+<output> /instrumentation/fmc/vspeeds/Vref</output>
+        </fcs_function>
+	
+    </channel>
+</system>

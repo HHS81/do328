@@ -12,9 +12,9 @@
  </fileheader>
 
 <!--
-  File:     Dornier 328-300.xml
+  File:     Dornier 328-1xx.xml
   Inputs:
-    name:          Dornier 328-300
+    name:          Dornier 328-1xx
     type:          multi-engine jet transport
     max weight:    30843.54 lb
     wing span:     68.8 ft
@@ -718,6 +718,8 @@ Landing Distance MLW unfactored (what the aircraft demostrated without any safet
           <output>fcs/steer-pos-deg[0]</output>
         </actuator>
  </channel>
+ 
+
 
   <channel name="Pitch">
 
@@ -979,6 +981,8 @@ Landing Distance MLW unfactored (what the aircraft demostrated without any safet
  </flight_control>
 
        <aerodynamics>
+
+
 
         <function name="aero/function/kCDge">
             <description>Change_in_drag_due_to_ground_effect</description>
@@ -2029,6 +2033,9 @@ Landing Distance MLW unfactored (what the aircraft demostrated without any safet
             </function>
 	    </axis>
     </aerodynamics>
+    
+    <system file="MFDLimits"/>
+    
 <!-- - ->
     <output name="SenecaII.csv" type="CSV" rate="5">
         <simulation> OFF </simulation>

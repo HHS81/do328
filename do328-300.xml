@@ -1932,6 +1932,8 @@ Landing Distance MLW unfactored (what the aircraft demostrated without any safet
 
         </axis>
     </aerodynamics>
+    
+        <system file="MFDLimits"/>
 <!-- - ->
     <output name="SenecaII.csv" type="CSV" rate="5">
         <simulation> OFF </simulation>
