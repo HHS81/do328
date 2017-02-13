@@ -12,7 +12,7 @@ var canvas_engine1 = {
 		canvas.parsesvg(canvasGroup, "Aircraft/do328/Models/Instruments/RMU/engine1prop.svg", {'font-mapper': font_mapper});
 
 		var svg_keys = ["phase1","phase2","arrow1","arrow2","tq1","tq2","np1","np2",
-				"itt1","itt2","nh1","nh2","fq1","fq2","ign1","ign2"];
+				"itt1","itt2","nh1","nh2","fq1","fq2","alt","dp","ign1","ign2"];
 
 		foreach(var key; svg_keys) {
 			m[key] = canvasGroup.getElementById(key);
@@ -40,13 +40,14 @@ var canvas_engine1 = {
 				getprop("fdm/jsbsim/propulsion/engine[1]/itt-c") or 0];
 		var nh = [	getprop("engines/engine[0]/n1") or 0,
 				getprop("engines/engine[0]/n1") or 0];
-
 		var fuel = [	getprop("consumables/fuel/tank[0]/level-lbs")+
 				getprop("consumables/fuel/tank[1]/level-lbs")+
 				getprop("consumables/fuel/tank[2]/level-lbs"),
 				getprop("consumables/fuel/tank[3]/level-lbs")+
 				getprop("consumables/fuel/tank[4]/level-lbs")+
 				getprop("consumables/fuel/tank[5]/level-lbs")];
+		var ft =	getprop("systems/pressurization/cabin-altitude-ft") or 0;
+		var rate =	getprop("systems/pressurization/cabin-rate-fpm") or 0;
 
 		for(var n=0; n<2; n+=1){
 			me["phase"~(n+1)].setText(phase);
@@ -57,6 +58,8 @@ var canvas_engine1 = {
 			me["nh"~(n+1)].setText(sprintf("%3.01f",nh[n]));
 			me["fq"~(n+1)].setText(sprintf("%3.0f",fuel[n]));
 		}
+		me.alt.setText(sprintf("%3.0f",ft));
+		me.dp.setText(sprintf("%3.0f",rate));
 
 		if(me.active == 1) {
 			settimer(func me.update(), 0.3);
