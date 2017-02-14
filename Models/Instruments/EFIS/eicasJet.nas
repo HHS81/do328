@@ -16,7 +16,8 @@ var canvas_eicas = {
 		var svg_keys = ["msgMemo","msgWarning","msgCaution","msgAdvisory",
 				"readout_n1_1","readout_n1_2","dial_n1_1","dial_n1_2",
 				"readout_itt1","readout_itt2","dial_itt1","dial_itt2",
-				"readout_n2_1","readout_n2_2","dial_n2_1","dial_n2_2"];
+				"readout_n2_1","readout_n2_2","dial_n2_1","dial_n2_2",
+				"readout_ft","readout_fpm"];
 		foreach(var key; svg_keys) {
 			m[key] = canvasGroup.getElementById(key);
 		}
@@ -38,6 +39,8 @@ var canvas_eicas = {
 		var n1 = [0,getprop("engines/engine[0]/n1"),getprop("engines/engine[1]/n1")];
 		var itt = [0,getprop("/fdm/jsbsim/propulsion/engine[0]/itt-c"),getprop("/fdm/jsbsim/propulsion/engine[1]/itt-c")];
 		var n2 = [0,getprop("engines/engine[0]/n2"),getprop("engines/engine[1]/n2")];
+		var ft = getprop("systems/pressurization/cabin-altitude-ft") or 0;
+		var rate = getprop("systems/pressurization/cabin-rate-fpm") or 0;
 
 		for(var n = 1; n<=2; n+=1){
 
@@ -63,6 +66,9 @@ var canvas_eicas = {
 			}
 
 		}
+
+		me.readout_ft.setText(sprintf("%3.0f",ft));
+		me.readout_fpm.setText(sprintf("%3.0f",rate));
 
 		if(me.active == 1) {
 			settimer(func me.fast_update(), 0.1);
