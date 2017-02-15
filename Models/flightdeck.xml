@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8' ?>
 <PropertyList>
 
-<path>Flightdeck11.ac</path>
+<path>Flightdeck21.ac</path>
 
 <!-- hide clocks and RCU -->
 <animation>
