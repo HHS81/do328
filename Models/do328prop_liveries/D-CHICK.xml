@@ -5,9 +5,9 @@
 		<model>
 			
 				<livery>
-					<name type="string">TAC 2</name>
+					<name type="string">TAC 1   D-CHIC</name>
 					 <index type="int">4</index>
-					  <texture>do328prop_liveries/D-CHIC2.png</texture>
+					  <texture>do328prop_liveries/D-CHIC.png</texture>
 				</livery>
 			<do328>
 			<material>
@@ -32,7 +32,7 @@
 			       </do328>
 		</model>
 	  <rendering>
-	<refl_correction type="float">-0.3</refl_correction>
+	<refl_correction type="float">-0.33</refl_correction>
 	<fresnel-factor type="float">0.75</fresnel-factor>
 	<refl-type type="int">1</refl-type>
     </rendering>
