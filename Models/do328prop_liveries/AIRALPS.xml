@@ -5,7 +5,7 @@
 		<model>
 			
 				<livery>
-					<name type="string">airA!PS</name>
+					<name type="string">air A!PS</name>
 					 <index type="int">2</index>
 					  <texture>do328prop_liveries/AIRALPS.png</texture>
 				</livery>
