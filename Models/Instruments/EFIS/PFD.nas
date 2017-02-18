@@ -89,8 +89,8 @@ var canvas_PFD = {
 		}
 
 		var pitch = getprop("orientation/pitch-deg");
-		var roll =  getprop("orientation/roll-deg");
-		var hdg =  getprop("orientation/heading-deg");
+		var roll = getprop("orientation/roll-deg");
+		var hdg = getprop("orientation/heading-deg");
 		var vSpd = getprop("/velocities/vertical-speed-fps");
 		var wow = getprop("gear/gear/wow");
 		var apAlt = getprop("autopilot/settings/target-altitude-ft");
@@ -104,14 +104,22 @@ var canvas_PFD = {
 		me["compass"].setRotation(-hdg*D2R);
 			
 		# Flight director
-		if(getprop("autopilot/locks/passive-mode") == 1) {
-			if (getprop("autopilot/internal/target-roll-deg") != nil) {
+		if(!(getprop("autopilot/settings/stby") or 0)) {
+			if(getprop("autopilot/internal/target-roll-deg") != nil) {
 				var fdRoll = (roll-getprop("/autopilot/internal/target-roll-deg"))*10.5;
-				if (fdRoll > 200)
-					fdRoll = 200;
-				elsif (fdRoll < -200)
-					fdRoll = -200;
+				if (fdRoll > 150)
+					fdRoll = 150;
+				elsif (fdRoll < -150)
+					fdRoll = -150;
 				me.fdX.setTranslation(-fdRoll,0);
+			}
+			if(getprop("/autopilot/internal/target-pitch-deg") != nil) {
+				var fdpitch = (pitch-getprop("/autopilot/internal/target-pitch-deg"))*10.5;
+				if (fdpitch > 150)
+					fdpitch = 150;
+				elsif (fdpitch < -150)
+					fdpitch = -150;
+				me.fdY.setTranslation(0,fdpitch);
 			}
 			me.fdX.show();
 			me.fdY.show();
