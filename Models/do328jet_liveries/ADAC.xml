@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+	<sim>
+		<model>
+			
+				<livery>
+					<name type="string">ADAC</name>
+					 <index type="int">2</index>
+					  <texture>do328jet_liveries/ADAC.png</texture>
+				</livery>
+			<do328>
+			<material>
+			<fuselage>
+						<diffuse>
+							<red>1.0</red>
+							<green>1.0</green>
+							<blue>1.0</blue>
+						</diffuse>
+ 					         <specular>
+							<red>0.5</red>
+							<green>0.5</green>
+							<blue>0.5</blue>
+						</specular>
+						<ambient>
+							<red>1.0</red>
+							<green>1.0</green>
+							<blue>1.0</blue>
+						</ambient>
+				</fuselage>
+                               </material>
+			       </do328>
+		</model>
+	  <rendering>
+	<refl_correction type="float">-0.3</refl_correction>
+	<fresnel-factor type="float">0.75</fresnel-factor>
+	<refl-type type="int">1</refl-type>
+    </rendering>
+	</sim>
+</PropertyList>

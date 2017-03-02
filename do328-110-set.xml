@@ -24,9 +24,9 @@ Started by Heiko Schulz
             <tag>glass-cockpit</tag>
         </tags>
         
-        <!--<startup>
-            <splash-texture>Aircraft/CitationX/Splash.png</splash-texture>
-        </startup>-->
+        <startup>
+            <splash-texture>Aircraft/do328/splash.png</splash-texture>
+        </startup>
 
 <model>
    <path>Aircraft/do328/Models/do328prop.xml</path>
