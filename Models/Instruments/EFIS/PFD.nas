@@ -1,6 +1,4 @@
-# ==============================================================================
-# Boeing 747-400 pfd by Gijs de Rooy
-# ==============================================================================
+# by Gijs de Rooy, xcvb85
 
 var roundToNearest = func(n, m) {
 	var x = int(n/m)*m;
@@ -14,14 +12,13 @@ var canvas_PFD = {
 	{
 		var m = { parents: [canvas_PFD] };
 		m.frameCounter = 0;
-		var pfd = canvas_group;
 		var font_mapper = func(family, weight)
 		{
 			if( family == "'Liberation Sans'" and weight == "normal" )
 				return "honeywellfont.ttf";
 		};
 		
-		canvas.parsesvg(pfd, "Aircraft/do328/Models/Instruments/EFIS/pfd.svg", {'font-mapper': font_mapper});
+		canvas.parsesvg(canvas_group, "Aircraft/do328/Models/Instruments/EFIS/pfd.svg", {'font-mapper': font_mapper});
 		
 		var svg_keys = ["altTape","altText","altMeters","bankPointer","baroSet","circIndicator","circNeedle",
 				"circSource","compass","curAlt1","curAlt2","curAlt3","curAltBox","curSpd","curSpdTen",
@@ -31,7 +28,7 @@ var canvas_PFD = {
 				"spdTrend","speedText","tenThousand","v1","v2","vc","vcl","vertSpd","vr","vref",
 				"vsiNeedle"];
 		foreach(var key; svg_keys) {
-			m[key] = pfd.getElementById(key);
+			m[key] = canvas_group.getElementById(key);
 		}
 		debug.dump(m.horizon.getCenter());
 		m.h_trans = m.horizon.createTransform();
@@ -216,7 +213,7 @@ var canvas_PFD = {
 		me.spdTape.setTranslation(0, me.ias*5.93);
 		me.altTape.setTranslation(0, me.alt*0.45);
 
-		me.frameCounter = me.frameCounter + 1;
+		me.frameCounter += 1;
 		if(me.frameCounter > 3) {
 			me.frameCounter = 0;
 			me.update_slow();
@@ -391,7 +388,7 @@ var canvas_PFD = {
 	},
 };
 
-setlistener("sim/signals/fdm-initialized", func() {
+var pfdListener = setlistener("/sim/signals/fdm-initialized", func () {
 	var group = {};
 
 	setprop("instrumentation/efis/PFD1_Circle","VOR1");
@@ -420,7 +417,6 @@ setlistener("sim/signals/fdm-initialized", func() {
 	group = pfd2_display.createGroup();
 	var pfd2_canvas = canvas_PFD.new(group, 1);
 	pfd2_canvas.update();
-});
 
-setlistener("sim/signals/reinit", func pfd1_display.del());
-setlistener("sim/signals/reinit", func pfd2_display.del());
+	removelistener(pfdListener);
+});

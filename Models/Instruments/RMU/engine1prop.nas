@@ -30,36 +30,20 @@ var canvas_engine1 = {
 	},
 	update: func()
 	{
-		var phase = getprop("instrumentation/fmc/phase-name") or "";
-
-		var tq = [	getprop("fdm/jsbsim/propulsion/engine[0]/trq-percent") or 0,
-				getprop("fdm/jsbsim/propulsion/engine[1]/trq-percent") or 0];
-		var np = [	getprop("fdm/jsbsim/propulsion/engine[0]/propeller-rpm") or 0,
-				getprop("fdm/jsbsim/propulsion/engine[1]/propeller-rpm") or 0];
-		var itt = [	getprop("fdm/jsbsim/propulsion/engine[0]/itt-c") or 0,
-				getprop("fdm/jsbsim/propulsion/engine[1]/itt-c") or 0];
-		var nh = [	getprop("engines/engine[0]/n1") or 0,
-				getprop("engines/engine[0]/n1") or 0];
-		var fuel = [	getprop("consumables/fuel/tank[0]/level-lbs")+
-				getprop("consumables/fuel/tank[1]/level-lbs")+
-				getprop("consumables/fuel/tank[2]/level-lbs"),
-				getprop("consumables/fuel/tank[3]/level-lbs")+
-				getprop("consumables/fuel/tank[4]/level-lbs")+
-				getprop("consumables/fuel/tank[5]/level-lbs")];
-		var ft =	getprop("systems/pressurization/cabin-altitude-ft") or 0;
-		var rate =	getprop("systems/pressurization/cabin-rate-fpm") or 0;
-
 		for(var n=0; n<2; n+=1){
-			me["phase"~(n+1)].setText(phase);
-			me["arrow"~(n+1)].setTranslation(0,-tq[n]*0.75);
-			me["tq"~(n+1)].setText(sprintf("%3.01f",tq[n]));
-			me["np"~(n+1)].setText(sprintf("%3.01f",np[n]/13));
-			me["itt"~(n+1)].setText(sprintf("%3.0f",itt[n]));
-			me["nh"~(n+1)].setText(sprintf("%3.01f",nh[n]));
-			me["fq"~(n+1)].setText(sprintf("%3.0f",fuel[n]));
+			me["phase"~(n+1)].setText(getprop("instrumentation/fmc/phase-name") or "");
+			me["arrow"~(n+1)].setTranslation(0, -(getprop("fdm/jsbsim/propulsion/engine["~n~"]/trq-percent") or 0)*0.75);
+			me["tq"~(n+1)].setText(sprintf("%3.01f", getprop("fdm/jsbsim/propulsion/engine["~n~"]/trq-percent") or 0));
+			me["np"~(n+1)].setText(sprintf("%3.01f", getprop("fdm/jsbsim/propulsion/engine["~n~"]/propeller-rpm") or 0));
+			me["itt"~(n+1)].setText(sprintf("%3.0f", getprop("/fdm/jsbsim/propulsion/engine["~n~"]/itt-c") or 0));
+			me["nh"~(n+1)].setText(sprintf("%3.01f", getprop("engines/engine["~n~"]/n1") or 0));
+			me["fq"~(n+1)].setText(sprintf("%3.0f", getprop("consumables/fuel/tank["~((n*3)+0)~"]/level-lbs")+
+								getprop("consumables/fuel/tank["~((n*3)+1)~"]/level-lbs")+
+								getprop("consumables/fuel/tank["~((n*3)+2)~"]/level-lbs")));
 		}
-		me.alt.setText(sprintf("%3.0f",ft));
-		me.dp.setText(sprintf("%3.0f",rate));
+
+		me.alt.setText(sprintf("%3.0f", getprop("systems/pressurization/cabin-altitude-ft") or 0));
+		me.dp.setText(sprintf("%3.0f", getprop("systems/pressurization/cabin-rate-fpm") or 0));
 
 		if(me.active == 1) {
 			settimer(func me.update(), 0.3);
