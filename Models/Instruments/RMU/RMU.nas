@@ -161,7 +161,7 @@ var frequencyStorage = func() {
 }
 
 ###### Main #####
-var setl = setlistener("/sim/signals/fdm-initialized", func () {
+var rmuListener = setlistener("/sim/signals/fdm-initialized", func () {
 
 	setprop("instrumentation/rmu[0]/lighting", 1);
 	setprop("instrumentation/rmu[1]/lighting", 1);
@@ -194,5 +194,5 @@ var setl = setlistener("/sim/signals/fdm-initialized", func () {
 	rmu2Canvas.addPlacement({"node": "RMU2.screen"});
 	RMU2Instance = RMU.new(rmu2Canvas.createGroup(), 1);
 
-	removelistener(setl);
+	removelistener(rmuListener);
 });
