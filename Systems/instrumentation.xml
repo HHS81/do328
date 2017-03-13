@@ -1,128 +1,154 @@
-<?xml version="1.0"?>
-
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 **********************************************************************
 This file selects the instrumentation modules that should be available.
 **********************************************************************
 -->
-
 <PropertyList>
-
-    <adf>
-        <name>adf</name>
-        <number>0</number>
-    </adf>
-
-    <adf>
-        <name>adf</name>
-        <number>1</number>
-    </adf>
-
-    <airspeed-indicator>
-        <name>airspeed-indicator</name>
-        <number>0</number>
-        <total-pressure>/systems/pitot/total-pressure-inhg</total-pressure>
-        <static-pressure>/systems/static/pressure-inhg</static-pressure>
-        <has-overspeed-indicator>1</has-overspeed-indicator>
-    </airspeed-indicator>
-
-    <altimeter>
-        <name>altimeter</name>
-        <number>0</number>
-        <static-pressure>/systems/static/pressure-inhg</static-pressure>
-    </altimeter>
-
-    <attitude-indicator>
-        <name>attitude-indicator</name>
-        <number>0</number>
-        <suction>/systems/vacuum/suction-inhg</suction>
-    </attitude-indicator>
-
-    <clock>
-        <name>clock</name>
-        <number>0</number>
-    </clock>
-
-    <comm-radio>
-        <name>comm</name>
-        <number>0</number>
-    </comm-radio>
-
-    <comm-radio>
-        <name>comm</name>
-        <number>1</number>
-    </comm-radio>
-
-    <heading-indicator>
-        <name>heading-indicator</name>
-        <number>0</number>
-        <suction>/systems/vacuum/suction-inhg</suction>
-    </heading-indicator>
-
-    <magnetic-compass>
-        <name>magnetic-compass</name>
-        <number>0</number>
-    </magnetic-compass>
-
-    <nav-radio>
-        <name>nav</name>
-        <number>0</number>
-    </nav-radio>
-
-    <nav-radio>
-        <name>nav</name>
-        <number>1</number>
-    </nav-radio>
-
-    <dme>
-        <name>dme</name>
-        <number>0</number>
-    </dme>
-
-    <slip-skid-ball>
-        <name>slip-skid-ball</name>
-        <number>0</number>
-    </slip-skid-ball>
-
-    <turn-indicator>
-        <name>turn-indicator</name>
-        <number>0</number>
-    </turn-indicator>
-
-    <KT-70>
-        <name>kt-70</name>
-        <number>0</number>
-    </KT-70>
-
-    <KT-70>
-        <name>kt-70</name>
-        <number>1</number>
-    </KT-70>
-
-    <KR-87>
-        <name>kr-87</name>
-        <number>0</number>
-    </KR-87>
-
-    <marker-beacon>
-        <name>marker-beacon</name>
-        <number>0</number>
-    </marker-beacon>
-
-    <mk-viii>
-        <name>mk-viii</name>
-        <number>0</number>
-    </mk-viii>
-
-    <radar>
-        <name>radar</name>
-        <number>0</number>
-    </radar>
-    
-  <radar-altimeter>
-    <name>radar-altimeter</name>
-    <number>0</number>
-    <update-interval-sec>0.1</update-interval-sec>
-  </radar-altimeter>
-
+   <adf>
+      <name>adf</name>
+      <number>0</number>
+   </adf>
+   <adf>
+      <name>adf</name>
+      <number>1</number>
+   </adf>
+   <airspeed-indicator>
+      <name>airspeed-indicator</name>
+      <number>0</number>
+      <total-pressure>/systems/pitot/total-pressure-inhg</total-pressure>
+      <static-pressure>/systems/static/pressure-inhg</static-pressure>
+      <has-overspeed-indicator>1</has-overspeed-indicator>
+   </airspeed-indicator>
+   <altimeter>
+      <name>altimeter</name>
+      <number>0</number>
+      <static-pressure>/systems/static/pressure-inhg</static-pressure>
+   </altimeter>
+   <attitude-indicator>
+      <name>attitude-indicator</name>
+      <number>0</number>
+      <suction>/systems/vacuum/suction-inhg</suction>
+   </attitude-indicator>
+   <clock>
+      <name>clock</name>
+      <number>0</number>
+   </clock>
+   <comm-radio>
+      <name>comm</name>
+      <number>0</number>
+   </comm-radio>
+   <comm-radio>
+      <name>comm</name>
+      <number>1</number>
+   </comm-radio>
+   <heading-indicator>
+      <name>heading-indicator</name>
+      <number>0</number>
+      <suction>/systems/vacuum/suction-inhg</suction>
+   </heading-indicator>
+   <magnetic-compass>
+      <name>magnetic-compass</name>
+      <number>0</number>
+   </magnetic-compass>
+   <nav-radio>
+      <name>nav</name>
+      <number>0</number>
+   </nav-radio>
+   <nav-radio>
+      <name>nav</name>
+      <number>1</number>
+   </nav-radio>
+   <dme>
+      <name>dme</name>
+      <number>0</number>
+   </dme>
+   <slip-skid-ball>
+      <name>slip-skid-ball</name>
+      <number>0</number>
+   </slip-skid-ball>
+   <turn-indicator>
+      <name>turn-indicator</name>
+      <number>0</number>
+   </turn-indicator>
+   <KT-70>
+      <name>kt-70</name>
+      <number>0</number>
+   </KT-70>
+   <KT-70>
+      <name>kt-70</name>
+      <number>1</number>
+   </KT-70>
+   <KR-87>
+      <name>kr-87</name>
+      <number>0</number>
+      <inputs>
+         <audio-btn>0</audio-btn>
+      </inputs>
+   </KR-87>
+   <marker-beacon>
+      <name>marker-beacon</name>
+      <number>0</number>
+   </marker-beacon>
+   <mk-viii>
+      <!-- http://wiki.flightgear.org/index.php/GPWS -->
+      <serviceable>true</serviceable>
+      <!-- EGPWS_ENABLE -->
+      <configuration-module>
+         <category-1>3</category-1>
+         <!-- AIRCRAFT_MODE_TYPE_SELECT -->
+         <category-3>2</category-3>
+         <!-- POSITION_INPUT_SELECT -->
+         <category-4>13</category-4>
+         <!-- ALTITUDE_CALLOUTS -->
+         <category-5>0</category-5>
+         <!-- AUDIO_MENU_SELECT -->
+         <category-6>1</category-6>
+         <!-- TERRAIN_DISPLAY_SELECT -->
+         <category-7>124</category-7>
+         <!-- OPTIONS_SELECT_GROUP_1 -->
+         <category-8>4</category-8>
+         <!-- RADIO_ALTITUDE_INPUT_SELECT -->
+         <category-9>3</category-9>
+         <!-- NAVIGATION_INPUT_SELECT -->
+         <category-10>6</category-10>
+         <!-- ATTITUDE_INPUT_SELECT -->
+         <category-13>7</category-13>
+         <!-- INPUT_OUTPUT_DISCRETE_TYPE_SELECT -->
+         <category-14>0</category-14>
+         <!-- AUDIO_OUTPUT_LEVEL -->
+      </configuration-module>
+      <inputs>
+         <!-- Module I/O -->
+         <arinc429>
+            <decision-height-ncd>true</decision-height-ncd>
+            <decision-height>400</decision-height>
+         </arinc429>
+      </inputs>
+      <speaker>
+         <volume>1.0</volume>
+      </speaker>
+   </mk-viii>
+   <radar>
+      <name>radar</name>
+      <number>0</number>
+   </radar>
+   <radar-altimeter>
+      <serviceable>true</serviceable>
+      <name>radar-altimeter</name>
+      <number>0</number>
+      <update-interval-sec>0.1</update-interval-sec>
+   </radar-altimeter>
+   <alerts>
+      <gear-horn type="bool">0</gear-horn>
+      <master-warning type="bool">0</master-warning>
+      <master-caution type="bool">0</master-caution>
+   </alerts>
+   <airspeed-indicator>
+      <index n="0" type="double">112</index>
+      <index n="1" type="double">117</index>
+      <ias-limit>270</ias-limit>
+      <mach-limit>0.56</mach-limit>
+      <alt-threshold>15000.0</alt-threshold>
+   </airspeed-indicator>
 </PropertyList>

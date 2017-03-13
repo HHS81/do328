@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PropertyList>
+   <sim include="Systems/do328-views.xml">
+      <flaps>
+         <setting>0.000</setting>
+         <setting>0.375</setting>
+         <setting>0.625</setting>
+         <setting>1.000</setting>
+      </flaps>
+      <instrumentation>
+         <path>Aircraft/do328/Systems/instrumentation.xml</path>
+      </instrumentation>
+      <help>
+         <text>
+  Takeoff speeds at 12deg Flap setting
+					V1	Vr	V2 
+29762lbs = 13500kg		110	114	117
+28660lbs = 13000kg		108	111	115
+27557lbs = 12500kg		106	109	113
+26455lbs = 12000kg		104	107	111	
+25353lbs = 11500kg		102	105	109
+24250lbs = 11000kg		100	103	107
+23148lbs = 10500kg		98	101	105
+22046lbs = 10000kg		96	98	102
+20943lbs = 9500kg		93	95	99
+
+####
+  Vref speeds at 32deg Flap setting
+					
+29762lbs = 13500kg		111	
+28660lbs = 13000kg		109	
+27557lbs = 12500kg		107	
+26455lbs = 12000kg		104	
+25353lbs = 11500kg		102	
+24250lbs = 11000kg		100	
+23148lbs = 10500kg		98	
+22046lbs = 10000kg		95	
+20943lbs = 9500kg		92	
+
+####
+Takeoff
+
+V1 --> Vr --> Rotate to 8deg --> @50ft Rotate to 15deg -->Climb @V2 + 15ktn --> @accleration altitude (400 or 1000ft) V2 + 20ktn: Flaps up; YD, climb power
+         </text>
+      </help>
+      <color-set>
+         <white>
+            <r type="float">0.9</r>
+            <g type="float">0.9</g>
+            <b type="float">0.9</b>
+            <a type="float">1.0</a>
+         </white>
+         <red>
+            <r type="float">0.9</r>
+            <g type="float">0.0</g>
+            <b type="float">0.0</b>
+            <a type="float">1.0</a>
+         </red>
+         <yellow>
+            <r type="float">0.9</r>
+            <g type="float">0.9</g>
+            <b type="float">0.0</b>
+            <a type="float">1.0</a>
+         </yellow>
+         <green>
+            <r type="float">0.0</r>
+            <g type="float">0.9</g>
+            <b type="float">0.0</b>
+            <a type="float">1.0</a>
+         </green>
+         <cyan>
+            <r type="float">0.0</r>
+            <g type="float">0.9</g>
+            <b type="float">0.9</b>
+            <a type="float">1.0</a>
+         </cyan>
+         <blue>
+            <r type="float">0.0</r>
+            <g type="float">0.0</g>
+            <b type="float">0.9</b>
+            <a type="float">1.0</a>
+         </blue>
+         <magenta>
+            <r type="float">0.9</r>
+            <g type="float">0.0</g>
+            <b type="float">0.9</b>
+            <a type="float">1.0</a>
+         </magenta>
+         <amber>
+            <r type="float">0.9</r>
+            <g type="float">0.5</g>
+            <b type="float">0.0</b>
+            <a type="float">1.0</a>
+         </amber>
+      </color-set>
+      <airport>
+         <runways>
+            <start-offset-m>20</start-offset-m>
+         </runways>
+      </airport>
+      <systems>
+         <path>Aircraft/do328/Systems/systems.xml</path>
+         <autopilot>
+            <path>Aircraft/do328/Systems/generic-autopilot.xml</path>
+         </autopilot>
+         <wingflexer include="Systems/wingflexer-params.xml" />
+         <property-rule n="100">
+            <name>wing flexer property rule</name>
+            <path>Aircraft/Generic/wingflexer.xml</path>
+         </property-rule>
+      </systems>
+      <flight-recorder include="Systems/flight-recorder/flight-recorder.xml" />
+   </sim>
+   <input>
+      <keyboard include="Systems/do328-keyboard.xml" />
+   </input>
+   <systems>
+      <electrical>
+         <ac-volts>0</ac-volts>
+      </electrical>
+   </systems>
+   <controls>
+      <APU>
+         <master type="bool">0</master>
+         <battery type="double">28.0</battery>
+         <running type="bool">0</running>
+         <off-start-run type="int">1</off-start-run>
+      </APU>
+      <flight>
+         <spoiler-armed type="string">true</spoiler-armed>
+         <aileron-trim>0.0</aileron-trim>
+         <elevator-trim>-0.25</elevator-trim>
+      </flight>
+      <engines>
+         <engine n="0">
+            <condition type="double">1</condition>
+         </engine>
+         <engine n="1">
+            <condition type="double">1</condition>
+         </engine>
+      </engines>
+      <electric>
+         <battery-switch type="bool">1</battery-switch>
+         <avionics-switch type="bool">1</avionics-switch>
+         <external-power type="bool">0</external-power>
+         <RH-AC-bus type="bool">1</RH-AC-bus>
+         <LH-AC-bus type="bool">1</LH-AC-bus>
+         <engine n="0">
+            <generator>true</generator>
+         </engine>
+         <engine n="1">
+            <generator>true</generator>
+         </engine>
+         <wipers>
+            <arc-sec type="double" n="0">0</arc-sec>
+            <arc-sec type="double" n="1">1</arc-sec>
+            <arc-sec type="double" n="2">0.6</arc-sec>
+            <delay-sec type="double" n="0">0</delay-sec>
+            <delay-sec type="double" n="1">0</delay-sec>
+            <delay-sec type="double" n="2">0</delay-sec>
+            <switch type="int">0</switch>
+            <position-norm type="double">0</position-norm>
+         </wipers>
+      </electric>
+      <lighting>
+         <instrument-lights>0</instrument-lights>
+         <strobe>true</strobe>
+         <beacon>true</beacon>
+         <logo-lights>1.0</logo-lights>
+         <wing-deice-lights>1.0</wing-deice-lights>
+      </lighting>
+      <gear>
+         <brake-parking>1</brake-parking>
+         <gear-lock type="bool">0</gear-lock>
+         <tiller-cmd-norm type="double">0</tiller-cmd-norm>
+         <tiller-enabled type="bool" userarchive="y">true</tiller-enabled>
+         <nosegear-steering-cmd-norm type="double">0</nosegear-steering-cmd-norm>
+         <maingear-steering-cmd-norm type="double">0</maingear-steering-cmd-norm>
+      </gear>
+      <fuel>
+         <gauge-switch type="bool">1</gauge-switch>
+      </fuel>
+   </controls>
+   <gear>
+      <gear n="0">
+         <tyre-smoke type="int">0</tyre-smoke>
+         <sprayspeed-ms type="double">0</sprayspeed-ms>
+         <spray-density type="double">0</spray-density>
+         <caster-angle-deg-damped type="double">0</caster-angle-deg-damped>
+         <position-norm type="double">1</position-norm>
+      </gear>
+      <gear n="1">
+         <tyre-smoke type="int">0</tyre-smoke>
+         <sprayspeed-ms type="double">0</sprayspeed-ms>
+         <spray-density type="double">0</spray-density>
+         <caster-angle-deg-damped type="double">0</caster-angle-deg-damped>
+         <position-norm type="double">1</position-norm>
+      </gear>
+      <gear n="2">
+         <tyre-smoke type="int">0</tyre-smoke>
+         <sprayspeed-ms type="double">0</sprayspeed-ms>
+         <spray-density type="double">0</spray-density>
+         <caster-angle-deg-damped type="double">0</caster-angle-deg-damped>
+         <position-norm type="double">1</position-norm>
+      </gear>
+   </gear>
+   <fdm>
+      <jsbsim>
+         <gear>
+            <unit n="0">
+               <compression-ft type="double">0</compression-ft>
+            </unit>
+            <unit n="1">
+               <compression-ft type="double">0</compression-ft>
+            </unit>
+            <unit n="2">
+               <compression-ft type="double">0</compression-ft>
+            </unit>
+         </gear>
+      </jsbsim>
+   </fdm>
+   <autopilot>
+      <settings>
+         <minimums type="int">200</minimums>
+         <target-roll-deg type="double">0</target-roll-deg>
+         <target-pitch-deg type="double">0</target-pitch-deg>
+         <vertical-speed-fpm type="int">0</vertical-speed-fpm>
+         <nav-source type="string">NAV1</nav-source>
+         <bank-limit type="int">27</bank-limit>
+         <target-speed-kt type="int">137</target-speed-kt>
+         <target-speed-mach type="double">0.40</target-speed-mach>
+         <changeover type="bool">0</changeover>
+         <heading-bug-deg type="int">0</heading-bug-deg>
+         <vertical-speed-fpm type="int">0</vertical-speed-fpm>
+         <asel type="int">100</asel>
+      </settings>
+      <locks>
+         <heading>ROLL</heading>
+         <heading-arm type="string" />
+         <altitude>PTCH</altitude>
+         <altitude-arm type="string" />
+         <AP-status type="string" />
+         <FD-status type="bool">1</FD-status>
+         <yaw-damper type="bool">0</yaw-damper>
+         <m-trim type="bool">0</m-trim>
+      </locks>
+      <internal>
+         <selected-crs type="int">0</selected-crs>
+         <nav-distance type="double">0</nav-distance>
+         <nav-type type="string" />
+         <nav-id type="string" />
+         <course-deflection type="double">0.0</course-deflection>
+         <gs-valid type="bool">0</gs-valid>
+         <gs-deflection type="double">0.0</gs-deflection>
+         <in-range type="bool">0</in-range>
+         <gs-in-range type="bool">0</gs-in-range>
+      </internal>
+   </autopilot>
+   <payload>
+      <weight n="0">
+         <name>Payload</name>
+         <weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[0]">0</weight-lb>
+         <max-lb>6000</max-lb>
+         <min-lb>0</min-lb>
+      </weight>
+      <weight n="1">
+         <name>Crew</name>
+         <weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[1]">371</weight-lb>
+         <max-lb>600</max-lb>
+         <min-lb>180</min-lb>
+      </weight>
+      <weight n="2">
+         <name>Cargo</name>
+         <weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[2]">0</weight-lb>
+         <max-lb>1200</max-lb>
+         <min-lb>0</min-lb>
+      </weight>
+   </payload>
+   <consumables>
+      <fuel>
+         <tank n="0">
+            <name>Left wing feeder tank</name>
+         </tank>
+         <tank n="1">
+            <name>Left wing outer tank</name>
+         </tank>
+         <tank n="2">
+            <name>Left wing inner tank</name>
+         </tank>
+         <tank n="3">
+            <name>Right wing inner tank</name>
+         </tank>
+         <tank n="4">
+            <name>Right wing outer tank</name>
+         </tank>
+         <tank n="5">
+            <name>Right wing feeder tank</name>
+         </tank>
+      </fuel>
+   </consumables>
+   <instrumentation>
+      <cdu n="0">
+         <page type="string">PROGRESS</page>
+         <L type="string" n="0" />
+         <L type="string" n="1" />
+         <L type="string" n="2" />
+         <L type="string" n="3" />
+         <L type="string" n="4" />
+         <L type="string" n="5" />
+         <R type="string" n="0" />
+         <R type="string" n="1" />
+         <R type="string" n="2" />
+         <R type="string" n="3" />
+         <R type="string" n="4" />
+         <R type="string" n="5" />
+         <S type="string" n="0" />
+         <S type="string" n="1" />
+      </cdu>
+      <cdu n="1">
+         <page type="string">ACTIVE FLT PLAN</page>
+         <L type="string" n="0" />
+         <L type="string" n="1" />
+         <L type="string" n="2" />
+         <L type="string" n="3" />
+         <L type="string" n="4" />
+         <L type="string" n="5" />
+         <R type="string" n="0" />
+         <R type="string" n="1" />
+         <R type="string" n="2" />
+         <R type="string" n="3" />
+         <R type="string" n="4" />
+         <R type="string" n="5" />
+         <S type="string" n="0" />
+         <S type="string" n="1" />
+      </cdu>
+   </instrumentation>
+</PropertyList>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+
+<PropertyList>
+
+               <!--<key n="267">
+                <name>F11</name>
+                <desc>Pop up autopilot dialog</desc>
+                <binding>
+                    <command>nasal</command>
+                    <script>dialogs.ap_settings.toggle()</script>
+                </binding>
+            </key>-->
+            <key n="268">
+                <name>F12</name>
+                <desc>Radio Stack</desc>
+                <binding>
+                    <command>nasal</command>
+                    <script>dialogs.Radio.open()</script>
+                </binding>
+            </key>
+            <key n="71">
+                <name>G</name>
+                <desc>Gear down.</desc>
+                <binding>
+                    <command>nasal</command>
+                    <script>systems.gear_toggle(1)</script>
+                </binding>
+            </key>
+            <key n="103">
+                <name>g</name>
+                <desc>Gear Up.</desc>
+                <binding>
+                    <command>nasal</command>
+                    <script>systems.gear_toggle(-1)</script>
+                </binding>
+            </key>
+ 
+ <key n="9">
+        <name>Tab</name>
+        <desc>switch Groundspoiler-Arm</desc>
+        <binding>
+          <command>property-cycle</command>
+          <property>/controls/flight/spoiler-armed</property>
+          <value>true</value>
+          <value>false</value>
+        </binding>
+      </key>
+
+			<key n="127">
+				<name>Delete</name>
+				<desc>Toggle reverse thrust</desc>
+				<binding>
+				<command>property-cycle</command>
+		<property>/controls/engines/engine[0]/reverser</property>
+          <value>true</value>
+          <value>false</value>
+        </binding>
+	<binding>
+				<command>property-cycle</command>
+		<property>/controls/engines/engine[1]/reverser</property>
+          <value>true</value>
+          <value>false</value>
+        </binding>
+	</key>     
+   
+</PropertyList>
