@@ -313,40 +313,91 @@ V1 --> Vr --> Rotate to 8deg --> @50ft Rotate to 15deg -->Climb @V2 + 15ktn --> 
          </tank>
       </fuel>
    </consumables>
-   <instrumentation>
-      <cdu n="0">
-         <page type="string">PROGRESS</page>
-         <L type="string" n="0" />
-         <L type="string" n="1" />
-         <L type="string" n="2" />
-         <L type="string" n="3" />
-         <L type="string" n="4" />
-         <L type="string" n="5" />
-         <R type="string" n="0" />
-         <R type="string" n="1" />
-         <R type="string" n="2" />
-         <R type="string" n="3" />
-         <R type="string" n="4" />
-         <R type="string" n="5" />
-         <S type="string" n="0" />
-         <S type="string" n="1" />
-      </cdu>
-      <cdu n="1">
-         <page type="string">ACTIVE FLT PLAN</page>
-         <L type="string" n="0" />
-         <L type="string" n="1" />
-         <L type="string" n="2" />
-         <L type="string" n="3" />
-         <L type="string" n="4" />
-         <L type="string" n="5" />
-         <R type="string" n="0" />
-         <R type="string" n="1" />
-         <R type="string" n="2" />
-         <R type="string" n="3" />
-         <R type="string" n="4" />
-         <R type="string" n="5" />
-         <S type="string" n="0" />
-         <S type="string" n="1" />
-      </cdu>
-   </instrumentation>
+ <instrumentation>
+  <radar-altimeter>
+           <serviceable>true</serviceable>
+  </radar-altimeter>
+
+        <mk-viii>                             <!-- http://wiki.flightgear.org/index.php/GPWS -->
+           <serviceable>true</serviceable>    <!-- EGPWS_ENABLE -->
+<configuration-module>
+       <category-1>   3 </category-1>  <!-- AIRCRAFT_MODE_TYPE_SELECT -->
+       <category-3>   2 </category-3>  <!-- POSITION_INPUT_SELECT -->
+       <category-4>  13 </category-4>  <!-- ALTITUDE_CALLOUTS -->
+       <category-5>   0 </category-5>  <!-- AUDIO_MENU_SELECT -->
+       <category-6>   1 </category-6>  <!-- TERRAIN_DISPLAY_SELECT -->
+       <category-7> 124 </category-7>  <!-- OPTIONS_SELECT_GROUP_1 -->
+       <category-8>   4 </category-8>  <!-- RADIO_ALTITUDE_INPUT_SELECT -->
+       <category-9>   3 </category-9>  <!-- NAVIGATION_INPUT_SELECT -->
+       <category-10>  6 </category-10> <!-- ATTITUDE_INPUT_SELECT -->
+       <category-13>  7 </category-13> <!-- INPUT_OUTPUT_DISCRETE_TYPE_SELECT -->
+       <category-14>  0 </category-14> <!-- AUDIO_OUTPUT_LEVEL -->
+     </configuration-module>
+           <inputs>                           <!-- Module I/O -->
+            <arinc429>
+               <decision-height-ncd> true </decision-height-ncd>
+               <decision-height> 400 </decision-height>
+            </arinc429>
+           </inputs>
+           <speaker>
+              <volume>1.0</volume>
+           </speaker>
+        </mk-viii>
+
+        <alerts>
+            <gear-horn type="bool">0</gear-horn>
+            <master-warning type="bool">0</master-warning>
+            <master-caution type="bool">0</master-caution>
+        </alerts>
+
+    <airspeed-indicator>
+        <index n="0" type="double">112</index>
+        <index n="1" type="double">117</index>
+        <ias-limit>270</ias-limit>
+        <mach-limit>0.56</mach-limit>
+        <alt-threshold>15000.0</alt-threshold>
+    </airspeed-indicator>
+
+    <kr-87>
+        <inputs>
+            <audio-btn>0</audio-btn>
+        </inputs>
+    </kr-87>
+
+    <cdu n="0">
+        <page type="string">PROGRESS</page>
+        <L type="string" n="0"></L>
+        <L type="string" n="1"></L>
+        <L type="string" n="2"></L>
+        <L type="string" n="3"></L>
+        <L type="string" n="4"></L>
+        <L type="string" n="5"></L>
+        <R type="string" n="0"></R>
+        <R type="string" n="1"></R>
+        <R type="string" n="2"></R>
+        <R type="string" n="3"></R>
+        <R type="string" n="4"></R>
+        <R type="string" n="5"></R>
+        <S type="string" n="0"></S>
+        <S type="string" n="1"></S>
+    </cdu>
+
+    <cdu n="1">
+        <page type="string">ACTIVE FLT PLAN</page>
+        <L type="string" n="0"></L>
+        <L type="string" n="1"></L>
+        <L type="string" n="2"></L>
+        <L type="string" n="3"></L>
+        <L type="string" n="4"></L>
+        <L type="string" n="5"></L>
+        <R type="string" n="0"></R>
+        <R type="string" n="1"></R>
+        <R type="string" n="2"></R>
+        <R type="string" n="3"></R>
+        <R type="string" n="4"></R>
+        <R type="string" n="5"></R>
+        <S type="string" n="0"></S>
+        <S type="string" n="1"></S>
+    </cdu>
+    </instrumentation>
 </PropertyList>

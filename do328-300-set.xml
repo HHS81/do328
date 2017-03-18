@@ -95,7 +95,7 @@ Started by Heiko Schulz
          <file>Aircraft/do328/Nasal/tyresmoke.nas</file>
          <file>Aircraft/do328/Nasal/lightmap.nas</file>
          <file>Aircraft/do328/Nasal/jetsystems.nas</file>
-         <!--<file>Aircraft/do328/Nasal/lightmap.nas</file>-->
+         <file>Aircraft/do328/Nasal/lightmap.nas</file>
          <file>Aircraft/do328/Nasal/Autostart.nas</file>
          <!--<file>Aircraft/do328/Nasal/pressurization.nas</file>-->
          <file>Aircraft/do328/Nasal/vspeeds.nas</file>
