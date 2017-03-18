@@ -9,6 +9,13 @@ var Startup = func{
 var Startup1 = func{
 	setprop("controls/electric/battery-switch",1);
 	setprop("controls/electric/avionics-switch",1);
+	setprop("controls/lighting/beacon",1);
+	setprop("controls/lighting/strobe",1);
+	setprop("controls/lighting/instruments-norm",0.5);
+	setprop("controls/lighting/nav-lights",1);
+	setprop("controls/lighting/landing-lights",1);
+	setprop("controls/lighting/wing-lights",1);
+	setprop("controls/lighting/taxi-lights",1);
 	setprop("controls/engines/engine[0]/cutoff",1);
 	setprop("controls/engines/engine[1]/cutoff",1);
 	setprop("controls/engines/engine[0]/starter",1);
@@ -28,6 +35,13 @@ var Shutdown = func{
 	setprop("controls/electric/engine[1]/generator",0);
 	setprop("controls/electric/battery-switch",0);
 	setprop("controls/electric/avionics-switch",0);
+	setprop("controls/lighting/beacon",0);
+	setprop("controls/lighting/strobe",0);
+	setprop("controls/lighting/instruments-norm",0.0);
+	setprop("controls/lighting/nav-lights",0);
+	setprop("controls/lighting/landing-lights",0);
+	setprop("controls/lighting/wing-lights",0);
+	setprop("controls/lighting/taxi-lights",0);
 	setprop("controls/engines/engine[0]/cutoff",1);
 	setprop("controls/engines/engine[1]/cutoff",1);
 	setprop("fdm/jsbsim/propulsion/engine/EIP/state",0);
