@@ -124,6 +124,7 @@ V1 --> Vr --> Rotate to 8deg --> @50ft Rotate to 15deg -->Climb @V2 + 15ktn --> 
             <string alias="/sim/multiplay/callsign" />
          </generic>
       </multiplay>
+     <flight-recorder include="Systems/flight-recorder/flight-recorder.xml"/>
    </sim>
    <input>
       <keyboard include="Systems/do328-keyboard.xml" />
