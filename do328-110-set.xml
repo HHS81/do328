@@ -61,7 +61,6 @@ Started by Heiko Schulz
       <sound>
          <path>Aircraft/do328/Sounds/do328prop-sound.xml</path>
       </sound>
-      <virtual-cockpit archive="y">true</virtual-cockpit>
       <menubar>
          <default>
             <menu n="100">
@@ -91,20 +90,6 @@ Started by Heiko Schulz
             </menu>
          </default>
       </menubar>
-      <multiplay>
-         <generic>
-            <int n="0" alias="/systems/electrical/outputs/strobe" />
-            <int n="1" alias="/systems/electrical/outputs/beacon" />
-            <int n="2" alias="/systems/electrical/outputs/taxi-lights" />
-            <int n="3" alias="/systems/electrical/outputs/landing-lights" />
-            <int n="5" alias="/systems/electrical/outputs/recog-lights" />
-            <int n="6" alias="/systems/electrical/outputs/nav-lights" />
-            <float alias="/controls/cabin-door/position-norm" />
-            <float n="1" alias="/surface-positions/speedbrake-pos-norm" />
-            <float n="2" alias="/surface-positions/reverser-norm" />
-            <string alias="/sim/multiplay/callsign" />
-         </generic>
-      </multiplay>
    </sim>
    <nasal>
       <systems>

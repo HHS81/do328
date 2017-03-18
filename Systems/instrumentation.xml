@@ -19,6 +19,11 @@ This file selects the instrumentation modules that should be available.
       <total-pressure>/systems/pitot/total-pressure-inhg</total-pressure>
       <static-pressure>/systems/static/pressure-inhg</static-pressure>
       <has-overspeed-indicator>1</has-overspeed-indicator>
+      <index n="0" type="double">112</index>
+      <index n="1" type="double">117</index>
+      <ias-limit>270</ias-limit>
+      <mach-limit>0.56</mach-limit>
+      <alt-threshold>15000.0</alt-threshold>
    </airspeed-indicator>
    <altimeter>
       <name>altimeter</name>
@@ -139,16 +144,4 @@ This file selects the instrumentation modules that should be available.
       <number>0</number>
       <update-interval-sec>0.1</update-interval-sec>
    </radar-altimeter>
-   <alerts>
-      <gear-horn type="bool">0</gear-horn>
-      <master-warning type="bool">0</master-warning>
-      <master-caution type="bool">0</master-caution>
-   </alerts>
-   <airspeed-indicator>
-      <index n="0" type="double">112</index>
-      <index n="1" type="double">117</index>
-      <ias-limit>270</ias-limit>
-      <mach-limit>0.56</mach-limit>
-      <alt-threshold>15000.0</alt-threshold>
-   </airspeed-indicator>
 </PropertyList>
