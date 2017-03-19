@@ -7,21 +7,26 @@ var hdg = props.globals.getNode("orientation/heading-magnetic-deg");
 var hdgBug = props.globals.getNode("autopilot/settings/heading-bug-deg");
 var lon = props.globals.getNode("position/longitude-deg");
 var lat = props.globals.getNode("position/latitude-deg");
+var index = 0;
 
 var do328_controller = {
 	parents: [canvas.Map.Controller],
 
 	new: func(map) {
 		var m = { parents: [do328_controller],map:map };
-		m.timer = maketimer(0.1, m, m.update_layers);
-		m.timer.start();
+		#m.timer = maketimer(0.1, m, m.update_layers);
+		#m.timer.start();
+		m.index = index;
+
+		setlistener("instrumentation/efis/trigger_nd"~index, func{ m.update_layers() });
 
 		# this check is missing in RTE.lcontroller
-		setlistener("/autopilot/route-manager/active", func {
+		m.listener = setlistener("/autopilot/route-manager/active", func {
 			if(getprop("/autopilot/route-manager/active")) {
 				m.map.getLayer("RTE").setVisible(1);
 			}
-		}, 1);
+			removelistener(me.listener);
+		});
 		return m;
 	},
 
@@ -39,6 +44,9 @@ var canvas_nd = {
 		var m = { parents: [canvas_nd] };
 		m.group = canvasGroup;
 		m.map = canvasGroup.createChild('map');
+		m.index = index;
+		m.counter = 0;
+		m.oldHeading = 0;
 
 		var font_mapper = func(family, weight)
 		{
@@ -69,6 +77,7 @@ var canvas_nd = {
 				priority: layer['z-index']
 			);
 		}
+		index+=1;
 
 		m.active = 0;
 		return m;
@@ -103,8 +112,15 @@ var canvas_nd = {
 			}
 		}
 
+		if(me.counter > 20 or math.abs(heading-me.oldHeading) > 1) {
+			setprop("instrumentation/efis/trigger_nd"~me.index, 1);
+			me.counter = 0;
+			me.oldHeading = heading;
+		}
+		me.counter+=1;
+
 		if(me.active == 1) {
-			settimer(func me.update(), 0.1);
+			settimer(func me.update(), 0.2);
 		}
 	},
 	show: func()
