@@ -13,13 +13,13 @@ var init = func {
 	setprop("autopilot/route-manager/flight-plan","");
 	setprop("autopilot/route-manager/departure/airport",getprop("/sim/airport/closest-airport-id"));
 	setprop("autopilot/route-manager/departure/runway",getprop("sim/atc/runway"));
-	setprop("autopilot/settings/cruise-speed-kt",330);
-	setprop("autopilot/settings/cruise-speed-mach",0.86);
-	setprop("autopilot/route-manager/cruise/altitude-ft",10000);
-	setprop("autopilot/route-manager/cruise/flight-level",0);
+	setprop("autopilot/settings/cruise-speed-kt",210);
+	setprop("autopilot/settings/cruise-speed-mach",0.53);
+	setprop("autopilot/route-manager/cruise/altitude-ft",31000);
+	setprop("autopilot/route-manager/cruise/flight-level",310);
 	setprop("autopilot/settings/asel",getprop("autopilot/route-manager/cruise/flight-level"));
-	setprop("autopilot/settings/climb-speed-kt",250);
-	setprop("autopilot/settings/climb-speed-mach",0.78);
+	setprop("autopilot/settings/climb-speed-kt",200);
+	setprop("autopilot/settings/climb-speed-mach",0.4);
 	setprop("autopilot/settings/descent-speed-kt",200);
 	setprop("autopilot/settings/descent-speed-mach",0.30);
 	setprop("autopilot/settings/dep-speed-kt",200);
@@ -739,7 +739,7 @@ var key = func(v) {
 			if (v == "B1R"){
 				v = "";
 				if (cduInput != "") {
-					if (cduInput > 8) { cduInput = "*PASSENGERS MAX = 8*"}
+					if (cduInput > 8) { cduInput = "*PASSENGERS MAX = 30*"}
 					else {
 						setprop("sim/weight[1]/weight-lb",cduInput*170);
 					}
@@ -748,8 +748,8 @@ var key = func(v) {
 			}
 			if (v == "B4R"){
 				v = "";
-					if (getprop("yasim/gross-weight-lbs") > 36100) {
-						cduInput = "*GROSS WT MAX = 36100*";
+					if (getprop("fdm/jsbsim/inertia/weight-lbs") > 34524 ) {
+						cduInput = "*GROSS WT MAX = 34524 *";
 					}
 					else {
 						cduDisplay = "PRF-PAGE[0]";
