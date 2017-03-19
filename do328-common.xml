@@ -144,7 +144,7 @@ V1 --> Vr --> Rotate to 8deg --> @50ft Rotate to 15deg -->Climb @V2 + 15ktn --> 
       <flight>
          <spoiler-armed type="string">true</spoiler-armed>
          <aileron-trim>0.0</aileron-trim>
-         <elevator-trim>-0.25</elevator-trim>
+         <elevator-trim>-0.0</elevator-trim>
       </flight>
       <engines>
          <engine n="0">
