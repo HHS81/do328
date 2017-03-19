@@ -37,8 +37,8 @@
      inkscape:pageopacity="1"
      inkscape:pageshadow="2"
      inkscape:zoom="2.132397"
-     inkscape:cx="183.39381"
-     inkscape:cy="58.89473"
+     inkscape:cx="234.30626"
+     inkscape:cy="95.634492"
      inkscape:document-units="px"
      inkscape:current-layer="navigation"
      showgrid="false"
@@ -212,6 +212,19 @@
        sodipodi:role="line"
        x="301.28781"
        y="340.35562">999</tspan></text>
+  <text
+     sodipodi:linespacing="100%"
+     id="dmeNA"
+     y="340.35562"
+     x="301.28781"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:29.34287071px;line-height:100%;font-family:'Liberation Mono';-inkscape-font-specification:'Liberation Mono, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffee00;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     xml:space="preserve"
+     transform="scale(0.95128751,1.0512069)"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.0241375px;line-height:125%;font-family:'Liberation Mono';-inkscape-font-specification:'Liberation Mono, Normal';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#ffee00;fill-opacity:1;stroke:none;stroke-opacity:1"
+       id="tspan4341-2-6-6-6-9-7-1-67"
+       sodipodi:role="line"
+       x="301.28781"
+       y="340.35562">---</tspan></text>
   <path
      sodipodi:nodetypes="ccccc"
      inkscape:connector-curvature="0"
