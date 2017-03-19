@@ -13,9 +13,9 @@ var canvas_navigation = {
 		};
 		canvas.parsesvg(canvasGroup, "Aircraft/do328/Models/Instruments/RMU/navigation.svg", {'font-mapper': font_mapper});
 
-		var svg_keys = ["compass","hdg","navFreq","adfFreq","crs","crsPtr","dme","crsNeedle",
-				"vorDirection","markerBeacon","arrowCL","arrowRL","arrowRR","arrowCR",
-				"circle","circNeedle", "circIndicator","gsScale","gsPtr",
+		var svg_keys = ["compass","hdg","navFreq","adfFreq","crs","crsPtr","dme","dmeNA",
+				"crsNeedle","vorDirection","markerBeacon","arrowCL","arrowRL","arrowRR",
+				"arrowCR","circle","circNeedle", "circIndicator","gsScale","gsPtr",
 				"rhombus","rhombNeedle", "rhombIndicator"];
 		foreach(var key; svg_keys) {
 			m[key] = canvasGroup.getElementById(key);
@@ -61,11 +61,12 @@ var canvas_navigation = {
 
 	 	if(getprop("instrumentation/nav["~me.Instance~"]/dme-in-range")) {
 			me.dme.setText(sprintf("%3.1f", 0.0000621*getprop("instrumentation/nav["~me.Instance~"]/nav-distance")));
-			me.dme.setColor(green);
+			me.dme.show();
+			me.dmeNA.hide();
 		}
 		else {
-			me.dme.setText("---");
-			me.dme.setColor(amber);
+			me.dme.hide();
+			me.dmeNA.show();
 		}
 
 		if(getprop("instrumentation/nav["~me.Instance~"]/in-range")) {

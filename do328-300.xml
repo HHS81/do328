@@ -1794,8 +1794,8 @@ Landing Distance MLW unfactored (what the aircraft demostrated without any safet
                 </product>
             </function>
         </axis>       
-
- </aerodynamics>
-
+    </aerodynamics>
+    
+<system file="MFDLimits"/>
 
 </fdm_config>

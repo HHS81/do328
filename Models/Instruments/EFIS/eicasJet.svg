@@ -43,9 +43,9 @@
      inkscape:window-height="711"
      id="namedview3588"
      showgrid="false"
-     inkscape:zoom="0.49999999"
-     inkscape:cx="111.86873"
-     inkscape:cy="471.6577"
+     inkscape:zoom="0.70710677"
+     inkscape:cx="310.89759"
+     inkscape:cy="567.65291"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -125,11 +125,11 @@
        x="545.04657"
        id="tspan3800-5-59"
        sodipodi:role="line"
-       style="font-size:24.69444466px;text-align:end;text-anchor:end">99</tspan></text>
+       style="font-size:24.69444466px;text-align:end;text-anchor:end">19</tspan></text>
   <text
      inkscape:label="#text3022"
      sodipodi:linespacing="125%"
-     id="apuegt-7-7-2"
+     id="readout_ft"
      y="515.1366"
      x="675.08026"
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20.05021477px;line-height:125%;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;display:inline;fill:#ffffff;fill-opacity:1;stroke:none"
@@ -181,7 +181,7 @@
   <text
      inkscape:label="#text3022"
      sodipodi:linespacing="125%"
-     id="apuegt-7-7-2-4"
+     id="readout_fpm"
      y="546.18109"
      x="675.08026"
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20.05021477px;line-height:125%;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;display:inline;fill:#ffffff;fill-opacity:1;stroke:none"
