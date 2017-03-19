@@ -5,7 +5,7 @@
    xsi:noNamespaceSchemaLocation="http://jsbsim.sourceforge.net/JSBSim.xsd">
 
  <fileheader>
-  <author> Aeromatic v 0.95 </author>
+  <author> HHS, xcvb85, Soitanen</author>
   <filecreationdate>2013-07-21</filecreationdate>
   <version>$Revision: 1.15 $</version>
   <description> Models a Dornier 328-300. </description>
@@ -90,7 +90,7 @@ Landing Distance MLW (1/0.6): 3524ft/1025m (Landing distance with safety margin)
 Landing Distance MLW unfactored (what the aircraft demostrated without any safety margin): 2115ft/645m
 -->
 
-<!-- Source: Brockhaus.R: Flugregelung-->
+<!-- Source of coefficients: Brockhaus.R: Flugregelung-->
 
  <metrics>
       <wingarea unit="M2">      40.000  </wingarea>
@@ -102,7 +102,7 @@ Landing Distance MLW unfactored (what the aircraft demostrated without any safet
       <vtailarea unit="FT2">     104.8608  </vtailarea>
       <vtailarm unit="FT">        33.5977  </vtailarm>
    <location name="AERORP" unit="IN">
-     <x> -83.3 </x>
+     <x> -83.3 </x><!-- assuming empty CoG is 25% MAC-->
      <y>   0.00 </y>
      <z> 84.0</z>
    </location>
@@ -124,7 +124,7 @@ Landing Distance MLW unfactored (what the aircraft demostrated without any safet
    <izz unit="SLUG*FT2">    177014.92 </izz> <!--Source: Brockhaus.R (2013): Flugregelung, p. 743-->
    <emptywt unit="LBS" >     20280 </emptywt>
    <location name="CG" unit="IN">
-     <x> -83.3 </x>
+     <x> -83.3 </x> <!-- assuming empty CoG is 25% MAC-->
      <y>   0.00 </y>
      <z> 84.0 </z>
    </location>
