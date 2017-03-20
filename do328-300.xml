@@ -1034,6 +1034,7 @@ Landing Distance MLW unfactored (what the aircraft demostrated without any safet
 		<table>
                         <independentVar>velocities/mach</independentVar>
                         <tableData>
+			0.0		0.0
                               0.156	1.536 <!--Source: Brockhaus.R (2013): Flugregelung, p. 745-->
                               0.303	0.408 <!--Source: Brockhaus.R (2013): Flugregelung, p. 745-->
                               0.428	0.221<!--Source: Brockhaus.R (2013): Flugregelung, p. 745-->
@@ -1093,6 +1094,7 @@ Landing Distance MLW unfactored (what the aircraft demostrated without any safet
 		<table>
                         <independentVar>velocities/mach</independentVar>
                         <tableData>
+			0.0		0.0
                               0.156	6.76 <!--Source: Brockhaus.R (2013): Flugregelung, p. 745-->
                               0.303	5.98 <!--Source: Brockhaus.R (2013): Flugregelung, p. 745-->
                               0.428	6.00<!--Source: Brockhaus.R (2013): Flugregelung, p. 745-->
@@ -1102,7 +1104,7 @@ Landing Distance MLW unfactored (what the aircraft demostrated without any safet
             </function>
 	    
 <!--values are guess-->
-            <function name="aero/coefficient/CLmach"> 
+           <function name="aero/coefficient/CLmach"> 
                 <description>Lift_due_to_Mach</description>
                 <product>
                     <property>aero/qbar-psf</property>
@@ -1114,6 +1116,7 @@ Landing Distance MLW unfactored (what the aircraft demostrated without any safet
                           <independentVar lookup="table">atmosphere/density-altitude</independentVar>
                           <tableData breakPoint="0">
                                       0         1
+			 0.0	0.0	0.0	
                               0.10   -1.1000    0.0000			
                               0.59    -0.88500    0.0000
                           </tableData>
@@ -1163,6 +1166,7 @@ Landing Distance MLW unfactored (what the aircraft demostrated without any safet
 		<table>
                         <independentVar>velocities/mach</independentVar>
                         <tableData>
+			0.00		0.0
                               0.156	0.349 <!--Source: Brockhaus.R (2013): Flugregelung, p. 745-->
                               0.303	0.349 <!--Source: Brockhaus.R (2013): Flugregelung, p. 745-->
                               0.428	0.349<!--Source: Brockhaus.R (2013): Flugregelung, p. 745-->
@@ -1181,7 +1185,7 @@ Landing Distance MLW unfactored (what the aircraft demostrated without any safet
 		<table>
                         <independentVar>velocities/mach</independentVar>
                         <tableData>
-			 0.00		0.0
+			0.07		0.0
                               0.156	1.53 <!--Source: Brockhaus.R (2013): Flugregelung, p. 745-->
                               0.303	0.929 <!--Source: Brockhaus.R (2013): Flugregelung, p. 745-->
                               0.428	0.907<!--Source: Brockhaus.R (2013): Flugregelung, p. 745-->
@@ -1200,6 +1204,7 @@ Landing Distance MLW unfactored (what the aircraft demostrated without any safet
 		<table>
                         <independentVar>velocities/mach</independentVar>
                         <tableData>
+			0.00		0.0
                               0.156	4.39 <!--Source: Brockhaus.R (2013): Flugregelung, p. 745-->
                               0.303	4.39 <!--Source: Brockhaus.R (2013): Flugregelung, p. 745-->
                               0.428	4.39<!--Source: Brockhaus.R (2013): Flugregelung, p. 745-->
@@ -1232,6 +1237,7 @@ Landing Distance MLW unfactored (what the aircraft demostrated without any safet
 		<table>
                         <independentVar>velocities/mach</independentVar>
                         <tableData>
+			0.0		0.0
                               0.156	0.069 <!--Source: Brockhaus.R (2013): Flugregelung, p. 745-->
                               0.303	0.049 <!--Source: Brockhaus.R (2013): Flugregelung, p. 745-->
                               0.428	0.027<!--Source: Brockhaus.R (2013): Flugregelung, p. 745-->
@@ -1269,6 +1275,7 @@ Landing Distance MLW unfactored (what the aircraft demostrated without any safet
 		<table>
                         <independentVar>velocities/mach</independentVar>
                         <tableData>
+			0.00		0.0
                               0.156	0.478 <!--Source: Brockhaus.R (2013): Flugregelung, p. 745-->
                               0.303	0.072 <!--Source: Brockhaus.R (2013): Flugregelung, p. 745-->
                               0.428	-0.002<!--Source: Brockhaus.R (2013): Flugregelung, p. 745-->
@@ -1380,6 +1387,7 @@ Landing Distance MLW unfactored (what the aircraft demostrated without any safet
 		<table>
                         <independentVar>velocities/mach</independentVar>
                         <tableData>
+			 0.07		0.0
                               0.156	-1.233 <!--Source: Brockhaus.R (2013): Flugregelung, p. 746-->
                               0.303	-1.215 <!--Source: Brockhaus.R (2013): Flugregelung, p. 746-->
                               0.428	-1.195<!--Source: Brockhaus.R (2013): Flugregelung, p. 746-->
@@ -1398,6 +1406,7 @@ Landing Distance MLW unfactored (what the aircraft demostrated without any safet
 		<table>
                         <independentVar>velocities/mach</independentVar>
                         <tableData>
+			 0.07		0.0
                               0.156	0.15 <!--Source: Brockhaus.R (2013): Flugregelung, p. 746-->
                               0.303	0.153 <!--Source: Brockhaus.R (2013): Flugregelung, p. 746-->
                               0.428	0.109<!--Source: Brockhaus.R (2013): Flugregelung, p. 746-->
@@ -1418,6 +1427,7 @@ Landing Distance MLW unfactored (what the aircraft demostrated without any safet
 		<table>
                         <independentVar>velocities/mach</independentVar>
                         <tableData>
+			 0.07		0.0
                               0.156	0.578 <!--Source: Brockhaus.R (2013): Flugregelung, p. 746-->
                               0.303	0.563 <!--Source: Brockhaus.R (2013): Flugregelung, p. 746-->
                               0.428	0.563<!--Source: Brockhaus.R (2013): Flugregelung, p. 746-->
@@ -1437,6 +1447,7 @@ Landing Distance MLW unfactored (what the aircraft demostrated without any safet
 		<table>
                         <independentVar>velocities/mach</independentVar>
                         <tableData>
+			 0.07		0.0
                               0.156	0.412 <!--Source: Brockhaus.R (2013): Flugregelung, p. 746-->
                               0.303	0.380<!--Source: Brockhaus.R (2013): Flugregelung, p. 746-->
                               0.428	0.389<!--Source: Brockhaus.R (2013): Flugregelung, p. 746-->
@@ -1459,6 +1470,7 @@ Landing Distance MLW unfactored (what the aircraft demostrated without any safet
 		<table>
                         <independentVar>velocities/mach</independentVar>
                         <tableData>
+			 0.07		0.0
                               0.156	-0.247 <!--Source: Brockhaus.R (2013): Flugregelung, p. 746-->
                               0.303	-0.275<!--Source: Brockhaus.R (2013): Flugregelung, p. 746-->
                               0.428	-0.285<!--Source: Brockhaus.R (2013): Flugregelung, p. 746-->
@@ -1478,6 +1490,7 @@ Landing Distance MLW unfactored (what the aircraft demostrated without any safet
 		<table>
                         <independentVar>velocities/mach</independentVar>
                         <tableData>
+			 0.07		0.0
                               0.156	-1.061 <!--Source: Brockhaus.R (2013): Flugregelung, p. 746-->
                               0.303	-1.083 <!--Source: Brockhaus.R (2013): Flugregelung, p. 746-->
                               0.428	-1.118<!--Source: Brockhaus.R (2013): Flugregelung, p. 746-->
@@ -1497,6 +1510,7 @@ Landing Distance MLW unfactored (what the aircraft demostrated without any safet
 		<table>
                         <independentVar>velocities/mach</independentVar>
                         <tableData>
+			 0.07		0.0
                               0.156	-0.349 <!--Source: Brockhaus.R (2013): Flugregelung, p. 746-->
                               0.303	-0.361 <!--Source: Brockhaus.R (2013): Flugregelung, p. 746-->
                               0.428	-0.295<!--Source: Brockhaus.R (2013): Flugregelung, p. 746-->
@@ -1515,6 +1529,7 @@ Landing Distance MLW unfactored (what the aircraft demostrated without any safet
 		<table>
                         <independentVar>velocities/mach</independentVar>
                         <tableData>
+			 0.07		0.0
                               0.156	0.3 <!--sign changed Source: Brockhaus.R (2013): Flugregelung, p. 746-->
                               0.303	0.3 <!--sign changed Source: Brockhaus.R (2013): Flugregelung, p. 746-->
                               0.428	0.299<!--sign changed Source: Brockhaus.R (2013): Flugregelung, p. 746-->
@@ -1534,6 +1549,7 @@ Landing Distance MLW unfactored (what the aircraft demostrated without any safet
 		<table>
                         <independentVar>velocities/mach</independentVar>
                         <tableData>
+			 0.07		0.0
                               0.156	0.0854<!--Source: Brockhaus.R (2013): Flugregelung, p. 746-->
                               0.303	0.0836 <!--Source: Brockhaus.R (2013): Flugregelung, p. 746-->
                               0.428	0.099<!--Source: Brockhaus.R (2013): Flugregelung, p. 746-->
@@ -1554,7 +1570,8 @@ Landing Distance MLW unfactored (what the aircraft demostrated without any safet
 		<table>
                         <independentVar>velocities/mach</independentVar>
                         <tableData>
-                              0.156	-0.092 <!--Source: Brockhaus.R (2013): Flugregelung, p. 745-->
+			 0.07		0.0
+                              0.156	0.092 <!--Source: Brockhaus.R (2013): Flugregelung, p. 745-->
                               0.303	0.104 <!--Source: Brockhaus.R (2013): Flugregelung, p. 745-->
                               0.428	0.127<!--Source: Brockhaus.R (2013): Flugregelung, p. 745-->
                         </tableData>
@@ -1572,6 +1589,7 @@ Landing Distance MLW unfactored (what the aircraft demostrated without any safet
 		<table>
                         <independentVar>velocities/mach</independentVar>
                         <tableData>
+			 0.07		0.0
                               0.156	-1.696 <!--Source: Brockhaus.R (2013): Flugregelung, p. 745-->
                               0.303	-1.549 <!--Source: Brockhaus.R (2013): Flugregelung, p. 745-->
                               0.428	-1.678<!--Source: Brockhaus.R (2013): Flugregelung, p. 745-->
@@ -1591,6 +1609,7 @@ Landing Distance MLW unfactored (what the aircraft demostrated without any safet
 		<table>
                         <independentVar>velocities/mach</independentVar>
                         <tableData>
+			 0.07		0.0
                               0.156	-26 <!--Source: Brockhaus.R (2013): Flugregelung, p. 745-->
                               0.303	-26 <!--Source: Brockhaus.R (2013): Flugregelung, p. 745-->
                               0.428	-26<!--Source: Brockhaus.R (2013): Flugregelung, p. 745-->
@@ -1610,6 +1629,7 @@ Landing Distance MLW unfactored (what the aircraft demostrated without any safet
 		<table>
                         <independentVar>velocities/mach</independentVar>
                         <tableData>
+			 0.07		0.0
                               0.156	-8.64<!--Source: Brockhaus.R (2013): Flugregelung, p. 745-->
                               0.303	-5.26 <!--Source: Brockhaus.R (2013): Flugregelung, p. 745-->
                               0.428	-5.141<!--Source: Brockhaus.R (2013): Flugregelung, p. 745-->
@@ -1628,6 +1648,7 @@ Landing Distance MLW unfactored (what the aircraft demostrated without any safet
 		<table>
                         <independentVar>velocities/mach</independentVar>
                         <tableData>
+			 0.07		0.0
                               0.156	-1.93 <!---1.93 Source: Brockhaus.R (2013): Flugregelung, p. 745-->
                               0.303	-1.93 <!--Source: Brockhaus.R (2013): Flugregelung, p. 745-->
                               0.428	-1.93<!--Source: Brockhaus.R (2013): Flugregelung, p. 745-->
@@ -1709,6 +1730,7 @@ Landing Distance MLW unfactored (what the aircraft demostrated without any safet
 		<table>
                         <independentVar>velocities/mach</independentVar>
                         <tableData>
+			 0.07		0.0
                               0.156	0.535 <!--Source: Brockhaus.R (2013): Flugregelung, p. 746-->
                               0.303	0.388 <!--Source: Brockhaus.R (2013): Flugregelung, p. 746-->
                               0.428	0.366<!--Source: Brockhaus.R (2013): Flugregelung, p. 746-->
@@ -1728,6 +1750,7 @@ Landing Distance MLW unfactored (what the aircraft demostrated without any safet
 		<table>
                         <independentVar>velocities/mach</independentVar>
                         <tableData>
+			 0.07		0.0
                               0.156	-0.199 <!--Source: Brockhaus.R (2013): Flugregelung, p. 746-->
                               0.303	-0.204 <!--Source: Brockhaus.R (2013): Flugregelung, p. 746-->
                               0.428	-0.140<!--Source: Brockhaus.R (2013): Flugregelung, p. 746-->
@@ -1749,6 +1772,7 @@ Landing Distance MLW unfactored (what the aircraft demostrated without any safet
 		<table>
                         <independentVar>velocities/mach</independentVar>
                         <tableData>
+			 0.07		0.0
                               0.156	-0.628 <!--Source: Brockhaus.R (2013): Flugregelung, p. 746-->
                               0.303	-0.615<!--Source: Brockhaus.R (2013): Flugregelung, p. 746-->
                               0.428	-0.619<!--Source: Brockhaus.R (2013): Flugregelung, p. 746-->
@@ -1768,6 +1792,7 @@ Landing Distance MLW unfactored (what the aircraft demostrated without any safet
 		<table>
                         <independentVar>velocities/mach</independentVar>
                         <tableData>
+			 0.07		0.0
                               0.156	-0.0127 <!--Source: Brockhaus.R (2013): Flugregelung, p. 746-->
                               0.303	-0.0007 <!--Source: Brockhaus.R (2013): Flugregelung, p. 746-->
                               0.428	-0.0065<!--Source: Brockhaus.R (2013): Flugregelung, p. 746-->
@@ -1786,6 +1811,7 @@ Landing Distance MLW unfactored (what the aircraft demostrated without any safet
 		<table>
                         <independentVar>velocities/mach</independentVar>
                         <tableData>
+			 0.07		0.0
                               0.156	-0.405 <!--Source: Brockhaus.R (2013): Flugregelung, p. 746-->
                               0.303	-0.384 <!--Source: Brockhaus.R (2013): Flugregelung, p. 746-->
                               0.428	-0.392<!--Source: Brockhaus.R (2013): Flugregelung, p. 746-->
