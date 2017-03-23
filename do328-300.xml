@@ -91,18 +91,18 @@ Landing Distance MLW unfactored (what the aircraft demostrated without any safet
 -->
 
 <!-- Source of coefficients: Brockhaus.R: Flugregelung-->
-
+<!--CG range 15-38% MAC-->
  <metrics>
       <wingarea unit="M2">      40.000  </wingarea>
       <wingspan unit="FT">        68.8000  </wingspan>
 	<wing_incidence unit="DEG">         1.50 </wing_incidence>
       <chord unit="FT">            6.69 </chord>
       <htailarea unit="FT2">      81.6480  </htailarea>
-      <htailarm unit="FT">        37.6141  </htailarm>
+      <htailarm unit="FT">        37.4141  </htailarm>
       <vtailarea unit="FT2">     104.8608  </vtailarea>
-      <vtailarm unit="FT">        33.5977  </vtailarm>
+      <vtailarm unit="FT">        33.3977  </vtailarm>
    <location name="AERORP" unit="IN">
-     <x> -83.3 </x><!-- assuming empty CoG is 25% MAC-->
+     <x> -53.3 </x><!-- assuming AEROP is at 35% MAC-->
      <y>   0.00 </y>
      <z> 84.0</z>
    </location>
@@ -305,55 +305,6 @@ Landing Distance MLW unfactored (what the aircraft demostrated without any safet
    <retractable>1</retractable>
   </contact>
   
-<!-- to prevent from sinking in to deep
-<contact type="BOGEY" name="NOSE2">
-   <location unit="IN">
-     <x> -343.49 </x>
-     <y>   0.00 </y>
-     <z> -1.74 </z>
-   </location>
-   <static_friction>  0.00 </static_friction>
-   <dynamic_friction> 0.00 </dynamic_friction>
-   <rolling_friction> 0.0 </rolling_friction>
-   <spring_coeff unit="LBS/FT">      0 </spring_coeff>
-   <damping_coeff unit="LBS/FT/SEC"> 000 </damping_coeff>
-<damping_coeff_rebound unit="LBS/FT/SEC">0000</damping_coeff_rebound>
-   <max_steer unit="DEG"> 5.00 </max_steer>
-   <brake_group>NONE</brake_group>
-   <retractable>1</retractable>
-  </contact>
-  
- <contact type="BOGEY" name="LEFT_MAIN2">
-   <location unit="IN">
-     <x> -54.044 </x>
-     <y>   -71.88 </y>
-     <z> -1.8 </z>
-   </location>
-   <static_friction>  0.0</static_friction>
-   <dynamic_friction> 0.00 </dynamic_friction>
-   <rolling_friction> 0.0 </rolling_friction>
-   <spring_coeff unit="LBS/FT">     0 </spring_coeff>
-   <damping_coeff unit="LBS/FT/SEC"> 0 </damping_coeff>
-<damping_coeff_rebound unit="LBS/FT/SEC">000</damping_coeff_rebound>
-   <max_steer unit="DEG">0</max_steer>
-   <retractable>1</retractable>
-  </contact>
-  
-<contact type="BOGEY" name="RIGHT_MAIN2">
-   <location unit="IN">
-     <x> -54.044 </x>
-     <y>   71.88 </y>
-     <z> -1.8 </z>
-   </location>
-   <static_friction>  0.0 </static_friction>
-   <dynamic_friction> 0.00 </dynamic_friction>
-   <rolling_friction> 0.0 </rolling_friction>
-   <spring_coeff unit="LBS/FT">     0 </spring_coeff>
-   <damping_coeff unit="LBS/FT/SEC"> 0</damping_coeff>
-<damping_coeff_rebound unit="LBS/FT/SEC">00</damping_coeff_rebound>
-   <max_steer unit="DEG">0</max_steer>
-   <retractable>1</retractable>
-  </contact>-->
 
   <contact type="STRUCTURE" name="LEFT_WING">
     <location unit="IN">
@@ -361,8 +312,9 @@ Landing Distance MLW unfactored (what the aircraft demostrated without any safet
      <y> -414.98 </y>
      <z>119.76 </z>
     </location>
-    <static_friction>  0.8 </static_friction>
-    <dynamic_friction> 0.5 </dynamic_friction>
+    <static_friction>  1.0 </static_friction>
+    <dynamic_friction> 1.0 </dynamic_friction>
+   <rolling_friction> 0.7</rolling_friction>
     <spring_coeff unit="LBS/FT">      10000</spring_coeff>
     <damping_coeff unit="LBS/FT/SEC"> 10000 </damping_coeff>
   </contact>
@@ -374,7 +326,8 @@ Landing Distance MLW unfactored (what the aircraft demostrated without any safet
      <z>119.76 </z>
     </location>
     <static_friction>  0.8 </static_friction>
-    <dynamic_friction> 0.5 </dynamic_friction>
+    <dynamic_friction> 1.0 </dynamic_friction>
+   <rolling_friction> 0.7</rolling_friction>
     <spring_coeff unit="LBS/FT">      10000</spring_coeff>
     <damping_coeff unit="LBS/FT/SEC"> 10000 </damping_coeff>
   </contact>
@@ -386,7 +339,8 @@ Landing Distance MLW unfactored (what the aircraft demostrated without any safet
      <z>45.64</z>
     </location>
     <static_friction>  0.8</static_friction>
-    <dynamic_friction> 0.5 </dynamic_friction>
+    <dynamic_friction> 1.0 </dynamic_friction>
+   <rolling_friction> 0.7</rolling_friction>
     <spring_coeff unit="LBS/FT">      10000</spring_coeff>
     <damping_coeff unit="LBS/FT/SEC">10000 </damping_coeff>
   </contact>
@@ -397,8 +351,9 @@ Landing Distance MLW unfactored (what the aircraft demostrated without any safet
      <y>16.07 </y>
      <z>45.64</z>
     </location>
-    <static_friction>  0.8 </static_friction>
-    <dynamic_friction> 0.5 </dynamic_friction>
+    <static_friction>  1.0 </static_friction>
+    <dynamic_friction> 1.0 </dynamic_friction>
+   <rolling_friction> 0.7</rolling_friction>
     <spring_coeff unit="LBS/FT">      10000</spring_coeff>
     <damping_coeff unit="LBS/FT/SEC"> 10000 </damping_coeff>
   </contact>
@@ -410,7 +365,8 @@ Landing Distance MLW unfactored (what the aircraft demostrated without any safet
      <z>90.588</z>
     </location>
     <static_friction>  0.8 </static_friction>
-    <dynamic_friction> 0.5 </dynamic_friction>
+    <dynamic_friction> 1.0 </dynamic_friction>
+   <rolling_friction> 0.7</rolling_friction>
     <spring_coeff unit="LBS/FT">      10000</spring_coeff>
     <damping_coeff  unit="LBS/FT/SEC">10000 </damping_coeff>
   </contact>
@@ -422,7 +378,8 @@ Landing Distance MLW unfactored (what the aircraft demostrated without any safet
      <z>43.84</z>
     </location>
     <static_friction>  0.8 </static_friction>
-    <dynamic_friction> 0.5 </dynamic_friction>
+    <dynamic_friction> 1.0 </dynamic_friction>
+   <rolling_friction> 0.7</rolling_friction>
     <spring_coeff unit="LBS/FT">      10000</spring_coeff>
     <damping_coeff unit="LBS/FT/SEC"> 10000 </damping_coeff>
   </contact>
@@ -434,7 +391,8 @@ Landing Distance MLW unfactored (what the aircraft demostrated without any safet
      <z>30.07</z>
     </location>
     <static_friction>  0.8 </static_friction>
-    <dynamic_friction> 0.5 </dynamic_friction>
+    <dynamic_friction> 1.0 </dynamic_friction>
+   <rolling_friction> 0.7</rolling_friction>
     <spring_coeff unit="LBS/FT">      10000</spring_coeff>
     <damping_coeff unit="LBS/FT/SEC"> 10000 </damping_coeff>
   </contact>
@@ -446,7 +404,8 @@ Landing Distance MLW unfactored (what the aircraft demostrated without any safet
      <z>12.94</z>
     </location>
     <static_friction>  0.8 </static_friction>
-    <dynamic_friction> 0.5 </dynamic_friction>
+    <dynamic_friction> 1.0 </dynamic_friction>
+   <rolling_friction> 0.7</rolling_friction>
     <spring_coeff unit="LBS/FT">      10000</spring_coeff>
     <damping_coeff unit="LBS/FT/SEC"> 10000 </damping_coeff>
   </contact>
@@ -458,7 +417,8 @@ Landing Distance MLW unfactored (what the aircraft demostrated without any safet
      <z>12.94</z>
     </location>
     <static_friction>  0.8 </static_friction>
-    <dynamic_friction> 0.5 </dynamic_friction>
+    <dynamic_friction> 1.0 </dynamic_friction>
+   <rolling_friction> 0.7</rolling_friction>
     <spring_coeff unit="LBS/FT">      10000</spring_coeff>
     <damping_coeff unit="LBS/FT/SEC"> 10000 </damping_coeff>
   </contact>
@@ -1043,47 +1003,7 @@ Landing Distance MLW unfactored (what the aircraft demostrated without any safet
                 </product>
             </function>
 	
-	    
-<!--values are guess
-            <function name="aero/coefficient/CLalpha"> 
-                <description>Lift_due_to_alpha</description>
-                <product>
-                    <property>aero/qbar-psf</property>
-                    <property>metrics/Sw-sqft</property>
-                    <property>aero/function/kCLge</property>
-                    <property>aero/alpha-wing-rad</property>
-                      <table>
-                          <independentVar lookup="row">velocities/mach</independentVar>
-                          <independentVar lookup="column">fcs/aeromatic</independentVar>
-                          <independentVar lookup="table">atmosphere/density-altitude</independentVar>
-                          <tableData breakPoint="0">
-                                      0         1
-				0.00	0.00	0.00
-                             0.1	10.3000    5.0000	 
-				0.20    8.700    5.0000
-                              0.25    6.5000    5.0000
-                              0.30    5.6000    5.0000
-                              0.45    5.4000    5.0000
-                              0.55    3.9000    5.0000
-                          </tableData>
-                          <tableData breakPoint="20000">
-                                      0         1
-                              0.20    5.7000    5.0000
-                              0.25    5.5000    5.0000
-                              0.30    5.2000    5.0000
-                              0.45    5.8000    5.0000
-                              0.55   4.0000    5.0000
-                          </tableData>
-                          <tableData breakPoint="35000">
-                                      0         1
-                              0.20    7.4000    5.0000
-                              0.40    6.2000    5.0000
-                              0.45    6.6000    5.0000
-                              0.50    5.4000    5.0000
-                          </tableData>
-                      </table>
-                </product>
-            </function>-->
+
 	    
 <function name="aero/coefficient/CLalpha"> <!--                    <property>aero/alpha-rad</property>-->
                 <description>Lift_due_to_alpha</description>
@@ -1109,34 +1029,16 @@ Landing Distance MLW unfactored (what the aircraft demostrated without any safet
                 <product>
                     <property>aero/qbar-psf</property>
                     <property>metrics/Sw-sqft</property>
-                    <property>velocities/mach</property>
                       <table>
                           <independentVar lookup="row">velocities/mach</independentVar>
                           <independentVar lookup="column">fcs/aeromatic</independentVar>
-                          <independentVar lookup="table">atmosphere/density-altitude</independentVar>
-                          <tableData breakPoint="0">
+                           <tableData >
                                       0         1
-			 0.0	0.0	0.0	
-                              0.10   -1.1000    0.0000			
-                              0.59    -0.88500    0.0000
+			 0.00	0.00	0.00
+                              0.158  -1.2000    0.0000			
+                              0.3    0.000    0.0000
                           </tableData>
-                          <tableData breakPoint="20000">
-                                      0         1
-                              0.20   -0.1000    0.0000
-                              0.25    0.2000    0.0000
-                              0.35    0.2550    0.0000
-                              0.40    0.1550    0.0000
-                              0.45    0.0000    0.0000
-                              0.50   -0.3000    0.0000
-                          </tableData>
-                          <tableData breakPoint="35000">
-                                      0         1
-                              0.35    0.2500    0.0000
-                              0.40    0.2000    0.0000
-                              0.46   -0.2500    0.0000
-                              0.50   -0.7500    0.0000
-                          </tableData>
-                      </table>
+		</table>
                 </product>
             </function>
 
@@ -1246,23 +1148,7 @@ Landing Distance MLW unfactored (what the aircraft demostrated without any safet
                 </product>
             </function>
 
-            <function name="aero/coefficient/CDDf"> <!--values are guess-->
-                <description>Delta_drag_due_to_flap_deflection</description>
-                <product>
-                    <property>aero/qbar-psf</property>
-                    <property>metrics/Sw-sqft</property>
-                    <property>aero/function/kCDge</property>
-                    <table>
-                        <independentVar>fcs/flap-pos-deg</independentVar>
-                        <tableData>
-                              0.0000	0.0000
-                              10.0000	0.0035
-                              20.0000	0.0060
-                              38.0000	0.0090
-                          </tableData>
-                    </table>
-                </product>
-            </function>
+ 
 
 
             <function name="aero/coefficient/CDalpha"><!--values are guess-->
@@ -1325,9 +1211,9 @@ Landing Distance MLW unfactored (what the aircraft demostrated without any safet
                           <independentVar lookup="row">fcs/flap-pos-deg</independentVar>
 		<tableData>
                               0       0.0000    
-			12	0.15	      
-                              20      0.155   
-                              32     0.156   
+			12	0.08	      
+                              20      0.085   
+                              32     0.0856   
                           </tableData>
                       </table>
                 </product>
@@ -1570,7 +1456,6 @@ Landing Distance MLW unfactored (what the aircraft demostrated without any safet
 		<table>
                         <independentVar>velocities/mach</independentVar>
                         <tableData>
-			 0.07		0.0
                               0.156	0.092 <!--Source: Brockhaus.R (2013): Flugregelung, p. 745-->
                               0.303	0.104 <!--Source: Brockhaus.R (2013): Flugregelung, p. 745-->
                               0.428	0.127<!--Source: Brockhaus.R (2013): Flugregelung, p. 745-->
@@ -1585,11 +1470,10 @@ Landing Distance MLW unfactored (what the aircraft demostrated without any safet
                     <property>aero/qbar-psf</property>
                     <property>metrics/Sw-sqft</property>
                     <property>metrics/cbarw-ft</property>
-                        <property>aero/alpha-rad</property>
+<property>aero/alpha-rad</property>
 		<table>
                         <independentVar>velocities/mach</independentVar>
                         <tableData>
-			 0.07		0.0
                               0.156	-1.696 <!--Source: Brockhaus.R (2013): Flugregelung, p. 745-->
                               0.303	-1.549 <!--Source: Brockhaus.R (2013): Flugregelung, p. 745-->
                               0.428	-1.678<!--Source: Brockhaus.R (2013): Flugregelung, p. 745-->
@@ -1609,7 +1493,6 @@ Landing Distance MLW unfactored (what the aircraft demostrated without any safet
 		<table>
                         <independentVar>velocities/mach</independentVar>
                         <tableData>
-			 0.07		0.0
                               0.156	-26 <!--Source: Brockhaus.R (2013): Flugregelung, p. 745-->
                               0.303	-26 <!--Source: Brockhaus.R (2013): Flugregelung, p. 745-->
                               0.428	-26<!--Source: Brockhaus.R (2013): Flugregelung, p. 745-->
@@ -1629,7 +1512,6 @@ Landing Distance MLW unfactored (what the aircraft demostrated without any safet
 		<table>
                         <independentVar>velocities/mach</independentVar>
                         <tableData>
-			 0.07		0.0
                               0.156	-8.64<!--Source: Brockhaus.R (2013): Flugregelung, p. 745-->
                               0.303	-5.26 <!--Source: Brockhaus.R (2013): Flugregelung, p. 745-->
                               0.428	-5.141<!--Source: Brockhaus.R (2013): Flugregelung, p. 745-->
@@ -1648,7 +1530,6 @@ Landing Distance MLW unfactored (what the aircraft demostrated without any safet
 		<table>
                         <independentVar>velocities/mach</independentVar>
                         <tableData>
-			 0.07		0.0
                               0.156	-1.93 <!---1.93 Source: Brockhaus.R (2013): Flugregelung, p. 745-->
                               0.303	-1.93 <!--Source: Brockhaus.R (2013): Flugregelung, p. 745-->
                               0.428	-1.93<!--Source: Brockhaus.R (2013): Flugregelung, p. 745-->
@@ -1657,7 +1538,7 @@ Landing Distance MLW unfactored (what the aircraft demostrated without any safet
                 </product>
             </function>
 
-<!--values are guess
+<!--values are guess-->
             <function name="aero/coefficient/Cmdf">
                 <description>Delta_pitching_moment_due_to_flap_deflection</description>
                 <product>
@@ -1668,13 +1549,13 @@ Landing Distance MLW unfactored (what the aircraft demostrated without any safet
                         <independentVar>fcs/flap-pos-deg</independentVar>
                         <tableData>
                             0.0000	    0.0000
-                            12.0000	   -0.0654
-                            20.0000	   -0.0981
-                            32.0000  	   -0.1140
+                            12.0000	   0.1254
+                            20.0000	   0.1881
+                            32.0000  	0.4240
                         </tableData>
                     </table>
                 </product>
-            </function>-->
+            </function>
 	    
 <!--values are guess
             <function name="aero/coefficient/Cmmach"> 

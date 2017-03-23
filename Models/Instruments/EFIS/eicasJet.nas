@@ -18,7 +18,7 @@ var canvas_eicas = {
 				"readout_n1_1","readout_n1_2","dial_n1_1","dial_n1_2",
 				"readout_itt1","readout_itt2","dial_itt1","dial_itt2",
 				"readout_n2_1","readout_n2_2","dial_n2_1","dial_n2_2",
-				"readout_ft","readout_fpm"];
+				"readout_ft","readout_fpm", "trim_pitch"];
 
 		foreach(var key; svg_keys) {
 			m[key] = canvasGroup.getElementById(key);
@@ -54,8 +54,12 @@ var canvas_eicas = {
 
 			me["dial_n2_"~(me.n+1)].setRotation((270/100) * D2R *
 					(getprop("engines/engine[0]/n1") or 0));
+					
+		me.trim_pitch.setTranslation(0, -getprop("controls/flight/elevator-trim")*(-96));
 		}
 	},
+	
+	
 	updateSlow: func()
 	{
 		for(me.n = 0; me.n<2; me.n+=1){
