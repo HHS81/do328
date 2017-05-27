@@ -1,758 +1,104 @@
-<?xml version = '1.0' encoding = 'UTF-8' ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 ************************************************************************
 Dornier 328-110
 Started by Heiko Schulz
 ************************************************************************
 -->
-<PropertyList>
-    <sim>
-  <description>Dornier 328-110</description>
-  <author>HHS (3d, config, fdm); xcvb85 (Primus 2000 Canvas, debug); clm76 (CDU, RMU); Jentron (prop and turbine files)</author>
-  <status>devel</status>
-  <flight-model>jsb</flight-model>
-  <aero>do328-110</aero>
-  <fuel-fraction>0.5</fuel-fraction>
-  
-        <tags>
-            <tag>turboprop</tag>
-            <tag>dornier</tag>
-            <tag>prop</tag>
-            <tag>retractable-gear</tag>
-            <tag>ifr</tag>
-            <tag>twin-engine</tag>
-            <tag>glass-cockpit</tag>
-        </tags>
-        
-        <startup>
-            <splash-texture>Aircraft/do328/splash.png</splash-texture>
-        </startup>
-
-<model>
-   <path>Aircraft/do328/Models/do328prop.xml</path>
-       <variant type="int">0</variant>
-			<livery>
-                              <file type="string">do328prop_liveries/Default.png</file>
-                              </livery>
-
-			<do328>
-			<material>
-			<fuselage>
-						<diffuse>
-							<red>1.0</red>
-							<green>1.0</green>
-							<blue>1.0</blue>
-						</diffuse>
- 					         <specular>
-							<red>1.0</red>
-							<green>1.0</green>
-							<blue>1.0</blue>
-						</specular>
-						<ambient>
-							<red>1.0</red>
-							<green>1.0</green>
-							<blue>1.0</blue>
-						</ambient>
-				</fuselage>
-                               </material>
-			       </do328>
-		</model>
+<PropertyList include="do328-common.xml">
+   <sim>
+      <description>Dornier 328-110</description>
+      <author>HHS (3d, config, fdm); xcvb85 (Primus 2000 Canvas, debug); clm76 (CDU, RMU); Jentron (prop and turbine files)</author>
+      <status>devel</status>
+      <flight-model>jsb</flight-model>
+      <aero>do328-110</aero>
+      <fuel-fraction>0.5</fuel-fraction>
+      <tags>
+         <tag>turboprop</tag>
+         <tag>dornier</tag>
+         <tag>prop</tag>
+         <tag>retractable-gear</tag>
+         <tag>ifr</tag>
+         <tag>twin-engine</tag>
+         <tag>glass-cockpit</tag>
+      </tags>
+      <startup>
+         <splash-texture>Aircraft/do328/splash.png</splash-texture>
+      </startup>
+      <model>
+         <path>Aircraft/do328/Models/do328prop.xml</path>
+         <variant type="int">0</variant>
+         <livery>
+            <file type="string">do328prop_liveries/Default.png</file>
+         </livery>
+         <do328>
+            <material>
+               <fuselage>
+                  <diffuse>
+                     <red>1.0</red>
+                     <green>1.0</green>
+                     <blue>1.0</blue>
+                  </diffuse>
+                  <specular>
+                     <red>1.0</red>
+                     <green>1.0</green>
+                     <blue>1.0</blue>
+                  </specular>
+                  <ambient>
+                     <red>1.0</red>
+                     <green>1.0</green>
+                     <blue>1.0</blue>
+                  </ambient>
+               </fuselage>
+            </material>
+         </do328>
+      </model>
       <rendering>
-	<refl_correction type="float">-0.15</refl_correction>
-	<fresnel-factor type="float">0.33</fresnel-factor>
-	<refl-type type="int">1</refl-type>
-    </rendering>
-
-
-        <view n="0">
-            <name>Pilot</name>
-            <type>lookfrom</type>
-            <internal type="bool">true</internal>
-            <config>
-<default-field-of-view-deg>84</default-field-of-view-deg>
-                <ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
-      <pitch-offset-deg>-10.0</pitch-offset-deg>
-      <x-offset-m archive="y">-0.47</x-offset-m> <!--Right - was -0.50-->
-      <y-offset-m archive="y">2.35</y-offset-m> <!--Up  028, 0.31-->
-      <z-offset-m archive="y">-7.99</z-offset-m> <!--Forward was 7.6-->
-                <pitch-offset-deg>-12</pitch-offset-deg>
-               <limits>
-          <enabled type="bool">true</enabled>
-          <left>
-            <heading-max-deg type="double">120</heading-max-deg>
-            <x-offset-max-m type="double">0.32</x-offset-max-m>
-            <x-offset-threshold-deg type="double">45</x-offset-threshold-deg>
-          </left>
-          <right>
-            <heading-max-deg type="double">160</heading-max-deg>
-            <x-offset-max-m type="double">0.4</x-offset-max-m>
-            <x-offset-threshold-deg type="double">65</x-offset-threshold-deg>
-          </right>
-        </limits>
-            </config>
-        </view>
-
-        <view n="1">
-            <config>
-                <ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
-            </config>
-        </view>
-
-        <view n="2">
-            <config>
-                <ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
-            </config>
-        </view>
-
-        <view n="3">
-            <config>
-                <ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
-            </config>
-        </view>
-
-        <view n="4">
-            <config>
-                <ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
-            </config>
-        </view>
-
-        <view n="5">
-            <config>
-                <ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
-            </config>
-        </view>
-
-        <view n="6">
-            <config>
-                <ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
-            </config>
-        </view>
-
-
-<!--Disable Cabin View until Cabin is made
-
-<view n="100">
-    <name>Passenger 1</name>
-    <internal archive="y">true</internal>
-    <type>lookfrom</type>
-    <config>
-      <from-model type="bool">true</from-model>
-      <ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
-      <heading-offset-deg type="double">0</heading-offset-deg>
-      <x-offset-m archive="y" type="double">-1.0</x-offset-m>
-      <y-offset-m archive="y" type="double">2.10</y-offset-m>
-      <z-offset-m archive="y" type="double">-4.74</z-offset-m>
-      <default-heading-offset-deg>0</default-heading-offset-deg>
-      <pitch-offset-deg>0</pitch-offset-deg>
-                <limits>
-                    <enabled type="bool">false</enabled>
-                    <left>
-                        <heading-max-deg type="double">120</heading-max-deg>
-                        <x-offset-max-m type="double">0.28</x-offset-max-m>
-                        <x-offset-threshold-deg type="double">0</x-offset-threshold-deg>
-                    </left>
-                    <right>
-                        <heading-max-deg type="double">170</heading-max-deg>
-                        <x-offset-max-m type="double">0.25</x-offset-max-m>
-                        <x-offset-threshold-deg type="double">0</x-offset-threshold-deg>
-                    </right>
-                </limits>
-      <dynamic-view type="bool">false</dynamic-view>
-    </config>
-    </view>
-
-  <view n="101">
-    <name>Passenger 2</name>
-    <internal archive="y">true</internal>
-    <type>lookfrom</type>
-    <config>
-      <from-model type="bool">true</from-model>
-      <ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
-      <heading-offset-deg type="double">0</heading-offset-deg>
-      <x-offset-m archive="y" type="double">1.0</x-offset-m>
-      <y-offset-m archive="y" type="double">2.10</y-offset-m>
-      <z-offset-m archive="y" type="double">1.59</z-offset-m>
-      <default-heading-offset-deg>0</default-heading-offset-deg>
-    <pitch-offset-deg>0</pitch-offset-deg>
-                 <limits>
-          <enabled type="bool">true</enabled>
-          <left>
-            <heading-max-deg type="double">120</heading-max-deg>
-            <x-offset-max-m type="double">0.32</x-offset-max-m>
-            <x-offset-threshold-deg type="double">45</x-offset-threshold-deg>
-          </left>
-          <right>
-            <heading-max-deg type="double">160</heading-max-deg>
-            <x-offset-max-m type="double">0.35</x-offset-max-m>
-            <x-offset-threshold-deg type="double">65</x-offset-threshold-deg>
-          </right>
-        </limits>
-    </config>
-    </view>-->
-
-    <flaps>
-        <setting>0.000</setting>
-        <setting>0.375</setting>
-        <setting>0.625</setting>
-        <setting>1.000</setting>
-    </flaps>
-
- 
-        <allow-toggle-cockpit>true</allow-toggle-cockpit>
-        <chase-distance-m type="double">-40.0</chase-distance-m>
-
-    <airport>
-        <runways>
-            <start-offset-m>20</start-offset-m>
-        </runways>
-    </airport>
-
-        <instrumentation>
-            <path>Aircraft/do328/Systems/instrumentation.xml</path>
-        </instrumentation>
-
-
-    <systems>
-        <path>Aircraft/do328/Systems/systems.xml</path>
-        <autopilot>
-            <path>Aircraft/do328/Systems/generic-autopilot.xml</path>
-        </autopilot>
- <wingflexer include="Systems/wingflexer-params.xml"/>
-    <property-rule n="100">
-        <name>wing flexer property rule</name>
-        <path>Aircraft/Generic/wingflexer.xml</path>
-    </property-rule>
-    </systems>
-
-  
-  <sound>
-   <path>Aircraft/do328/Sounds/do328prop-sound.xml</path>
-  </sound>
-
-    <virtual-cockpit archive="y">true</virtual-cockpit>
-
-<payload>
-		<weight n="0">
-			<name>Payload</name>
-			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[0]">0</weight-lb>
-			<max-lb>6000</max-lb>
-			<min-lb>0</min-lb>
-		</weight>
-
-
-
-		<weight n="1">
-			<name>Crew</name>
-			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[1]">371</weight-lb>
-			<max-lb>600</max-lb>
-			<min-lb>180</min-lb>
-		</weight>
-
-
-		<weight n="2">
-			<name>Cargo</name>
-			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[2]">0</weight-lb>
-			<max-lb>1200</max-lb>
-			<min-lb>0</min-lb>
-		</weight>
-</payload>
-
-     <menubar>
-   <default>
-    <menu n="100">
-     <label>328-110</label>
-     <enabled type="bool">true</enabled>
-                     <item>
-                    <label>Autostart</label>
-                    <binding>
-                        <command>property-toggle</command>
-                        <property>sim/model/autostart</property>
-                    </binding>
-                </item>
-                <item>
-                    <label>Select Livery</label>
-                    <binding>
-                        <command>nasal</command>
-                        <script>aircraft.livery.dialog.toggle()</script>
-                    </binding>
-                </item>
-		<item>
-                        <label>Tiller Steering</label>
-                        <binding>
-                            <command>nasal</command>
-                            <script>dialogs.tiller_steering.open()</script>
-                        </binding>
-                    </item>
-    </menu>
-   </default>
-  </menubar>
-
-  <help>
-    <text>
-  Takeoff speeds at 12deg Flap setting
-					V1	Vr	V2 
-29762lbs = 13500kg		110	114	117
-28660lbs = 13000kg		108	111	115
-27557lbs = 12500kg		106	109	113
-26455lbs = 12000kg		104	107	111	
-25353lbs = 11500kg		102	105	109
-24250lbs = 11000kg		100	103	107
-23148lbs = 10500kg		98	101	105
-22046lbs = 10000kg		96	98	102
-20943lbs = 9500kg		93	95	99
-
-####
-  Vref speeds at 32deg Flap setting
-					
-29762lbs = 13500kg		111	
-28660lbs = 13000kg		109	
-27557lbs = 12500kg		107	
-26455lbs = 12000kg		104	
-25353lbs = 11500kg		102	
-24250lbs = 11000kg		100	
-23148lbs = 10500kg		98	
-22046lbs = 10000kg		95	
-20943lbs = 9500kg		92	
-
-####
-Takeoff
-
-V1 --> Vr --> Rotate to 8deg --> @50ft Rotate to 15deg -->Climb @V2 + 15ktn --> @accleration altitude (400 or 1000ft) V2 + 20ktn: Flaps up; YD, climb power
-  </text>
-   
-	</help>
-
-
-    <multiplay>
-        <generic>
-            <int n="0" alias="/systems/electrical/outputs/strobe"/>
-            <int n="1" alias="/systems/electrical/outputs/beacon"/>
-            <int n="2" alias="/systems/electrical/outputs/taxi-lights"/>
-            <int n="3" alias="/systems/electrical/outputs/landing-lights"/>
-            <int n="5" alias="/systems/electrical/outputs/recog-lights"/>
-            <int n="6" alias="/systems/electrical/outputs/nav-lights"/>
-            <float  alias="/controls/cabin-door/position-norm"/>
-            <float  n="1" alias="/surface-positions/speedbrake-pos-norm"/>
-            <float  n="2" alias="/surface-positions/reverser-norm"/>
-            <string  alias="/sim/multiplay/callsign"/>
-        </generic>
-    </multiplay>
- 
-     <flight-recorder include="Systems/flight-recorder/flight-recorder.xml"/>
-
-
-    <color-set>
-        <white>
-            <r type="float">0.9</r>
-            <g type="float">0.9</g>
-            <b type="float">0.9</b>
-            <a type="float">1.0</a>
-        </white>
-        <red>
-            <r type="float">0.9</r>
-            <g type="float">0.0</g>
-            <b type="float">0.0</b>
-            <a type="float">1.0</a>
-        </red>
-        <yellow>
-            <r type="float">0.9</r>
-            <g type="float">0.9</g>
-            <b type="float">0.0</b>
-            <a type="float">1.0</a>
-        </yellow>
-        <green>
-            <r type="float">0.0</r>
-            <g type="float">0.9</g>
-            <b type="float">0.0</b>
-            <a type="float">1.0</a>
-        </green>
-        <cyan>
-            <r type="float">0.0</r>
-            <g type="float">0.9</g>
-            <b type="float">0.9</b>
-            <a type="float">1.0</a>
-        </cyan>
-        <blue>
-            <r type="float">0.0</r>
-            <g type="float">0.0</g>
-            <b type="float">0.9</b>
-            <a type="float">1.0</a>
-        </blue>
-        <magenta>
-            <r type="float">0.9</r>
-            <g type="float">0.0</g>
-            <b type="float">0.9</b>
-            <a type="float">1.0</a>
-        </magenta>
-        <amber>
-            <r type="float">0.9</r>
-            <g type="float">0.5</g>
-            <b type="float">0.0</b>
-            <a type="float">1.0</a>
-        </amber>
-    </color-set>
-
-    </sim>
-
-    <systems>
-        <electrical>
-            <ac-volts>0</ac-volts>
-        </electrical>
-    </systems>
-<payload>
-		<weight n="0">
-			<name>Payload</name>
-			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[0]">0</weight-lb>
-			<max-lb>6000</max-lb>
-			<min-lb>0</min-lb>
-		</weight>
-
-
-
-		<weight n="1">
-			<name>Crew</name>
-			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[1]">371</weight-lb>
-			<max-lb>600</max-lb>
-			<min-lb>180</min-lb>
-		</weight>
-
-
-		<weight n="2">
-			<name>Cargo</name>
-			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[2]">0</weight-lb>
-			<max-lb>1200</max-lb>
-			<min-lb>0</min-lb>
-		</weight>
-</payload>
-
-  <consumables>
-    <fuel>
-      <tank n="0"><name>Left wing feeder tank</name></tank>
-      <tank n="1"><name>Left wing outer tank</name></tank>
-      <tank n="2"><name>Left wing inner tank</name></tank>
-      <tank n="3"><name>Right wing inner tank</name></tank>
-      <tank n="4"><name>Right wing outer tank</name></tank>
-      <tank n="5"><name>Right wing feeder tank</name></tank>
-    </fuel>
-  </consumables>
-
-    <instrumentation>
-  <radar-altimeter>
-           <serviceable>true</serviceable>
-  </radar-altimeter>
-
-        <mk-viii>                             <!-- http://wiki.flightgear.org/index.php/GPWS -->
-           <serviceable>true</serviceable>    <!-- EGPWS_ENABLE -->
-<configuration-module>
-       <category-1>   3 </category-1>  <!-- AIRCRAFT_MODE_TYPE_SELECT -->
-       <category-3>   2 </category-3>  <!-- POSITION_INPUT_SELECT -->
-       <category-4>  13 </category-4>  <!-- ALTITUDE_CALLOUTS -->
-       <category-5>   0 </category-5>  <!-- AUDIO_MENU_SELECT -->
-       <category-6>   1 </category-6>  <!-- TERRAIN_DISPLAY_SELECT -->
-       <category-7> 124 </category-7>  <!-- OPTIONS_SELECT_GROUP_1 -->
-       <category-8>   4 </category-8>  <!-- RADIO_ALTITUDE_INPUT_SELECT -->
-       <category-9>   3 </category-9>  <!-- NAVIGATION_INPUT_SELECT -->
-       <category-10>  6 </category-10> <!-- ATTITUDE_INPUT_SELECT -->
-       <category-13>  7 </category-13> <!-- INPUT_OUTPUT_DISCRETE_TYPE_SELECT -->
-       <category-14>  0 </category-14> <!-- AUDIO_OUTPUT_LEVEL -->
-     </configuration-module>
-           <inputs>                           <!-- Module I/O -->
-            <arinc429>
-               <decision-height-ncd> true </decision-height-ncd>
-               <decision-height> 400 </decision-height>
-            </arinc429>
-           </inputs>
-           <speaker>
-              <volume>1.0</volume>
-           </speaker>
-        </mk-viii>
-
-        <alerts>
-            <gear-horn type="bool">0</gear-horn>
-            <master-warning type="bool">0</master-warning>
-            <master-caution type="bool">0</master-caution>
-        </alerts>
-
-    <airspeed-indicator>
-        <index n="0" type="double">112</index>
-        <index n="1" type="double">117</index>
-        <ias-limit>270</ias-limit>
-        <mach-limit>0.56</mach-limit>
-        <alt-threshold>15000.0</alt-threshold>
-    </airspeed-indicator>
-
-    <kr-87>
-        <inputs>
-            <audio-btn>0</audio-btn>
-        </inputs>
-    </kr-87>
-
-    <cdu n="0">
-        <page type="string">PROGRESS</page>
-        <L type="string" n="0"></L>
-        <L type="string" n="1"></L>
-        <L type="string" n="2"></L>
-        <L type="string" n="3"></L>
-        <L type="string" n="4"></L>
-        <L type="string" n="5"></L>
-        <R type="string" n="0"></R>
-        <R type="string" n="1"></R>
-        <R type="string" n="2"></R>
-        <R type="string" n="3"></R>
-        <R type="string" n="4"></R>
-        <R type="string" n="5"></R>
-        <S type="string" n="0"></S>
-        <S type="string" n="1"></S>
-    </cdu>
-
-    <cdu n="1">
-        <page type="string">ACTIVE FLT PLAN</page>
-        <L type="string" n="0"></L>
-        <L type="string" n="1"></L>
-        <L type="string" n="2"></L>
-        <L type="string" n="3"></L>
-        <L type="string" n="4"></L>
-        <L type="string" n="5"></L>
-        <R type="string" n="0"></R>
-        <R type="string" n="1"></R>
-        <R type="string" n="2"></R>
-        <R type="string" n="3"></R>
-        <R type="string" n="4"></R>
-        <R type="string" n="5"></R>
-        <S type="string" n="0"></S>
-        <S type="string" n="1"></S>
-    </cdu>
-
-    </instrumentation>
-
- <controls>
-
-       <APU>
-            <master type="bool">0</master>
-            <battery type="double">28.0</battery>
-            <running type="bool">0</running>
-            <off-start-run type="int">1</off-start-run>
-        </APU>
-     
-<flight>
-      <spoiler-armed type="string">true</spoiler-armed>
-        <aileron-trim>0.0</aileron-trim>
-        <elevator-trim>-0.25</elevator-trim>
-    </flight>
-    
- <engines>
-  <engine n="0">
-    <condition type="double">1</condition>
-  </engine>
-  <engine n="1">
-    <condition type="double">1</condition>
-  </engine>
- </engines>
- 
-<electric>
-        <battery-switch type = "bool">1</battery-switch>
-       <avionics-switch type = "bool">1</avionics-switch>
-        <external-power type = "bool">0</external-power>
-        <RH-AC-bus type = "bool">1</RH-AC-bus>
-        <LH-AC-bus type = "bool">1</LH-AC-bus>
-        <engine n="0">
-            <generator>true</generator>
-        </engine>
-        <engine n="1">
-            <generator>true</generator>
-        </engine>
-        <wipers>
-            <arc-sec type="double" n="0">0</arc-sec>
-            <arc-sec type="double" n="1">1</arc-sec>
-            <arc-sec type="double" n="2">0.6</arc-sec>
-            <delay-sec type="double" n="0">0</delay-sec>
-            <delay-sec type="double" n="1">0</delay-sec>
-            <delay-sec type="double" n="2">0</delay-sec>
-            <switch type="int">0</switch>
-            <position-norm type="double">0</position-norm>
-       </wipers>
-    </electric>
-
-
-    <lighting>
-        <instrument-lights>0</instrument-lights>
-	<strobe>true</strobe>
-	<beacon>true></beacon>
-	<logo-lights>1.0</logo-lights>
-	<wing-deice-lights>1.0</wing-deice-lights>
-    </lighting>
-
-    <gear>
-        <brake-parking>1</brake-parking>
-        <gear-lock type="bool">0</gear-lock>
-	 <tiller-cmd-norm type="double">0</tiller-cmd-norm>
-            <tiller-enabled type="bool" userarchive="y">true</tiller-enabled>
-            <nosegear-steering-cmd-norm type="double">0</nosegear-steering-cmd-norm>
-            <maingear-steering-cmd-norm type="double">0</maingear-steering-cmd-norm>
-        </gear>
-   
-
-
-    <fuel>
-    <gauge-switch type="bool">1</gauge-switch>
-    </fuel>
-    
-
-</controls>
-    <gear>
-		<gear n="0">
-			<tyre-smoke type="int">0</tyre-smoke>
-			<sprayspeed-ms type="double">0</sprayspeed-ms>
-			<spray-density type="double">0</spray-density>
-			<caster-angle-deg-damped type="double">0</caster-angle-deg-damped>
-			<position-norm type="double">1</position-norm>
-		</gear>
-		<gear n="1">
-			<tyre-smoke type="int">0</tyre-smoke>
-			<sprayspeed-ms type="double">0</sprayspeed-ms>
-			<spray-density type="double">0</spray-density>
-			<caster-angle-deg-damped type="double">0</caster-angle-deg-damped>
-			<position-norm type="double">1</position-norm>
-		</gear>
-		<gear n="2">
-			<tyre-smoke type="int">0</tyre-smoke>
-			<sprayspeed-ms type="double">0</sprayspeed-ms>
-			<spray-density type="double">0</spray-density>
-			<caster-angle-deg-damped type="double">0</caster-angle-deg-damped>
-			<position-norm type="double">1</position-norm>
-		</gear>
-	</gear>
-
- <fdm>
-    <jsbsim>
-           <gear>
-        <unit n="0">
-          <compression-ft type="double">0</compression-ft>
-        </unit>
-        <unit n="1">
-          <compression-ft type="double">0</compression-ft>
-        </unit>
-        <unit n="2">
-          <compression-ft type="double">0</compression-ft>
-        </unit>
-      </gear>
-    </jsbsim>
-  </fdm>
-
-    <autopilot>
-        <settings>
-            <minimums type="int">200</minimums>
-            <target-roll-deg type="double">0</target-roll-deg>
-            <target-pitch-deg type="double">0</target-pitch-deg>
-            <vertical-speed-fpm type="int">0</vertical-speed-fpm>
-            <nav-source type="string">NAV1</nav-source>
-            <bank-limit type="int">27</bank-limit>
-            <target-speed-kt type="int">137</target-speed-kt>
-            <target-speed-mach type="double">0.40</target-speed-mach>
-            <changeover type="bool">0</changeover>
-            <heading-bug-deg type="int">0</heading-bug-deg>
-            <vertical-speed-fpm type="int">0</vertical-speed-fpm>
-            <asel type="int">100</asel>
-        </settings>
-        <locks>
-            <heading>ROLL</heading>
-            <heading-arm type="string"></heading-arm>
-            <altitude>PTCH</altitude>
-            <altitude-arm type="string"></altitude-arm>
-            <AP-status type="string"></AP-status>
-            <FD-status type="bool">1</FD-status>
-            <yaw-damper type="bool">0</yaw-damper>
-            <m-trim type="bool">0</m-trim>
-        </locks>
-        <internal>
-            <selected-crs type="int">0</selected-crs>
-            <nav-distance type="double">0</nav-distance>
-            <nav-type type="string"></nav-type>
-            <nav-id type="string"></nav-id>
-            <course-deflection type="double">0.0</course-deflection>
-            <gs-valid type="bool">0</gs-valid>
-            <gs-deflection type="double">0.0</gs-deflection>
-            <in-range type="bool">0</in-range>
-            <gs-in-range type="bool">0</gs-in-range>
-        </internal>
-    </autopilot>
-
-
-   <input>
-  <keyboard>
-               <!--<key n="267">
-                <name>F11</name>
-                <desc>Pop up autopilot dialog</desc>
-                <binding>
-                    <command>nasal</command>
-                    <script>dialogs.ap_settings.toggle()</script>
-                </binding>
-            </key>-->
-            <key n="268">
-                <name>F12</name>
-                <desc>Radio Stack</desc>
-                <binding>
-                    <command>nasal</command>
-                    <script>dialogs.Radio.open()</script>
-                </binding>
-            </key>
-            <key n="71">
-                <name>G</name>
-                <desc>Gear down.</desc>
-                <binding>
-                    <command>nasal</command>
-                    <script>systems.gear_toggle(1)</script>
-                </binding>
-            </key>
-            <key n="103">
-                <name>g</name>
-                <desc>Gear Up.</desc>
-                <binding>
-                    <command>nasal</command>
-                    <script>systems.gear_toggle(-1)</script>
-                </binding>
-            </key>
- 
- <key n="9">
-        <name>Tab</name>
-        <desc>switch Groundspoiler-Arm</desc>
-        <binding>
-          <command>property-cycle</command>
-          <property>/controls/flight/spoiler-armed</property>
-          <value>true</value>
-          <value>false</value>
-        </binding>
-      </key>
-
-			<key n="127">
-				<name>Delete</name>
-				<desc>Toggle reverse thrust</desc>
-				<binding>
-				<command>property-cycle</command>
-		<property>/controls/engines/engine[0]/reverser</property>
-          <value>true</value>
-          <value>false</value>
-        </binding>
-	<binding>
-				<command>property-cycle</command>
-		<property>/controls/engines/engine[1]/reverser</property>
-          <value>true</value>
-          <value>false</value>
-        </binding>
-	</key>     
-    </keyboard>
- </input>
-
-
+         <refl_correction type="float">-0.15</refl_correction>
+         <fresnel-factor type="float">0.33</fresnel-factor>
+         <refl-type type="int">1</refl-type>
+      </rendering>
+      <sound>
+         <path>Aircraft/do328/Sounds/do328prop-sound.xml</path>
+      </sound>
+      <menubar>
+         <default>
+            <menu n="100">
+               <label>328-110</label>
+               <enabled type="bool">true</enabled>
+               <item>
+                  <label>Autostart</label>
+                  <binding>
+                     <command>property-toggle</command>
+                     <property>sim/model/autostart</property>
+                  </binding>
+               </item>
+               <item>
+                  <label>Select Livery</label>
+                  <binding>
+                     <command>nasal</command>
+                     <script>aircraft.livery.dialog.toggle()</script>
+                  </binding>
+               </item>
+               <item>
+                  <label>Tiller Steering</label>
+                  <binding>
+                     <command>nasal</command>
+                     <script>dialogs.tiller_steering.open()</script>
+                  </binding>
+               </item>
+            </menu>
+         </default>
+      </menubar>
+   </sim>
    <nasal>
       <systems>
          <file>Aircraft/do328/Nasal/tyresmoke.nas</file>
          <file>Aircraft/do328/Nasal/lightmap.nas</file>
          <file>Aircraft/do328/Nasal/systems.nas</file>
-     <!--<file>Aircraft/do328/Nasal/lightmap.nas</file>-->
+         <file>Aircraft/do328/Nasal/lightmap.nas</file>
          <file>Aircraft/do328/Nasal/Autostart.nas</file>
-     <!--<file>Aircraft/do328/Nasal/pressurization.nas</file>-->
-	<file>Aircraft/do328/Nasal/vspeeds.nas</file>
+         <file>Aircraft/do328/Nasal/pressurization.nas</file>
       </systems>
       <efis>
          <file>Aircraft/do328/Models/Instruments/EFIS/PFD.nas</file>
@@ -790,8 +136,8 @@ V1 --> Vr --> Rotate to 8deg --> @50ft Rotate to 15deg -->Climb @V2 + 15ktn --> 
       <do328>
          <file>Aircraft/do328/Nasal/Electrical.nas</file>
          <file>Aircraft/do328/Nasal/ground_steering.nas</file>
-     <!--<file>Aircraft/do328/Nasal/flightdirector.nas</file>-->
-     <!--<file>Aircraft/do328/Nasal/limits.nas</file>-->
+         <!--<file>Aircraft/do328/Nasal/flightdirector.nas</file>-->
+         <!--<file>Aircraft/do328/Nasal/limits.nas</file>-->
       </do328>
       <procedures>
          <file>Aircraft/do328/Models/Instruments/CDU/Procedures/fmsDB.nas</file>
@@ -818,9 +164,8 @@ V1 --> Vr --> Rotate to 8deg --> @50ft Rotate to 15deg -->Climb @V2 + 15ktn --> 
       <groundspoilers>
          <file>Aircraft/do328/Nasal/groundspoilers.nas</file>
       </groundspoilers>
-     <!--<testpilot>
+      <!--<testpilot>
          <file>Aircraft/do328/Nasal/testpilot.nas</file>
       </testpilot>-->
    </nasal>
-
 </PropertyList>

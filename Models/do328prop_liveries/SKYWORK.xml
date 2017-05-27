@@ -33,8 +33,8 @@
 			       </do328>
 		</model>
 	  <rendering>
-	<refl_correction type="float">-0.125</refl_correction>
-	<fresnel-factor type="float">0.75</fresnel-factor>
+	<refl_correction type="float">-0.3</refl_correction>
+	<fresnel-factor type="float">0.33</fresnel-factor>
 	<refl-type type="int">1</refl-type>
     </rendering>
 	</sim>
