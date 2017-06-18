@@ -5,9 +5,9 @@
 		<model>
 			
 				<livery>
-					<name type="string">Default</name>
-					 <index type="int">1</index>
-					  <texture>do328jet_liveries/DEFAULT.png</texture>
+					<name type="string">TAC 2  D-BJET</name>
+					 <index type="int">4</index>
+					  <texture>do328jet_liveries/D-BJET.png</texture>
 				</livery>
 			<do328>
 			<material>
@@ -18,9 +18,9 @@
 							<blue>1.0</blue>
 						</diffuse>
  					         <specular>
-							<red>0.15</red>
-							<green>0.15</green>
-							<blue>0.15</blue>
+							<red>0.75</red>
+							<green>0.75</green>
+							<blue>0.75</blue>
 						</specular>
 						<ambient>
 							<red>1.0</red>
@@ -32,8 +32,8 @@
 			       </do328>
 		</model>
 	  <rendering>
-	<refl_correction type="float">-0.125</refl_correction>
-	<fresnel-factor type="float">0.5</fresnel-factor>
+	<refl_correction type="float">-0.3</refl_correction>
+	<fresnel-factor type="float">0.33</fresnel-factor>
 	<refl-type type="int">1</refl-type>
     </rendering>
 	</sim>

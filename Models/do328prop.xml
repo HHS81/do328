@@ -27,7 +27,13 @@
 
 		</offsets>
 	</model>
-	
+
+<!--cabin-->
+<model>
+ <path>Aircraft/do328/Models/cabin.ac</path>
+ <name>cabin</name>
+</model>
+
 <!--tyresmoke-->
 <model>
  <path>Aircraft/do328/Models/Effects/tyre-smoke-nose.xml</path>

@@ -27,30 +27,30 @@ var canvas_softkeys = {
 
 		if(size(selectedSoftkeys) == 5) {
 
-			for(var n = 0; n<5; n=n+1) {
+			for(var i = 0; i<5; i+=1) {
 
-				if(selectedSoftkeys[n] == 1) {
-					var center = me["sk"~(n+1)].getCenter();
-					var bbox = me["sk"~(n+1)].getBoundingBox();
+				if(selectedSoftkeys[i] == 1) {
+					me.center = me["sk"~(i+1)].getCenter();
+					me.bbox = me["sk"~(i+1)].getBoundingBox();
 
-					me["path"].moveTo(center[0]+bbox[0]-5,center[1]+bbox[1])
-						.lineTo(center[0]+bbox[2]+5,center[1]+bbox[1])
-						.lineTo(center[0]+bbox[2]+5,center[1]+bbox[3]+15)
-						.lineTo(center[0]+bbox[0]-5,center[1]+bbox[3]+15)
-						.lineTo(center[0]+bbox[0]-5,center[1]+bbox[1]);
+					me["path"].moveTo(me.center[0]+me.bbox[0]-5,me.center[1]+me.bbox[1])
+						.lineTo(me.center[0]+me.bbox[2]+5,me.center[1]+me.bbox[1])
+						.lineTo(me.center[0]+me.bbox[2]+5,me.center[1]+me.bbox[3]+15)
+						.lineTo(me.center[0]+me.bbox[0]-5,me.center[1]+me.bbox[3]+15)
+						.lineTo(me.center[0]+me.bbox[0]-5,me.center[1]+me.bbox[1]);
 				}
 			}
 		}
 	},
 	setSoftkeys: func(softkeys)
 	{
-		me["title"].setText(softkeys[0]);
-		me["sk1"].setText(softkeys[1]);
-		me["sk2"].setText(softkeys[2]);
-		me["sk3"].setText(softkeys[3]);
-		me["sk4"].setText(softkeys[4]);
-		me["sk5"].setText(softkeys[5]);
-		me["knob"].setText(softkeys[6]);
-		me["path"].reset();
+		me.title.setText(softkeys[0]);
+		me.sk1.setText(softkeys[1]);
+		me.sk2.setText(softkeys[2]);
+		me.sk3.setText(softkeys[3]);
+		me.sk4.setText(softkeys[4]);
+		me.sk5.setText(softkeys[5]);
+		me.knob.setText(softkeys[6]);
+		me.path.reset();
 	}
 };
