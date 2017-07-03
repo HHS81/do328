@@ -1,7 +1,7 @@
-var ndlayers = [{name:'APT',visible:1,style:{scale_factor:0.6,label_font_color:[1,1,1],color_default:[1,1,1],line_width:4}},
-		{name:'DME',visible:1,style:{scale_factor:0.6,color_default:[0,1,0],line_width:4}},
-		{name:'WPT',visible:1,style:{scale_factor:0.6,line_width:4}},
-		{name:'RTE',visible:0,style:{scale_factor:0.6,color:[0,1,0],line_width:3}}];
+var ndlayers = [{name:'APT',style:{scale_factor:0.6,label_font_color:[1,1,1],color_default:[1,1,1],line_width:4}},
+		{name:'DME',style:{scale_factor:0.6,color_default:[0,1,0],line_width:4}},
+		{name:'WPT',style:{scale_factor:0.6,line_width:4}},
+		{name:'RTE',style:{scale_factor:0.6,color:[0,1,0],line_width:3}}];
 
 var hdg = props.globals.getNode("orientation/heading-magnetic-deg");
 var hdgBug = props.globals.getNode("autopilot/settings/heading-bug-deg");
@@ -13,29 +13,16 @@ var do328_controller = {
 	parents: [canvas.Map.Controller],
 
 	new: func(map) {
-		var m = { parents: [do328_controller],map:map };
-		#m.timer = maketimer(0.1, m, m.update_layers);
-		#m.timer.start();
+		var m = { parents: [do328_controller], map:map };
 		m.index = index;
-
 		setlistener("instrumentation/efis/trigger_nd"~index, func{ m.update_layers() });
-
-		# this check is missing in RTE.lcontroller
-		m.listener = setlistener("/autopilot/route-manager/active", func {
-			if(getprop("/autopilot/route-manager/active")) {
-				m.map.getLayer("RTE").setVisible(1);
-			}
-			removelistener(me.listener);
-		});
 		return m;
 	},
 
 	update_layers: func() {
-		me.map.setPos(lat.getValue(),lon.getValue(),hdg.getValue());
+		me.map.setPos(lat.getValue(), lon.getValue(), hdg.getValue());
 		me.map.update();
 	},
-
-	del: func() {print("cleaning up nd controller");}
 };
 
 var canvas_nd = {
@@ -72,7 +59,7 @@ var canvas_nd = {
 			m.map.addLayer(
 				factory: canvas.SymbolLayer,
 				type_arg: layer.name,
-				visible: layer.visible,
+				visible: 1,
 				style: layer.style,
 				priority: layer['z-index']
 			);
