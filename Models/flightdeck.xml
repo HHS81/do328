@@ -728,6 +728,15 @@
 </animation>
         
     <model>
+        <path>Aircraft/do328/Models/Instruments/MagCompass/magcompass.xml</path>
+        <offsets>
+            <x-m>0.0</x-m>
+            <y-m>0.0</y-m>
+            <z-m>0.0</z-m>
+            <pitch-deg>0</pitch-deg>
+        </offsets>
+    </model>
+<model>
         <path>Aircraft/do328/Models/Instruments/ALT/ALT.xml</path>
         <offsets>
             <x-m>-8.840</x-m>
@@ -1607,5 +1616,349 @@
             </binding>
         </action>
     </animation>
+
+<!-- flight controls-->
+
+<animation>
+	<type>rotate</type>
+		<object-name>Control_Column</object-name>
+		<object-name>CWheel1</object-name>
+		<object-name>CWheel2</object-name>
+		<object-name>SWT1</object-name>
+		<object-name>SWT2</object-name>
+		<object-name>ATrim1</object-name>
+		<object-name>ATrim2</object-name>
+		<object-name>APDisconnect1</object-name>
+		<object-name>APDisconnect2</object-name>
+		<property>controls/flight/elevator</property>
+		<!--min-deg>0</min-deg-->
+		<!--max-deg>360</max-deg-->
+		<factor>-16</factor>
+		<offset-deg>-8</offset-deg>
+		<center>
+			<x-m>-8.549611</x-m>
+			<y-m>0.018336</y-m>
+			<z-m>1.373619</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>1.080159</y>
+			<z>0</z>
+		</axis>
+</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>CWheel1</object-name>
+		<object-name>SWT1</object-name>
+		<object-name>ATrim1</object-name>
+		<object-name>APDisconnect1</object-name>
+		<property>controls/flight/aileron</property>
+		<factor>-90</factor>
+		<center>
+			<x-m>-8.532658</x-m>
+			<y-m>-0.484121</y-m>
+			<z-m>1.899815</z-m>
+		</center>
+		<axis>
+			<x>0.130226</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>CWheel2</object-name>
+		<object-name>SWT2</object-name>
+		<object-name>ATrim2</object-name>
+		<object-name>APDisconnect2</object-name>
+		<property>controls/flight/aileron</property>
+		<factor>-90</factor>
+		<center>
+			<x-m>-8.497528</x-m>
+			<y-m>0.520813</y-m>
+			<z-m>1.900064</z-m>
+		</center>
+		<axis>
+			<x>0.200484</x>
+			<y>3.9e-05</y>
+			<z>0.000291</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>Tiller</object-name>
+		<property>controls/gear/tiller-cmd-norm</property>
+		<condition>
+		<less-than>
+		<property>controls/gear/tiller-disabled</property>
+		<value>1</value>
+		</less-than>
+		</condition>
+		<factor>60</factor>
+		<center>
+			<x-m>-8.356118</x-m>
+			<y-m>-0.898629</y-m>
+			<z-m>1.555126</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>0</y>
+			<z>-0.062059</z>
+		</axis>
+	</animation>
+	
+<!-- Pedals-->
+ <animation>
+  <type>rotate</type>
+  <object-name>LPedal</object-name>
+  <object-name>LPedal.001</object-name>
+  <property>controls/flight/rudder</property>
+  <factor>6</factor>
+		<center>
+			<x-m>-9.099686</x-m>
+			<y-m>0.005514</y-m>
+			<z-m>0.808358</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>1.304116</y>
+			<z>0</z>
+		</axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>LPedal</object-name>
+  <object-name>LPedal.001</object-name>
+  <property>controls/gear/brake-left</property>
+  <factor>25</factor>
+		<center>
+			<x-m>-8.950453</x-m>
+			<y-m>-0.646544</y-m>
+			<z-m>1.501307</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>-0.136968</y>
+			<z>0</z>
+		</axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>RPedal</object-name>
+  <object-name>RPedal.001</object-name>
+  <property>controls/flight/rudder</property>
+  <factor>-6</factor>
+		<center>
+			<x-m>-9.099686</x-m>
+			<y-m>0.005514</y-m>
+			<z-m>0.808358</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>1.304116</y>
+			<z>0</z>
+		</axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>RPedal</object-name>
+  <object-name>RPedal.001</object-name>
+  <property>controls/gear/brake-right</property>
+  <factor>25</factor>
+		<center>
+			<x-m>-8.950453</x-m>
+			<y-m>-0.646544</y-m>
+			<z-m>1.501307</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>-0.136968</y>
+			<z>0</z>
+		</axis>
+ </animation>
+ 
+<!--Sun visor R translate-->
+   <animation>
+    <type>knob</type>
+    <object-name>SunVisorKnob.R</object-name>
+    <property>controls/SunVisorR[0]/position-deg</property>
+    <factor>1</factor>
+<drag-direction>horizontal</drag-direction>
+-<offset-deg>0</offset-deg>
+		<center>
+			<x-m>-7.603435</x-m>
+			<y-m>-0.218177</y-m>
+			<z-m>2.430369</z-m>
+		</center>
+		<axis>
+			<x>0.033475</x>
+			<y>0</y>
+			<z>-0.422801</z>
+		</axis>
+      <action>
+      <binding>
+        <command>property-adjust</command>
+        <property>controls/SunVisorR[0]/position-deg</property>
+        <factor>1</factor>
+        <min>-45</min>
+        <max>0</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+  </animation>
+  
+ <animation>
+    <type>rotate</type>
+    <object-name>SunVisor.R</object-name>
+    <property>controls/SunVisorR[0]/position-deg</property>
+    <factor>1</factor>
+    <offset-deg>0</offset-deg>
+		<center>
+			<x-m>-7.603435</x-m>
+			<y-m>-0.218177</y-m>
+			<z-m>2.430369</z-m>
+		</center>
+		<axis>
+			<x>0.033475</x>
+			<y>0</y>
+			<z>-0.422801</z>
+		</axis>
+  </animation>
+  
+
+  
+<animation>
+    <type>translate</type>
+    <object-name>SunVisor.R</object-name>
+    <object-name>SunVisorKnob.R</object-name>
+    <property>controls/SunVisorR[0]/position-deg</property>
+      <factor>-0.1864</factor>
+  </animation>
+  
+  <!--Sun Visor R Rotate  -->
+   <animation>
+    <type>knob</type>
+    <object-name>SunVisor.R</object-name>
+    <property>controls/SunVisorR[1]/position-deg</property>
+    <factor>-5</factor>
+<drag-direction>vertical</drag-direction>
+-<offset-deg>0</offset-deg>
+		<center>
+			<x-m>-7.621326</x-m>
+			<y-m>0.701212</y-m>
+			<z-m>2.638049</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>0.038285</y>
+			<z>0.094959</z>
+		</axis>
+      <action>
+      <binding>
+        <command>property-adjust</command>
+        <property>controls/SunVisorR[1]/position-deg</property>
+        <factor>1</factor>
+        <min>-90</min>
+        <max>90</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+  </animation>
+  
+<!--Sun visor L translate-->
+   <animation>
+    <type>knob</type>
+    <object-name>SunVisorKnob.L</object-name>
+    <property>controls/SunVisorL[0]/position-deg</property>
+    <factor>1</factor>
+<drag-direction>horizontal</drag-direction>
+-<offset-deg>0</offset-deg>
+		<center>
+			<x-m>-7.603435</x-m>
+			<y-m>0.218177</y-m>
+			<z-m>2.430369</z-m>
+		</center>
+		<axis>
+			<x>0.033475</x>
+			<y>0</y>
+			<z>-0.422801</z>
+		</axis>
+      <action>
+      <binding>
+        <command>property-adjust</command>
+        <property>controls/SunVisorL[0]/position-deg</property>
+        <factor>1</factor>
+        <min>0</min>
+        <max>45</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+  </animation>
+  
+ <animation>
+    <type>rotate</type>
+    <object-name>SunVisor.L</object-name>
+    <property>controls/SunVisorL[0]/position-deg</property>
+    <factor>1</factor>
+    <offset-deg>0</offset-deg>
+		<center>
+			<x-m>-7.603435</x-m>
+			<y-m>0.218177</y-m>
+			<z-m>2.430369</z-m>
+		</center>
+		<axis>
+			<x>0.033475</x>
+			<y>0</y>
+			<z>-0.422801</z>
+		</axis>
+  </animation>
+  
+
+  
+<animation>
+    <type>translate</type>
+    <object-name>SunVisor.L</object-name>
+    <object-name>SunVisorKnob.L</object-name>
+    <property>controls/SunVisorL[0]/position-deg</property>
+      <factor>-0.1864</factor>
+  </animation>
+  
+  <!--Sun Visor L Rotate  -->
+  <animation>
+    <type>knob</type>
+    <object-name>SunVisor.L</object-name>
+    <property>controls/SunVisorL[1]/position-deg</property>
+    <factor>-5</factor>
+<drag-direction>vertical</drag-direction>
+-<offset-deg>0</offset-deg>
+		<center>
+			<x-m>-7.621326</x-m>
+			<y-m>-0.701212</y-m>
+			<z-m>2.638049</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>-0.038285</y>
+			<z>0.094959</z>
+		</axis>
+      <action>
+      <binding>
+        <command>property-adjust</command>
+        <property>controls/SunVisorL[1]/position-deg</property>
+        <factor>1</factor>
+        <min>-90</min>
+        <max>90</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+  </animation>
+  
+ 
 
   </PropertyList>
