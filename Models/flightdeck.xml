@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8' ?>
 <PropertyList>
 
-<path>Flightdeck23.5.ac</path>
+<path>Flightdeck23.6.ac</path>
 
 <!-- hide clocks and RCU -->
 <animation>
@@ -732,7 +732,7 @@
         <offsets>
             <x-m>-8.840</x-m>
             <y-m>-0.140</y-m>
-            <z-m>1.894</z-m>
+            <z-m>1.923</z-m>
             <pitch-deg>-6</pitch-deg>
         </offsets>
     </model>
@@ -740,9 +740,9 @@
     <model>
         <path>Aircraft/do328/Models/Instruments/STBYai/STBYai.xml</path>
         <offsets>
-            <x-m>-8.852</x-m>
+            <x-m>-8.851</x-m>
             <y-m>-0.140</y-m>
-            <z-m>1.989</z-m>
+            <z-m>2.018</z-m><!--1.989-->
             <pitch-deg>-6</pitch-deg>
         </offsets>
     </model>
@@ -751,10 +751,10 @@
         <name>RMU1</name>
         <path>Aircraft/do328/Models/Instruments/RMU/RMU1.xml</path>
         <offsets>
-            <x-m>-8.666</x-m>
-            <y-m>-0.143</y-m>
-            <z-m>1.721</z-m>
-            <pitch-deg>-75</pitch-deg>
+            <x-m>-8.662</x-m>
+            <y-m>-0.141</y-m>
+            <z-m>1.735</z-m>
+            <pitch-deg>-69</pitch-deg>
         </offsets>
     </model>
 
@@ -762,10 +762,10 @@
         <name>RMU2</name>
         <path>Aircraft/do328/Models/Instruments/RMU/RMU2.xml</path>
         <offsets>
-            <x-m>-8.666</x-m>
-            <y-m>0.143</y-m>
-            <z-m>1.721</z-m>
-            <pitch-deg>-75</pitch-deg>
+            <x-m>-8.662</x-m>
+            <y-m>0.145</y-m>
+            <z-m>1.735</z-m>
+            <pitch-deg>-69</pitch-deg>
         </offsets>
     </model>
 
@@ -773,18 +773,18 @@
         <name>RCU</name>
         <path>Aircraft/do328/Models/Instruments/RCU/RCU.xml</path>
         <offsets>
-            <x-m>-8.851</x-m>
+            <x-m>-8.856</x-m>
             <y-m>0.152</y-m>
-            <z-m>1.997</z-m>
-            <pitch-deg>-7</pitch-deg>
+            <z-m>2.026</z-m>
+            <pitch-deg>-6</pitch-deg>
         </offsets>
     </model>
 
-    <model>
+    <!--<model>
         <name>clock1</name>
         <path>Aircraft/do328/Models/Instruments/Clock/clock.xml</path>
         <offsets>
-            <x-m>-8.675</x-m>
+            <x-m>-8.668</x-m>
             <y-m>-0.325</y-m>
             <z-m>2.207</z-m>
             <pitch-deg>-18</pitch-deg>
@@ -795,21 +795,21 @@
         <name>clock2</name>
         <path>Aircraft/do328/Models/Instruments/Clock/clock.xml</path>
         <offsets>
-            <x-m>-8.675</x-m>
+            <x-m>-8.668</x-m>
             <y-m>0.325</y-m>
             <z-m>2.207</z-m>
             <pitch-deg>-18</pitch-deg>
         </offsets>
-    </model>
+    </model>-->
 
     <model>
         <name>CDU</name>
         <path>Aircraft/do328/Models/Instruments/CDU/CDU.xml</path>
         <offsets>
-            <x-m>-8.705</x-m>
-            <y-m>0.002</y-m>
-            <z-m>1.731</z-m>
-            <pitch-deg>-75</pitch-deg>
+            <x-m>-8.714</x-m>
+            <y-m>0.000</y-m>
+            <z-m>1.755</z-m>
+            <pitch-deg>-69</pitch-deg>
         </offsets>
     </model>
     
