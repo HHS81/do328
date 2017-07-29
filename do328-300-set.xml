@@ -107,6 +107,7 @@ Started by Heiko Schulz
          <file>Aircraft/do328/Models/Instruments/EFIS/doors.nas</file>
          <file>Aircraft/do328/Models/Instruments/EFIS/fuelJet.nas</file>
          <file>Aircraft/do328/Models/Instruments/EFIS/apuJet.nas</file>
+         <file>Aircraft/do328/Models/Instruments/EFIS/electr.nas</file>
          <file>Aircraft/do328/Models/Instruments/EFIS/EICAS.nas</file>
          <file>Aircraft/do328/Models/Instruments/EFIS/nd.nas</file>
          <file>Aircraft/do328/Models/Instruments/EFIS/MFD.nas</file>

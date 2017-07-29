@@ -27,6 +27,7 @@ var EICAS = {
 		m.Pages[2] = canvas_fuel.new(group.createChild('group'));
 		m.Pages[3] = canvas_apu.new(group.createChild('group'));
 		m.Pages[4] = canvas_flightctrl.new(group.createChild('group'));
+		m.Pages[5] = canvas_electr.new(group.createChild('group'));
 
 		m.SkInstance = canvas_softkeys.new(group.createChild('group'));
 		m.SkInstance.setSoftkeys(EicasSoftkeys[0]);
@@ -105,7 +106,13 @@ var EICAS = {
 			}
 			else if(me.ShownSkPage == 2) {
 				# "SYSTEM 2/3" page
-				if(input == 4) {
+				if(input == 1) {
+					# activate "ELECTR" page
+					me.ActivatePage(5);
+					me.SelectedSkPage = 2;
+					me.SelectedSk = 0;
+				}
+				else if(input == 4) {
 					# activate "APU" page
 					me.ActivatePage(3);
 					me.SelectedSkPage = 2;
