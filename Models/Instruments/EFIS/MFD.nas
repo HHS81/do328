@@ -145,7 +145,7 @@ var mfdListener = setlistener("/sim/signals/fdm-initialized", func () {
 
 	var mfd1Canvas = canvas.new({
 		"name": "MFD1",
-		"size": [512, 512],
+		"size": [1024, 1024],
 		"view": [800, 950],
 		"mipmapping": 1
 	});
@@ -154,7 +154,7 @@ var mfdListener = setlistener("/sim/signals/fdm-initialized", func () {
 
 	var mfd2Canvas = canvas.new({
 		"name": "MFD2",
-		"size": [512, 512],
+		"size": [1024, 1024],
 		"view": [800, 950],
 		"mipmapping": 1
 	});

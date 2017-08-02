@@ -203,7 +203,7 @@ var eicasListener = setlistener("/sim/signals/fdm-initialized", func () {
 
 	var eicasCanvas = canvas.new({
 		"name": "EICAS",
-		"size": [512, 512],
+		"size": [1024, 1024],
 		"view": [800, 950],
 		"mipmapping": 1
 	});
