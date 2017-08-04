@@ -10,7 +10,7 @@ var MfdSoftkeys = [["MAIN 1/2","DISPLAY","RADAR","SYSTEM","FMS","MFD\nFORMAT","R
 var MFD = {
 	new: func(group)
 	{
-		var m = { parents: [MFD], Pages:{}, SkInstance:{} };
+		var m = { parents: [MFD], Pages:{}, SkInstance:{}, i:0 };
 
 		m.ShownSkPage = 0; # indicates which page (softkeys) is shown
 		m.SelectedSkPage = 0; # indicates which softkey gets a frame (page)
@@ -31,12 +31,12 @@ var MFD = {
 	},
 	ActivatePage: func(input = -1)
 	{
-		for(var i=0; i<size(me.Pages); i=i+1) {
-			if(i == input) {
-				me.Pages[i].show();
+		for(me.i=0; me.i<size(me.Pages); me.i+=1) {
+			if(me.i == input) {
+				me.Pages[me.i].show();
 			}
 			else {
-				me.Pages[i].hide();
+				me.Pages[me.i].hide();
 			}
 		}
 	},

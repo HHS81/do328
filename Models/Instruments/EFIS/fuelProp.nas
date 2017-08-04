@@ -1,8 +1,9 @@
 var canvas_fuel = {
 	new: func(canvasGroup)
 	{
-		var m = { parents: [canvas_fuel] };
+		var m = { parents: [canvas_fuel], fuel: [0, 0, 0, 0, 0, 0] };
 		m.group = canvasGroup;
+		m.n = 0;
 
 		var font_mapper = func(family, weight)
 		{
@@ -35,37 +36,23 @@ var canvas_fuel = {
 	},
 	slow_update: func()
 	{
-		var fuel = [	getprop("consumables/fuel/tank[0]/level-lbs"),
-				getprop("consumables/fuel/tank[1]/level-lbs"),
-				getprop("consumables/fuel/tank[2]/level-lbs"),
-				getprop("consumables/fuel/tank[3]/level-lbs"),
-				getprop("consumables/fuel/tank[4]/level-lbs"),
-				getprop("consumables/fuel/tank[5]/level-lbs")];
-		var fuelUsed = [getprop("/fdm/jsbsim/propulsion/engine[0]/fuel-used-lbs"),
-				getprop("/fdm/jsbsim/propulsion/engine[1]/fuel-used-lbs")];
-
-		me["readout_t1"].setText(sprintf("%3.0f",fuel[0]));
-		me["readout_t2"].setText(sprintf("%3.0f",fuel[1]));
-		me["readout_t3"].setText(sprintf("%3.0f",fuel[2]));
-		me["readout_t4"].setText(sprintf("%3.0f",fuel[3]));
-		me["readout_t5"].setText(sprintf("%3.0f",fuel[4]));
-		me["readout_t6"].setText(sprintf("%3.0f",fuel[5]));
-		me["readout_tl"].setText(sprintf("%3.0f",fuel[0]+fuel[1]+fuel[2]));
-		me["readout_tt"].setText(sprintf("%3.0f",fuel[0]+fuel[1]+fuel[2]+fuel[3]+fuel[4]+fuel[5]));
-		me["readout_tr"].setText(sprintf("%3.0f",fuel[3]+fuel[4]+fuel[5]));
-		me["indicator_t1_scale"].setScale(1,fuel[0]/187);
-		me["indicator_t2_scale"].setScale(1,fuel[1]/1396);
-		me["indicator_t3_scale"].setScale(1,fuel[2]/2183);
-		me["indicator_t4_scale"].setScale(1,fuel[3]/2183);
-		me["indicator_t5_scale"].setScale(1,fuel[4]/1396);
-		me["indicator_t6_scale"].setScale(1,fuel[5]/187);
-
-		if(fuelUsed[0] != nil){
-			me["readout_usedl"].setText(sprintf("%3.0f",fuelUsed[0]));
+		for(me.n=0; me.n<6; me.n+=1) {
+			me.fuel[me.n] = getprop("consumables/fuel/tank["~me.n~"]/level-lbs") or 0;
+			me["readout_t"~(me.n+1)].setText(sprintf("%3.0f",me.fuel[me.n]));
 		}
-		if(fuelUsed[1] != nil){
-			me["readout_usedr"].setText(sprintf("%3.0f",fuelUsed[1]));
-		}
+
+		me.readout_tl.setText(sprintf("%3.0f",me.fuel[0]+me.fuel[1]+me.fuel[2]));
+		me.readout_tt.setText(sprintf("%3.0f",me.fuel[0]+me.fuel[1]+me.fuel[2]+me.fuel[3]+me.fuel[4]+me.fuel[5]));
+		me.readout_tr.setText(sprintf("%3.0f",me.fuel[3]+me.fuel[4]+me.fuel[5]));
+		me.indicator_t1_scale.setScale(1,me.fuel[0]/187);
+		me.indicator_t2_scale.setScale(1,me.fuel[1]/1396);
+		me.indicator_t3_scale.setScale(1,me.fuel[2]/2183);
+		me.indicator_t4_scale.setScale(1,me.fuel[3]/2183);
+		me.indicator_t5_scale.setScale(1,me.fuel[4]/1396);
+		me.indicator_t6_scale.setScale(1,me.fuel[5]/187);
+
+		me.readout_usedl.setText(sprintf("%3.0f",getprop("/fdm/jsbsim/propulsion/engine[0]/fuel-used-lbs") or 0));
+		me.readout_usedr.setText(sprintf("%3.0f",getprop("/fdm/jsbsim/propulsion/engine[1]/fuel-used-lbs") or 0));
 
 		if(me.active == 1) {
 			settimer(func me.slow_update(), 0.5);
