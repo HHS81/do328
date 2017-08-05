@@ -22,6 +22,7 @@ var MFD = {
 		m.Pages[3] = canvas_apu.new(group.createChild('group'));
 		m.Pages[4] = canvas_flightctrl.new(group.createChild('group'));
 		m.Pages[5] = canvas_electr.new(group.createChild('group'));
+		m.Pages[6] = canvas_cpcs.new(group.createChild('group'));
 
 		m.SkInstance = canvas_softkeys.new(group.createChild('group'));
 		m.SkInstance.setSoftkeys(MfdSoftkeys[0]);
@@ -107,7 +108,13 @@ var MFD = {
 			}
 			else if(me.ShownSkPage == 3) {
 				# "SYSTEM 3/3" page
-				if(input == 2) {
+				if(input == 1) {
+					# activate "CPCS" page
+					me.ActivatePage(6);
+					me.SelectedSkPage = 3;
+					me.SelectedSk = 0;
+				}
+				else if(input == 2) {
 					# activate "DOORS" page
 					me.ActivatePage(1);
 					me.SelectedSkPage = 3;

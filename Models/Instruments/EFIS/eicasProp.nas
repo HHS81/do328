@@ -24,7 +24,8 @@ var canvas_eicas = {
 				"arrowOilTemp1","arrowOilTemp2","arrowOilPrss1","arrowOilPrss2",
 				"oilTempLow1","oilTempLow2","oilTempHigh1","oilTempHigh2",
 				"readout_tl","readout_tr","readout_ff1","readout_ff2",
-				"indicator_flaps1","indicator_flaps2","readout_flaps1","readout_flaps2"];
+				"indicator_flaps1","indicator_flaps2","readout_flaps1","readout_flaps2",
+				"indicator_spoilers","trim_aileron","trim_rudder","trim_pitch"];
 
 		foreach(var key; svg_keys) {
 			m[key] = canvasGroup.getElementById(key);
@@ -82,7 +83,7 @@ var canvas_eicas = {
 
 			# oil pressure
 			me.tmp = getprop("engines/engine["~me.n~"]/oil-pressure-psi") or 0;
-			me["arrowOilPrss"~(me.n+1)].setTranslation(me.tmp*(135/40), 0); #135
+			me["arrowOilPrss"~(me.n+1)].setTranslation(me.tmp*3.375, 0); #135/40
 			if(me.tmp < 20) {
 				me["oilPrssLow"~(me.n+1)].show();
 				me["arrowOilPrss"~(me.n+1)].setColorFill(1, 0, 0);
@@ -91,17 +92,30 @@ var canvas_eicas = {
 				me["oilPrssLow"~(me.n+1)].hide();
 				me["arrowOilPrss"~(me.n+1)].setColorFill(1, 1, 1);
 			}
+		}
 
-			# flaps
-			me.tmp = getprop("surface-positions/flap-pos-norm") or 0;
-			me.readout_flaps1.setText(sprintf("%2.0f",32*me.tmp));
-			me.readout_flaps2.setText(sprintf("%2.0f",32*me.tmp));
+		# flaps
+		me.tmp = getprop("surface-positions/flap-pos-norm") or 0;
+		me.readout_flaps1.setText(sprintf("%2.0f",32*me.tmp));
+		me.readout_flaps2.setText(sprintf("%2.0f",32*me.tmp));
 
-			if(me.tmp < 0.04) {
-				me.tmp = 0.04; # bar at least 2px
+		if(me.tmp < 0.04) {
+			me.tmp = 0.04; # bar at least 2px
+		}
+		me.indicator_flaps1_scale.setScale(1,me.tmp);
+		me.indicator_flaps2_scale.setScale(1,me.tmp);
+
+		# trim
+		me.tmp = getprop("controls/flight/elevator-trim") or 0;
+
+		if(me.tmp > 0) {
+			me.trim_pitch.setTranslation(0, -me.tmp*84);
+		}
+		else {
+			if(me.tmp < -0.65) {
+				me.tmp = -0.65;
 			}
-			me.indicator_flaps1_scale.setScale(1,me.tmp);
-			me.indicator_flaps2_scale.setScale(1,me.tmp);
+			me.trim_pitch.setTranslation(0, -me.tmp*37); #24/0.65
 		}
 	},
 	updateSlow: func()
@@ -121,7 +135,7 @@ var canvas_eicas = {
 
 			# oil temperature
 			me.tmp = getprop("engines/engine["~me.n~"]/oil-temperature-degf") or 0;
-			me["arrowOilTemp"~(me.n+1)].setTranslation(me.tmp*(135/200), 0); #135
+			me["arrowOilTemp"~(me.n+1)].setTranslation(me.tmp*0.675, 0); #135/200
 			if(me.tmp < 95) {
 				me["oilTempLow"~(me.n+1)].show();
 				me["oilTempHigh"~(me.n+1)].hide();
@@ -155,6 +169,14 @@ var canvas_eicas = {
 		# pressurization
 		me.readout_ft.setText(sprintf("%3.0f", getprop("systems/pressurization/cabin-altitude-ft") or 0));
 		me.readout_fpm.setText(sprintf("%3.0f", getprop("systems/pressurization/cabin-rate-fpm") or 0));
+
+		# spoiler
+		if((getprop("controls/flight/spoilers") or 0) > 0) {
+			me.indicator_spoilers.show();
+		}
+		else {
+			me.indicator_spoilers.hide();
+		}
 
 		#me.msgWarning.setText(getprop("instrumentation/eicas/msg/warning"));
 		#me.msgCaution.setText(getprop("instrumentation/eicas/msg/caution"));
