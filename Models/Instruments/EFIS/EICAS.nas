@@ -29,6 +29,7 @@ var EICAS = {
 		m.Pages[4] = canvas_flightctrl.new(group.createChild('group'));
 		m.Pages[5] = canvas_electr.new(group.createChild('group'));
 		m.Pages[6] = canvas_cpcs.new(group.createChild('group'));
+		m.Pages[7] = canvas_ice.new(group.createChild('group'));
 
 		m.SkInstance = canvas_softkeys.new(group.createChild('group'));
 		m.SkInstance.setSoftkeys(EicasSoftkeys[0]);
@@ -112,6 +113,12 @@ var EICAS = {
 					me.ActivatePage(5);
 					me.SelectedSkPage = 2;
 					me.SelectedSk = 0;
+				}
+				else if(input == 3) {
+					# activate "ICE" page
+					me.ActivatePage(7);
+					me.SelectedSkPage = 2;
+					me.SelectedSk = 2;
 				}
 				else if(input == 4) {
 					# activate "APU" page

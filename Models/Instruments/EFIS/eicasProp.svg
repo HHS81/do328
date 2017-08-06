@@ -42,9 +42,9 @@
      inkscape:window-height="711"
      id="namedview3588"
      showgrid="false"
-     inkscape:zoom="0.56947371"
-     inkscape:cx="466.2683"
-     inkscape:cy="526.74693"
+     inkscape:zoom="2.2778948"
+     inkscape:cx="604.2045"
+     inkscape:cy="226.88908"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -1370,6 +1370,12 @@
      inkscape:connector-curvature="0"
      sodipodi:nodetypes="cc" />
   <path
+     sodipodi:nodetypes="cc"
+     inkscape:connector-curvature="0"
+     id="flaps_to"
+     style="fill:none;stroke:#ffbf00;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     d="m 545,760 135,0" />
+  <path
      d="m 495,740 235,0"
      style="fill:none;stroke:#ffffff;stroke-width:3;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      id="path6415"
@@ -1386,6 +1392,12 @@
      style="fill:none;stroke:#ffffff;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      id="path6499"
      inkscape:connector-curvature="0" />
+  <path
+     d="m 545,799.5 135,0"
+     style="fill:none;stroke:#ffbf00;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     id="flaps_landg"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cc" />
   <g
      id="g4431"
      transform="translate(-0.02380123,0)">
@@ -1476,4 +1488,9 @@
        inkscape:transform-center-y="-10"
        style="fill:#3bb0eb;fill-opacity:1;stroke:none;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
   </g>
+  <path
+     inkscape:connector-curvature="0"
+     id="trim_to"
+     d="m 681.8,599.22289 8.12255,0 0,36.85259 -8.12255,0 z"
+     style="opacity:1;fill:#00ff00;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
 </svg>

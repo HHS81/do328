@@ -110,6 +110,7 @@ Started by Heiko Schulz
          <file>Aircraft/do328/Models/Instruments/EFIS/apuProp.nas</file>
          <file>Aircraft/do328/Models/Instruments/EFIS/electr.nas</file>
          <file>Aircraft/do328/Models/Instruments/EFIS/cpcs.nas</file>
+         <file>Aircraft/do328/Models/Instruments/EFIS/iceProp.nas</file>
          <file>Aircraft/do328/Models/Instruments/EFIS/EICAS.nas</file>
          <file>Aircraft/do328/Models/Instruments/EFIS/nd.nas</file>
          <file>Aircraft/do328/Models/Instruments/EFIS/MFD.nas</file>
