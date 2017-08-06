@@ -1959,6 +1959,118 @@
     </action>
   </animation>
   
+  <!-- Seats Arm Rest -->
+   <animation>
+    <type>knob</type>
+    <object-name>Armrest.L</object-name>
+    <property>controls/ArmrestL[0]/position-deg</property>
+    <factor>1</factor>
+<drag-direction>horizontal</drag-direction>
+-<offset-deg>0</offset-deg>
+		<center>
+			<x-m>-7.751607</x-m>
+			<y-m>-0.518009</y-m>
+			<z-m>1.750114</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>-0.581541</y>
+			<z>0</z>
+		</axis>
+      <action>
+      <binding>
+        <command>property-adjust</command>
+   <property>controls/ArmrestL[0]/position-deg</property>
+        <factor>-10</factor>
+        <min>0</min>
+        <max>106</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+  </animation>
+  
+
+  
+   <animation>
+    <type>knob</type>
+    <object-name>Armrest.R</object-name>
+    <property>controls/ArmrestR[0]/position-deg</property>
+    <factor>1</factor>
+<drag-direction>horizontal</drag-direction>
+-<offset-deg>0</offset-deg>
+		<center>
+			<x-m>-7.751607</x-m>
+			<y-m>-0.518009</y-m>
+			<z-m>1.750114</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>-0.581541</y>
+			<z>0</z>
+		</axis>
+      <action>
+      <binding>
+        <command>property-adjust</command>
+   <property>controls/ArmrestR[0]/position-deg</property>
+        <factor>-10</factor>
+        <min>0</min>
+        <max>106</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+  </animation>
+  
+  <!--Jumpseat-->
+     <animation>
+    <type>knob</type>
+    <object-name>Jumpseat.U</object-name>
+    <property>controls/Jumpseat[0]/position-deg</property>
+    <factor>1</factor>
+<drag-direction>vertical</drag-direction>
+-<offset-deg>0</offset-deg>
+		<center>
+			<x-m>-7.095394</x-m>
+			<y-m>-0.265564</y-m>
+			<z-m>1.998634</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>0</y>
+			<z>-0.413384</z>
+		</axis>
+      <action>
+      <binding>
+        <command>property-adjust</command>
+<property>controls/Jumpseat[0]/position-deg</property>
+        <factor>90</factor>
+        <min>0</min>
+        <max>90</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+  </animation>
+  
+<animation>
+    <type>rotate</type>
+    <object-name>Jumpseat.D</object-name>
+<property>controls/Jumpseat[0]/position-deg</property>
+    <factor>-1</factor>
+    <offset-deg>0</offset-deg>
+		<center>
+			<x-m>-7.270198</x-m>
+			<y-m>-0.303084</y-m>
+			<z-m>1.732192</z-m>
+		</center>
+		<axis>
+			<x>-0.422276</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+  </animation>
+  
+  
+  
+  
  
 
   </PropertyList>
