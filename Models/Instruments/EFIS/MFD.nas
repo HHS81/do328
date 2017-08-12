@@ -17,13 +17,18 @@ var MFD = {
 		m.SelectedSk = -1; # indicates which softkey gets a frame (softkey number)
 
 		m.Pages[0] = canvas_nd.new(group.createChild('group'));
-		m.Pages[1] = canvas_doors.new(group.createChild('group'));
-		m.Pages[2] = canvas_fuel.new(group.createChild('group'));
-		m.Pages[3] = canvas_apu.new(group.createChild('group'));
-		m.Pages[4] = canvas_flightctrl.new(group.createChild('group'));
+		m.Pages[1] = canvas_flightctrl.new(group.createChild('group'));
+		m.Pages[2] = canvas_hydr.new(group.createChild('group'));
+		m.Pages[3] = canvas_engine.new(group.createChild('group'));
+		m.Pages[4] = canvas_fuel.new(group.createChild('group'));
+
 		m.Pages[5] = canvas_electr.new(group.createChild('group'));
-		m.Pages[6] = canvas_cpcs.new(group.createChild('group'));
+		m.Pages[6] = canvas_ecs.new(group.createChild('group'));
 		m.Pages[7] = canvas_ice.new(group.createChild('group'));
+		m.Pages[8] = canvas_apu.new(group.createChild('group'));
+
+		m.Pages[9] = canvas_cpcs.new(group.createChild('group'));
+		m.Pages[10] = canvas_doors.new(group.createChild('group'));
 
 		m.SkInstance = canvas_softkeys.new(group.createChild('group'));
 		m.SkInstance.setSoftkeys(MfdSoftkeys[0]);
@@ -71,13 +76,13 @@ var MFD = {
 				# "SYSTEM 1/3" page
 				if(input == 1) {
 					# activate "FLIGHT CONTROL" page
-					me.ActivatePage(4);
+					me.ActivatePage(1);
 					me.SelectedSkPage = 1;
 					me.SelectedSk = 0;
 				}
 				else if(input == 4) {
 					# activate "FUEL" page
-					me.ActivatePage(2);
+					me.ActivatePage(4);
 					me.SelectedSkPage = 1;
 					me.SelectedSk = 3;
 				}
@@ -95,6 +100,12 @@ var MFD = {
 					me.SelectedSkPage = 2;
 					me.SelectedSk = 0;
 				}
+				else if(input == 2) {
+					# activate "ECS" page
+					me.ActivatePage(6);
+					me.SelectedSkPage = 2;
+					me.SelectedSk = 1;
+				}
 				else if(input == 3) {
 					# activate "ICE" page
 					me.ActivatePage(7);
@@ -103,7 +114,7 @@ var MFD = {
 				}
 				else if(input == 4) {
 					# activate "APU" page
-					me.ActivatePage(3);
+					me.ActivatePage(8);
 					me.SelectedSkPage = 2;
 					me.SelectedSk = 3;
 				}
@@ -117,13 +128,13 @@ var MFD = {
 				# "SYSTEM 3/3" page
 				if(input == 1) {
 					# activate "CPCS" page
-					me.ActivatePage(6);
+					me.ActivatePage(9);
 					me.SelectedSkPage = 3;
 					me.SelectedSk = 0;
 				}
 				else if(input == 2) {
 					# activate "DOORS" page
-					me.ActivatePage(1);
+					me.ActivatePage(10);
 					me.SelectedSkPage = 3;
 					me.SelectedSk = 1;
 				}

@@ -101,17 +101,24 @@ Started by Heiko Schulz
       </systems>
       <efis>
          <file>Aircraft/do328/Models/Instruments/EFIS/PFD.nas</file>
-         <file>Aircraft/do328/Models/Instruments/EFIS/softkeys.nas</file>
          <file>Aircraft/do328/Models/Instruments/EFIS/eicasJet.nas</file>
-         <file>Aircraft/do328/Models/Instruments/EFIS/flightctrl.nas</file>
-         <file>Aircraft/do328/Models/Instruments/EFIS/doors.nas</file>
-         <file>Aircraft/do328/Models/Instruments/EFIS/fuelJet.nas</file>
-         <file>Aircraft/do328/Models/Instruments/EFIS/apuJet.nas</file>
-         <file>Aircraft/do328/Models/Instruments/EFIS/electr.nas</file>
-         <file>Aircraft/do328/Models/Instruments/EFIS/cpcs.nas</file>
-         <file>Aircraft/do328/Models/Instruments/EFIS/iceJet.nas</file>
-         <file>Aircraft/do328/Models/Instruments/EFIS/EICAS.nas</file>
          <file>Aircraft/do328/Models/Instruments/EFIS/nd.nas</file>
+
+         <file>Aircraft/do328/Models/Instruments/EFIS/flightctrl.nas</file>
+         <file>Aircraft/do328/Models/Instruments/EFIS/hydr.nas</file>
+         <file>Aircraft/do328/Models/Instruments/EFIS/engine.nas</file>
+         <file>Aircraft/do328/Models/Instruments/EFIS/fuelJet.nas</file>
+
+         <file>Aircraft/do328/Models/Instruments/EFIS/electr.nas</file>
+         <file>Aircraft/do328/Models/Instruments/EFIS/ecsJet.nas</file>
+         <file>Aircraft/do328/Models/Instruments/EFIS/iceJet.nas</file>
+         <file>Aircraft/do328/Models/Instruments/EFIS/apuJet.nas</file>
+
+         <file>Aircraft/do328/Models/Instruments/EFIS/cpcs.nas</file>
+         <file>Aircraft/do328/Models/Instruments/EFIS/doors.nas</file>
+
+         <file>Aircraft/do328/Models/Instruments/EFIS/softkeys.nas</file>
+         <file>Aircraft/do328/Models/Instruments/EFIS/EICAS.nas</file>
          <file>Aircraft/do328/Models/Instruments/EFIS/MFD.nas</file>
       </efis>
       <rmu>

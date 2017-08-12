@@ -3,6 +3,7 @@ var canvas_flightctrl = {
 	{
 		var m = { parents: [canvas_flightctrl] };
 		m.group = canvasGroup;
+		m.tmp = 0;
 		
 		var font_mapper = func(family, weight)
 		{
@@ -23,51 +24,51 @@ var canvas_flightctrl = {
 		}
 
 		var center = {};
-		for(var n=1; n<=2; n=n+1) {
-			center = m["indicator_elev"~n].getCenter();
-			m["indicator_elev"~n].createTransform().setTranslation(-center[0], -center[1]);
-			m["indicator_elev"~n~"_scale"] = m["indicator_elev"~n].createTransform();
-			m["indicator_elev"~n].createTransform().setTranslation(center[0], center[1]);
-			m["indicator_elev"~n~"_scale"].setScale(1,0);
+		for(m.tmp=1; m.tmp<=2; m.tmp+=1) {
+			center = m["indicator_elev"~m.tmp].getCenter();
+			m["indicator_elev"~m.tmp].createTransform().setTranslation(-center[0], -center[1]);
+			m["indicator_elev"~m.tmp~"_scale"] = m["indicator_elev"~m.tmp].createTransform();
+			m["indicator_elev"~m.tmp].createTransform().setTranslation(center[0], center[1]);
+			m["indicator_elev"~m.tmp~"_scale"].setScale(1,0);
 
-			center = m["indicator_ail"~n].getCenter();
-			m["indicator_ail"~n].createTransform().setTranslation(-center[0], -center[1]);
-			m["indicator_ail"~n~"_scale"] = m["indicator_ail"~n].createTransform();
-			m["indicator_ail"~n].createTransform().setTranslation(center[0], center[1]);
-			m["indicator_ail"~n~"_scale"].setScale(1,0);
+			center = m["indicator_ail"~m.tmp].getCenter();
+			m["indicator_ail"~m.tmp].createTransform().setTranslation(-center[0], -center[1]);
+			m["indicator_ail"~m.tmp~"_scale"] = m["indicator_ail"~m.tmp].createTransform();
+			m["indicator_ail"~m.tmp].createTransform().setTranslation(center[0], center[1]);
+			m["indicator_ail"~m.tmp~"_scale"].setScale(1,0);
 
-			center = m["indicator_flaps"~n].getCenter();
-			m["indicator_flaps"~n].createTransform().setTranslation(-center[0], -center[1]);
-			m["indicator_flaps"~n~"_scale"] = m["indicator_flaps"~n].createTransform();
-			m["indicator_flaps"~n].createTransform().setTranslation(center[0], center[1]);
-			m["indicator_flaps"~n~"_scale"].setScale(1,0);
+			center = m["indicator_flaps"~m.tmp].getCenter();
+			m["indicator_flaps"~m.tmp].createTransform().setTranslation(-center[0], -center[1]);
+			m["indicator_flaps"~m.tmp~"_scale"] = m["indicator_flaps"~m.tmp].createTransform();
+			m["indicator_flaps"~m.tmp].createTransform().setTranslation(center[0], center[1]);
+			m["indicator_flaps"~m.tmp~"_scale"].setScale(1,0);
 		}
-		center = m["indicator_rud"].getCenter();
-		m["indicator_rud"].createTransform().setTranslation(-center[0], -center[1]);
-		m["indicator_rud_scale"] = m["indicator_rud"].createTransform();
-		m["indicator_rud"].createTransform().setTranslation(center[0], center[1]);
-		m["indicator_rud_scale"].setScale(0,1);
+		center = m.indicator_rud.getCenter();
+		m.indicator_rud.createTransform().setTranslation(-center[0], -center[1]);
+		m.indicator_rud_scale = m.indicator_rud.createTransform();
+		m.indicator_rud.createTransform().setTranslation(center[0], center[1]);
+		m.indicator_rud_scale.setScale(0,1);
 
 		m.active = 0;
 		return m;
 	},
 	update: func()
 	{
-		var flctrl = [	getprop("controls/flight/elevator"),
-				getprop("controls/flight/rudder"),
-				getprop("controls/flight/aileron"),
-				getprop("controls/flight/flaps"),
-				getprop("surface-positions/flap-pos-norm")];
+		me.tmp = getprop("controls/flight/elevator");
+		me.indicator_elev1_scale.setScale(1,me.tmp);
+		me.indicator_elev2_scale.setScale(1,me.tmp);
 
-		me["indicator_elev1_scale"].setScale(1,flctrl[0]);
-		me["indicator_elev2_scale"].setScale(1,flctrl[0]);
-		me["indicator_rud_scale"].setScale(flctrl[1],1);
-		me["indicator_ail1_scale"].setScale(1,-flctrl[2]);
-		me["indicator_ail2_scale"].setScale(1,flctrl[2]);
-		me["indicator_flaps1_scale"].setScale(1,flctrl[4]);
-		me["indicator_flaps2_scale"].setScale(1,flctrl[4]);
-		me["readout_flaps1"].setText(sprintf("%2.0f",32*flctrl[3]));
-		me["readout_flaps2"].setText(sprintf("%2.0f",32*flctrl[3]));
+		me.indicator_rud_scale.setScale(getprop("controls/flight/rudder"),1);
+
+		me.tmp = getprop("controls/flight/aileron");
+		me.indicator_ail1_scale.setScale(1,-me.tmp);
+		me.indicator_ail2_scale.setScale(1,me.tmp);
+
+		me.tmp = getprop("surface-positions/flap-pos-norm");
+		me.indicator_flaps1_scale.setScale(1,me.tmp);
+		me.indicator_flaps2_scale.setScale(1,me.tmp);
+		me.readout_flaps1.setText(sprintf("%2.0f",32*me.tmp));
+		me.readout_flaps2.setText(sprintf("%2.0f",32*me.tmp));
 
 		if(me.active == 1) {
 			settimer(func me.update(), 0.1);

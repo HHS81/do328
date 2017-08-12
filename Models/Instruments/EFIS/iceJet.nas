@@ -13,6 +13,12 @@ var canvas_ice = {
 
 		canvas.parsesvg(canvasGroup, "Aircraft/do328/Models/Instruments/EFIS/iceJet.svg", {'font-mapper': font_mapper});
 
+		var svg_keys = ["warnings"];
+		foreach(var key; svg_keys) {
+			m[key] = canvasGroup.getElementById(key);
+		}
+		m.warnings.hide();
+
 		return m;
 	},
 	show: func()

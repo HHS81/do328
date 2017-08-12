@@ -102,17 +102,24 @@ Started by Heiko Schulz
       </systems>
       <efis>
          <file>Aircraft/do328/Models/Instruments/EFIS/PFD.nas</file>
-         <file>Aircraft/do328/Models/Instruments/EFIS/softkeys.nas</file>
          <file>Aircraft/do328/Models/Instruments/EFIS/eicasProp.nas</file>
-         <file>Aircraft/do328/Models/Instruments/EFIS/flightctrl.nas</file>
-         <file>Aircraft/do328/Models/Instruments/EFIS/doors.nas</file>
-         <file>Aircraft/do328/Models/Instruments/EFIS/fuelProp.nas</file>
-         <file>Aircraft/do328/Models/Instruments/EFIS/apuProp.nas</file>
-         <file>Aircraft/do328/Models/Instruments/EFIS/electr.nas</file>
-         <file>Aircraft/do328/Models/Instruments/EFIS/cpcs.nas</file>
-         <file>Aircraft/do328/Models/Instruments/EFIS/iceProp.nas</file>
-         <file>Aircraft/do328/Models/Instruments/EFIS/EICAS.nas</file>
          <file>Aircraft/do328/Models/Instruments/EFIS/nd.nas</file>
+
+         <file>Aircraft/do328/Models/Instruments/EFIS/flightctrl.nas</file>
+         <file>Aircraft/do328/Models/Instruments/EFIS/hydr.nas</file>
+         <file>Aircraft/do328/Models/Instruments/EFIS/engine.nas</file>
+         <file>Aircraft/do328/Models/Instruments/EFIS/fuelProp.nas</file>
+
+         <file>Aircraft/do328/Models/Instruments/EFIS/electr.nas</file>
+         <file>Aircraft/do328/Models/Instruments/EFIS/ecsProp.nas</file>
+         <file>Aircraft/do328/Models/Instruments/EFIS/iceProp.nas</file>
+         <file>Aircraft/do328/Models/Instruments/EFIS/apuProp.nas</file>
+
+         <file>Aircraft/do328/Models/Instruments/EFIS/cpcs.nas</file>
+         <file>Aircraft/do328/Models/Instruments/EFIS/doors.nas</file>
+
+         <file>Aircraft/do328/Models/Instruments/EFIS/softkeys.nas</file>
+         <file>Aircraft/do328/Models/Instruments/EFIS/EICAS.nas</file>
          <file>Aircraft/do328/Models/Instruments/EFIS/MFD.nas</file>
       </efis>
       <rmu>
