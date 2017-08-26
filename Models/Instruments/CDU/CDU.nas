@@ -8,6 +8,7 @@ var navRwy = std.Vector.new(["",""]);
 var g_speed = 300;
 var dist = 0;
 var flp_closed = 0;
+setprop("controls/lighting/cdu",0.8);
 
 var init = func {
 	setprop("autopilot/route-manager/flight-plan","");
@@ -1042,7 +1043,7 @@ var cdu = func{
 	var display = getprop("/instrumentation/cdu/display");
 
 	### Réinitialisation si extinction CDU ###
-	if (getprop("systems/electrical/outputs/efis") < 3 or getprop("controls/lighting/cdu") <= 0.02) {
+	if (!getprop("systems/electrical/Consumers/CDU") or getprop("controls/lighting/cdu") <= 0.02) {
 		setprop("autopilot/route-manager/input","@CLEAR");
 		setprop("autopilot/route-manager/destination/airport","");
 		setprop("autopilot/route-manager/departure/airport","");

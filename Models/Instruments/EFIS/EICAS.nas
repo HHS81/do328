@@ -48,7 +48,7 @@ var EICAS = {
 	# input: 0=back, 1=sk1...5=sk5
 	BtClick: func(input = -1) {
 
-		if(getprop("systems/electrical/outputs/efis") < 1) {
+		if(!getprop("systems/electrical/Consumers/EFIS")) {
 			return;
 		}
 		if(input == 0) {

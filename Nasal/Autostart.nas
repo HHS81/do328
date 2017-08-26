@@ -7,8 +7,9 @@ var Startup = func{
 }
 
 var Startup1 = func{
-	setprop("controls/electric/battery-switch",1);
-	setprop("controls/electric/avionics-switch",1);
+	setprop("systems/electrical/Battery1/Connected",1);
+	setprop("systems/electrical/Battery2/Connected",1);
+	setprop("systems/electrical/DCTie/Connected",1);
 	setprop("controls/lighting/beacon",1);
 	setprop("controls/lighting/strobe",1);
 	setprop("controls/lighting/instruments-norm",0.5);
@@ -33,8 +34,9 @@ var Startup2 = func{
 var Shutdown = func{
 	setprop("controls/electric/engine[0]/generator",0);
 	setprop("controls/electric/engine[1]/generator",0);
-	setprop("controls/electric/battery-switch",0);
-	setprop("controls/electric/avionics-switch",0);
+	setprop("systems/electrical/Battery1/Connected",0);
+	setprop("systems/electrical/Battery2/Connected",0);
+	setprop("systems/electrical/DCTie/Connected",0);
 	setprop("controls/lighting/beacon",0);
 	setprop("controls/lighting/strobe",0);
 	setprop("controls/lighting/instruments-norm",0.0);
