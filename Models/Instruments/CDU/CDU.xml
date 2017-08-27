@@ -465,19 +465,12 @@
         <object-name>CDU-screen</object-name>
         <object-name>CDU-lamp</object-name>
 				<condition>
-					<and>				
-            <greater-than>
-               <property>systems/electrical/outputs/comm</property>
-               <value>5</value>
-            </greater-than>
+					<and>
+               <property>systems/electrical/Consumers/CDU_Running</property>
             <greater-than>
                 <property>controls/lighting/cdu</property>
                 <value>0.02</value>
             </greater-than>
-            <equals>
-                <property>controls/electric/avionics-switch</property>
-                <value>2</value>
-            </equals>
 					</and>					
         </condition>
     </animation>

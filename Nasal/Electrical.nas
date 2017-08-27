@@ -1,354 +1,348 @@
-####    jet engine electrical system    ####
-####    Syd Adams    ####
-var count=0;
-var ammeter_ave = 0.0;
-var Lbus = props.globals.initNode("/systems/electrical/left-bus",0,"DOUBLE");
-var Rbus = props.globals.initNode("/systems/electrical/right-bus",0,"DOUBLE");
-var Amps = props.globals.initNode("/systems/electrical/amps",0,"DOUBLE");
-var EXT  = props.globals.initNode("/controls/electric/external-power",0,"DOUBLE");
-var XTie  = props.globals.initNode("/systems/electrical/xtie",0,"BOOL");
-var lbus_volts = 0.0;
-var rbus_volts = 0.0;
+##########################################################################################################
+# by xcvb85, battery class based on battery class from tu154b
+##########################################################################################################
 
-var lbus_input=[];
-var lbus_output=[];
-var lbus_load=[];
+# global definces
+var ELNode = "systems/electrical/";
+var Refresh = 0.1;
 
-var rbus_input=[];
-var rbus_output=[];
-var rbus_load=[];
-
-var lights_input=[];
-var lights_output=[];
-var lights_load=[];
-
+# generate blink signals
 var strobe_switch = props.globals.getNode("controls/lighting/strobe", 1);
 aircraft.light.new("controls/lighting/strobe-state", [0.015, 1.30], strobe_switch);
 var beacon_switch = props.globals.getNode("controls/lighting/beacon", 1);
 aircraft.light.new("controls/lighting/beacon-state", [0.015, 1.0], beacon_switch);
 
-#var battery = Battery.new(switch-prop,volts,amps,amp_hours,charge_percent,charge_amps);
+##########################################################################################################
+# From ATA 24.41: "Two identical nickel cadmium batteries (BAT) 24 V/40 Ah are installed in the aircraft."
 var Battery = {
-    new : func(swtch,vlt,amp,hr,chp,cha){
-    m = { parents : [Battery] };
-            m.switch = props.globals.getNode(swtch,1);
-            m.switch.setBoolValue(0);
-            m.ideal_volts = vlt;
-            m.ideal_amps = amp;
-            m.amp_hours = hr;
-            m.charge_percent = chp;
-            m.charge_amps = cha;
-    return m;
+    new: func(name) {
+        obj = { parents: [Battery],
+            Connected: props.globals.initNode(ELNode ~ name ~ "/Connected", 0, "BOOL"),
+            Current: props.globals.initNode(ELNode ~ name ~ "/Current", 0, "DOUBLE"), #A
+            Voltage: props.globals.initNode(ELNode ~ name ~ "/Voltage", 24, "DOUBLE"), #V
+            Running: 0,
+            RefVoltage: 24, #V
+            Capacity: 40, #Ah
+            Charge: 1, #%
+            DCharge: 0,
+            Tmp: 0
+        };
+        return obj;
     },
-
-    apply_load : func(load,dt) {
-        if(me.switch.getValue()){
-        var amphrs_used = load * dt / 3600.0;
-        var percent_used = amphrs_used / me.amp_hours;
-        me.charge_percent -= percent_used;
-        if ( me.charge_percent < 0.0 ) {
-            me.charge_percent = 0.0;
-        } elsif ( me.charge_percent > 1.0 ) {
-        me.charge_percent = 1.0;
+    getCurrent: func {
+        if(!me.Connected.getValue() or !me.Running) {
+            return 0;
         }
-        var output =me.amp_hours * me.charge_percent;
-        return output;
-        }else return 0;
+        return -1; #negative value -> producer
     },
-
-    get_output_volts : func {
-        if(me.switch.getValue()){
-        var x = 1.0 - me.charge_percent;
-        var tmp = -(3.0 * x - 1.0);
-        var factor = (tmp*tmp*tmp*tmp*tmp + 32) / 32;
-        var output =me.ideal_volts * factor;
-        return output;
-        }else return 0;
-    },
-
-    get_output_amps : func {
-        if(me.switch.getValue()){
-        var x = 1.0 - me.charge_percent;
-        var tmp = -(3.0 * x - 1.0);
-        var factor = (tmp*tmp*tmp*tmp*tmp + 32) / 32;
-        var output =me.ideal_amps * factor;
-        return output;
-        }else return 0;
-    }
-};
-
-# var alternator = Alternator.new(num,switch,rpm_source,rpm_threshold,volts,amps);
-var Alternator = {
-    new : func (num,switch,src,thr,vlt,amp){
-        m = { parents : [Alternator] };
-        m.switch =  props.globals.getNode(switch,1);
-        m.switch.setBoolValue(0);
-        m.meter =  props.globals.getNode("systems/electrical/gen-load["~num~"]",1);
-        m.meter.setDoubleValue(0);
-        m.gen_output =  props.globals.getNode("engines/engine["~num~"]/amp-v",1);
-        m.gen_output.setDoubleValue(0);
-        m.meter.setDoubleValue(0);
-        m.rpm_source =  props.globals.getNode(src,1);
-        m.rpm_threshold = thr;
-        m.ideal_volts = vlt;
-        m.ideal_amps = amp;
-        return m;
-    },
-
-    apply_load : func(load) {
-        var cur_volt=me.gen_output.getValue();
-        var cur_amp=me.meter.getValue();
-        if(cur_volt >1){
-            var factor=1/cur_volt;
-            gout = (load * factor);
-            if(gout>1)gout=1;
-        }else{
-            gout=0;
+    getVoltage: func {
+        if(!me.Connected.getValue() or !me.Running) {
+            return 0;
         }
-        me.meter.setValue(gout);
+        return me.Voltage.getValue();
     },
-
-    get_output_volts : func {
-        var out = 0;
-        if(me.switch.getBoolValue()){
-            var factor = me.rpm_source.getValue() / me.rpm_threshold or 0;
-            if ( factor > 1.0 )factor = 1.0;
-            var out = (me.ideal_volts * factor);
-        }
-        me.gen_output.setValue(out);
-        return out;
+    setConnected: func(connected) {
+        me.Connected.setValue(connected);
     },
+    setCurrent: func(current) {
+        if(me.Connected.getValue() and me.Running) {
+            me.Tmp = (current * Refresh) / 3600.0; # used amp hrs
+            me.DCharge = me.Tmp / me.Capacity;
+            me.Charge -= me.DCharge;
 
-    get_output_amps : func {
-        var ampout =0;
-        if(me.switch.getBoolValue()){
-            var factor = me.rpm_source.getValue() / me.rpm_threshold or 0;
-            if ( factor > 1.0 ) {
-                factor = 1.0;
+            if(me.Charge < 0.0) {
+                me.Charge = 0.0;
+            } elsif (me.Charge > 1.0) {
+                me.Charge = 1.0;
             }
-            ampout = me.ideal_amps * factor;
+            me.Current.setValue(current);
         }
-        return ampout;
+        else {
+            me.Current.setValue(0);
+        }
+    },
+    setVoltage: func(volts) {
+        # deactivate if voltage smaller than external
+        me.Tmp = (1.0 - me.Charge) / 10;
+
+        if((volts-me.DCharge) > (me.RefVoltage - me.Tmp)) {
+            me.Running = 0;
+        }
+        else {
+            me.Running = 1;
+        }
+        me.Voltage.setValue(me.RefVoltage - me.Tmp);
     }
 };
 
-var battery = Battery.new("/controls/electric/battery-switch",24,30,34,1.0,7.0);
-var battery1 = Battery.new("/controls/electric/battery-switch[1]",24,30,34,1.0,7.0);
-var alternator1 = Alternator.new(0,"controls/electric/engine[0]/generator","/engines/engine[0]/n1",30.0,30.0,60.0);
-var alternator2 = Alternator.new(1,"controls/electric/engine[1]/generator","/engines/engine[1]/n1",30.0,30.0,60.0);
-#####################################
-setlistener("/sim/signals/fdm-initialized", func {
-    init_switches();
-    settimer(update_electrical,5);
-    print("Electrical System ... ok");
-});
-
-var init_switches = func{
-    var AVswitch=props.globals.initNode("controls/electric/avionics-switch",0,"BOOL");
-    setprop("controls/lighting/instruments-norm",0.8);
-    setprop("controls/lighting/engines-norm",0.8);
-    props.globals.initNode("controls/electric/ammeter-switch",0,"BOOL");
-    props.globals.getNode("systems/electrical/serviceable",0,"BOOL");
-    props.globals.getNode("controls/electric/external-power",0,"BOOL");
-    setprop("controls/lighting/instrument-lights-norm",0.8);
-    setprop("controls/lighting/efis-norm",0.8);
-    setprop("controls/lighting/cdu",0.8);
-    setprop("controls/lighting/panel-norm",0.8);
-
-    append(lights_input,props.globals.initNode("controls/lighting/landing-lights",0,"BOOL"));
-    append(lights_output,props.globals.initNode("systems/electrical/outputs/landing-lights",0,"DOUBLE"));
-    append(lights_load,1);
-    append(lights_input,props.globals.initNode("controls/lighting/nav-lights",0,"BOOL"));
-    append(lights_output,props.globals.initNode("systems/electrical/outputs/nav-lights",0,"DOUBLE"));
-    append(lights_load,1);
-    append(lights_input,props.globals.initNode("controls/lighting/cabin-lights",0,"BOOL"));
-    append(lights_output,props.globals.initNode("systems/electrical/outputs/cabin-lights",0,"DOUBLE"));
-    append(lights_load,1);
-    append(lights_input,props.globals.initNode("controls/lighting/instrument-lights",0,"BOOL"));
-    append(lights_output,props.globals.initNode("systems/electrical/outputs/instrument-lights",0,"DOUBLE"));
-    append(lights_load,1);
-    append(lights_input,props.globals.initNode("controls/lighting/map-lights",0,"BOOL"));
-    append(lights_output,props.globals.initNode("systems/electrical/outputs/map-lights",0,"DOUBLE"));
-    append(lights_load,1);
-    append(lights_input,props.globals.initNode("controls/lighting/wing-lights",0,"BOOL"));
-    append(lights_output,props.globals.initNode("systems/electrical/outputs/wing-lights",0,"DOUBLE"));
-    append(lights_load,1);
-    append(lights_input,props.globals.initNode("controls/lighting/recog-lights",0,"BOOL"));
-    append(lights_output,props.globals.initNode("systems/electrical/outputs/recog-lights",0,"DOUBLE"));
-    append(lights_load,1);
-    append(lights_input,props.globals.initNode("controls/lighting/logo-lights",0,"BOOL"));
-    append(lights_output,props.globals.initNode("systems/electrical/outputs/logo-lights",0,"DOUBLE"));
-    append(lights_load,1);
-    append(lights_input,props.globals.initNode("controls/lighting/taxi-lights",0,"BOOL"));
-    append(lights_output,props.globals.initNode("systems/electrical/outputs/taxi-lights",0,"DOUBLE"));
-    append(lights_load,1);
-    append(lights_input,props.globals.initNode("controls/lighting/beacon-state/state",0,"BOOL"));
-    append(lights_output,props.globals.initNode("systems/electrical/outputs/beacon",0,"DOUBLE"));
-    append(lights_load,1);
-    append(lights_input,props.globals.initNode("controls/lighting/strobe-state/state",0,"BOOL"));
-    append(lights_output,props.globals.initNode("systems/electrical/outputs/strobe",0,"DOUBLE"));
-    append(lights_load,1);
-
-    append(rbus_input,props.globals.initNode("controls/electric/wiper-switch",0,"BOOL"));
-    append(rbus_output,props.globals.initNode("systems/electrical/outputs/wiper",0,"DOUBLE"));
-    append(rbus_load,1);
-    append(rbus_input,props.globals.initNode("controls/engines/engine[0]/fuel-pump",0,"BOOL"));
-    append(rbus_output,props.globals.initNode("systems/electrical/outputs/fuel-pump[0]",0,"DOUBLE"));
-    append(rbus_load,1);
-    append(rbus_input,props.globals.initNode("controls/engines/engine[1]/fuel-pump",0,"BOOL"));
-    append(rbus_output,props.globals.initNode("systems/electrical/outputs/fuel-pump[1]",0,"DOUBLE"));
-    append(rbus_load,1);
-    append(rbus_input,props.globals.initNode("controls/engines/engine[0]/starter",0,"BOOL"));
-    append(rbus_output,props.globals.initNode("systems/electrical/outputs/starter",0,"DOUBLE"));
-    append(rbus_load,1);
-    append(rbus_input,props.globals.initNode("controls/engines/engine[1]/starter",0,"BOOL"));
-    append(rbus_output,props.globals.initNode("systems/electrical/outputs/starter[1]",0,"DOUBLE"));
-    append(rbus_load,1);
-    append(rbus_input,AVswitch);
-    append(rbus_output,props.globals.initNode("systems/electrical/outputs/KNS80",0,"DOUBLE"));
-    append(rbus_load,1);
-    append(rbus_input,AVswitch);
-    append(rbus_output,props.globals.initNode("systems/electrical/outputs/efis",0,"DOUBLE"));
-    append(rbus_load,1);
-
-
-    append(lbus_input,AVswitch);
-    append(lbus_output,props.globals.initNode("systems/electrical/outputs/adf",0,"DOUBLE"));
-    append(lbus_load,1);
-    append(lbus_input,AVswitch);
-    append(lbus_output,props.globals.initNode("systems/electrical/outputs/dme",0,"DOUBLE"));
-    append(lbus_load,1);
-    append(lbus_input,AVswitch);
-    append(lbus_output,props.globals.initNode("systems/electrical/outputs/gps",0,"DOUBLE"));
-    append(lbus_load,1);
-    append(lbus_input,AVswitch);
-    append(lbus_output,props.globals.initNode("systems/electrical/outputs/DG",0,"DOUBLE"));
-    append(lbus_load,1);
-    append(lbus_input,AVswitch);
-    append(lbus_output,props.globals.initNode("systems/electrical/outputs/transponder",0,"DOUBLE"));
-    append(lbus_load,1);
-    append(lbus_input,AVswitch);
-    append(lbus_output,props.globals.initNode("systems/electrical/outputs/mk-viii",0,"DOUBLE"));
-    append(lbus_load,1);
-    append(lbus_input,AVswitch);
-    append(lbus_output,props.globals.initNode("systems/electrical/outputs/turn-coordinator",0,"DOUBLE"));
-    append(lbus_load,1);
-    append(lbus_input,AVswitch);
-    append(lbus_output,props.globals.initNode("systems/electrical/outputs/comm",0,"DOUBLE"));
-    append(lbus_load,1);
-    append(lbus_input,AVswitch);
-    append(lbus_output,props.globals.initNode("systems/electrical/outputs/comm[1]",0,"DOUBLE"));
-    append(lbus_load,1);
-    append(lbus_input,AVswitch);
-    append(lbus_output,props.globals.initNode("systems/electrical/outputs/nav",0,"DOUBLE"));
-    append(lbus_load,1);
-    append(lbus_input,AVswitch);
-    append(lbus_output,props.globals.initNode("systems/electrical/outputs/nav[1]",0,"DOUBLE"));
-    append(lbus_load,1);
-}
-
-
-update_virtual_bus = func( dt ) {
-    var PWR = getprop("systems/electrical/serviceable");
-    var xtie=0;
-    load = 0.0;
-    power_source = nil;
-    if(count==0){
-        var battery_volts = battery.get_output_volts();
-        lbus_volts = battery_volts;
-        power_source = "battery";
-        var alternator1_volts = alternator1.get_output_volts();
-        if (alternator1_volts > lbus_volts) {
-            lbus_volts = alternator1_volts;
-            power_source = "alternator1";
+##########################################################################################################
+var Bus = {
+    new: func(name) {
+        obj = { parents: [Bus],
+            Voltage: props.globals.initNode(ELNode ~ "/" ~ name ~ "/Voltage", 0, "DOUBLE"),
+            Current: props.globals.initNode(ELNode ~ "/" ~ name ~ "/Current", 0, "DOUBLE"),
+            Cnt: 0,
+            Max: 0,
+            Tmp: 0,
+            Producers: 0,
+            Devices: {}
+        };
+        return obj;
+    },
+    append: func(device) {
+        me.Tmp = size(me.Devices);
+        me.Devices[me.Tmp] = device;
+    },
+    getCurrent: func {
+        return me.Current.getValue();
+    },
+    getVoltage: func {
+        return me.Voltage.getValue();
+    },
+    getProducers: func {
+        return me.Producers;
+    },
+    setCurrent: func(current) {
+        me.Current.setValue(current);
+    },
+    setVoltage: func(voltage) {
+        me.Voltage.setValue(voltage);
+    },
+    update: func {
+        #first set old values, then get new values
+        #old values can be manipulated by bus tie
+        me.updateCurrent();
+        me.updateVoltage();
+    },
+    updateCurrent: func {
+        #set old current
+        me.Tmp = me.Current.getValue();
+        for(me.Cnt=0; me.Cnt < size(me.Devices); me.Cnt+=1) {
+            if(me.Producers > 0) {
+                me.Devices[me.Cnt].setCurrent(me.Tmp / me.Producers);
+            }
+            else {
+                me.Devices[me.Cnt].setCurrent(0);
+            }
         }
-        lbus_volts *=PWR;
-        Lbus.setValue(lbus_volts);
-        load += lh_bus(lbus_volts);
-    }else{
-        var battery1_volts = battery1.get_output_volts();
-        rbus_volts = battery1_volts;
-        power_source = "battery1";
-        var alternator2_volts = alternator2.get_output_volts();
-        if (alternator2_volts > rbus_volts) {
-            rbus_volts = alternator2_volts;
-            power_source = "alternator2";
+
+        #get new current
+        me.Max = 0;
+        me.Producers = 0;
+        for(me.Cnt=0; me.Cnt < size(me.Devices); me.Cnt+=1) {
+            me.Tmp = me.Devices[me.Cnt].getCurrent();
+
+            if(me.Tmp < 0) {
+                me.Producers += 1; #Producer
+            }
+            else {
+                me.Max += me.Tmp; #Consumer
+            }
         }
-        rbus_volts *=PWR;
-        Rbus.setValue(rbus_volts);
-        load += rh_bus(rbus_volts);
+        me.Current.setValue(me.Max);
+    },
+    updateVoltage: func {
+        me.Max = 0;
+
+        for(me.Cnt=0; me.Cnt < size(me.Devices); me.Cnt+=1) {
+            #set old voltage
+            me.Devices[me.Cnt].setVoltage(me.Voltage.getValue());
+
+            #get new voltage
+            me.Tmp = me.Devices[me.Cnt].getVoltage();
+            if(me.Tmp > me.Max) {
+                me.Max = me.Tmp;
+            }
+        }
+        me.Voltage.setValue(me.Max);
     }
-    count=1-count;
-    if(rbus_volts > 5 and  lbus_volts>5) xtie=1;
-    XTie.setValue(xtie);
-    if(rbus_volts > 5 or  lbus_volts>5) load += lighting(24);
+};
 
-    ammeter = 0.0;
-#    if ( bus_volts > 1.0 )load += 15.0;
-
-#    if ( power_source == "battery" ) {
-#        ammeter = -load;
-#        } else {
-#        ammeter = battery.charge_amps;
-#    }
-
-#    if ( power_source == "battery" ) {
-#        battery.apply_load( load, dt );
-#        } elsif ( bus_volts > battery_volts ) {
-#        battery.apply_load( -battery.charge_amps, dt );
-#        }
-
-#    ammeter_ave = 0.8 * ammeter_ave + 0.2 * ammeter;
-
-    alternator1.apply_load(load);
-    alternator2.apply_load(load);
-
-return load;
-}
-
-rh_bus = func(bv) {
-    var bus_volts = bv;
-    var load = 0.0;
-    var srvc = 0.0;
-
-    for(var i=0; i<size(rbus_input); i+=1) {
-        var srvc = rbus_input[i].getValue();
-        load += rbus_load[i] * srvc;
-        rbus_output[i].setValue(bus_volts * srvc);
+##########################################################################################################
+var Consumer = {
+    new: func(name, current, minVoltage) {
+        obj = { parents : [Consumer],
+            Connected: props.globals.initNode(ELNode ~ "Consumers/" ~ name ~ "_Connected", 0, "BOOL"),
+            Running: props.globals.initNode(ELNode ~ "Consumers/" ~ name ~ "_Running", 0, "BOOL"),
+            Current: current,
+            MinVoltage: minVoltage
+        };
+        return obj;
+    },
+    getCurrent: func {
+        if(!me.Running.getValue() or !me.Connected.getValue()) {
+            return 0;
+        }
+        return me.Current;
+    },
+    getVoltage: func {
+        return 0;
+    },
+    setCurrent: func(current) {
+    },
+    setVoltage: func(voltage) {
+        if(me.Connected.getValue()) {
+            if(voltage < me.MinVoltage) {
+                me.Running.setValue(0);
+            }
+            else {
+                me.Running.setValue(1);
+            }
+        }
+        else {
+            me.Running.setValue(0);
+        }
     }
-    return load;
-}
+};
 
-lh_bus = func(bv) {
-    var load = 0.0;
-    var srvc = 0.0;
+##########################################################################################################
+# From ATA 24.25: "The starter/generator system, with each of its two starter/generators (S/G), provides a
+# separate DC MAIN BUS with 28.5 VDC."
+var Generator = {
+    new: func(name, source) {
+        obj = { parents: [Generator],
+            Connected: props.globals.initNode(ELNode ~ name ~ "/Connected", 0, "BOOL"),
+            Current: props.globals.initNode(ELNode ~ name ~ "/Current", 0, "DOUBLE"), #A
+            Voltage: props.globals.initNode(ELNode ~ name ~ "/Voltage", 0, "DOUBLE"), #V
+            Source: props.globals.getNode(source, 1),
+            Running: 0,
+            RefVoltage: 28.5, #V
+            Tmp: 0
+        };
+        return obj;
+    },
+    getCurrent: func {
+        if(!me.Connected.getValue() or !me.Running) {
+            return 0;
+        }
+        return -1; #negative value -> producer
+    },
+    getVoltage: func {
+        me.Tmp = 0;
 
-    for(var i=0; i<size(lbus_input); i+=1) {
-        var srvc = lbus_input[i].getValue();
-        load += lbus_load[i] * srvc;
-        lbus_output[i].setValue(bv * srvc);
+        if(me.Running) {
+            me.Voltage.setValue(me.RefVoltage);
+
+            if(me.Connected.getValue()) {
+                me.Tmp = me.RefVoltage;
+            }
+        }
+        else {
+            me.Voltage.setValue(0);
+        }
+        return me.Tmp;
+    },
+    setConnected: func(connected) {
+        me.Connected.setValue(connected);
+    },
+    setCurrent: func(current) {
+	me.Running = me.Source.getValue() or 0;
+
+        if(me.Connected.getValue() and me.Running) {
+            me.Current.setValue(current);
+        }
+        else {
+            me.Current.setValue(0);
+        }
+    },
+    setVoltage: func(volts) {
     }
+};
 
-    setprop("systems/electrical/outputs/flaps",bv);
-    return load;
-}
+##########################################################################################################
+var Tie = {
+    new: func(name, a, b) {
+        obj = { parents: [Tie],
+            Connected: props.globals.initNode(ELNode ~ name ~ "/Connected", 0, "BOOL"),
+            Voltage: 0,
+            Current: 0,
+            Bus1: a,
+            Bus2: b,
+            Producers: 0,
+            Tmp: 0
+        };
+        return obj;
+    },
+    setConnected: func(connected) {
+        me.Connected.setValue(connected);
+    },
+    update: func {
+        if(me.Connected.getValue()) {
+            me.updateCurrent();
+            me.updateVoltage();
+		}
+    },
+    updateCurrent: func {
+        me.Current = me.Bus1.getCurrent();
+        me.Current += me.Bus2.getCurrent();
+        me.Producers = me.Bus1.getProducers();
+        me.Producers += me.Bus2.getProducers();
 
-lighting = func(bv) {
-    var load = 0.0;
-    var srvc = 0.0;
-
-    for(var i=0; i<size(lights_input); i+=1) {
-        var srvc = lights_input[i].getValue();
-        load += lights_load[i] * srvc;
-        lights_output[i].setValue(bv * srvc);
+        if(me.Producers > 0) {
+            me.Current /= me.Producers;
+            me.Bus1.setCurrent(me.Current);
+            me.Bus2.setCurrent(me.Current);
+        }
+        else {
+            me.Bus1.setCurrent(0);
+            me.Bus2.setCurrent(0);
+        }
+    },
+    updateVoltage: func {
+        me.Voltage = me.Bus1.getVoltage();
+        me.Tmp = me.Bus2.getVoltage();
+        
+        if(me.Tmp > me.Voltage) {
+            me.Voltage = me.Tmp;
+        }
+        me.Bus1.setVoltage(me.Voltage);
+        me.Bus2.setVoltage(me.Voltage);
     }
+};
 
-return load;
+##########################################################################################################
+var battery1 = Battery.new("Battery1");
+var battery2 = Battery.new("Battery2");
+var generator1 = Generator.new("Generator1", "/engines/engine[0]/generator-power");
+var generator2 = Generator.new("Generator2", "/engines/engine[1]/generator-power");
+var dc1 = Bus.new("DCBus1");
+var dc2 = Bus.new("DCBus2");
+var dctie = Tie.new("DCTie", dc1, dc2);
 
-}
+dc1.append(battery1);
+dc2.append(battery2);
+dc1.append(generator1);
+dc2.append(generator2);
+
+# TODO: which consumer on which bus?
+var efis = Consumer.new("EFIS", 10, 18.01); # name, amps, required volts
+var rmu = Consumer.new("RMU", 3, 17.99);
+var cdu = Consumer.new("CDU", 2, 18);
+var LL = Consumer.new("logo-lights", 10, 18);
+var WL = Consumer.new("wing-lights", 10, 18);
+var BL = Consumer.new("beacon", 10, 18);
+var SL = Consumer.new("strobe", 10, 18);
+var LaL = Consumer.new("landing-lights", 20, 18);
+var TL = Consumer.new("taxi-lights", 20, 18);
+var NL = Consumer.new("nav-lights", 10, 18);
+dc1.append(efis);
+dc1.append(cdu);
+dc1.append(rmu);
+dc1.append(LL);
+dc1.append(WL);
+dc1.append(BL);
+dc1.append(SL);
+dc1.append(LaL);
+dc1.append(TL);
+dc1.append(NL);
+setprop("/systems/electrical/Consumers/EFIS_Connected", 1);
+setprop("/systems/electrical/Consumers/RMU_Connected", 1);
+setprop("/systems/electrical/Consumers/CDU_Connected", 1);
 
 update_electrical = func {
-    var scnd = getprop("sim/time/delta-sec");
-    update_virtual_bus( scnd );
-settimer(update_electrical, 0);
+    dc1.update();
+    dc2.update();
+    dctie.update();
+    settimer(update_electrical, Refresh);
 }
+update_electrical();

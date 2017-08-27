@@ -9,51 +9,47 @@
 
    <signal>
         <type>float</type>
-        <property type="string">/systems/electrical/outputs/landing-light[0]</property>
+        <property type="string">/systems/electrical/Consumers/landing-lights_Running</property>
     </signal>
         <signal>
         <type>float</type>
-        <property type="string">/systems/electrical/outputs/landing-light[1]</property>
+        <property type="string">/systems/electrical/Consumers/nav-lights_Running</property>
     </signal>
         <signal>
         <type>float</type>
-        <property type="string">/systems/electrical/outputs/nav-lights</property>
+        <property type="string">/systems/electrical/Consumers/wing-lights_Running</property>
     </signal>
         <signal>
         <type>float</type>
-        <property type="string">/systems/electrical/outputs/wing-lights</property>
+        <property type="string">/systems/electrical/Consumers/logo-lights_Running</property>
     </signal>
         <signal>
         <type>float</type>
-        <property type="string">/systems/electrical/outputs/logo-lights</property>
+        <property type="string">/systems/electrical/Consumers/taxi-lights_Running</property>
     </signal>
         <signal>
         <type>float</type>
-        <property type="string">/systems/electrical/outputs/taxi-lights</property>
-    </signal>
-        <signal>
-        <type>float</type>
-        <property type="string">/systems/electrical/outputs/beacon</property>
+        <property type="string">/systems/electrical/Consumers/beacon_Running</property>
     </signal>        <signal>
         <type>float</type>
-        <property type="string">/systems/electrical/outputs/strobe</property>
+        <property type="string">/systems/electrical/Consumers/strobe_Running</property>
     </signal>
     
     <!--<signal>
         <type>float</type>
-        <property type="string">/systems/electrical/outputs/landing-light-intensity</property>
+        <property type="string">/systems/electrical/Consumers/landing-light_Intensity</property>
     </signal>
         <signal>
         <type>float</type>
-        <property type="string">/systems/electrical/outputs/beacon-itensity</property>
+        <property type="string">/systems/electrical/Consumers/beacon_Intensity</property>
     </signal>
     <signal>
         <type>float</type>
-        <property type="string">/systems/electrical/outputs/wing-lights-itensity</property>
+        <property type="string">/systems/electrical/Consumers/wing-lights_Intensity</property>
     </signal>
         <signal>
         <type>float</type>
-        <property type="string">/systems/electrical/outputs/logo-lights-itensity</property>
+        <property type="string">/systems/electrical/Consumers/logo-lights_Intensity</property>
     </signal>-->
     
 

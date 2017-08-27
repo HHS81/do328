@@ -92,6 +92,8 @@ Started by Heiko Schulz
    </sim>
    <nasal>
       <systems>
+         <file>Aircraft/do328/Nasal/Electrical.nas</file>
+         <file>Aircraft/do328/Nasal/ground_steering.nas</file>
          <file>Aircraft/do328/Nasal/tyresmoke.nas</file>
          <file>Aircraft/do328/Nasal/lightmap.nas</file>
          <file>Aircraft/do328/Nasal/jetsystems.nas</file>
@@ -142,12 +144,6 @@ Started by Heiko Schulz
       <rcu>
          <file>Aircraft/do328/Models/Instruments/RCU/RCU.nas</file>
       </rcu>
-      <do328>
-         <file>Aircraft/do328/Nasal/Electrical.nas</file>
-         <file>Aircraft/do328/Nasal/ground_steering.nas</file>
-         <!--<file>Aircraft/do328/Nasal/flightdirector.nas</file>-->
-         <!--<file>Aircraft/do328/Nasal/limits.nas</file>-->
-      </do328>
       <procedures>
          <file>Aircraft/do328/Models/Instruments/CDU/Procedures/fmsDB.nas</file>
          <file>Aircraft/do328/Models/Instruments/CDU/Procedures/fmsWP.nas</file>
