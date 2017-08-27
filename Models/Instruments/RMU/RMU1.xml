@@ -11,10 +11,7 @@
 	<type>select</type>
 	<object-name>RMU1.screen</object-name>
 	<condition>
-		<greater-than>
-			<property>systems/electrical/outputs/efis</property>
-			<value>1</value>
-		</greater-than>
+		<property>systems/electrical/Consumers/RMU_Running</property>
 	</condition>
     </animation>
     <animation>

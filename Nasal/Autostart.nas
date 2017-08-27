@@ -7,15 +7,17 @@ var Startup = func{
 }
 
 var Startup1 = func{
-	setprop("controls/electric/battery-switch",1);
-	setprop("controls/electric/avionics-switch",1);
-	setprop("controls/lighting/beacon",1);
-	setprop("controls/lighting/strobe",1);
-	setprop("controls/lighting/instruments-norm",0.5);
-	setprop("controls/lighting/nav-lights",1);
-	setprop("controls/lighting/landing-lights",1);
-	setprop("controls/lighting/wing-lights",1);
-	setprop("controls/lighting/taxi-lights",1);
+	setprop("systems/electrical/Battery1/Connected",1);
+	setprop("systems/electrical/Battery2/Connected",1);
+	setprop("systems/electrical/DCTie/Connected",1);
+	setprop("/systems/electrical/Consumers/logo-lights_Connected",1);
+	setprop("/systems/electrical/Consumers/wing-lights_Connected",1);
+	setprop("/systems/electrical/Consumers/beacon_Connected",1);
+	setprop("/systems/electrical/Consumers/strobe_Connected",1);
+	setprop("/systems/electrical/Consumers/landing-lights_Connected",1);
+	setprop("/systems/electrical/Consumers/taxi-lights_Connected",1);
+	setprop("/systems/electrical/Consumers/nav-lights_Connected",1);
+	#setprop("controls/lighting/instruments-norm",0.5);
 	setprop("controls/engines/engine[0]/cutoff",1);
 	setprop("controls/engines/engine[1]/cutoff",1);
 	setprop("controls/engines/engine[0]/starter",1);
@@ -28,23 +30,28 @@ var Startup2 = func{
 	setprop("controls/electric/engine[0]/generator",1);
 	setprop("controls/electric/engine[1]/generator",1);
 	setprop("fdm/jsbsim/propulsion/engine/EIP/state",1);
+	setprop("systems/electrical/Generator1/Connected",1);
+	setprop("systems/electrical/Generator2/Connected",1);
 }
 
 var Shutdown = func{
 	setprop("controls/electric/engine[0]/generator",0);
 	setprop("controls/electric/engine[1]/generator",0);
-	setprop("controls/electric/battery-switch",0);
-	setprop("controls/electric/avionics-switch",0);
-	setprop("controls/lighting/beacon",0);
-	setprop("controls/lighting/strobe",0);
-	setprop("controls/lighting/instruments-norm",0.0);
-	setprop("controls/lighting/nav-lights",0);
-	setprop("controls/lighting/landing-lights",0);
-	setprop("controls/lighting/wing-lights",0);
-	setprop("controls/lighting/taxi-lights",0);
+	setprop("systems/electrical/Generator1/Connected",0);
+	setprop("systems/electrical/Generator2/Connected",0);
+	setprop("/systems/electrical/Consumers/logo-lights_Connected",0);
+	setprop("/systems/electrical/Consumers/wing-lights_Connected",0);
+	setprop("/systems/electrical/Consumers/beacon_Connected",0);
+	setprop("/systems/electrical/Consumers/strobe_Connected",0);
+	setprop("/systems/electrical/Consumers/landing-lights_Connected",0);
+	setprop("/systems/electrical/Consumers/taxi-lights_Connected",0);
+	setprop("/systems/electrical/Consumers/nav-lights_Connected",0);
 	setprop("controls/engines/engine[0]/cutoff",1);
 	setprop("controls/engines/engine[1]/cutoff",1);
 	setprop("fdm/jsbsim/propulsion/engine/EIP/state",0);
+	setprop("systems/electrical/Battery1/Connected",0);
+	setprop("systems/electrical/Battery2/Connected",0);
+	setprop("systems/electrical/DCTie/Connected",0);
 }
 
 setlistener("/sim/model/autostart", func(start) {
