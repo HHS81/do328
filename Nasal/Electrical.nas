@@ -45,7 +45,7 @@ var Battery = {
         me.Connected.setValue(connected);
     },
     setCurrent: func(current) {
-        if(me.Connected.getValue()) {
+        if(me.Connected.getValue() and me.Running) {
             me.Tmp = (current * Refresh) / 3600.0; # used amp hrs
             me.DCharge = me.Tmp / me.Capacity;
             me.Charge -= me.DCharge;
@@ -196,6 +196,60 @@ var Consumer = {
 };
 
 ##########################################################################################################
+# From ATA 24.25: "The starter/generator system, with each of its two starter/generators (S/G), provides a
+# separate DC MAIN BUS with 28.5 VDC."
+var Generator = {
+    new: func(name, source) {
+        obj = { parents: [Generator],
+            Connected: props.globals.initNode(ELNode ~ name ~ "/Connected", 0, "BOOL"),
+            Current: props.globals.initNode(ELNode ~ name ~ "/Current", 0, "DOUBLE"), #A
+            Voltage: props.globals.initNode(ELNode ~ name ~ "/Voltage", 0, "DOUBLE"), #V
+            Source: props.globals.getNode(source, 1),
+            Running: 0,
+            RefVoltage: 28.5, #V
+            Tmp: 0
+        };
+        return obj;
+    },
+    getCurrent: func {
+        if(!me.Connected.getValue() or !me.Running) {
+            return 0;
+        }
+        return -1; #negative value -> producer
+    },
+    getVoltage: func {
+        me.Tmp = 0;
+
+        if(me.Running) {
+            me.Voltage.setValue(me.RefVoltage);
+
+            if(me.Connected.getValue()) {
+                me.Tmp = me.RefVoltage;
+            }
+        }
+        else {
+            me.Voltage.setValue(0);
+        }
+        return me.Tmp;
+    },
+    setConnected: func(connected) {
+        me.Connected.setValue(connected);
+    },
+    setCurrent: func(current) {
+	me.Running = me.Source.getValue() or 0;
+
+        if(me.Connected.getValue() and me.Running) {
+            me.Current.setValue(current);
+        }
+        else {
+            me.Current.setValue(0);
+        }
+    },
+    setVoltage: func(volts) {
+    }
+};
+
+##########################################################################################################
 var Tie = {
     new: func(name, a, b) {
         obj = { parents: [Tie],
@@ -249,12 +303,16 @@ var Tie = {
 ##########################################################################################################
 var battery1 = Battery.new("Battery1");
 var battery2 = Battery.new("Battery2");
+var generator1 = Generator.new("Generator1", "/engines/engine[0]/generator-power");
+var generator2 = Generator.new("Generator2", "/engines/engine[1]/generator-power");
 var dc1 = Bus.new("DCBus1");
 var dc2 = Bus.new("DCBus2");
 var dctie = Tie.new("DCTie", dc1, dc2);
 
 dc1.append(battery1);
 dc2.append(battery2);
+dc1.append(generator1);
+dc2.append(generator2);
 
 # TODO: which consumer on which bus?
 var efis = Consumer.new("EFIS", 10, 18.01); # name, amps, required volts
