@@ -466,7 +466,7 @@
         <object-name>CDU-lamp</object-name>
 				<condition>
 					<and>
-               <property>systems/electrical/Consumers/CDU</property>
+               <property>systems/electrical/Consumers/CDU_Running</property>
             <greater-than>
                 <property>controls/lighting/cdu</property>
                 <value>0.02</value>

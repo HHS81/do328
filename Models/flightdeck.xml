@@ -24,7 +24,7 @@
   <object-name>MFD2_Screen</object-name>
   <object-name>EICAS_Screen</object-name>
   <condition>
-     <property>systems/electrical/Consumers/EFIS</property>
+     <property>systems/electrical/Consumers/EFIS_Running</property>
   </condition>
 </animation>
 

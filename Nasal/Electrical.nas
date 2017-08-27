@@ -2,18 +2,25 @@
 # by xcvb85, battery class based on battery class from tu154b
 ##########################################################################################################
 
+# global definces
 var ELNode = "systems/electrical/";
 var Refresh = 0.1;
+
+# generate blink signals
+var strobe_switch = props.globals.getNode("controls/lighting/strobe", 1);
+aircraft.light.new("controls/lighting/strobe-state", [0.015, 1.30], strobe_switch);
+var beacon_switch = props.globals.getNode("controls/lighting/beacon", 1);
+aircraft.light.new("controls/lighting/beacon-state", [0.015, 1.0], beacon_switch);
 
 ##########################################################################################################
 # From ATA 24.41: "Two identical nickel cadmium batteries (BAT) 24 V/40 Ah are installed in the aircraft."
 var Battery = {
     new: func(name) {
         obj = { parents: [Battery],
-            Active: 0,
             Connected: props.globals.initNode(ELNode ~ name ~ "/Connected", 0, "BOOL"),
             Current: props.globals.initNode(ELNode ~ name ~ "/Current", 0, "DOUBLE"), #A
             Voltage: props.globals.initNode(ELNode ~ name ~ "/Voltage", 24, "DOUBLE"), #V
+            Running: 0,
             RefVoltage: 24, #V
             Capacity: 40, #Ah
             Charge: 1, #%
@@ -23,13 +30,13 @@ var Battery = {
         return obj;
     },
     getCurrent: func {
-        if(!me.Connected.getValue() or !me.Active) {
+        if(!me.Connected.getValue() or !me.Running) {
             return 0;
         }
         return -1; #negative value -> producer
     },
     getVoltage: func {
-        if(!me.Connected.getValue() or !me.Active) {
+        if(!me.Connected.getValue() or !me.Running) {
             return 0;
         }
         return me.Voltage.getValue();
@@ -59,10 +66,10 @@ var Battery = {
         me.Tmp = (1.0 - me.Charge) / 10;
 
         if((volts-me.DCharge) > (me.RefVoltage - me.Tmp)) {
-            me.Active = 0;
+            me.Running = 0;
         }
         else {
-            me.Active = 1;
+            me.Running = 1;
         }
         me.Voltage.setValue(me.RefVoltage - me.Tmp);
     }
@@ -155,14 +162,15 @@ var Bus = {
 var Consumer = {
     new: func(name, current, minVoltage) {
         obj = { parents : [Consumer],
-            Active: props.globals.initNode(ELNode ~ "Consumers/" ~ name, 0, "BOOL"),
+            Connected: props.globals.initNode(ELNode ~ "Consumers/" ~ name ~ "_Connected", 0, "BOOL"),
+            Running: props.globals.initNode(ELNode ~ "Consumers/" ~ name ~ "_Running", 0, "BOOL"),
             Current: current,
             MinVoltage: minVoltage
         };
         return obj;
     },
     getCurrent: func {
-        if(!me.Active.getValue()) {
+        if(!me.Running.getValue() or !me.Connected.getValue()) {
             return 0;
         }
         return me.Current;
@@ -173,11 +181,16 @@ var Consumer = {
     setCurrent: func(current) {
     },
     setVoltage: func(voltage) {
-        if(voltage < me.MinVoltage) {
-            me.Active.setValue(0);
+        if(me.Connected.getValue()) {
+            if(voltage < me.MinVoltage) {
+                me.Running.setValue(0);
+            }
+            else {
+                me.Running.setValue(1);
+            }
         }
         else {
-            me.Active.setValue(1);
+            me.Running.setValue(0);
         }
     }
 };
@@ -238,18 +251,35 @@ var battery1 = Battery.new("Battery1");
 var battery2 = Battery.new("Battery2");
 var dc1 = Bus.new("DCBus1");
 var dc2 = Bus.new("DCBus2");
-var efis = Consumer.new("EFIS", 10, 18.01); # name, amps, required volts
-var rmu = Consumer.new("RMU", 3, 17.99);
-var cdu = Consumer.new("CDU", 2, 18);
 var dctie = Tie.new("DCTie", dc1, dc2);
 
 dc1.append(battery1);
 dc2.append(battery2);
 
 # TODO: which consumer on which bus?
+var efis = Consumer.new("EFIS", 10, 18.01); # name, amps, required volts
+var rmu = Consumer.new("RMU", 3, 17.99);
+var cdu = Consumer.new("CDU", 2, 18);
+var LL = Consumer.new("logo-lights", 10, 18);
+var WL = Consumer.new("wing-lights", 10, 18);
+var BL = Consumer.new("beacon", 10, 18);
+var SL = Consumer.new("strobe", 10, 18);
+var LaL = Consumer.new("landing-lights", 20, 18);
+var TL = Consumer.new("taxi-lights", 20, 18);
+var NL = Consumer.new("nav-lights", 10, 18);
 dc1.append(efis);
 dc1.append(cdu);
 dc1.append(rmu);
+dc1.append(LL);
+dc1.append(WL);
+dc1.append(BL);
+dc1.append(SL);
+dc1.append(LaL);
+dc1.append(TL);
+dc1.append(NL);
+setprop("/systems/electrical/Consumers/EFIS_Connected", 1);
+setprop("/systems/electrical/Consumers/RMU_Connected", 1);
+setprop("/systems/electrical/Consumers/CDU_Connected", 1);
 
 update_electrical = func {
     dc1.update();

@@ -112,12 +112,12 @@ V1 --> Vr --> Rotate to 8deg --> @50ft Rotate to 15deg -->Climb @V2 + 15ktn --> 
       <virtual-cockpit archive="y">true</virtual-cockpit>
       <multiplay>
          <generic>
-            <int n="0" alias="/systems/electrical/outputs/strobe" />
-            <int n="1" alias="/systems/electrical/outputs/beacon" />
-            <int n="2" alias="/systems/electrical/outputs/taxi-lights" />
-            <int n="3" alias="/systems/electrical/outputs/landing-lights" />
-            <int n="5" alias="/systems/electrical/outputs/recog-lights" />
-            <int n="6" alias="/systems/electrical/outputs/nav-lights" />
+            <int n="0" alias="/systems/electrical/Consumers/strobe_Running" />
+            <int n="1" alias="/systems/electrical/Consumers/beacon_Running" />
+            <int n="2" alias="/systems/electrical/Consumers/taxi-lights_Running" />
+            <int n="3" alias="/systems/electrical/Consumers/landing-lights_Running" />
+            <int n="5" alias="/systems/electrical/Consumers/recog-lights_Running" />
+            <int n="6" alias="/systems/electrical/Consumers/nav-lights_Running" />
             <float alias="/controls/cabin-door/position-norm" />
             <float n="1" alias="/surface-positions/speedbrake-pos-norm" />
             <float n="2" alias="/surface-positions/reverser-norm" />

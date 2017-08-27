@@ -42,7 +42,7 @@ var MFD = {
 	# input: 0=back, 1=sk1...5=sk5
 	BtClick: func(input = -1) {
 
-		if(!getprop("systems/electrical/Consumers/EFIS")) {
+		if(!getprop("systems/electrical/Consumers/EFIS_Running")) {
 			return;
 		}
 		if(input == 0) {
