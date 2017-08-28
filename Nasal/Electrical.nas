@@ -36,7 +36,7 @@ var Battery = {
         return -1; #negative value -> producer
     },
     getVoltage: func {
-        if(!me.Connected.getValue() or !me.Running) {
+        if(!me.Connected.getValue()) {
             return 0;
         }
         return me.Voltage.getValue();
@@ -338,6 +338,18 @@ dc1.append(NL);
 setprop("/systems/electrical/Consumers/EFIS_Connected", 1);
 setprop("/systems/electrical/Consumers/RMU_Connected", 1);
 setprop("/systems/electrical/Consumers/CDU_Connected", 1);
+
+# activate navigation systems
+props.globals.initNode("systems/electrical/outputs/adf", 24, "DOUBLE");
+props.globals.initNode("systems/electrical/outputs/dme", 24, "DOUBLE");
+props.globals.initNode("systems/electrical/outputs/gps", 24, "DOUBLE");
+props.globals.initNode("systems/electrical/outputs/DG", 24, "DOUBLE");
+props.globals.initNode("systems/electrical/outputs/transponder", 24, "DOUBLE");
+props.globals.initNode("systems/electrical/outputs/mk-viii", 24, "DOUBLE");
+props.globals.initNode("systems/electrical/outputs/turn-coordinator", 24, "DOUBLE");
+props.globals.initNode("systems/electrical/outputs/comm", 24, "DOUBLE");
+props.globals.initNode("systems/electrical/outputs/comm[1]", 24, "DOUBLE");
+props.globals.initNode("systems/electrical/outputs/nav", 24, "DOUBLE");
 
 update_electrical = func {
     dc1.update();
