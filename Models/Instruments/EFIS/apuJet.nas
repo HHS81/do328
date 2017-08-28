@@ -10,8 +10,16 @@ var canvas_apu = {
 				return "honeywellfont.ttf";
 			}
 		};
-		
+
 		canvas.parsesvg(canvasGroup, "Aircraft/do328/Models/Instruments/EFIS/apuJet.svg", {'font-mapper': font_mapper});
+
+		var svg_keys = ["OverloadN","OverloadEGT"];
+		foreach(var key; svg_keys) {
+			m[key] = canvasGroup.getElementById(key);
+		}
+		
+		m.OverloadN.hide();
+		m.OverloadEGT.hide();
 
 		return m;
 	},

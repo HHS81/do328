@@ -41,8 +41,8 @@
      id="namedview1907"
      showgrid="false"
      inkscape:zoom="0.70264085"
-     inkscape:cx="332.89683"
-     inkscape:cy="568.05644"
+     inkscape:cx="479.37524"
+     inkscape:cy="531.93785"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -598,17 +598,17 @@
     </text>
   </g>
   <g
-     id="g4438">
+     id="FailBatt2">
     <path
        sodipodi:nodetypes="ccccc"
        d="m 499.71931,256.06757 0,25.18243 67.5,0 0,-25.18243 z"
-       style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#ffbf00;stroke-width:3.00000027;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#ffbf00;stroke-width:3.00000024;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="path6060"
        inkscape:connector-curvature="0" />
     <text
        sodipodi:linespacing="125%"
        xml:space="default"
-       style="font-style:normal;font-weight:normal;font-size:37.5px;line-height:125%;font-family:'Liberation Sans';text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#ffbf00;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+       style="font-style:normal;font-weight:normal;font-size:37.5px;line-height:125%;font-family:'Liberation Sans';text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#ffbf00;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="540.61719"
        y="276.6911"
        id="text6063">
@@ -616,26 +616,26 @@
          id="tspan6065"
          x="533.4693"
          y="276.5"
-         style="font-size:22.50000191px;text-align:center;text-anchor:middle;fill:#ffbf00;fill-opacity:1;">FAIL</tspan>
+         style="font-size:22.50000191px;text-align:center;text-anchor:middle;fill:#ffbf00;fill-opacity:1">FAIL</tspan>
     </text>
   </g>
   <g
-     id="g4443">
+     id="FailBatt1">
     <path
        inkscape:connector-curvature="0"
        id="path6040"
-       style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#ffbf00;stroke-width:3.00000027;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#ffbf00;stroke-width:3.00000024;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m 222.97141,255.06122 0,25.18243 67.5,0 0,-25.18243 z"
        sodipodi:nodetypes="ccccc" />
     <text
        id="text6042"
        y="275.68472"
        x="263.86929"
-       style="font-style:normal;font-weight:normal;font-size:37.5px;line-height:125%;font-family:'Liberation Sans';text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#ffbf00;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+       style="font-style:normal;font-weight:normal;font-size:37.5px;line-height:125%;font-family:'Liberation Sans';text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#ffbf00;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        xml:space="default"
        sodipodi:linespacing="125%">
       <tspan
-         style="font-size:22.50000191px;text-align:center;text-anchor:middle;fill:#ffbf00;fill-opacity:1;"
+         style="font-size:22.50000191px;text-align:center;text-anchor:middle;fill:#ffbf00;fill-opacity:1"
          y="275.49362"
          x="256.72141"
          id="tspan6044">FAIL</tspan>
@@ -726,22 +726,6 @@
        id="path4377"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc" />
-  </g>
-  <g
-     transform="matrix(0,1.0000001,-0.99999994,0,860.00002,-176.00006)"
-     id="g4367">
-    <path
-       sodipodi:nodetypes="ccccc"
-       inkscape:connector-curvature="0"
-       id="path4369"
-       style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#ffffff;stroke-width:3.00000024;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 340.00002,451.50002 0,27.00001 27,0 0,-27.00001 z" />
-    <path
-       sodipodi:nodetypes="cc"
-       inkscape:connector-curvature="0"
-       id="path4371"
-       style="fill:none;stroke:#ffffff;stroke-width:3.00000024;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 353.50002,451.50002 0,27.00001" />
   </g>
   <g
      id="g4556">
@@ -1108,5 +1092,20 @@
          x="220"
          y="400"
          style="font-size:22.50000191px;text-align:center;text-anchor:middle;fill:#ffffff">999</tspan></text>
+  </g>
+  <g
+     id="DCTie">
+    <path
+       sodipodi:nodetypes="ccccc"
+       inkscape:connector-curvature="0"
+       id="path4369"
+       style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#ffffff;stroke-width:3.00000024;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 408.50003,163.99999 -27.00001,0 0,27.00001 27.00001,0 z" />
+    <path
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0"
+       id="path4371"
+       style="fill:none;stroke:#ffffff;stroke-width:3.00000024;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 408.50003,177.5 -27.00001,0" />
   </g>
 </svg>
