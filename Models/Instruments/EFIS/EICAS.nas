@@ -35,6 +35,7 @@ var EICAS = {
 
 		m.Pages[9] = canvas_cpcs.new(group.createChild('group'));
 		m.Pages[10] = canvas_doors.new(group.createChild('group'));
+		m.Pages[11] = canvas_maint.new(group.createChild('group'));
 
 		m.SkInstance = canvas_softkeys.new(group.createChild('group'));
 		m.SkInstance.setSoftkeys(EicasSoftkeys[0]);
@@ -98,6 +99,12 @@ var EICAS = {
 					me.SelectedSkPage = 1;
 					me.SelectedSk = 0;
 				}
+				else if(input == 3) {
+					# activate "ENGINE" page
+					me.ActivatePage(3);
+					me.SelectedSkPage = 1;
+					me.SelectedSk = 2;
+				}
 				else if(input == 4) {
 					# activate "FUEL" page
 					me.ActivatePage(4);
@@ -155,6 +162,12 @@ var EICAS = {
 					me.ActivatePage(10);
 					me.SelectedSkPage = 3;
 					me.SelectedSk = 1;
+				}
+				else if(input == 3) {
+					# activate "MAINT" page
+					me.ActivatePage(11);
+					me.SelectedSkPage = 3;
+					me.SelectedSk = 2;
 				}
 				else if(input == 5) {
 					# activate "SYSTEM 1/3" page

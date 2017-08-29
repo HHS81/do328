@@ -11,7 +11,7 @@ var canvas_engine = {
 			}
 		};
 
-		#canvas.parsesvg(canvasGroup, "Aircraft/do328/Models/Instruments/EFIS/engine.svg", {'font-mapper': font_mapper});
+		canvas.parsesvg(canvasGroup, "Aircraft/do328/Models/Instruments/EFIS/engineProp.svg", {'font-mapper': font_mapper});
 
 		return m;
 	},

@@ -109,7 +109,7 @@ Started by Heiko Schulz
 
          <file>Aircraft/do328/Models/Instruments/EFIS/flightctrl.nas</file>
          <file>Aircraft/do328/Models/Instruments/EFIS/hydr.nas</file>
-         <file>Aircraft/do328/Models/Instruments/EFIS/engine.nas</file>
+         <file>Aircraft/do328/Models/Instruments/EFIS/engineProp.nas</file>
          <file>Aircraft/do328/Models/Instruments/EFIS/fuelProp.nas</file>
 
          <file>Aircraft/do328/Models/Instruments/EFIS/electr.nas</file>
@@ -119,6 +119,7 @@ Started by Heiko Schulz
 
          <file>Aircraft/do328/Models/Instruments/EFIS/cpcs.nas</file>
          <file>Aircraft/do328/Models/Instruments/EFIS/doors.nas</file>
+         <file>Aircraft/do328/Models/Instruments/EFIS/maintProp.nas</file>
 
          <file>Aircraft/do328/Models/Instruments/EFIS/softkeys.nas</file>
          <file>Aircraft/do328/Models/Instruments/EFIS/EICAS.nas</file>
