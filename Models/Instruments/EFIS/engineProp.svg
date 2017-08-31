@@ -25,9 +25,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="1"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.49497475"
-     inkscape:cx="120.79516"
-     inkscape:cy="680.91929"
+     inkscape:zoom="0.7"
+     inkscape:cx="284.10733"
+     inkscape:cy="593.91943"
      inkscape:document-units="px"
      inkscape:current-layer="engineProp"
      showgrid="false"
@@ -46,13 +46,15 @@
   <path
      inkscape:connector-curvature="0"
      id="path6151"
-     style="fill:none;stroke:#55bbee;stroke-width:3;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-     d="m 440.4807,39.824836 0,751.780424" />
+     style="fill:none;stroke:#55bbee;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     d="m 440,40 0,765"
+     sodipodi:nodetypes="cc" />
   <path
      inkscape:connector-curvature="0"
      id="path6317"
-     style="fill:none;stroke:#55bbee;stroke-width:3;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-     d="m 440.79768,294.20263 252.48524,0" />
+     style="fill:none;stroke:#55bbee;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     d="m 440,295 260,0"
+     sodipodi:nodetypes="cc" />
   <metadata
      id="metadata9891">
     <rdf:RDF>

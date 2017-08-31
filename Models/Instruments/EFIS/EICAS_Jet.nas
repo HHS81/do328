@@ -5,13 +5,11 @@ var EicasSoftkeys = [["MAIN","CAPT\nSYSTEM","REF\nDATA","COPY","AHRS","F/O\nSYST
 		["SYSTEM 1/3","FLIGHT\nCONTROL","HYDR","ENGINE","FUEL","NEXT",""], #1
 		["SYSTEM 2/3","ELECTR","ECS","ICE\nPROTECT","APU","NEXT",""], #2
 		["SYSTEM 3/3","CPCS/\nOXYGEN","DOORS","SYS\nMAINT","SENSOR\nDATA","NEXT",""], #3
-		["REF DATA","T/O","CLIMB","CRUISE","LANDG","SINGLE\nENGINE","MSG"], #4
-		["T/O","FLAPS\n12","V1\n102","VR\n108","V2\n113","T/O TQ","MSG"], #5
+		["REF DATA","T/O\nSPD","T/O\nPWR","","CRUISE","LANDG","MSG"], #4
+		["T/O SPD","FLAPS\n12","V1\n102","VR\n108","V2\n113","VSEC\n184","MSG"], #5
 		["CLIMB","VCL\n200","","","L 84.6\nR 84.6","","MSG"], #6
 		["CRUISE","VC\n239","","VSTD\n180","L 80.7\nR 80.7","","MSG"], #7
-		["LANDG","FLAPS\n32","VFL0\n170","VREF\n110","L100.0\nR100.0","","MSG"], #8
-		["T/O TQ","TEMP °C\n18","TEMP °F\n64","","L100.0\nR100.0","","MSG"], #9
-		["MAINT","TREND","EXCEED","FAULT","GNDMNT","","RNG"]]; #10
+		["LANDG","FLAPS\n32","VFL0\n170","VREF\n110","L100.0\nR100.0","","MSG"]]; #8
 
 var EICAS = {
 	new: func(group)
@@ -184,30 +182,21 @@ var EICAS = {
 					EicasSoftkeys[5][3] = sprintf("VR\n%3.0f",getprop("/instrumentation/fmc/vspeeds/VR"));
 					EicasSoftkeys[5][4] = sprintf("V2\n%3.0f",getprop("/instrumentation/fmc/vspeeds/V2"));
 					me.SkInstance.setSoftkeys(EicasSoftkeys[5]);
-					me.SkInstance.drawFrames([1,1,1,1,0]);
+					me.SkInstance.drawFrames([1,1,1,1,1]);
 					me.ShownSkPage = 5;
 					me.SelectedSkPage = 4;
 					me.SelectedSk = 0;
 				}
-				else if(input == 2) {
-					# activate "CLIMB"
-					setprop("instrumentation/fmc/phase-name", "CLIMB");
-					me.SkInstance.setSoftkeys(EicasSoftkeys[6]);
-					me.SkInstance.drawFrames([0,0,0,1,0]);
-					me.ShownSkPage = 6;
-					me.SelectedSkPage = 4;
-					me.SelectedSk = 1;
-				}
-				else if(input == 3) {
+				else if(input == 4) {
 					# activate "CRUISE"
 					setprop("instrumentation/fmc/phase-name", "CRUISE");
 					me.SkInstance.setSoftkeys(EicasSoftkeys[7]);
 					me.SkInstance.drawFrames([1,0,1,1,0]);
 					me.ShownSkPage = 7;
 					me.SelectedSkPage = 4;
-					me.SelectedSk = 2;
+					me.SelectedSk = 3;
 				}
-				else if(input == 4) {
+				else if(input == 5) {
 					# activate "LANDG"
 					setprop("instrumentation/fmc/phase-name", "LANDG");
 					EicasSoftkeys[8][3] = sprintf("VREF\n%3.0f",getprop("/instrumentation/fmc/vspeeds/Vref"));
@@ -215,7 +204,7 @@ var EICAS = {
 					me.SkInstance.drawFrames([1,1,1,1,0]);
 					me.ShownSkPage = 8;
 					me.SelectedSkPage = 4;
-					me.SelectedSk = 3;
+					me.SelectedSk = 4;
 				}
 			}
 		}

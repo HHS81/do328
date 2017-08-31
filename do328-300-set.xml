@@ -121,7 +121,7 @@ Started by Heiko Schulz
          <file>Aircraft/do328/Models/Instruments/EFIS/maintJet.nas</file>
 
          <file>Aircraft/do328/Models/Instruments/EFIS/softkeys.nas</file>
-         <file>Aircraft/do328/Models/Instruments/EFIS/EICAS.nas</file>
+         <file>Aircraft/do328/Models/Instruments/EFIS/EICAS_Jet.nas</file>
          <file>Aircraft/do328/Models/Instruments/EFIS/MFD.nas</file>
       </efis>
       <rmu>

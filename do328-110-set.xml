@@ -122,7 +122,7 @@ Started by Heiko Schulz
          <file>Aircraft/do328/Models/Instruments/EFIS/maintProp.nas</file>
 
          <file>Aircraft/do328/Models/Instruments/EFIS/softkeys.nas</file>
-         <file>Aircraft/do328/Models/Instruments/EFIS/EICAS.nas</file>
+         <file>Aircraft/do328/Models/Instruments/EFIS/EICAS_Prop.nas</file>
          <file>Aircraft/do328/Models/Instruments/EFIS/MFD.nas</file>
       </efis>
       <rmu>

@@ -3,9 +3,15 @@
 var Mfd1Instance = {};
 var Mfd2Instance = {};
 var MfdSoftkeys = [["MAIN 1/2","DISPLAY","RADAR","SYSTEM","FMS","MFD\nFORMAT","RNG"], #0
-		["SYSTEM 1/3","FLIGHT\nCONTROL","HYDR","ENGINE","FUEL","NEXT",""], #1
-		["SYSTEM 2/3","ELECTR","ECS","ICE\nPROTECT","APU","NEXT",""], #2
-		["SYSTEM 3/3","CPCS/\nOXYGEN","DOORS","SYS\nMAINT","SENSOR\nDATA","NEXT",""]]; #3
+		["MAIN 2/2","MAINT","","","","","RNG"], #1
+		["DISPLAY","","","","","","RNG"], #2
+		["RADAR","STBY\nTEST","VK\nGMAP","GAIN\nPRE VAR","TILT\n","RADAR\nSUB","RNG"], #3
+		["SYSTEM 1/3","FLIGHT\nCONTROL","HYDR","ENGINE","FUEL","NEXT",""], #4
+		["SYSTEM 2/3","ELECTR","ECS","ICE\nPROTECT","APU","NEXT",""], #5
+		["SYSTEM 3/3","CPCS/\nOXYGEN","DOORS","SYS\nMAINT","SENSOR\nDATA","NEXT",""], #6
+		["FMS","STANDARD\nIDENT","SPECIAL\nIDENT","","","","RNG"], #7
+		["MFD FORMAT","","","","","","RNG"], #8
+		["MAINT","TREND","EXCEED","FAULT","GNDMNT","","RNG"]]; #9
 
 var MFD = {
 	new: func(group)
@@ -57,104 +63,138 @@ var MFD = {
 		if(input == 0) {
 			# back button pressed
 			# go back to main menu
-			me.SkInstance.setSoftkeys(MfdSoftkeys[0]);
+			if(me.ShownSkPage == 0 or me.ShownSkPage == 9) {
+				me.SkInstance.setSoftkeys(MfdSoftkeys[1]);
+				me.ShownSkPage = 1;
+			}
+			else {
+				me.SkInstance.setSoftkeys(MfdSoftkeys[0]);
+				me.ShownSkPage = 0;
+			}
 			me.ActivatePage(0);
-			me.ShownSkPage = 0;
 			me.SelectedSkPage = 0;
 			me.SelectedSk = -1;
 		}
 		else {
 			# softkey pressed
 			if(me.ShownSkPage == 0) {
-				# main menu
-				if(input == 3) {
+				# main 1/2 menu
+				if(input == 1) {
+					# activate "DISPLAY"
+					me.SkInstance.setSoftkeys(MfdSoftkeys[2]);
+					me.ShownSkPage = 2;
+				}
+				else if(input == 2) {
+					# activate "RADAR"
+					me.SkInstance.setSoftkeys(MfdSoftkeys[3]);
+					me.ShownSkPage = 3;
+				}
+				else if(input == 3) {
 					# activate "SYSTEM"
-					me.SkInstance.setSoftkeys(MfdSoftkeys[1]);
-					me.ShownSkPage = 1;
+					me.SkInstance.setSoftkeys(MfdSoftkeys[4]);
+					me.ShownSkPage = 4;
+				}
+				else if(input == 4) {
+					# activate "FMS"
+					me.SkInstance.setSoftkeys(MfdSoftkeys[7]);
+					me.ShownSkPage = 7;
+				}
+				else if(input == 5) {
+					# activate "MFD\nFORMAT"
+					me.SkInstance.setSoftkeys(MfdSoftkeys[8]);
+					me.ShownSkPage = 8;
 				}
 			}
 			else if(me.ShownSkPage == 1) {
+				# main 2/2 menu
+				if(input == 1) {
+					# activate "MAINT"
+					me.SkInstance.setSoftkeys(MfdSoftkeys[9]);
+					me.ShownSkPage = 9;
+				}
+			}
+			else if(me.ShownSkPage == 4) {
 				# "SYSTEM 1/3" page
 				if(input == 1) {
 					# activate "FLIGHT CONTROL" page
 					me.ActivatePage(1);
-					me.SelectedSkPage = 1;
+					me.SelectedSkPage = 4;
 					me.SelectedSk = 0;
 				}
 				else if(input == 3) {
 					# activate "ENGINE" page
 					me.ActivatePage(3);
-					me.SelectedSkPage = 1;
+					me.SelectedSkPage = 4;
 					me.SelectedSk = 2;
 				}
 				else if(input == 4) {
 					# activate "FUEL" page
 					me.ActivatePage(4);
-					me.SelectedSkPage = 1;
+					me.SelectedSkPage = 4;
 					me.SelectedSk = 3;
 				}
 				else if(input == 5) {
 					# activate "SYSTEM 2/3" page
-					me.SkInstance.setSoftkeys(MfdSoftkeys[2]);
-					me.ShownSkPage = 2;
+					me.SkInstance.setSoftkeys(MfdSoftkeys[5]);
+					me.ShownSkPage = 5;
 				}
 			}
-			else if(me.ShownSkPage == 2) {
+			else if(me.ShownSkPage == 5) {
 				# "SYSTEM 2/3" page
 				if(input == 1) {
 					# activate "ELECTR" page
 					me.ActivatePage(5);
-					me.SelectedSkPage = 2;
+					me.SelectedSkPage = 5;
 					me.SelectedSk = 0;
 				}
 				else if(input == 2) {
 					# activate "ECS" page
 					me.ActivatePage(6);
-					me.SelectedSkPage = 2;
+					me.SelectedSkPage = 5;
 					me.SelectedSk = 1;
 				}
 				else if(input == 3) {
 					# activate "ICE" page
 					me.ActivatePage(7);
-					me.SelectedSkPage = 2;
+					me.SelectedSkPage = 5;
 					me.SelectedSk = 2;
 				}
 				else if(input == 4) {
 					# activate "APU" page
 					me.ActivatePage(8);
-					me.SelectedSkPage = 2;
+					me.SelectedSkPage = 5;
 					me.SelectedSk = 3;
 				}
 				else if(input == 5) {
 					# activate "SYSTEM 3/3" page
-					me.SkInstance.setSoftkeys(MfdSoftkeys[3]);
-					me.ShownSkPage = 3;
+					me.SkInstance.setSoftkeys(MfdSoftkeys[6]);
+					me.ShownSkPage = 6;
 				}
 			}
-			else if(me.ShownSkPage == 3) {
+			else if(me.ShownSkPage == 6) {
 				# "SYSTEM 3/3" page
 				if(input == 1) {
 					# activate "CPCS" page
 					me.ActivatePage(9);
-					me.SelectedSkPage = 3;
+					me.SelectedSkPage = 6;
 					me.SelectedSk = 0;
 				}
 				else if(input == 2) {
 					# activate "DOORS" page
 					me.ActivatePage(10);
-					me.SelectedSkPage = 3;
+					me.SelectedSkPage = 6;
 					me.SelectedSk = 1;
 				}
 				else if(input == 3) {
 					# activate "MAINT" page
 					me.ActivatePage(11);
-					me.SelectedSkPage = 3;
+					me.SelectedSkPage = 6;
 					me.SelectedSk = 2;
 				}
 				else if(input == 5) {
 					# activate "SYSTEM 1/3" page
-					me.SkInstance.setSoftkeys(MfdSoftkeys[1]);
-					me.ShownSkPage = 1;
+					me.SkInstance.setSoftkeys(MfdSoftkeys[4]);
+					me.ShownSkPage = 4;
 				}
 			}
 		}
