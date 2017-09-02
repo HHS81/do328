@@ -121,6 +121,12 @@ var MFD = {
 					me.SelectedSkPage = 4;
 					me.SelectedSk = 0;
 				}
+				else if(input == 2) {
+					# activate "HYDR" page
+					me.ActivatePage(2);
+					me.SelectedSkPage = 4;
+					me.SelectedSk = 1;
+				}
 				else if(input == 3) {
 					# activate "ENGINE" page
 					me.ActivatePage(3);

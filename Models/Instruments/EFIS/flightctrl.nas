@@ -14,11 +14,9 @@ var canvas_flightctrl = {
 		
 		canvas.parsesvg(canvasGroup, "Aircraft/do328/Models/Instruments/EFIS/flightctrl.svg", {'font-mapper': font_mapper});
 		
-		var svg_keys = ["indicator_elev1","indicator_elev2",
-				"indicator_rud",
-				"indicator_ail1","indicator_ail2",
-				"indicator_flaps1","indicator_flaps2",
-				"readout_flaps1","readout_flaps2"];
+		var svg_keys = ["indicator_elev1","indicator_elev2","indicator_ail1","indicator_ail2",
+				"indicator_flaps1","indicator_flaps2","readout_flaps1","readout_flaps2",
+				"indicator_rud","indicator_roll","indicator_spoilers"];
 		foreach(var key; svg_keys) {
 			m[key] = canvasGroup.getElementById(key);
 		}
@@ -48,6 +46,8 @@ var canvas_flightctrl = {
 		m.indicator_rud_scale = m.indicator_rud.createTransform();
 		m.indicator_rud.createTransform().setTranslation(center[0], center[1]);
 		m.indicator_rud_scale.setScale(0,1);
+		m.indicator_roll.hide();
+		m.indicator_spoilers.hide();
 
 		m.active = 0;
 		return m;
@@ -69,6 +69,14 @@ var canvas_flightctrl = {
 		me.indicator_flaps2_scale.setScale(1,me.tmp);
 		me.readout_flaps1.setText(sprintf("%2.0f",32*me.tmp));
 		me.readout_flaps2.setText(sprintf("%2.0f",32*me.tmp));
+
+		# spoiler
+		if((getprop("controls/flight/spoilers") or 0) > 0) {
+			me.indicator_spoilers.show();
+		}
+		else {
+			me.indicator_spoilers.hide();
+		}
 
 		if(me.active == 1) {
 			settimer(func me.update(), 0.1);
