@@ -7,6 +7,7 @@ var canvas_eicas = {
 		m.tmp = 0;
 		m.flaps = 0;
 		m.trim = 0;
+		m.n = 0;
 
 		var font_mapper = func(family, weight)
 		{
@@ -132,7 +133,7 @@ var canvas_eicas = {
 			me["readout_itt"~(me.n+1)].setText(sprintf("%3.0f",
 				getprop("/fdm/jsbsim/propulsion/engine["~me.n~"]/itt-c") or 0));
 
-			me["readout_nh"~(me.n+1)].setText(sprintf("%3.01f", getprop("engines/engine[0]/n1") or 0));
+			me["readout_nh"~(me.n+1)].setText(sprintf("%3.01f", getprop("engines/engine["~me.n~"]/n1") or 0));
 
 			# oil temperature
 			me.tmp = getprop("engines/engine["~me.n~"]/oil-temperature-degf") or 0;
