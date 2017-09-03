@@ -1,9 +1,9 @@
-var canvas_apu = {
+var canvas_ice = {
 	new: func(canvasGroup)
 	{
-		var m = { parents: [canvas_apu] };
+		var m = { parents: [canvas_ice] };
 		m.group = canvasGroup;
-		
+
 		var font_mapper = func(family, weight)
 		{
 			if(family == "'Liberation Sans'" and weight == "normal") {
@@ -11,15 +11,13 @@ var canvas_apu = {
 			}
 		};
 
-		canvas.parsesvg(canvasGroup, "Aircraft/do328/Models/Instruments/EFIS/apuProp.svg", {'font-mapper': font_mapper});
+		canvas.parsesvg(canvasGroup, "Aircraft/do328/Models/Instruments/EFIS/iceProp.svg", {'font-mapper': font_mapper});
 
-		var svg_keys = ["OverloadN","OverloadEGT"];
+		var svg_keys = ["warnings"];
 		foreach(var key; svg_keys) {
 			m[key] = canvasGroup.getElementById(key);
 		}
-		
-		m.OverloadN.hide();
-		m.OverloadEGT.hide();
+		m.warnings.hide();
 
 		return m;
 	},

@@ -4,6 +4,7 @@ var canvas_engine2 = {
 		var m = { parents: [canvas_engine2] };
 		m.group = canvasGroup;
 		m.Instance = instance;
+		m.n = 0;
 
 		var font_mapper = func(family, weight)
 		{
@@ -22,17 +23,10 @@ var canvas_engine2 = {
 	},
 	update: func()
 	{
-		var ff = [	getprop("engines/engine[0]/fuel-flow_pph") or 0,
-				getprop("engines/engine[1]/fuel-flow_pph") or 0];
-		var oilt = [	getprop("engines/engine[0]/oil-temperature-degf") or 0,
-				getprop("engines/engine[1]/oil-temperature-degf") or 0];
-		var oilp = [	getprop("engines/engine[0]/oil-pressure-psi") or 0,
-				getprop("engines/engine[1]/oil-pressure-psi") or 0];
-
-		for(var n=0; n<2; n+=1){
-			me["ff"~(n+1)].setText(sprintf("%3.0f",ff[n]));
-			me["oilt"~(n+1)].setText(sprintf("%3.0f",oilt[n]));
-			me["oilp"~(n+1)].setText(sprintf("%3.0f",oilp[n]));
+		for(me.n=0; me.n<2; me.n+=1){
+			me["ff"~(me.n+1)].setText(sprintf("%3.0f",(getprop("engines/engine["~me.n~"]/fuel-flow_pph") or 0)));
+			me["oilt"~(me.n+1)].setText(sprintf("%3.0f",(getprop("engines/engine["~me.n~"]/oil-temperature-degf") or 0)));
+			me["oilp"~(me.n+1)].setText(sprintf("%3.0f",(getprop("engines/engine["~me.n~"]/oil-pressure-psi") or 0)));
 		}
 
 		if(me.active == 1) {
