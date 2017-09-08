@@ -5,13 +5,14 @@ var Mfd2Instance = {};
 var MfdSoftkeys = [["MAIN 1/2","DISPLAY","RADAR","SYSTEM","FMS","MFD\nFORMAT","RNG"], #0
 		["MAIN 2/2","MAINT","","","","","RNG"], #1
 		["DISPLAY","","","","","","RNG"], #2
-		["RADAR","STBY\nTEST","VK\nGMAP","GAIN\nPRE VAR","TILT\n","RADAR\nSUB","RNG"], #3
+		["RADAR","STBY\nTEST","WX\nGMAP","SECTOR","TGT\n","RADAR\nSUB","RNG"], #3
 		["SYSTEM 1/3","FLIGHT\nCONTROL","HYDR","ENGINE","FUEL","NEXT",""], #4
 		["SYSTEM 2/3","ELECTR","ECS","ICE\nPROTECT","APU","NEXT",""], #5
 		["SYSTEM 3/3","CPCS/\nOXYGEN","DOORS","SYS\nMAINT","SENSOR\nDATA","NEXT",""], #6
-		["FMS","STANDARD\nIDENT","SPECIAL\nIDENT","","","","RNG"], #7
+		["FMS","WAYPNT\nIDENT","NAVAID\nAIRPRT","","","CURSOR","RNG"], #7
 		["MFD FORMAT","","","","","","RNG"], #8
-		["MAINT","TREND","EXCEED","FAULT","GNDMNT","","RNG"]]; #9
+		["MAINT","TREND","EXCEED","FAULT","GNDMNT","","RNG"], #9
+		["RADAR SUB","GAIN\nPRE VAR","RNG","TILT","RCT","","RNG"]]; #10, RNG: can also be tilt
 
 var MFD = {
 	new: func(group)
@@ -67,6 +68,11 @@ var MFD = {
 				me.SkInstance.setSoftkeys(MfdSoftkeys[1]);
 				me.ShownSkPage = 1;
 			}
+			else if(me.ShownSkPage == 10){
+				# activate "RADAR"
+				me.SkInstance.setSoftkeys(MfdSoftkeys[3]);
+				me.ShownSkPage = 3;
+			}
 			else {
 				me.SkInstance.setSoftkeys(MfdSoftkeys[0]);
 				me.ShownSkPage = 0;
@@ -78,7 +84,7 @@ var MFD = {
 		else {
 			# softkey pressed
 			if(me.ShownSkPage == 0) {
-				# main 1/2 menu
+				# MAIN 1/2 menu
 				if(input == 1) {
 					# activate "DISPLAY"
 					me.SkInstance.setSoftkeys(MfdSoftkeys[2]);
@@ -106,11 +112,24 @@ var MFD = {
 				}
 			}
 			else if(me.ShownSkPage == 1) {
-				# main 2/2 menu
+				# MAIN 2/2 menu
 				if(input == 1) {
 					# activate "MAINT"
 					me.SkInstance.setSoftkeys(MfdSoftkeys[9]);
 					me.ShownSkPage = 9;
+				}
+			}
+			else if(me.ShownSkPage == 3) {
+				# RADAR menu
+				if(input == 5) {
+					# activate "RADAR SUB"
+					MfdSoftkeys[10][6]="RNG";
+					me.SkInstance.setSoftkeys(MfdSoftkeys[10]);
+					me.ShownSkPage = 10;
+
+					# needed for frames
+					me.SelectedSkPage = 10;
+					me.SelectedSk = 1;
 				}
 			}
 			else if(me.ShownSkPage == 4) {
@@ -201,6 +220,27 @@ var MFD = {
 					# activate "SYSTEM 1/3" page
 					me.SkInstance.setSoftkeys(MfdSoftkeys[4]);
 					me.ShownSkPage = 4;
+				}
+			}
+			else if(me.ShownSkPage == 10) {
+				# RADAR SUB menu
+				if(input == 2) {
+					# activate "RNG"
+					MfdSoftkeys[10][6]="RNG";
+					me.SkInstance.setSoftkeys(MfdSoftkeys[10]);
+					me.SelectedSk = 1;
+				}
+				else if(input == 3) {
+					# activate "TILT"
+					MfdSoftkeys[10][6]="TILT";
+					me.SkInstance.setSoftkeys(MfdSoftkeys[10]);
+					me.SelectedSk = 2;
+				}
+				else if(input == 4) {
+					# activate "RCT"
+					MfdSoftkeys[10][6]="RCT";
+					me.SkInstance.setSoftkeys(MfdSoftkeys[10]);
+					me.SelectedSk = 3;
 				}
 			}
 		}

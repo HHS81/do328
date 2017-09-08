@@ -2,6 +2,7 @@ var canvas_softkeys = {
 	new: func(canvasGroup)
 	{
 		var m = { parents: [canvas_softkeys] };
+		m.i = 0;
 		
 		var font_mapper = func(family, weight)
 		{
@@ -21,19 +22,23 @@ var canvas_softkeys = {
 
 		return m;
 	},
+	resetFrames: func()
+	{
+		me.path.reset();
+	},
 	drawFrames: func(selectedSoftkeys)
 	{
 		me.path.reset();
 
 		if(size(selectedSoftkeys) == 5) {
 
-			for(var i = 0; i<5; i+=1) {
+			for(me.i = 0; me.i<5; me.i+=1) {
 
-				if(selectedSoftkeys[i] == 1) {
-					me.center = me["sk"~(i+1)].getCenter();
-					me.bbox = me["sk"~(i+1)].getBoundingBox();
+				if(selectedSoftkeys[me.i] == 1) {
+					me.center = me["sk"~(me.i+1)].getCenter();
+					me.bbox = me["sk"~(me.i+1)].getBoundingBox();
 
-					me["path"].moveTo(me.center[0]+me.bbox[0]-5,me.center[1]+me.bbox[1])
+					me.path.moveTo(me.center[0]+me.bbox[0]-5,me.center[1]+me.bbox[1])
 						.lineTo(me.center[0]+me.bbox[2]+5,me.center[1]+me.bbox[1])
 						.lineTo(me.center[0]+me.bbox[2]+5,me.center[1]+me.bbox[3]+15)
 						.lineTo(me.center[0]+me.bbox[0]-5,me.center[1]+me.bbox[3]+15)
