@@ -23,6 +23,11 @@ Started by Heiko Schulz
          <tag>twin-engine</tag>
          <tag>glass-cockpit</tag>
       </tags>
+      <!--to select the center pedestal type-->
+<aircraft-type>
+<prop>1</prop>
+</aircraft-type>
+
       <startup>
          <splash-texture>Aircraft/do328/splash.png</splash-texture>
       </startup>

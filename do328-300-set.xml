@@ -22,6 +22,11 @@ Started by Heiko Schulz
          <tag>twin-engine</tag>
          <tag>glass-cockpit</tag>
       </tags>
+      <!--to select the center pedestal type-->
+<aircraft-type>
+<prop>0</prop>
+</aircraft-type>
+
       <startup>
          <splash-texture>Aircraft/do328/splashjet.png</splash-texture>
       </startup>

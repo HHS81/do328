@@ -3,6 +3,39 @@
 
 <path>Flightdeck23.6.ac</path>
 
+<animation>
+  <type>select</type>
+  <object-name>Propcenter</object-name>
+  <object-name>ConditionLever.R</object-name>
+  <object-name>ConditionLever.L</object-name>
+ <object-name>PThrottle.L</object-name>
+ <object-name>PLLatch</object-name>
+ <object-name>PThrottle.R</object-name>
+ <object-name>PRLatch</object-name>
+  <condition>
+          <property>sim/aircraft-type/prop</property>
+     <value>1</value>
+  </condition>
+</animation>
+
+<animation>
+  <type>select</type>
+  <object-name>Jetcenter</object-name>
+  <object-name>NWSHigh.btn</object-name>
+  <object-name>GRNDSpoilerGuard</object-name>
+  <object-name>GRNDSpoiler.btn</object-name>
+ <object-name>JThrottle.L</object-name>
+ <object-name>JLLatch</object-name>
+ <object-name>JThrottle.R</object-name>
+ <object-name>JRLatch</object-name>
+  <condition>
+              <less-than>
+        <property>sim/aircraft-type/prop</property>
+     <value>1</value>
+            </less-than>
+  </condition>
+</animation>
+
 <!-- hide clocks and RCU -->
 <animation>
   <type>select</type>
@@ -825,8 +858,8 @@
 <!--Center Pedestal Controls-->
     <animation>
         <type>rotate</type>
-        <object-name>Throttle.L</object-name>
-        <object-name>LLatch</object-name>
+        <object-name>JThrottle.L</object-name>
+        <object-name>JLLatch</object-name>
         <property>controls/engines/engine[0]/throttle</property>
         <factor>-33</factor>
         <center>
@@ -840,11 +873,12 @@
             <z>0.0</z>
         </axis>
     </animation>
+    
   
     <animation>
         <type>rotate</type>
-        <object-name>Throttle.R</object-name>
-        <object-name>RLatch</object-name>
+        <object-name>JThrottle.R</object-name>
+        <object-name>JRLatch</object-name>
         <property>controls/engines/engine[1]/throttle</property>
         <factor>-33</factor>
         <center>
@@ -859,10 +893,11 @@
         </axis>
     </animation>
     
+     
    <animation>
         <type>knob</type>
-        <object-name>Throttle.L</object-name>
-        <object-name>LLatch</object-name>
+        <object-name>JThrottle.L</object-name>
+        <object-name>JLLatch</object-name>
         <property>controls/engines/engine[0]/throttle</property>
         <factor>-33.0</factor>
         <drag-direction>vertical</drag-direction>
@@ -902,10 +937,129 @@
     
    <animation>
         <type>knob</type>
-        <object-name>Throttle.R</object-name>
-        <object-name>RLatch</object-name>
+        <object-name>JThrottle.R</object-name>
+        <object-name>JRLatch</object-name>
         <property>controls/engines/engine[1]/throttle</property>
         <factor>-33.0</factor>
+        <drag-direction>vertical</drag-direction>
+        <center>
+            <x-m>-8.40</x-m>
+            <y-m>0.0</y-m>
+            <z-m>1.6</z-m>
+        </center>
+        <axis>
+            <x>0.0</x>
+            <y>1.0</y>
+            <z>0.0</z>
+        </axis>
+        <action>
+            <button>0</button>
+            <repeatable>true</repeatable>
+            <interval-sec>0.1</interval-sec>
+            <binding>
+            <command>property-adjust</command>
+        <property>controls/engines/engine[1]/throttle</property>
+            <factor>0.05</factor>
+            <min>0</min>
+            <max>1</max>
+            <wrap>0</wrap>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <label>RH Throttle: %1.0f</label>
+                <mapping>percent</mapping>
+                <tooltip-id>Left Throttle</tooltip-id>
+        <property>controls/engines/engine[1]/throttle</property>
+            </binding>
+        </hovered>
+    </animation>
+    
+<!--prop throttle-->
+<animation>
+        <type>rotate</type>
+        <object-name>PThrottle.L</object-name>
+        <object-name>PLLatch</object-name>
+        <property>controls/engines/engine[0]/throttle</property>
+        <factor>-34</factor>
+        <center>
+            <x-m>-8.40</x-m>
+            <y-m>0.0</y-m>
+            <z-m>1.6</z-m>
+        </center>
+        <axis>
+            <x>0.0</x>
+            <y>1.0</y>
+            <z>0.0</z>
+        </axis>
+    </animation>
+  
+    <animation>
+        <type>rotate</type>
+        <object-name>PThrottle.R</object-name>
+        <object-name>PRLatch</object-name>
+        <property>controls/engines/engine[1]/throttle</property>
+        <factor>-34</factor>
+        <center>
+            <x-m>-8.40</x-m>
+            <y-m>0.0</y-m>
+            <z-m>1.6</z-m>
+        </center>
+        <axis>
+            <x>0.0</x>
+            <y>1.0</y>
+            <z>0.0</z>
+        </axis>
+    </animation>
+    
+   <animation>
+        <type>knob</type>
+        <object-name>PThrottle.L</object-name>
+        <object-name>PLLatch</object-name>
+        <property>controls/engines/engine[0]/throttle</property>
+        <factor>-34.0</factor>
+        <drag-direction>vertical</drag-direction>
+        <center>
+            <x-m>-8.40</x-m>
+            <y-m>0.0</y-m>
+            <z-m>1.6</z-m>
+        </center>
+        <axis>
+            <x>0.0</x>
+            <y>1.0</y>
+            <z>0.0</z>
+        </axis>
+        <action>
+            <button>0</button>
+            <repeatable>true</repeatable>
+            <interval-sec>0.1</interval-sec>
+            <binding>
+            <command>property-adjust</command>
+        <property>controls/engines/engine[0]/throttle</property>
+            <factor>0.05</factor>
+            <min>0</min>
+            <max>1</max>
+            <wrap>0</wrap>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <label>LH Throttle: %1.0f</label>
+                <mapping>percent</mapping>
+                <tooltip-id>Left Throttle</tooltip-id>
+        <property>controls/engines/engine[0]/throttle</property>
+            </binding>
+        </hovered>
+    </animation>
+    
+   <animation>
+        <type>knob</type>
+        <object-name>PThrottle.R</object-name>
+        <object-name>PRLatch</object-name>
+        <property>controls/engines/engine[1]/throttle</property>
+        <factor>-34.0</factor>
         <drag-direction>vertical</drag-direction>
         <center>
             <x-m>-8.40</x-m>
