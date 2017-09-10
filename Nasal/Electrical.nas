@@ -162,18 +162,31 @@ var Bus = {
 var Consumer = {
     new: func(name, current, minVoltage) {
         obj = { parents : [Consumer],
+            Children: [],
             Connected: props.globals.initNode(ELNode ~ "Consumers/" ~ name ~ "_Connected", 0, "BOOL"),
             Running: props.globals.initNode(ELNode ~ "Consumers/" ~ name ~ "_Running", 0, "BOOL"),
             Current: current,
-            MinVoltage: minVoltage
+            MinVoltage: minVoltage,
+            Tmp: 0,
+            i: 0
         };
         return obj;
+    },
+    append: func(child) {
+        me.Tmp = size(me.Children);
+        setsize(me.Children, me.Tmp+1);
+        me.Children[me.Tmp] = child;
     },
     getCurrent: func {
         if(!me.Running.getValue() or !me.Connected.getValue()) {
             return 0;
         }
-        return me.Current;
+
+	me.Tmp = me.Current;
+	for(me.i=0; me.i<size(me.Children); me.i+=1) {
+		me.Tmp += me.Children[me.i].getCurrent();
+	}
+        return me.Tmp;
     },
     getVoltage: func {
         return 0;
@@ -184,13 +197,22 @@ var Consumer = {
         if(me.Connected.getValue()) {
             if(voltage < me.MinVoltage) {
                 me.Running.setValue(0);
+                for(me.i=0; me.i<size(me.Children); me.i+=1) {
+                    me.Children[me.i].setVoltage(0);
+                }
             }
             else {
                 me.Running.setValue(1);
+                for(me.i=0; me.i<size(me.Children); me.i+=1) {
+                    me.Children[me.i].setVoltage(voltage);
+                }
             }
         }
         else {
             me.Running.setValue(0);
+            for(me.i=0; me.i<size(me.Children); me.i+=1) {
+                me.Children[me.i].setVoltage(0);
+            }
         }
     }
 };
@@ -305,14 +327,17 @@ var battery1 = Battery.new("Battery1");
 var battery2 = Battery.new("Battery2");
 var generator1 = Generator.new("Generator1", "/engines/engine[0]/generator-power");
 var generator2 = Generator.new("Generator2", "/engines/engine[1]/generator-power");
-var dc1 = Bus.new("DCBus1");
-var dc2 = Bus.new("DCBus2");
-var dctie = Tie.new("DCTie", dc1, dc2);
+var dcBus1 = Bus.new("DCBus1");
+var dcBus2 = Bus.new("DCBus2");
+var dctie = Tie.new("DCTie", dcBus1, dcBus2);
+var nonEssBus1 = Consumer.new("nonEssBus1", 0, 17.9);
 
-dc1.append(battery1);
-dc2.append(battery2);
-dc1.append(generator1);
-dc2.append(generator2);
+dcBus1.append(battery1);
+dcBus1.append(generator1);
+dcBus1.append(nonEssBus1);
+
+dcBus2.append(battery2);
+dcBus2.append(generator2);
 
 # TODO: which consumer on which bus?
 var efis = Consumer.new("EFIS", 10, 18.01); # name, amps, required volts
@@ -325,16 +350,16 @@ var SL = Consumer.new("strobe", 10, 18);
 var LaL = Consumer.new("landing-lights", 20, 18);
 var TL = Consumer.new("taxi-lights", 20, 18);
 var NL = Consumer.new("nav-lights", 10, 18);
-dc1.append(efis);
-dc1.append(cdu);
-dc1.append(rmu);
-dc1.append(LL);
-dc1.append(WL);
-dc1.append(BL);
-dc1.append(SL);
-dc1.append(LaL);
-dc1.append(TL);
-dc1.append(NL);
+nonEssBus1.append(efis);
+nonEssBus1.append(cdu);
+nonEssBus1.append(rmu);
+nonEssBus1.append(LL);
+nonEssBus1.append(WL);
+nonEssBus1.append(BL);
+nonEssBus1.append(SL);
+nonEssBus1.append(LaL);
+nonEssBus1.append(TL);
+nonEssBus1.append(NL);
 setprop("/systems/electrical/Consumers/EFIS_Connected", 1);
 setprop("/systems/electrical/Consumers/RMU_Connected", 1);
 setprop("/systems/electrical/Consumers/CDU_Connected", 1);
@@ -352,8 +377,8 @@ props.globals.initNode("systems/electrical/outputs/comm[1]", 24, "DOUBLE");
 props.globals.initNode("systems/electrical/outputs/nav", 24, "DOUBLE");
 
 update_electrical = func {
-    dc1.update();
-    dc2.update();
+    dcBus1.update();
+    dcBus2.update();
     dctie.update();
     settimer(update_electrical, Refresh);
 }

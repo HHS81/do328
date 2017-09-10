@@ -10,6 +10,7 @@ var Startup1 = func{
 	setprop("systems/electrical/Battery1/Connected",1);
 	setprop("systems/electrical/Battery2/Connected",1);
 	setprop("systems/electrical/DCTie/Connected",1);
+	setprop("/systems/electrical/Consumers/nonEssBus1_Connected",1);
 	setprop("/systems/electrical/Consumers/logo-lights_Connected",1);
 	setprop("/systems/electrical/Consumers/wing-lights_Connected",1);
 	setprop("/systems/electrical/Consumers/beacon_Connected",1);
