@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8' ?>
 <PropertyList>
 
-<path>Flightdeck23.6.ac</path>
+<path>Flightdeck23.7.2.ac</path>
 
 <animation>
   <type>select</type>
@@ -863,9 +863,9 @@
         <property>controls/engines/engine[0]/throttle</property>
         <factor>-33</factor>
         <center>
-            <x-m>-8.40</x-m>
+            <x-m>-8.347</x-m>
             <y-m>0.0</y-m>
-            <z-m>1.6</z-m>
+            <z-m>1.627</z-m>
         </center>
         <axis>
             <x>0.0</x>
@@ -882,9 +882,9 @@
         <property>controls/engines/engine[1]/throttle</property>
         <factor>-33</factor>
         <center>
-            <x-m>-8.40</x-m>
+            <x-m>-8.347</x-m>
             <y-m>0.0</y-m>
-            <z-m>1.6</z-m>
+            <z-m>1.627</z-m>
         </center>
         <axis>
             <x>0.0</x>
@@ -902,9 +902,9 @@
         <factor>-33.0</factor>
         <drag-direction>vertical</drag-direction>
         <center>
-            <x-m>-8.40</x-m>
+            <x-m>-8.347</x-m>
             <y-m>0.0</y-m>
-            <z-m>1.6</z-m>
+            <z-m>1.627</z-m>
         </center>
         <axis>
             <x>0.0</x>
@@ -943,9 +943,9 @@
         <factor>-33.0</factor>
         <drag-direction>vertical</drag-direction>
         <center>
-            <x-m>-8.40</x-m>
+            <x-m>-8.347</x-m>
             <y-m>0.0</y-m>
-            <z-m>1.6</z-m>
+            <z-m>1.627</z-m>
         </center>
         <axis>
             <x>0.0</x>
@@ -983,10 +983,9 @@
         <object-name>PLLatch</object-name>
         <property>controls/engines/engine[0]/throttle</property>
         <factor>-34</factor>
-        <center>
-            <x-m>-8.40</x-m>
+            <x-m>-8.347</x-m>
             <y-m>0.0</y-m>
-            <z-m>1.6</z-m>
+            <z-m>1.627</z-m>
         </center>
         <axis>
             <x>0.0</x>
@@ -1002,9 +1001,9 @@
         <property>controls/engines/engine[1]/throttle</property>
         <factor>-34</factor>
         <center>
-            <x-m>-8.40</x-m>
+            <x-m>-8.347</x-m>
             <y-m>0.0</y-m>
-            <z-m>1.6</z-m>
+            <z-m>1.627</z-m>
         </center>
         <axis>
             <x>0.0</x>
@@ -1021,9 +1020,9 @@
         <factor>-34.0</factor>
         <drag-direction>vertical</drag-direction>
         <center>
-            <x-m>-8.40</x-m>
+            <x-m>-8.347</x-m>
             <y-m>0.0</y-m>
-            <z-m>1.6</z-m>
+            <z-m>1.627</z-m>
         </center>
         <axis>
             <x>0.0</x>
@@ -1062,9 +1061,9 @@
         <factor>-34.0</factor>
         <drag-direction>vertical</drag-direction>
         <center>
-            <x-m>-8.40</x-m>
+            <x-m>-8.347</x-m>
             <y-m>0.0</y-m>
-            <z-m>1.6</z-m>
+            <z-m>1.627</z-m>
         </center>
         <axis>
             <x>0.0</x>
@@ -1101,9 +1100,9 @@
         <property>controls/engines/engine[0]/propeller-pitch</property>
         <factor>-27.5</factor>
         <center>
-            <x-m>-8.40</x-m>
+            <x-m>-8.347</x-m>
             <y-m>0.0</y-m>
-            <z-m>1.6</z-m>
+            <z-m>1.627</z-m>
         </center>
         <axis>
             <x>0.0</x>
@@ -1118,9 +1117,9 @@
         <property>controls/engines/engine[1]/propeller-pitch</property>
         <factor>-27.5</factor>
         <center>
-            <x-m>-8.40</x-m>
+            <x-m>-8.347</x-m>
             <y-m>0.0</y-m>
-            <z-m>1.6</z-m>
+            <z-m>1.627</z-m>
         </center>
         <axis>
             <x>0.0</x>
@@ -1136,9 +1135,9 @@
         <factor>-27.50</factor>
         <drag-direction>vertical</drag-direction>
         <center>
-            <x-m>-8.40</x-m>
+            <x-m>-8.347</x-m>
             <y-m>0.0</y-m>
-            <z-m>1.6</z-m>
+            <z-m>1.627</z-m>
         </center>
         <axis>
             <x>0.0</x>
@@ -1176,9 +1175,9 @@
         <factor>-27.50</factor>
         <drag-direction>vertical</drag-direction>
         <center>
-            <x-m>-8.40</x-m>
+            <x-m>-8.347</x-m>
             <y-m>0.0</y-m>
-            <z-m>1.6</z-m>
+            <z-m>1.627</z-m>
         </center>
         <axis>
             <x>0.0</x>
@@ -1215,9 +1214,9 @@
                 <property>controls/gear/brake-parking</property>
         <factor>41</factor>
         <center>
-            <x-m>-8.40</x-m>
+            <x-m>-8.347</x-m>
             <y-m>0.0</y-m>
-            <z-m>1.6</z-m>
+            <z-m>1.627</z-m>
         </center>
         <axis>
             <x>0.0</x>
@@ -1253,9 +1252,9 @@
                 <property>/controls/flight/flaps</property>
         <factor>25</factor>
         <center>
-            <x-m>-8.386</x-m>
+            <x-m>-8.347</x-m>
             <y-m>0.0</y-m>
-            <z-m>1.540</z-m>
+            <z-m>1.627</z-m>
         </center>
         <axis>
             <x>0.0</x>
