@@ -983,6 +983,7 @@
         <object-name>PLLatch</object-name>
         <property>controls/engines/engine[0]/throttle</property>
         <factor>-34</factor>
+        <center>
             <x-m>-8.347</x-m>
             <y-m>0.0</y-m>
             <z-m>1.627</z-m>
@@ -1250,7 +1251,7 @@
         <type>rotate</type>
         <object-name>FlapLever</object-name>
                 <property>/controls/flight/flaps</property>
-        <factor>25</factor>
+        <factor>40</factor>
         <center>
             <x-m>-8.347</x-m>
             <y-m>0.0</y-m>
@@ -1271,7 +1272,7 @@
             <binding>
                 <command>property-adjust</command>
                 <property>/controls/flight/flaps</property>
-                <step>0.5</step>
+                <step>0.33</step>
                 <min>0</min>
                 <max>1</max>
             </binding>
@@ -1281,7 +1282,7 @@
             <binding>
                 <command>property-adjust</command>
                 <property>/controls/flight/flaps</property>
-                <step>-0.5</step>
+                <step>-0.33</step>
                 <min>0</min>
                 <max>1</max>
             </binding>
