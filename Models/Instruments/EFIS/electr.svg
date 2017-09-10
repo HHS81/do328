@@ -602,13 +602,13 @@
     <path
        sodipodi:nodetypes="ccccc"
        d="m 499.71931,256.06757 0,25.18243 67.5,0 0,-25.18243 z"
-       style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#ffbf00;stroke-width:3.00000024;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#ffd700;stroke-width:3.00000024;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="path6060"
        inkscape:connector-curvature="0" />
     <text
        sodipodi:linespacing="125%"
        xml:space="default"
-       style="font-style:normal;font-weight:normal;font-size:37.5px;line-height:125%;font-family:'Liberation Sans';text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#ffbf00;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-style:normal;font-weight:normal;font-size:37.5px;line-height:125%;font-family:'Liberation Sans';text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#ffd700;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="540.61719"
        y="276.6911"
        id="text6063">
@@ -616,7 +616,7 @@
          id="tspan6065"
          x="533.4693"
          y="276.5"
-         style="font-size:22.50000191px;text-align:center;text-anchor:middle;fill:#ffbf00;fill-opacity:1">FAIL</tspan>
+         style="font-size:22.50000191px;text-align:center;text-anchor:middle;fill:#ffd700;fill-opacity:1">FAIL</tspan>
     </text>
   </g>
   <g
@@ -624,18 +624,18 @@
     <path
        inkscape:connector-curvature="0"
        id="path6040"
-       style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#ffbf00;stroke-width:3.00000024;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#ffd700;stroke-width:3.00000024;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m 222.97141,255.06122 0,25.18243 67.5,0 0,-25.18243 z"
        sodipodi:nodetypes="ccccc" />
     <text
        id="text6042"
        y="275.68472"
        x="263.86929"
-       style="font-style:normal;font-weight:normal;font-size:37.5px;line-height:125%;font-family:'Liberation Sans';text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#ffbf00;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-style:normal;font-weight:normal;font-size:37.5px;line-height:125%;font-family:'Liberation Sans';text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#ffd700;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        xml:space="default"
        sodipodi:linespacing="125%">
       <tspan
-         style="font-size:22.50000191px;text-align:center;text-anchor:middle;fill:#ffbf00;fill-opacity:1"
+         style="font-size:22.50000191px;text-align:center;text-anchor:middle;fill:#ffd700;fill-opacity:1"
          y="275.49362"
          x="256.72141"
          id="tspan6044">FAIL</tspan>

@@ -361,18 +361,18 @@
      id="warnings">
     <path
        d="m 291.33827,77.42183 0,28.37701 214.03503,0 0,-28.37701 -214.03503,0 z"
-       style="fill:none;stroke:#ffbf00;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:none;stroke:#ffd700;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="path6077"
        inkscape:connector-curvature="0" />
     <text
        id="text6115-3"
        y="100.11846"
        x="405.0416"
-       style="font-style:normal;font-weight:normal;font-size:37.5px;line-height:125%;font-family:'Liberation Sans';text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#ffbf00;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-style:normal;font-weight:normal;font-size:37.5px;line-height:125%;font-family:'Liberation Sans';text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#ffd700;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        sodipodi:linespacing="125%"
        xml:space="default">
       <tspan
-         style="font-size:22.50000191px;text-align:center;text-anchor:middle;fill:#ffbf00;fill-opacity:1"
+         style="font-size:22.50000191px;text-align:center;text-anchor:middle;fill:#ffd700;fill-opacity:1"
          y="99.927376"
          x="397.89368"
          id="tspan6117-6">ICE DETECTED</tspan>

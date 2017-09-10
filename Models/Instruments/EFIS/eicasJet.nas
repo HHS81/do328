@@ -156,9 +156,9 @@ var canvas_eicas = {
 				me.flaps_to.setColor(1,1,1);
 			}
 			else {
-				me.readout_flaps1.setColor(1,0.75,0);
-				me.readout_flaps2.setColor(1,0.75,0);
-				me.flaps_to.setColor(1,0.75,0);
+				me.readout_flaps1.setColor(1,0.84,0);
+				me.readout_flaps2.setColor(1,0.84,0);
+				me.flaps_to.setColor(1,0.84,0);
 			}
 			me.trim_to.show();
 			me.flaps_to.show();
@@ -172,9 +172,9 @@ var canvas_eicas = {
 				me.flaps_landg.setColor(1,1,1);
 			}
 			else {
-				me.readout_flaps1.setColor(1,0.75,0);
-				me.readout_flaps2.setColor(1,0.75,0);
-				me.flaps_landg.setColor(1,0.75,0);
+				me.readout_flaps1.setColor(1,0.84,0);
+				me.readout_flaps2.setColor(1,0.84,0);
+				me.flaps_landg.setColor(1,0.84,0);
 			}
 			me.trim_pitch.setColorFill(1,1,1);
 			me.trim_to.hide();

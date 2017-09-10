@@ -106,6 +106,7 @@ Started by Heiko Schulz
          <file>Aircraft/do328/Models/Instruments/EFIS/maps/loader.nas</file>
 
          <file>Aircraft/do328/Models/Instruments/EFIS/PFD.nas</file>
+         <file>Aircraft/do328/Models/Instruments/EFIS/exceedance.nas</file>
          <file>Aircraft/do328/Models/Instruments/EFIS/eicasProp.nas</file>
          <file>Aircraft/do328/Models/Instruments/EFIS/nd.nas</file>
 

@@ -6,7 +6,7 @@ var RMU1Instance = {};
 var RMU2Instance = {};
 
 # colors:
-var amber = [1,0.93,0];
+var amber = [1,0.84,0];
 var cyan = [0.33,0.73,0.93];
 var green = [0,1,0];
 var magenta = [0.93,0.05,0.35];

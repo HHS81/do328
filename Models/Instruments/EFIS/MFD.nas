@@ -38,6 +38,8 @@ var MFD = {
 		m.Pages[10] = canvas_doors.new(group.createChild('group'));
 		m.Pages[11] = canvas_maint.new(group.createChild('group'));
 
+		m.Pages[12] = canvas_exceedance.new(group.createChild('group'));
+
 		m.SkInstance = canvas_softkeys.new(group.createChild('group'));
 		m.SkInstance.setSoftkeys(MfdSoftkeys[0]);
 		m.ActivatePage(0);
@@ -220,6 +222,15 @@ var MFD = {
 					# activate "SYSTEM 1/3" page
 					me.SkInstance.setSoftkeys(MfdSoftkeys[4]);
 					me.ShownSkPage = 4;
+				}
+			}
+			else if(me.ShownSkPage == 9) {
+				# "MFD MAINT" page
+				if(input == 2) {
+					# activate "EXCEEDANCE" page
+					me.ActivatePage(12);
+					me.SelectedSkPage = 9;
+					me.SelectedSk = 1;
 				}
 			}
 			else if(me.ShownSkPage == 10) {

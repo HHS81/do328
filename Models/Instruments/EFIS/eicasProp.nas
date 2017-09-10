@@ -141,17 +141,17 @@ var canvas_eicas = {
 			if(me.tmp < 95) {
 				me["oilTempLow"~(me.n+1)].show();
 				me["oilTempHigh"~(me.n+1)].hide();
-				me["arrowOilTemp"~(me.n+1)].setColorFill(1, 0.75, 0);
+				me["arrowOilTemp"~(me.n+1)].setColorFill(1,0.84,0);
 			}
 			else if(me.tmp > 195) {
 				me["oilTempLow"~(me.n+1)].hide();
 				me["oilTempHigh"~(me.n+1)].show();
-				me["arrowOilTemp"~(me.n+1)].setColorFill(1, 0, 0);
+				me["arrowOilTemp"~(me.n+1)].setColorFill(1,0,0);
 			}
 			else {
 				me["oilTempLow"~(me.n+1)].hide();
 				me["oilTempHigh"~(me.n+1)].hide();
-				me["arrowOilTemp"~(me.n+1)].setColorFill(1, 1, 1);
+				me["arrowOilTemp"~(me.n+1)].setColorFill(1,1,1);
 			}
 			me["readout_ff"~(me.n+1)].setText(sprintf("%3.0f",(getprop("engines/engine["~me.n~"]/fuel-flow_pph") or 0)));
 		}
@@ -197,9 +197,9 @@ var canvas_eicas = {
 				me.flaps_to.setColor(1,1,1);
 			}
 			else {
-				me.readout_flaps1.setColor(1,0.75,0);
-				me.readout_flaps2.setColor(1,0.75,0);
-				me.flaps_to.setColor(1,0.75,0);
+				me.readout_flaps1.setColor(1,0.84,0);
+				me.readout_flaps2.setColor(1,0.84,0);
+				me.flaps_to.setColor(1,0.84,0);
 			}
 			me.trim_to.show();
 			me.flaps_to.show();
@@ -213,9 +213,9 @@ var canvas_eicas = {
 				me.flaps_landg.setColor(1,1,1);
 			}
 			else {
-				me.readout_flaps1.setColor(1,0.75,0);
-				me.readout_flaps2.setColor(1,0.75,0);
-				me.flaps_landg.setColor(1,0.75,0);
+				me.readout_flaps1.setColor(1,0.84,0);
+				me.readout_flaps2.setColor(1,0.84,0);
+				me.flaps_landg.setColor(1,0.84,0);
 			}
 			me.trim_pitch.setColorFill(1,1,1);
 			me.trim_to.hide();
