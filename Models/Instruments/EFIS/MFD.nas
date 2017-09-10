@@ -11,8 +11,9 @@ var MfdSoftkeys = [["MAIN 1/2","DISPLAY","RADAR","SYSTEM","FMS","MFD\nFORMAT","R
 		["SYSTEM 3/3","CPCS/\nOXYGEN","DOORS","SYS\nMAINT","SENSOR\nDATA","NEXT",""], #6
 		["FMS","WAYPNT\nIDENT","NAVAID\nAIRPRT","","","CURSOR","RNG"], #7
 		["MFD FORMAT","","","","","","RNG"], #8
-		["MAINT","TREND","EXCEED","FAULT","GNDMNT","","RNG"], #9
-		["RADAR SUB","GAIN\nPRE VAR","RNG","TILT","RCT","","RNG"]]; #10, RNG: can also be tilt
+		["MAINT","TREND","EXCEED","FAULT","GNDMNT","",""], #9
+		["RADAR SUB","GAIN\nPRE VAR","RNG","TILT","RCT","","RNG"]]; #10
+var Range=[0,0];
 
 var MFD = {
 	new: func(group)
@@ -22,6 +23,7 @@ var MFD = {
 		m.ShownSkPage = 0; # indicates which page (softkeys) is shown
 		m.SelectedSkPage = 0; # indicates which softkey gets a frame (page)
 		m.SelectedSk = -1; # indicates which softkey gets a frame (softkey number)
+		m.KnobMode = 1; # knob can have different functionalities
 
 		m.Pages[0] = canvas_nd.new(group.createChild('group'));
 		m.Pages[1] = canvas_flightctrl.new(group.createChild('group'));
@@ -59,6 +61,7 @@ var MFD = {
 	},
 	# input: 0=back, 1=sk1...5=sk5
 	BtClick: func(input = -1) {
+		me.KnobMode = 1; # RNG active
 
 		if(!getprop("systems/electrical/Consumers/EFIS_Running")) {
 			return;
@@ -99,6 +102,7 @@ var MFD = {
 				}
 				else if(input == 3) {
 					# activate "SYSTEM"
+					me.KnobMode = 0; # RNG inactive
 					me.SkInstance.setSoftkeys(MfdSoftkeys[4]);
 					me.ShownSkPage = 4;
 				}
@@ -117,12 +121,16 @@ var MFD = {
 				# MAIN 2/2 menu
 				if(input == 1) {
 					# activate "MAINT"
+					me.KnobMode = 0; # RNG inactive
 					me.SkInstance.setSoftkeys(MfdSoftkeys[9]);
 					me.ShownSkPage = 9;
 				}
 			}
 			else if(me.ShownSkPage == 3) {
 				# RADAR menu
+				# WX GMAP: show weather on map
+				# SECTOR: refresh rate / quality
+				# TGT: warning if dangerous weather outside of selected range
 				if(input == 5) {
 					# activate "RADAR SUB"
 					MfdSoftkeys[10][6]="RNG";
@@ -135,6 +143,8 @@ var MFD = {
 				}
 			}
 			else if(me.ShownSkPage == 4) {
+				me.KnobMode = 0; # RNG inactive
+
 				# "SYSTEM 1/3" page
 				if(input == 1) {
 					# activate "FLIGHT CONTROL" page
@@ -167,6 +177,8 @@ var MFD = {
 				}
 			}
 			else if(me.ShownSkPage == 5) {
+				me.KnobMode = 0; # RNG inactive
+
 				# "SYSTEM 2/3" page
 				if(input == 1) {
 					# activate "ELECTR" page
@@ -199,6 +211,8 @@ var MFD = {
 				}
 			}
 			else if(me.ShownSkPage == 6) {
+				me.KnobMode = 0; # RNG inactive
+
 				# "SYSTEM 3/3" page
 				if(input == 1) {
 					# activate "CPCS" page
@@ -225,6 +239,8 @@ var MFD = {
 				}
 			}
 			else if(me.ShownSkPage == 9) {
+				me.KnobMode = 0; # RNG inactive
+
 				# "MFD MAINT" page
 				if(input == 2) {
 					# activate "EXCEEDANCE" page
@@ -235,6 +251,11 @@ var MFD = {
 			}
 			else if(me.ShownSkPage == 10) {
 				# RADAR SUB menu
+				# GAIN: preset = only dangerous weather shown in red
+				#       variable = scale colors to current weather
+				# RNG:  range of map
+				# TILT: tilt angle (range of vertical scanning)
+				# RCT:  rain compensation (does only work in preset gain mode)
 				if(input == 2) {
 					# activate "RNG"
 					MfdSoftkeys[10][6]="RNG";
@@ -243,12 +264,14 @@ var MFD = {
 				}
 				else if(input == 3) {
 					# activate "TILT"
+					me.KnobMode = 0; # RNG inactive
 					MfdSoftkeys[10][6]="TILT";
 					me.SkInstance.setSoftkeys(MfdSoftkeys[10]);
 					me.SelectedSk = 2;
 				}
 				else if(input == 4) {
 					# activate "RCT"
+					me.KnobMode = 0; # RNG inactive
 					MfdSoftkeys[10][6]="RCT";
 					me.SkInstance.setSoftkeys(MfdSoftkeys[10]);
 					me.SelectedSk = 3;
@@ -258,13 +281,16 @@ var MFD = {
 
 		# check if you selected the page where the selected softkey is located
 		if(me.ShownSkPage == me.SelectedSkPage and me.ShownSkPage > 0) {
-
 			if(me.SelectedSk >= 0) {
 				var softkeyFrames = [0,0,0,0,0];
 				softkeyFrames[me.SelectedSk] = 1;
 				me.SkInstance.drawFrames(softkeyFrames);
 			}
 		}
+	},
+	GetKnobMode: func()
+	{
+		return me.KnobMode;
 	}
 };
 
@@ -274,6 +300,22 @@ var mfd1BtClick = func(input = -1) {
 
 var mfd2BtClick = func(input = -1) {
 	Mfd2Instance.BtClick(input);
+}
+
+var mfd1Knob = func(input = 0) {
+	if(Mfd1Instance.GetKnobMode()) {
+		Range[0] += input;
+		if(Range[0] > 3) Range[0]=3;
+		if(Range[0] < 0) Range[0]=0;
+	}
+}
+
+var mfd2Knob = func(input = 0) {
+	if(Mfd2Instance.GetKnobMode()) {
+		Range[1] += input;
+		if(Range[1] > 3) Range[1]=3;
+		if(Range[1] < 0) Range[1]=0;
+	}
 }
 
 var mfdListener = setlistener("/sim/signals/fdm-initialized", func () {

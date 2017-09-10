@@ -38,9 +38,9 @@
      inkscape:window-height="711"
      id="namedview50"
      showgrid="false"
-     inkscape:zoom="4.5557894"
-     inkscape:cx="50.182453"
-     inkscape:cy="866.01003"
+     inkscape:zoom="0.8053574"
+     inkscape:cx="374.26238"
+     inkscape:cy="564.6249"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -277,16 +277,16 @@
        y="80"
        style="font-size:35px;text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1">999</tspan></text>
   <text
-     id="text4608"
-     y="449.75586"
-     x="221"
+     id="range1"
+     y="459.70703"
+     x="221.64644"
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:50.79999924px;line-height:125%;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;display:inline;fill:#ffffff;fill-opacity:1;stroke:none"
      xml:space="preserve"
      sodipodi:linespacing="125%"><tspan
-       style="font-size:25px;text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1"
-       y="449.75586"
-       x="221.502"
-       id="tspan4610">99</tspan></text>
+       style="font-size:30px;text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1"
+       y="459.70703"
+       x="222.14844"
+       id="tspan4610">5</tspan></text>
   <text
      sodipodi:linespacing="125%"
      xml:space="preserve"
@@ -533,13 +533,13 @@
      sodipodi:linespacing="125%"
      xml:space="preserve"
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:50.79999924px;line-height:125%;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;display:inline;fill:#ffffff;fill-opacity:1;stroke:none"
-     x="568.5"
-     y="449.75586"
-     id="text4612"><tspan
+     x="569.64844"
+     y="459.70703"
+     id="range2"><tspan
        id="tspan4614"
-       x="568.5"
-       y="449.75586"
-       style="font-size:25px;text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1">99</tspan></text>
+       x="569.64844"
+       y="459.70703"
+       style="font-size:30px;text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1">5</tspan></text>
   <path
      inkscape:connector-curvature="0"
      id="path5508"

@@ -8,6 +8,7 @@ var hdgBug = props.globals.getNode("autopilot/settings/heading-bug-deg");
 var lon = props.globals.getNode("position/longitude-deg");
 var lat = props.globals.getNode("position/latitude-deg");
 var index = 0;
+var scales = [2.5,5,12.5,25]; # zoom scales
 
 var do328_controller = {
 	parents: [canvas.Map.Controller],
@@ -20,6 +21,7 @@ var do328_controller = {
 	},
 
 	update_layers: func() {
+		me.map.setRange(2*scales[Range[me.index]]);
 		me.map.setPos(lat.getValue(), lon.getValue(), hdg.getValue());
 		me.map.update();
 	},
@@ -34,6 +36,7 @@ var canvas_nd = {
 		m.index = index;
 		m.counter = 0;
 		m.oldHeading = 0;
+		m.range = Range[0];
 
 		var font_mapper = func(family, weight)
 		{
@@ -44,13 +47,13 @@ var canvas_nd = {
 
 		canvas.parsesvg(canvasGroup, "Aircraft/do328/Models/Instruments/EFIS/nd.svg", {'font-mapper': font_mapper});
 
-		var svg_keys = ["compass","hdg","hdgBug","arrowL","arrowR"];
+		var svg_keys = ["compass","hdg","hdgBug","arrowL","arrowR","range1","range2"];
 		foreach(var key; svg_keys) {
 			m[key] = canvasGroup.getElementById(key);
 		}
 
 		### NavDisplay ###
-		m.map.setRange(20);
+		m.map.setRange(Range[0]);
 		m.map.setTranslation(400,440);
 		m.map.setPos(lat.getValue(),lon.getValue(),hdg.getValue());
 		m.map.setController(do328_controller);
@@ -99,10 +102,19 @@ var canvas_nd = {
 			}
 		}
 
-		if(me.counter > 20 or math.abs(heading-me.oldHeading) > 1) {
+		if(me.counter > 20 or math.abs(heading-me.oldHeading) > 1 or Range[me.index]!=me.range) {
 			setprop("instrumentation/efis/trigger_nd"~me.index, 1);
 			me.counter = 0;
 			me.oldHeading = heading;
+			me.range = Range[me.index];
+			if(me.range == 0 or me.range == 2) {
+				me.range1.setText(sprintf("%2.1f", scales[me.range]));
+				me.range2.setText(sprintf("%2.1f", scales[me.range]));
+			}
+			else {
+				me.range1.setText(sprintf("%d", scales[me.range]));
+				me.range2.setText(sprintf("%d", scales[me.range]));
+			}
 		}
 		me.counter+=1;
 

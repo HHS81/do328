@@ -303,6 +303,28 @@
 		</mod-up>
 	</action>
 </animation>
+    <animation>
+        <type>pick</type>
+        <object-name>MFD1_Knob</object-name>
+        <action>
+            <button>0</button>
+            <button>3</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>nasal</command>
+                <script>efis.mfd1Knob(1);</script>
+            </binding>
+        </action>
+        <action>
+            <button>4</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>nasal</command>
+                <script>efis.mfd1Knob(-1);</script>
+            </binding>
+        </action>
+    </animation>
+
 <animation>
 	<type>translate</type>
 	<object-name>EICAS_Menu</object-name>	
@@ -723,6 +745,27 @@
 		</mod-up>
 	</action>
 </animation>
+    <animation>
+        <type>pick</type>
+        <object-name>MFD2_Knob</object-name>
+        <action>
+            <button>0</button>
+            <button>3</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>nasal</command>
+                <script>efis.mfd2Knob(1);</script>
+            </binding>
+        </action>
+        <action>
+            <button>4</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>nasal</command>
+                <script>efis.mfd2Knob(-1);</script>
+            </binding>
+        </action>
+    </animation>
         
     <model>
         <path>Aircraft/do328/Models/Instruments/ALT/ALT.xml</path>
