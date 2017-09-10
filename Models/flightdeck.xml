@@ -772,20 +772,20 @@
 <model>
         <path>Aircraft/do328/Models/Instruments/ALT/ALT.xml</path>
         <offsets>
-            <x-m>-8.840</x-m>
+            <x-m>-8.791</x-m>
             <y-m>-0.140</y-m>
-            <z-m>1.923</z-m>
-            <pitch-deg>-6</pitch-deg>
+            <z-m>1.936</z-m>
+            <pitch-deg>-23</pitch-deg>
         </offsets>
     </model>
     
     <model>
         <path>Aircraft/do328/Models/Instruments/STBYai/STBYai.xml</path>
         <offsets>
-            <x-m>-8.851</x-m>
+            <x-m>-8.826</x-m>
             <y-m>-0.140</y-m>
-            <z-m>2.018</z-m><!--1.989-->
-            <pitch-deg>-6</pitch-deg>
+            <z-m>2.026</z-m>
+            <pitch-deg>-23</pitch-deg>
         </offsets>
     </model>
     
@@ -793,10 +793,10 @@
         <name>RMU1</name>
         <path>Aircraft/do328/Models/Instruments/RMU/RMU1.xml</path>
         <offsets>
-            <x-m>-8.662</x-m>
-            <y-m>-0.141</y-m>
-            <z-m>1.735</z-m>
-            <pitch-deg>-69</pitch-deg>
+            <x-m>-8.599</x-m>
+            <y-m>-0.143</y-m>
+            <z-m>1.743</z-m>
+            <pitch-deg>-63</pitch-deg>
         </offsets>
     </model>
 
@@ -804,10 +804,10 @@
         <name>RMU2</name>
         <path>Aircraft/do328/Models/Instruments/RMU/RMU2.xml</path>
         <offsets>
-            <x-m>-8.662</x-m>
-            <y-m>0.145</y-m>
-            <z-m>1.735</z-m>
-            <pitch-deg>-69</pitch-deg>
+            <x-m>-8.599</x-m>
+            <y-m>0.147</y-m>
+            <z-m>1.743</z-m>
+            <pitch-deg>-63</pitch-deg>
         </offsets>
     </model>
 
@@ -815,10 +815,10 @@
         <name>RCU</name>
         <path>Aircraft/do328/Models/Instruments/RCU/RCU.xml</path>
         <offsets>
-            <x-m>-8.856</x-m>
+            <x-m>-8.827</x-m>
             <y-m>0.152</y-m>
-            <z-m>2.026</z-m>
-            <pitch-deg>-6</pitch-deg>
+            <z-m>2.035</z-m>
+            <pitch-deg>-23</pitch-deg>
         </offsets>
     </model>
 
@@ -848,10 +848,10 @@
         <name>CDU</name>
         <path>Aircraft/do328/Models/Instruments/CDU/CDU.xml</path>
         <offsets>
-            <x-m>-8.714</x-m>
-            <y-m>0.000</y-m>
-            <z-m>1.755</z-m>
-            <pitch-deg>-69</pitch-deg>
+            <x-m>-8.644</x-m>
+            <y-m>0.001</y-m>
+            <z-m>1.767</z-m>
+            <pitch-deg>-63</pitch-deg>
         </offsets>
     </model>
     
