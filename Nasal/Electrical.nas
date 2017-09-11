@@ -164,7 +164,7 @@ var Consumer = {
         obj = { parents : [Consumer],
             Children: [],
             Connected: props.globals.initNode(ELNode ~ "Consumers/" ~ name ~ "_Connected", 0, "BOOL"),
-            Running: props.globals.initNode(ELNode ~ "Consumers/" ~ name ~ "_Running", 0, "BOOL"),
+            Running: props.globals.initNode(ELNode ~ "outputs/" ~ name, 0, "DOUBLE"),
             Current: current,
             MinVoltage: minVoltage,
             Tmp: 0,
@@ -178,7 +178,7 @@ var Consumer = {
         me.Children[me.Tmp] = child;
     },
     getCurrent: func {
-        if(!me.Running.getValue() or !me.Connected.getValue()) {
+        if(me.Running.getValue() < 24 or !me.Connected.getValue()) {
             return 0;
         }
 
@@ -202,7 +202,7 @@ var Consumer = {
                 }
             }
             else {
-                me.Running.setValue(1);
+                me.Running.setValue(24);
                 for(me.i=0; me.i<size(me.Children); me.i+=1) {
                     me.Children[me.i].setVoltage(voltage);
                 }

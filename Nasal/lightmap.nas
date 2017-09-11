@@ -9,11 +9,11 @@ var SUN_ANGLE=0;
 
 call_lightmap = func {
 
-   LL = getprop("systems/electrical/Consumers/logo-lights_Running") or 0;
-   WL = getprop("systems/electrical/Consumers/wing-lights_Running") or 0;
-   BL = getprop("systems/electrical/Consumers/beacon_Running") or 0;
+   LL = getprop("/systems/electrical/outputs/logo-lights") or 0;
+   WL = getprop("/systems/electrical/outputs/wing-lights") or 0;
+   BL = getprop("/systems/electrical/outputs/beacon") or 0;
    BS = getprop("controls/lighting/beacon-state/state") or 0;
-   LaL = getprop("systems/electrical/Consumers/landing-lights_Running") or 0;
+   LaL = getprop("/systems/electrical/outputs/landing-lights") or 0;
 
    SUN_ANGLE = getprop("sim/time/sun-angle-rad");
    #INSTR_DIMMER = getprop("controls/lighting/instruments-norm");
@@ -22,15 +22,15 @@ call_lightmap = func {
    #PANEL_DIMMER = getprop("controls/lighting/panel-norm");
    #LOGO = getprop("controls/lighting/logo-lights");
    #WING = getprop("controls/lighting/wing-lights");
-   #setprop("systems/electrical/Consumers/instrument-lightintensity",(Rbus * INSTR_DIMMER));
-   #setprop("systems/electrical/Consumers/instrument-lights-norm",(0.0416 * (Rbus * INSTR_DIMMER)));
-   #setprop("systems/electrical/Consumers/eng-lights",(Rbus * ENG_DIMMER));
-   #setprop("systems/electrical/Consumers/panel-lights",(Rbus * PANEL_DIMMER));
-   #setprop("systems/electrical/Consumers/efis-lights",(Rbus * EFIS_DIMMER));
-   setprop("systems/electrical/Consumers/logo-lights_Intensity",((SUN_ANGLE) * (LL * 0.7584)));#0.0316*24
-   setprop("systems/electrical/Consumers/wing-lights_Intensity",((SUN_ANGLE) * (WL * 0.7584)));
-   setprop("systems/electrical/Consumers/beacon_Intensity",((SUN_ANGLE) * (BL * BS * 0.5184)));
-   setprop("systems/electrical/Consumers/landing-lights_Intensity",((SUN_ANGLE)*(LaL * 0.7584)));
+   #setprop("systems/electrical/outputs/instrument-lightintensity",(Rbus * INSTR_DIMMER));
+   #setprop("systems/electrical/outputs/instrument-lights-norm",(0.0416 * (Rbus * INSTR_DIMMER)));
+   #setprop("systems/electrical/outputs/eng-lights",(Rbus * ENG_DIMMER));
+   #setprop("systems/electrical/outputs/panel-lights",(Rbus * PANEL_DIMMER));
+   #setprop("systems/electrical/outputs/efis-lights",(Rbus * EFIS_DIMMER));
+   setprop("/systems/electrical/outputs/logo-lights-intensity",((SUN_ANGLE) * (LL * 0.0316)));
+   setprop("/systems/electrical/outputs/wing-lights-intensity",((SUN_ANGLE) * (WL * 0.0316)));
+   setprop("/systems/electrical/outputs/beacon-intensity",((SUN_ANGLE) * (BL * BS * 0.0216)));
+   setprop("/systems/electrical/outputs/landing-lights-intensity",((SUN_ANGLE)*(LaL * 0.0316)));
 
    settimer(call_lightmap, 0);
 }

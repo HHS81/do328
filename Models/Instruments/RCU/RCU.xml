@@ -5,7 +5,7 @@
 	<animation>
 		<type>select</type>
 		<condition>
-			<property>systems/electrical/Consumers/EFIS_Running</property>
+		<property>systems/electrical/outputs/EFIS</property>
 		</condition>
 		<object-name>RCU.screen</object-name>
 	</animation>
