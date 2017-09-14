@@ -13,58 +13,6 @@ var beacon_switch = props.globals.getNode("controls/lighting/beacon", 1);
 aircraft.light.new("controls/lighting/beacon-state", [0.015, 1.0], beacon_switch);
 
 ##########################################################################################################
-var Alternator = {
-    new: func(name, source) {
-        obj = { parents: [Alternator],
-            Connected: props.globals.initNode(ELNode ~ name ~ "/Connected", 0, "BOOL"),
-            Current: props.globals.initNode(ELNode ~ name ~ "/Current", 0, "DOUBLE"), #A
-            Voltage: props.globals.initNode(ELNode ~ name ~ "/Voltage", 0, "DOUBLE"), #V
-            Source: props.globals.getNode(source, 1),
-            Running: 0,
-            RefVoltage: 115, #V
-            Tmp: 0
-        };
-        return obj;
-    },
-    getCurrent: func {
-        if(!me.Connected.getValue() or !me.Running) {
-            return 0;
-        }
-        return -1; #negative value -> producer
-    },
-    getVoltage: func {
-        me.Tmp = 0;
-
-        if(me.Running) {
-            me.Voltage.setValue(me.RefVoltage);
-
-            if(me.Connected.getValue()) {
-                me.Tmp = me.RefVoltage;
-            }
-        }
-        else {
-            me.Voltage.setValue(0);
-        }
-        return me.Tmp;
-    },
-    setConnected: func(connected) {
-        me.Connected.setValue(connected);
-    },
-    setCurrent: func(current) {
-	me.Running = me.Source.getValue() or 0;
-
-        if(me.Connected.getValue() and me.Running) {
-            me.Current.setValue(current);
-        }
-        else {
-            me.Current.setValue(0);
-        }
-    },
-    setVoltage: func(volts) {
-    }
-};
-
-##########################################################################################################
 # From ATA 24.41: "Two identical nickel cadmium batteries (BAT) 24 V/40 Ah are installed in the aircraft."
 var Battery = {
     new: func(name) {
@@ -216,7 +164,7 @@ var Consumer = {
     new: func(name, current, minVoltage) {
         obj = { parents : [Consumer],
             Devices: [],
-            Connected: props.globals.initNode(ELNode ~ "Consumers/" ~ name ~ "_Connected", 0, "BOOL"),
+            Connected: props.globals.initNode("instrumentation/" ~ name ~ "/serviceable", 0, "BOOL"),
             Running: props.globals.initNode(ELNode ~ "outputs/" ~ name, 0, "DOUBLE"),
             Current: current,
             MinVoltage: minVoltage,
@@ -332,14 +280,14 @@ var EssBus = {
 # From ATA 24.25: "The starter/generator system, with each of its two starter/generators (S/G), provides a
 # separate DC MAIN BUS with 28.5 VDC."
 var Generator = {
-    new: func(name, source) {
+    new: func(name, source, refVoltage) {
         obj = { parents: [Generator],
             Connected: props.globals.initNode(ELNode ~ name ~ "/Connected", 0, "BOOL"),
             Current: props.globals.initNode(ELNode ~ name ~ "/Current", 0, "DOUBLE"), #A
             Voltage: props.globals.initNode(ELNode ~ name ~ "/Voltage", 0, "DOUBLE"), #V
             Source: props.globals.getNode(source, 1),
             Running: 0,
-            RefVoltage: 28.5, #V
+            RefVoltage: refVoltage, #V
             Tmp: 0
         };
         return obj;
@@ -447,12 +395,14 @@ var nonEssBus2 = Consumer.new("NonEssBus2", 0, 17);
 var dctie = Tie.new("DCTie", dcBus1, dcBus2);
 
 # producers
-var alternator1 = Alternator.new("Alternator1", "/engines/engine[0]/generator-power");
+var alternator1 = Generator.new("Alternator1", "/engines/engine[0]/generator-power", 115);
+var alternator2 = Generator.new("Alternator2", "/engines/engine[1]/generator-power", 115);
 var battery1 = Battery.new("Battery1");
 var battery2 = Battery.new("Battery2");
-var generator1 = Generator.new("Generator1", "/engines/engine[0]/generator-power");
-var generator2 = Generator.new("Generator2", "/engines/engine[1]/generator-power");
+var generator1 = Generator.new("Generator1", "/engines/engine[0]/generator-power", 28.5);
+var generator2 = Generator.new("Generator2", "/engines/engine[1]/generator-power", 28.5);
 acBus1.append(alternator1);
+acBus2.append(alternator2);
 dcBus1.append(battery1);
 dcBus1.append(generator1);
 dcBus1.append(nonEssBus1);
@@ -507,20 +457,9 @@ nonEssBus1.append(dg);
 nonEssBus1.append(turn);
 
 # no separate switch
-setprop("/systems/electrical/Alternator1/Connected", 1);
-setprop("/systems/electrical/Consumers/EFIS_Connected", 1);
-setprop("/systems/electrical/Consumers/RMU_Connected", 1);
-setprop("/systems/electrical/Consumers/CDU_Connected", 1);
-setprop("/systems/electrical/Consumers/mk-viii_Connected", 1);
-setprop("/systems/electrical/Consumers/gps_Connected", 1);
-setprop("/systems/electrical/Consumers/comm_Connected", 1);
-setprop("/systems/electrical/Consumers/comm[1]_Connected", 1);
-setprop("/systems/electrical/Consumers/nav_Connected", 1);
-setprop("/systems/electrical/Consumers/adf_Connected", 1);
-setprop("/systems/electrical/Consumers/dme_Connected", 1);
-setprop("/systems/electrical/Consumers/transponder_Connected", 1);
-setprop("/systems/electrical/Consumers/DG_Connected", 1);
-setprop("/systems/electrical/Consumers/turn-coordinator_Connected", 1);
+setprop("/instrumentation/EFIS/serviceable", 1);
+setprop("/instrumentation/RMU/serviceable", 1);
+setprop("/instrumentation/CDU/serviceable", 1);
 
 update_electrical = func {
     acBus1.update();

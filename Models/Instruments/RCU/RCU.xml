@@ -15,7 +15,7 @@
 		<object-name>RCU.swap</object-name>
 		<object-name>RCU.navAudio</object-name>
 		<condition>
-			<property>systems/electrical/Consumers/EFIS_Running</property>
+			<property>systems/electrical/outputs/EFIS</property>
 		</condition>
 		<emission>
 			<red>1</red>

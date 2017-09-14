@@ -10,14 +10,14 @@ var Startup1 = func{
 	setprop("systems/electrical/Battery1/Connected",1);
 	setprop("systems/electrical/Battery2/Connected",1);
 	setprop("systems/electrical/DCTie/Connected",1);
-	setprop("/systems/electrical/Consumers/NonEssBus1_Connected",1);
-	setprop("/systems/electrical/Consumers/logo-lights_Connected",1);
-	setprop("/systems/electrical/Consumers/wing-lights_Connected",1);
-	setprop("/systems/electrical/Consumers/beacon_Connected",1);
-	setprop("/systems/electrical/Consumers/strobe_Connected",1);
-	setprop("/systems/electrical/Consumers/landing-lights_Connected",1);
-	setprop("/systems/electrical/Consumers/taxi-lights_Connected",1);
-	setprop("/systems/electrical/Consumers/nav-lights_Connected",1);
+	setprop("/instrumentation/NonEssBus1/serviceable",1);
+	setprop("/instrumentation/logo-lights/serviceable",1);
+	setprop("/instrumentation/wing-lights/serviceable",1);
+	setprop("/instrumentation/beacon/serviceable",1);
+	setprop("/instrumentation/strobe/serviceable",1);
+	setprop("/instrumentation/landing-lights/serviceable",1);
+	setprop("/instrumentation/taxi-lights/serviceable",1);
+	setprop("/instrumentation/nav-lights/serviceable",1);
 	#setprop("controls/lighting/instruments-norm",0.5);
 	setprop("controls/engines/engine[0]/cutoff",1);
 	setprop("controls/engines/engine[1]/cutoff",1);
@@ -28,25 +28,25 @@ var Startup1 = func{
 var Startup2 = func{
 	setprop("controls/engines/engine[0]/cutoff",0);
 	setprop("controls/engines/engine[1]/cutoff",0);
-	setprop("controls/electric/engine[0]/generator",1);
-	setprop("controls/electric/engine[1]/generator",1);
 	setprop("fdm/jsbsim/propulsion/engine/EIP/state",1);
 	setprop("systems/electrical/Generator1/Connected",1);
 	setprop("systems/electrical/Generator2/Connected",1);
+	setprop("/systems/electrical/Alternator1/Connected",1);
+	setprop("/systems/electrical/Alternator2/Connected",1);
 }
 
 var Shutdown = func{
-	setprop("controls/electric/engine[0]/generator",0);
-	setprop("controls/electric/engine[1]/generator",0);
 	setprop("systems/electrical/Generator1/Connected",0);
 	setprop("systems/electrical/Generator2/Connected",0);
-	setprop("/systems/electrical/Consumers/logo-lights_Connected",0);
-	setprop("/systems/electrical/Consumers/wing-lights_Connected",0);
-	setprop("/systems/electrical/Consumers/beacon_Connected",0);
-	setprop("/systems/electrical/Consumers/strobe_Connected",0);
-	setprop("/systems/electrical/Consumers/landing-lights_Connected",0);
-	setprop("/systems/electrical/Consumers/taxi-lights_Connected",0);
-	setprop("/systems/electrical/Consumers/nav-lights_Connected",0);
+	setprop("/systems/electrical/Alternator1/Connected",1);
+	setprop("/systems/electrical/Alternator2/Connected",1);
+	setprop("/instrumentation/logo-lights/serviceable",0);
+	setprop("/instrumentation/wing-lights/serviceable",0);
+	setprop("/instrumentation/beacon/serviceable",0);
+	setprop("/instrumentation/strobe/serviceable",0);
+	setprop("/instrumentation/landing-lights/serviceable",0);
+	setprop("/instrumentation/taxi-lights/serviceable",0);
+	setprop("/instrumentation/nav-lights/serviceable",0);
 	setprop("controls/engines/engine[0]/cutoff",1);
 	setprop("controls/engines/engine[1]/cutoff",1);
 	setprop("fdm/jsbsim/propulsion/engine/EIP/state",0);
