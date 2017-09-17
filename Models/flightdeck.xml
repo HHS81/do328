@@ -1787,16 +1787,16 @@
 		<property>controls/flight/elevator</property>
 		<!--min-deg>0</min-deg-->
 		<!--max-deg>360</max-deg-->
-		<factor>-16</factor>
-		<offset-deg>-8</offset-deg>
+		<factor>-17.25</factor>
+		<offset-deg>-8.625</offset-deg>
 		<center>
-			<x-m>-8.549611</x-m>
-			<y-m>0.018336</y-m>
-			<z-m>1.373619</z-m>
+			<x-m>-8.441</x-m>
+			<y-m>0.525</y-m>
+			<z-m>1.374</z-m>
 		</center>
 		<axis>
 			<x>0</x>
-			<y>1.080159</y>
+			<y>1</y>
 			<z>0</z>
 		</axis>
 </animation>
@@ -1810,12 +1810,12 @@
 		<property>controls/flight/aileron</property>
 		<factor>-90</factor>
 		<center>
-			<x-m>-8.532658</x-m>
-			<y-m>-0.484121</y-m>
-			<z-m>1.899815</z-m>
+			<x-m>-8.486</x-m>
+			<y-m>-0.488</y-m>
+			<z-m>1.8835</z-m>
 		</center>
 		<axis>
-			<x>0.130226</x>
+			<x>1.0</x>
 			<y>0</y>
 			<z>0</z>
 		</axis>
@@ -1830,14 +1830,14 @@
 		<property>controls/flight/aileron</property>
 		<factor>-90</factor>
 		<center>
-			<x-m>-8.497528</x-m>
-			<y-m>0.520813</y-m>
-			<z-m>1.900064</z-m>
+			<x-m>-8.486</x-m>
+			<y-m>0.5173</y-m>
+			<z-m>1.883</z-m>
 		</center>
 		<axis>
-			<x>0.200484</x>
-			<y>3.9e-05</y>
-			<z>0.000291</z>
+			<x>1.0</x>
+			<y>0</y>
+			<z>0</z>
 		</axis>
 	</animation>
 	
