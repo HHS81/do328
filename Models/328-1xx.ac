@@ -16,7 +16,7 @@ kids 110
 OBJECT poly
 name "aileron_l"
 crease 30.0
-texture "PaintkitNew.png"
+texture "D-CHIC.png"
 texrep 1 1
 numvert 95
 -1.3698030 3.0815990 9.2732849
@@ -748,7 +748,7 @@ kids 0
 OBJECT poly
 name "aileron_r"
 crease 30.0
-texture "PaintkitNew.png"
+texture "D-CHIC.png"
 texrep 1 1
 numvert 96
 -0.7066860 3.0339019 -9.2420835
@@ -1733,7 +1733,7 @@ kids 0
 OBJECT poly
 name "Baggagedoor"
 crease 80.0
-texture "PaintkitNew.png"
+texture "D-CHIC.png"
 texrep 1 1
 numvert 63
 4.1842031 1.1265070 0.8793520
@@ -3917,7 +3917,7 @@ kids 0
 OBJECT poly
 name "blade11"
 crease 80.0
-texture "PaintkitNew.png"
+texture "D-CHIC.png"
 texrep 1 1
 numvert 51
 -5.1058779 4.3344808 4.4597478
@@ -4321,7 +4321,7 @@ kids 0
 OBJECT poly
 name "blade12"
 crease 80.0
-texture "PaintkitNew.png"
+texture "D-CHIC.png"
 texrep 1 1
 numvert 51
 -5.0518150 2.8468480 3.8162689
@@ -4725,7 +4725,7 @@ kids 0
 OBJECT poly
 name "blade13"
 crease 80.0
-texture "PaintkitNew.png"
+texture "D-CHIC.png"
 texrep 1 1
 numvert 51
 -5.1058779 1.2517800 4.4189658
@@ -5129,7 +5129,7 @@ kids 0
 OBJECT poly
 name "blade14"
 crease 80.0
-texture "PaintkitNew.png"
+texture "D-CHIC.png"
 texrep 1 1
 numvert 51
 -5.0518150 2.5528660 3.4523790
@@ -5533,7 +5533,7 @@ kids 0
 OBJECT poly
 name "blade15"
 crease 80.0
-texture "PaintkitNew.png"
+texture "D-CHIC.png"
 texrep 1 1
 numvert 51
 -5.1058760 2.8284481 1.7696600
@@ -5937,7 +5937,7 @@ kids 0
 OBJECT poly
 name "blade16"
 crease 80.0
-texture "PaintkitNew.png"
+texture "D-CHIC.png"
 texrep 1 1
 numvert 51
 -4.9907532 4.0008159 2.8218060
@@ -6341,7 +6341,7 @@ kids 0
 OBJECT poly
 name "blade21"
 crease 80.0
-texture "PaintkitNew.png"
+texture "D-CHIC.png"
 texrep 1 1
 numvert 51
 -5.1058779 4.3344808 -2.6382871
@@ -6745,7 +6745,7 @@ kids 0
 OBJECT poly
 name "blade22"
 crease 80.0
-texture "PaintkitNew.png"
+texture "D-CHIC.png"
 texrep 1 1
 numvert 51
 -5.0518150 2.8468480 -3.2817659
@@ -7149,7 +7149,7 @@ kids 0
 OBJECT poly
 name "blade23"
 crease 80.0
-texture "PaintkitNew.png"
+texture "D-CHIC.png"
 texrep 1 1
 numvert 51
 -5.1058779 1.2517800 -2.6790690
@@ -7553,7 +7553,7 @@ kids 0
 OBJECT poly
 name "blade24"
 crease 80.0
-texture "PaintkitNew.png"
+texture "D-CHIC.png"
 texrep 1 1
 numvert 51
 -5.0518150 2.5528660 -3.6456561
@@ -7957,7 +7957,7 @@ kids 0
 OBJECT poly
 name "blade25"
 crease 80.0
-texture "PaintkitNew.png"
+texture "D-CHIC.png"
 texrep 1 1
 numvert 51
 -5.1058760 2.8284481 -5.3283749
@@ -8361,7 +8361,7 @@ kids 0
 OBJECT poly
 name "blade26"
 crease 80.0
-texture "PaintkitNew.png"
+texture "D-CHIC.png"
 texrep 1 1
 numvert 51
 -4.9907532 4.0008159 -4.2762280
@@ -8765,7 +8765,7 @@ kids 0
 OBJECT poly
 name "Cateringdoor"
 crease 80.0
-texture "PaintkitNew.png"
+texture "D-CHIC.png"
 texrep 1 1
 numvert 76
 1.7071100 1.0264170 -1.0016119
@@ -9282,7 +9282,7 @@ kids 0
 OBJECT poly
 name "elevator"
 crease 30.0
-texture "PaintkitNew.png"
+texture "D-CHIC.png"
 texrep 1 1
 numvert 114
 9.2897596 6.4647460 3.5031190
@@ -10294,7 +10294,7 @@ kids 0
 OBJECT poly
 name "exhaust_l"
 crease 30.0
-texture "PaintkitNew.png"
+texture "D-CHIC.png"
 texrep 1 1
 numvert 93
 -1.8779880 2.4447751 3.5109110
@@ -11624,7 +11624,7 @@ kids 0
 OBJECT poly
 name "flap"
 crease 30.0
-texture "PaintkitNew.png"
+texture "D-CHIC.png"
 texrep 1 1
 numvert 210
 -1.3742750 3.2098250 -0.9913190
@@ -20130,7 +20130,7 @@ kids 0
 OBJECT poly
 name "flgdoor_lb"
 crease 30.0
-texture "PaintkitNew.png"
+texture "D-CHIC.png"
 texrep 1 1
 numvert 19
 -8.5981197 0.6573040 0.3173010
@@ -20240,7 +20240,7 @@ kids 0
 OBJECT poly
 name "flgdoor_lf"
 crease 30.0
-texture "PaintkitNew.png"
+texture "D-CHIC.png"
 texrep 1 1
 numvert 31
 -9.9928188 0.8004770 0.0548730
@@ -20439,7 +20439,7 @@ kids 0
 OBJECT poly
 name "flgdoor_rb"
 crease 30.0
-texture "PaintkitNew.png"
+texture "D-CHIC.png"
 texrep 1 1
 numvert 19
 -8.5981197 0.6573040 -0.3136740
@@ -20549,7 +20549,7 @@ kids 0
 OBJECT poly
 name "flgdoor_rf"
 crease 30.0
-texture "PaintkitNew.png"
+texture "D-CHIC.png"
 texrep 1 1
 numvert 31
 -9.9928188 0.8004770 -0.0512460
@@ -20864,7 +20864,7 @@ kids 0
 OBJECT poly
 name "flgwheel"
 crease 60.0
-texture "PaintkitNew.png"
+texture "D-CHIC.png"
 texrep 1 1
 numvert 1080
 -8.7820625 0.0770830 -0.2142720
@@ -28112,7 +28112,7 @@ kids 0
 OBJECT poly
 name "Frontdoor"
 crease 80.0
-texture "PaintkitNew.png"
+texture "D-CHIC.png"
 texrep 1 1
 numvert 46
 -6.2611299 1.0177120 0.9985050
@@ -28374,7 +28374,7 @@ kids 0
 OBJECT poly
 name "Fuselage"
 crease 60.0
-texture "PaintkitNew.png"
+texture "D-CHIC.png"
 texrep 1 1
 numvert 4834
 9.2290506 6.3355408 -3.4321060
@@ -70242,7 +70242,7 @@ kids 0
 OBJECT poly
 name "intakeexhaust.001"
 crease 30.0
-texture "PaintkitNew.png"
+texture "D-CHIC.png"
 texrep 1 1
 numvert 186
 -1.8779880 2.4447751 -3.5109110
@@ -76068,7 +76068,7 @@ kids 0
 OBJECT poly
 name "mlgdoor_1l"
 crease 80.0
-texture "PaintkitNew.png"
+texture "D-CHIC.png"
 texrep 1 1
 numvert 15
 -1.6025790 0.8130260 1.3878980
@@ -76147,7 +76147,7 @@ kids 0
 OBJECT poly
 name "mlgdoor_1r"
 crease 80.0
-texture "PaintkitNew.png"
+texture "D-CHIC.png"
 texrep 1 1
 numvert 18
 -1.1840590 0.8130260 -1.3854780
@@ -76527,7 +76527,7 @@ kids 0
 OBJECT poly
 name "mlgdoor_2l"
 crease 80.0
-texture "PaintkitNew.png"
+texture "D-CHIC.png"
 texrep 1 1
 numvert 28
 -1.1840590 0.6217380 1.3048810
@@ -76689,7 +76689,7 @@ kids 0
 OBJECT poly
 name "mlgdoor_2r"
 crease 80.0
-texture "PaintkitNew.png"
+texture "D-CHIC.png"
 texrep 1 1
 numvert 32
 -1.1840590 0.8130260 -1.3854780
@@ -77856,7 +77856,7 @@ kids 0
 OBJECT poly
 name "mlgdoor_3l"
 crease 80.0
-texture "PaintkitNew.png"
+texture "D-CHIC.png"
 texrep 1 1
 numvert 49
 -1.9713930 0.4935890 1.1622061
@@ -78185,7 +78185,7 @@ kids 0
 OBJECT poly
 name "mlgdoor_3r"
 crease 80.0
-texture "PaintkitNew.png"
+texture "D-CHIC.png"
 texrep 1 1
 numvert 52
 -1.1840590 0.4935890 -1.1597860
@@ -83939,7 +83939,7 @@ kids 0
 OBJECT poly
 name "mlgwheell"
 crease 45.0
-texture "PaintkitNew.png"
+texture "D-CHIC.png"
 texrep 1 1
 numvert 2628
 -1.7603320 -0.0133430 1.5127980
@@ -104047,7 +104047,7 @@ kids 0
 OBJECT poly
 name "mlgwheelr"
 crease 45.0
-texture "PaintkitNew.png"
+texture "D-CHIC.png"
 texrep 1 1
 numvert 2628
 -1.7603320 -0.0133430 -1.8392431
@@ -124155,7 +124155,7 @@ kids 0
 OBJECT poly
 name "nacelle_l"
 crease 30.0
-texture "PaintkitNew.png"
+texture "D-CHIC.png"
 texrep 1 1
 numvert 998
 -1.1433630 2.7134731 3.5239029
@@ -131868,7 +131868,7 @@ kids 0
 OBJECT poly
 name "nacelle_r"
 crease 30.0
-texture "PaintkitNew.png"
+texture "D-CHIC.png"
 texrep 1 1
 numvert 998
 -4.6386480 2.2718639 -3.7531309
@@ -139645,7 +139645,7 @@ kids 0
 OBJECT poly
 name "OuterFlap_L"
 crease 30.0
-texture "PaintkitNew.png"
+texture "D-CHIC.png"
 texrep 1 1
 numvert 102
 -1.3219920 3.1527939 3.5501170
@@ -140384,7 +140384,7 @@ kids 0
 OBJECT poly
 name "OuterFlap_R"
 crease 30.0
-texture "PaintkitNew.png"
+texture "D-CHIC.png"
 texrep 1 1
 numvert 102
 -1.3723440 3.2039731 -3.5536079
@@ -143661,7 +143661,7 @@ kids 0
 OBJECT poly
 name "rudder"
 crease 30.0
-texture "PaintkitNew.png"
+texture "D-CHIC.png"
 texrep 1 1
 numvert 56
 10.3708076 6.6744752 0.0140370
@@ -144151,7 +144151,7 @@ kids 0
 OBJECT poly
 name "ruddertrim1"
 crease 30.0
-texture "PaintkitNew.png"
+texture "D-CHIC.png"
 texrep 1 1
 numvert 6
 9.4817286 4.4525032 -0.0136030
@@ -144186,7 +144186,7 @@ kids 0
 OBJECT poly
 name "ruddertrim2"
 crease 30.0
-texture "PaintkitNew.png"
+texture "D-CHIC.png"
 texrep 1 1
 numvert 6
 9.4817286 4.4525032 -0.0136030
@@ -144227,7 +144227,7 @@ kids 0
 OBJECT poly
 name "spinner"
 crease 80.0
-texture "PaintkitNew.png"
+texture "D-CHIC.png"
 texrep 1 1
 numvert 450
 -5.0057979 2.9861419 3.8335891
@@ -147757,7 +147757,7 @@ kids 0
 OBJECT poly
 name "spoiler1.L"
 crease 30.0
-texture "PaintkitNew.png"
+texture "D-CHIC.png"
 texrep 1 1
 numvert 18
 -1.4820451 3.3772299 3.6453071
@@ -147905,7 +147905,7 @@ kids 0
 OBJECT poly
 name "spoiler1.R"
 crease 30.0
-texture "PaintkitNew.png"
+texture "D-CHIC.png"
 texrep 1 1
 numvert 18
 -1.4820451 3.3932030 -1.8267630
@@ -148053,7 +148053,7 @@ kids 0
 OBJECT poly
 name "spoiler2.L"
 crease 30.0
-texture "PaintkitNew.png"
+texture "D-CHIC.png"
 texrep 1 1
 numvert 18
 -1.4820451 3.3739491 4.0187569
@@ -148182,7 +148182,7 @@ kids 0
 OBJECT poly
 name "spoiler2.R"
 crease 30.0
-texture "PaintkitNew.png"
+texture "D-CHIC.png"
 texrep 1 1
 numvert 18
 -1.4820451 3.3772299 -3.6453071
@@ -148311,7 +148311,7 @@ kids 0
 OBJECT poly
 name "spoileron_l"
 crease 30.0
-texture "PaintkitNew.png"
+texture "D-CHIC.png"
 texrep 1 1
 numvert 12
 -1.1260689 3.2073250 6.5001779
@@ -148411,7 +148411,7 @@ kids 0
 OBJECT poly
 name "spoileron_r"
 crease 30.0
-texture "PaintkitNew.png"
+texture "D-CHIC.png"
 texrep 1 1
 numvert 12
 -1.3202471 3.2400701 -6.5012898
@@ -148549,7 +148549,7 @@ kids 0
 OBJECT poly
 name "trim.L"
 crease 30.0
-texture "PaintkitNew.png"
+texture "D-CHIC.png"
 texrep 1 1
 numvert 8
 -1.1221100 3.1064670 8.2963076
@@ -148617,7 +148617,7 @@ kids 0
 OBJECT poly
 name "trim.R"
 crease 30.0
-texture "PaintkitNew.png"
+texture "D-CHIC.png"
 texrep 1 1
 numvert 8
 -1.1221100 3.1297460 -8.2972469
@@ -148661,7 +148661,7 @@ kids 0
 OBJECT poly
 name "wing1.L"
 crease 30.0
-texture "PaintkitNew.png"
+texture "D-CHIC.png"
 texrep 1 1
 numvert 168
 -1.7110730 3.4460249 3.5418241
@@ -149921,7 +149921,7 @@ kids 0
 OBJECT poly
 name "wing1.R"
 crease 30.0
-texture "PaintkitNew.png"
+texture "D-CHIC.png"
 texrep 1 1
 numvert 168
 -1.3661660 3.1131320 -0.9901630
@@ -151181,7 +151181,7 @@ kids 0
 OBJECT poly
 name "wing2.L"
 crease 30.0
-texture "PaintkitNew.png"
+texture "D-CHIC.png"
 texrep 1 1
 numvert 276
 -1.3740180 3.2455649 6.7505202
@@ -153107,7 +153107,7 @@ kids 0
 OBJECT poly
 name "wing2.R"
 crease 30.0
-texture "PaintkitNew.png"
+texture "D-CHIC.png"
 texrep 1 1
 numvert 276
 -1.3156160 3.2552130 -6.7507801
@@ -155033,7 +155033,7 @@ kids 0
 OBJECT poly
 name "wing3.L"
 crease 30.0
-texture "PaintkitNew.png"
+texture "D-CHIC.png"
 texrep 1 1
 numvert 262
 -1.0938540 3.0714700 9.9483147
@@ -157079,7 +157079,7 @@ kids 0
 OBJECT poly
 name "wing3.R"
 crease 30.0
-texture "PaintkitNew.png"
+texture "D-CHIC.png"
 texrep 1 1
 numvert 263
 -1.7450900 3.1088760 -9.9496946

@@ -5,9 +5,9 @@
 		<model>
 			
 				<livery>
-					<name type="string">TAC 1   D-CHIC</name>
+					<name type="string">TAC 1  D-CHIC</name>
 					 <index type="int">4</index>
-					  <texture>do328prop_liveries/D-CHIC.png</texture>
+					  <texture>D-CHIC.png</texture>
 				</livery>
 			<do328>
 			<material>
