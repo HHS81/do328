@@ -3,7 +3,7 @@
 var Mfd1Instance = {};
 var Mfd2Instance = {};
 var MfdSoftkeys = [["MAIN 1/2","DISPLAY","RADAR","SYSTEM","FMS","MFD\nFORMAT","RNG"], #0
-		["MAIN 2/2","MAINT","","","","","RNG"], #1
+		["MAIN 2/2","TEST","","MFD\nMAINT","","","RNG"], #1
 		["DISPLAY","","","","","","RNG"], #2
 		["RADAR","STBY\nTEST","WX\nGMAP","SECTOR","TGT\n","RADAR\nSUB","RNG"], #3
 		["SYSTEM 1/3","FLIGHT\nCONTROL","HYDR","ENGINE","FUEL","NEXT",""], #4
@@ -11,8 +11,9 @@ var MfdSoftkeys = [["MAIN 1/2","DISPLAY","RADAR","SYSTEM","FMS","MFD\nFORMAT","R
 		["SYSTEM 3/3","CPCS/\nOXYGEN","DOORS","SYS\nMAINT","SENSOR\nDATA","NEXT",""], #6
 		["FMS","WAYPNT\nIDENT","NAVAID\nAIRPRT","","","CURSOR","RNG"], #7
 		["MFD FORMAT","","","","","","RNG"], #8
-		["MAINT","TREND","EXCEED","FAULT","GNDMNT","",""], #9
-		["RADAR SUB","GAIN\nPRE VAR","RNG","TILT","RCT","","RNG"]]; #10
+		["TEST","RAD ALT","ATC\nEICAS","TCAS","EFIS\nEICAS","EGPWS","RNG"], #9
+		["MAINT","TREND","EXCEED","FAULT","GNDMNT","",""], #10
+		["RADAR SUB","GAIN\nPRE VAR","RNG","TILT","RCT","","RNG"]]; #11
 var Range=[0,0];
 
 var MFD = {
@@ -69,11 +70,11 @@ var MFD = {
 		if(input == 0) {
 			# back button pressed
 			# go back to main menu
-			if(me.ShownSkPage == 0 or me.ShownSkPage == 9) {
+			if(me.ShownSkPage == 0) {
 				me.SkInstance.setSoftkeys(MfdSoftkeys[1]);
 				me.ShownSkPage = 1;
 			}
-			else if(me.ShownSkPage == 10){
+			else if(me.ShownSkPage == 11){
 				# activate "RADAR"
 				me.SkInstance.setSoftkeys(MfdSoftkeys[3]);
 				me.ShownSkPage = 3;
@@ -120,10 +121,15 @@ var MFD = {
 			else if(me.ShownSkPage == 1) {
 				# MAIN 2/2 menu
 				if(input == 1) {
-					# activate "MAINT"
-					me.KnobMode = 0; # RNG inactive
+					# activate "TEST"
 					me.SkInstance.setSoftkeys(MfdSoftkeys[9]);
 					me.ShownSkPage = 9;
+				}
+				else if(input == 3) {
+					# activate "MFD MAINT"
+					me.KnobMode = 0; # RNG inactive
+					me.SkInstance.setSoftkeys(MfdSoftkeys[10]);
+					me.ShownSkPage = 10;
 				}
 			}
 			else if(me.ShownSkPage == 3) {
@@ -133,12 +139,12 @@ var MFD = {
 				# TGT: warning if dangerous weather outside of selected range
 				if(input == 5) {
 					# activate "RADAR SUB"
-					MfdSoftkeys[10][6]="RNG";
-					me.SkInstance.setSoftkeys(MfdSoftkeys[10]);
-					me.ShownSkPage = 10;
+					MfdSoftkeys[11][6]="RNG";
+					me.SkInstance.setSoftkeys(MfdSoftkeys[11]);
+					me.ShownSkPage = 11;
 
 					# needed for frames
-					me.SelectedSkPage = 10;
+					me.SelectedSkPage = 11;
 					me.SelectedSk = 1;
 				}
 			}
@@ -238,18 +244,18 @@ var MFD = {
 					me.ShownSkPage = 4;
 				}
 			}
-			else if(me.ShownSkPage == 9) {
+			else if(me.ShownSkPage == 10) {
 				me.KnobMode = 0; # RNG inactive
 
 				# "MFD MAINT" page
 				if(input == 2) {
 					# activate "EXCEEDANCE" page
 					me.ActivatePage(12);
-					me.SelectedSkPage = 9;
+					me.SelectedSkPage = 10;
 					me.SelectedSk = 1;
 				}
 			}
-			else if(me.ShownSkPage == 10) {
+			else if(me.ShownSkPage == 11) {
 				# RADAR SUB menu
 				# GAIN: preset = only dangerous weather shown in red
 				#       variable = scale colors to current weather
@@ -258,22 +264,22 @@ var MFD = {
 				# RCT:  rain compensation (does only work in preset gain mode)
 				if(input == 2) {
 					# activate "RNG"
-					MfdSoftkeys[10][6]="RNG";
-					me.SkInstance.setSoftkeys(MfdSoftkeys[10]);
+					MfdSoftkeys[11][6]="RNG";
+					me.SkInstance.setSoftkeys(MfdSoftkeys[11]);
 					me.SelectedSk = 1;
 				}
 				else if(input == 3) {
 					# activate "TILT"
 					me.KnobMode = 0; # RNG inactive
-					MfdSoftkeys[10][6]="TILT";
-					me.SkInstance.setSoftkeys(MfdSoftkeys[10]);
+					MfdSoftkeys[11][6]="TILT";
+					me.SkInstance.setSoftkeys(MfdSoftkeys[11]);
 					me.SelectedSk = 2;
 				}
 				else if(input == 4) {
 					# activate "RCT"
 					me.KnobMode = 0; # RNG inactive
-					MfdSoftkeys[10][6]="RCT";
-					me.SkInstance.setSoftkeys(MfdSoftkeys[10]);
+					MfdSoftkeys[11][6]="RCT";
+					me.SkInstance.setSoftkeys(MfdSoftkeys[11]);
 					me.SelectedSk = 3;
 				}
 			}
@@ -305,7 +311,7 @@ var mfd2BtClick = func(input = -1) {
 var mfd1Knob = func(input = 0) {
 	if(Mfd1Instance.GetKnobMode()) {
 		Range[0] += input;
-		if(Range[0] > 3) Range[0]=3;
+		if(Range[0] > 5) Range[0]=5;
 		if(Range[0] < 0) Range[0]=0;
 	}
 }
@@ -313,7 +319,7 @@ var mfd1Knob = func(input = 0) {
 var mfd2Knob = func(input = 0) {
 	if(Mfd2Instance.GetKnobMode()) {
 		Range[1] += input;
-		if(Range[1] > 3) Range[1]=3;
+		if(Range[1] > 5) Range[1]=5;
 		if(Range[1] < 0) Range[1]=0;
 	}
 }

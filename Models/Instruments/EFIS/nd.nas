@@ -8,7 +8,7 @@ var hdgBug = props.globals.getNode("autopilot/settings/heading-bug-deg");
 var lon = props.globals.getNode("position/longitude-deg");
 var lat = props.globals.getNode("position/latitude-deg");
 var index = 0;
-var scales = [2.5,5,12.5,25]; # zoom scales
+var scales = [2.5,5,12.5,25,50,100]; # zoom scales
 
 var do328_controller = {
 	parents: [canvas.Map.Controller],
@@ -74,9 +74,9 @@ var canvas_nd = {
 	},
 	update: func()
 	{
-		var heading = hdg.getValue();
+		var heading = hdg.getValue() or 0;
 
-		if(heading != nil) {
+		if(me.counter > 10 or math.abs(heading-me.oldHeading) > 0.3 or Range[me.index]!=me.range) {
 			var hdg = hdgBug.getValue()-heading;
 			me.hdg.setText(sprintf("%3.0f",heading));
 			me.compass.setRotation(-heading*D2R);
@@ -100,12 +100,8 @@ var canvas_nd = {
 					me.arrowR.hide();
 				}
 			}
-		}
 
-		if(me.counter > 20 or math.abs(heading-me.oldHeading) > 1 or Range[me.index]!=me.range) {
 			setprop("instrumentation/efis/trigger_nd"~me.index, 1);
-			me.counter = 0;
-			me.oldHeading = heading;
 			me.range = Range[me.index];
 			if(me.range == 0 or me.range == 2) {
 				me.range1.setText(sprintf("%2.1f", scales[me.range]));
@@ -115,6 +111,8 @@ var canvas_nd = {
 				me.range1.setText(sprintf("%d", scales[me.range]));
 				me.range2.setText(sprintf("%d", scales[me.range]));
 			}
+			me.counter = 0;
+			me.oldHeading = heading;
 		}
 		me.counter+=1;
 
