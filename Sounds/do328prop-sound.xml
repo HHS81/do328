@@ -1,6 +1,13 @@
 <?xml version="1.0"?>
 <PropertyList>
 <fx>
+    <beep>
+        <name>overspeed</name>
+        <path>Sounds/beep.wav</path>
+        <property>instrumentation/mk-viii/inputs/discretes/beep</property>
+        <mode>looped</mode>
+    </beep>
+
 <!-- Engine 1 -->
     <engine>
         <name>engine left outside</name>
