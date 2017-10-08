@@ -383,7 +383,7 @@ var canvas_PFD = {
 			me.maxSpdInd.show();
 		}
 		me.baroSet.setText(sprintf("%4.0f", getprop("instrumentation/altimeter/setting-hpa")));
-		me.selHdgText.setText(sprintf("%3.0f", getprop("autopilot/settings/heading-bug-deg")));
+		me.selHdgText.setText(sprintf("%03d", getprop("autopilot/settings/heading-bug-deg")));
 		me.speedText.setText(sprintf("%3.0f", me.apSpd));
 	},
 };

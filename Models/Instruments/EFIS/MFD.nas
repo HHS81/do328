@@ -4,13 +4,13 @@ var Mfd1Instance = {};
 var Mfd2Instance = {};
 var MfdSoftkeys = [["MAIN 1/2","DISPLAY","RADAR","SYSTEM","FMS","MFD\nFORMAT","RNG"], #0
 		["MAIN 2/2","TEST","","MFD\nMAINT","","","RNG"], #1
-		["DISPLAY","","","","","","RNG"], #2
+		["DISPLAY","IF\nYOU","KNOW\nTHIS","CONTENT\nPLEASE","LET\nME","KNOW","RNG"], #2
 		["RADAR","STBY\nTEST","WX\nGMAP","SECTOR","TGT\n","RADAR\nSUB","RNG"], #3
 		["SYSTEM 1/3","FLIGHT\nCONTROL","HYDR","ENGINE","FUEL","NEXT",""], #4
 		["SYSTEM 2/3","ELECTR","ECS","ICE\nPROTECT","APU","NEXT",""], #5
 		["SYSTEM 3/3","CPCS/\nOXYGEN","DOORS","SYS\nMAINT","SENSOR\nDATA","NEXT",""], #6
 		["FMS","WAYPNT\nIDENT","NAVAID\nAIRPRT","","","CURSOR","RNG"], #7
-		["MFD FORMAT","","","","","","RNG"], #8
+		["MFD FORMAT","IF\nYOU","KNOW\nTHIS","CONTENT\nPLEASE","LET\nME","KNOW","RNG"], #8
 		["TEST","RAD ALT","ATC\nEICAS","TCAS","EFIS\nEICAS","EGPWS","RNG"], #9
 		["MAINT","TREND","EXCEED","FAULT","GNDMNT","",""], #10
 		["RADAR SUB","GAIN\nPRE VAR","RNG","TILT","RCT","","RNG"]]; #11
@@ -523,7 +523,7 @@ var mfdListener = setlistener("/sim/signals/fdm-initialized", func () {
 		"mipmapping": 1
 	});
 	mfd1Canvas.addPlacement({"node": "MFD1_Screen"});
-	Mfd1Instance = MFD.new(mfd1Canvas.createGroup(), 1);
+	Mfd1Instance = MFD.new(mfd1Canvas.createGroup(), 0);
 
 	var mfd2Canvas = canvas.new({
 		"name": "MFD2",
@@ -532,7 +532,7 @@ var mfdListener = setlistener("/sim/signals/fdm-initialized", func () {
 		"mipmapping": 1
 	});
 	mfd2Canvas.addPlacement({"node": "MFD2_Screen"});
-	Mfd2Instance = MFD.new(mfd2Canvas.createGroup(), 2);
+	Mfd2Instance = MFD.new(mfd2Canvas.createGroup(), 1);
 
 	removelistener(mfdListener);
 });

@@ -36,14 +36,13 @@ var init = func {
 		.setStrokeLineWidth(me.layer.style.line_width);
 	var text_dme_do = me.element.createChild("text", name ~ " label")
 		.setDrawMode(canvas.Text.TEXT)
-		.setTranslation(20,-10)
+		.setTranslation(30,-15)
 		.setText(me.model.id)
-		.setFont("LiberationFonts/LiberationSans-Regular.ttf")
-		.setColor(me.layer.style.color_default);
-		#.setFontSize(me.layer.style.label_font_size);
+		.setFont("honeywellfont.ttf")
+		.setColor(me.layer.style.color_default)
+		.setFontSize(32);
 
 	# FIXME: this applies scale to the whole group, better do this separately for each element?
 	me.element.setScale(me.layer.style.scale_factor);
 };
 var draw = func;
-

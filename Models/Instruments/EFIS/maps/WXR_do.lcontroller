@@ -1,6 +1,6 @@
 # See: http://wiki.flightgear.org/MapStructure
 # Class things:
-var name = 'WPT_do'; # for waypoints
+var name = 'WXR_do'; # for waypoints
 var parents = [SymbolLayer.Controller];
 var __self__ = caller(0)[0];
 SymbolLayer.Controller.add(name, __self__);
@@ -34,15 +34,14 @@ var del = func() {
 		removelistener(l);
 };
 
-var WPT_do_model = {
-	new: func(fp, idx, offset=0) {
-		var m = { parents:[WPT_do_model], idx:(idx+offset) };
-		var wp = fp.getWP(idx);
-		m.name = wp.wp_name;
-
-		if (idx) var n = wp.path()[-1];
-		else var n = fp.getWP(1).path()[0];
-		(m.lat,m.lon) = (n.lat,n.lon);
+var WXR_do_model = {
+	new: func(n, idx, offset=0) {
+		var m = { parents:[WXR_do_model], idx:(idx+offset) };
+		m.name = sprintf("cloud%d", idx);
+		
+		m.lat = n.getNode("position/latitude-deg").getValue();
+		m.lon = n.getNode("position/longitude-deg").getValue();
+		#print(m.lat," ",m.lon);
 		return m;
 	},
 	equals: func(other) {
@@ -52,14 +51,11 @@ var WPT_do_model = {
 };
 
 var searchCmd = func {
-	#printlog(_MP_dbg_lvl, "Running query: "~name);
-
-	if (!getprop(me.options.active_node)) return [];
-
-	var fp = flightplan();
-	var fpSize = fp.getPlanSize();
+	var clouds = props.globals.getNode("/local-weather/clouds/tile[1]",1).getChildren("cloud");
+	var cloudSize = size(clouds);
 	var result = [];
-	for (var i = 0; i < fpSize; i+=1)
-		append(result, WPT_do_model.new(fp, i));
+	for (var i = 0; i < cloudSize; i+=1)
+		append(result, WXR_do_model.new(clouds[i], i));
 	return result;
 };
+

@@ -1,6 +1,7 @@
 var ndlayers = [{name:'APT_do',style:{scale_factor:0.6,label_font_color:[1,1,1],color_default:[1,1,1],line_width:4}},
 		{name:'DME_do',style:{scale_factor:0.6,color_default:[0,1,0],line_width:4}},
 		{name:'WPT_do',style:{scale_factor:0.6,line_width:4}},
+		#{name:'WXR_do',style:{scale_factor:0.6,line_width:4}},
 		{name:'RTE',style:{scale_factor:0.6,color:[0,1,0],line_width:3}}];
 
 var hdg = props.globals.getNode("orientation/heading-magnetic-deg");
@@ -14,17 +15,50 @@ var do328_controller = {
 	parents: [canvas.Map.Controller],
 
 	new: func(map) {
-		var m = { parents: [do328_controller], map:map };
+		var m = { parents: [do328_controller],
+			map: map,
+			apt: map.getLayer('APT_do'),
+			dme: map.getLayer('DME_do')
+			#wxr: map.getLayer('WXR_do')
+			};
 		m.index = index;
-		setlistener("instrumentation/efis/trigger_nd"~index, func{ m.update_layers() });
-		return m;
-	},
+		m.apt.hide();
+		m.dme.hide();
+		#m.wxr.hide();
 
-	update_layers: func() {
-		me.map.setRange(2*scales[Range[me.index]]);
-		me.map.setPos(lat.getValue(), lon.getValue(), hdg.getValue());
-		me.map.update();
-	},
+		setlistener("instrumentation/efis/trigger_nd"~index, func{
+			m.map.setRange(2*scales[Range[m.index]]);
+			m.map.setPos(lat.getValue(), lon.getValue(), hdg.getValue());
+			m.map.update();
+		});
+
+		setlistener("/instrumentation/efis/wptIdent0", func{
+			m.map.update();
+		});
+
+		setlistener("/instrumentation/efis/wxGmap"~index, func{
+			if(getprop("/instrumentation/efis/wxGmap"~m.index)) {
+				#m.wxr.show();
+			}
+			else {
+				#m.wxr.hide();
+			}
+			m.map.update();
+		});
+
+		setlistener("/instrumentation/efis/navaid"~index, func{
+			if(getprop("/instrumentation/efis/navaid"~m.index)) {
+				m.apt.show();
+				m.dme.show();
+			}
+			else {
+				m.apt.hide();
+				m.dme.hide();
+			}
+			m.map.update();
+		});
+		return m;
+	}
 };
 
 var canvas_nd = {
@@ -47,7 +81,8 @@ var canvas_nd = {
 
 		canvas.parsesvg(canvasGroup, "Aircraft/do328/Models/Instruments/EFIS/nd.svg", {'font-mapper': font_mapper});
 
-		var svg_keys = ["compass","hdg","hdgBug","arrowL","arrowR","range1","range2"];
+		var svg_keys = ["compass","hdg","hdgBug","arrowL","arrowR","range1","range2",
+				"hdgText","satText","tasText","gsText"];
 		foreach(var key; svg_keys) {
 			m[key] = canvasGroup.getElementById(key);
 		}
@@ -56,7 +91,6 @@ var canvas_nd = {
 		m.map.setRange(Range[0]);
 		m.map.setTranslation(400,440);
 		m.map.setPos(lat.getValue(),lon.getValue(),hdg.getValue());
-		m.map.setController(do328_controller);
 
 		foreach(var layer; ndlayers) {
 			m.map.addLayer(
@@ -67,6 +101,7 @@ var canvas_nd = {
 				priority: layer['z-index']
 			);
 		}
+		m.map.setController(do328_controller);
 		index+=1;
 
 		m.active = 0;
@@ -111,6 +146,12 @@ var canvas_nd = {
 				me.range1.setText(sprintf("%d", scales[me.range]));
 				me.range2.setText(sprintf("%d", scales[me.range]));
 			}
+
+			me.hdgText.setText(sprintf("%03d", getprop("autopilot/settings/heading-bug-deg")));
+			me.satText.setText(sprintf("%03d", getprop("environment/temperature-degc")));
+			me.tasText.setText(sprintf("%03d", getprop("instrumentation/airspeed-indicator/true-speed-kt")));
+			me.gsText.setText(sprintf("%03d", getprop("velocities/groundspeed-kt")));
+
 			me.counter = 0;
 			me.oldHeading = heading;
 		}
