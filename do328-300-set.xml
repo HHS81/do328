@@ -154,18 +154,9 @@ Started by Heiko Schulz
          <file>Aircraft/do328/Models/Instruments/CDU/Procedures/fmsTP.nas</file>
          <file>Aircraft/do328/Models/Instruments/CDU/Procedures/fmsTransition.nas</file>
       </procedures>
-      <displaypages>
-         <file>Aircraft/do328/Models/Instruments/CDU/DispPages/CduStart.nas</file>
-         <file>Aircraft/do328/Models/Instruments/CDU/DispPages/FltPlan.nas</file>
-         <file>Aircraft/do328/Models/Instruments/CDU/DispPages/FltList.nas</file>
-         <file>Aircraft/do328/Models/Instruments/CDU/DispPages/FltDeparture.nas</file>
-         <file>Aircraft/do328/Models/Instruments/CDU/DispPages/FltDestination.nas</file>
-         <file>Aircraft/do328/Models/Instruments/CDU/DispPages/NavPages.nas</file>
-         <file>Aircraft/do328/Models/Instruments/CDU/DispPages/Performance.nas</file>
-         <file>Aircraft/do328/Models/Instruments/CDU/DispPages/Progress.nas</file>
-      </displaypages>
       <cdu>
          <file>Aircraft/do328/Models/Instruments/CDU/CDU.nas</file>
+         <file>Aircraft/do328/Models/Instruments/CDU/CDUpages.nas</file>
       </cdu>
       <dialogs>
          <file>Aircraft/do328/Nasal/dialogs.nas</file>

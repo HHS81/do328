@@ -376,40 +376,12 @@ V1 --> Vr --> Rotate to 8deg --> @50ft Rotate to 15deg -->Climb @V2 + 15ktn --> 
          </inputs>
       </kr-87>
 
-    <cdu n="0">
-        <page type="string">PROGRESS</page>
-        <L type="string" n="0"></L>
-        <L type="string" n="1"></L>
-        <L type="string" n="2"></L>
-        <L type="string" n="3"></L>
-        <L type="string" n="4"></L>
-        <L type="string" n="5"></L>
-        <R type="string" n="0"></R>
-        <R type="string" n="1"></R>
-        <R type="string" n="2"></R>
-        <R type="string" n="3"></R>
-        <R type="string" n="4"></R>
-        <R type="string" n="5"></R>
-        <S type="string" n="0"></S>
-        <S type="string" n="1"></S>
-    </cdu>
-
-    <cdu n="1">
-        <page type="string">ACTIVE FLT PLAN</page>
-        <L type="string" n="0"></L>
-        <L type="string" n="1"></L>
-        <L type="string" n="2"></L>
-        <L type="string" n="3"></L>
-        <L type="string" n="4"></L>
-        <L type="string" n="5"></L>
-        <R type="string" n="0"></R>
-        <R type="string" n="1"></R>
-        <R type="string" n="2"></R>
-        <R type="string" n="3"></R>
-        <R type="string" n="4"></R>
-        <R type="string" n="5"></R>
-        <S type="string" n="0"></S>
-        <S type="string" n="1"></S>
-    </cdu>
+      <cdu n="0">
+          <input type="string"/>
+          <serviceable type="bool">1</serviceable>
+          <ident>
+              <model>Citation X</model>
+          </ident>
+      </cdu>
     </instrumentation>
 </PropertyList>
