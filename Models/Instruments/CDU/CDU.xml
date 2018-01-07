@@ -89,13 +89,7 @@
         <object-name>CDU-screen</object-name>
         <object-name>CDU-lamp</object-name>
         <condition>
-            <and>
-                <property>systems/electrical/Consumers/CDU_Running</property>
-                <greater-than>
-                    <property>controls/lighting/cdu</property>
-                    <value>0.02</value>
-                </greater-than>
-            </and>					
+            <property>systems/electrical/outputs/cdu</property>
         </condition>
     </animation>
 

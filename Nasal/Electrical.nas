@@ -387,8 +387,8 @@ var acBus2 = Bus.new("ACBus2");
 var dcBus1 = Bus.new("DCBus1");
 var dcBus2 = Bus.new("DCBus2");
 var essBus = EssBus.new("EssBus", dcBus1, dcBus2);
-var nonEssBus1 = Consumer.new("NonEssBus1", 0, 17);
-var nonEssBus2 = Consumer.new("NonEssBus2", 0, 17);
+var nonEssBus1 = Consumer.new("nonEssBus1", 0, 17);
+var nonEssBus2 = Consumer.new("nonEssBus2", 0, 17);
 
 # ties
 var dctie = Tie.new("DCTie", dcBus1, dcBus2);
@@ -426,7 +426,7 @@ acBus1.append(TL);
 acBus1.append(NL);
 
 # consumers ess
-var rmu = Consumer.new("RMU", 3, 17.99);
+var rmu = Consumer.new("rmu", 3, 17.99);
 var comm = Consumer.new("comm", 1, 18);
 var comm1 = Consumer.new("comm[1]", 1, 18);
 var nav = Consumer.new("nav", 1, 18);
@@ -442,23 +442,21 @@ essBus.append(dme);
 essBus.append(transponder);
 
 # consumers non-ess
-var efis = Consumer.new("EFIS", 10, 18.01); # name, amps, required volts
-var cdu = Consumer.new("CDU", 2, 18);
+var efis = Consumer.new("efis", 10, 18.01); # name, amps, required volts
+var cdu = Consumer.new("cdu", 2, 18);
 var mkviii = Consumer.new("mk-viii", 1, 18);
 var gps = Consumer.new("gps", 1, 18);
-var dg = Consumer.new("DG", 1, 18);
 var turn = Consumer.new("turn-coordinator", 1, 18);
 nonEssBus1.append(efis);
 nonEssBus1.append(cdu);
 nonEssBus1.append(mkviii);
 nonEssBus1.append(gps);
-nonEssBus1.append(dg);
 nonEssBus1.append(turn);
 
 # no separate switch
-setprop("/instrumentation/EFIS/serviceable", 1);
-setprop("/instrumentation/RMU/serviceable", 1);
-setprop("/instrumentation/CDU/serviceable", 1);
+setprop("instrumentation/efis/serviceable", 1);
+setprop("instrumentation/rmu/serviceable", 1);
+setprop("instrumentation/cdu/serviceable", 1);
 
 update_electrical = func {
     acBus1.update();

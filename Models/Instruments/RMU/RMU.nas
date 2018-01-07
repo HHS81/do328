@@ -79,7 +79,15 @@ var RMU = {
 	BtClick: func(input = -1) {
 		me.DisplayDim.hide();
 
-		if(me.DimActive) {
+		if(input == 12) {
+			if(getprop("instrumentation/rcu/squelch")) {
+				setprop("instrumentation/rcu/squelch", 0);
+			}
+			else {
+				setprop("instrumentation/rcu/squelch", 1);
+			}
+		}
+		else if(me.DimActive) {
 			me.DisplayDim.hide();
 			me.DimActive = 0;
 		}

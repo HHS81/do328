@@ -77,7 +77,7 @@ var MFD = {
 	BtClick: func(input = -1) {
 		me.KnobMode = 1; # RNG active
 
-		if(!getprop("systems/electrical/outputs/EFIS")) {
+		if(!getprop("systems/electrical/outputs/efis")) {
 			return;
 		}
 		if(input == 0) {
