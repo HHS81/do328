@@ -1,7 +1,6 @@
 ##########################################################################################################
 # by xcvb85, battery class based on battery class from tu154b
 ##########################################################################################################
-setprop("controls/lighting/cdu",0.8);
 # global definces
 var ELNode = "systems/electrical/";
 var Refresh = 0.1;

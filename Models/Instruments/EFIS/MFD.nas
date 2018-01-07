@@ -16,6 +16,7 @@ var MfdSoftkeys = [["MAIN 1/2","DISPLAY","RADAR","SYSTEM","FMS","MFD\nFORMAT","R
 		["RADAR SUB","GAIN\nPRE VAR","RNG","TILT","RCT","","RNG"]]; #11
 var Range=[0,0];
 var TestActive=0;
+var mfdListener=0;
 
 var MFD = {
 	new: func(group, instance)
@@ -59,7 +60,6 @@ var MFD = {
 		m.i = 0;
 		m.Instance = instance;
 		m.ActivatePage(0);
-
 		return m;
 	},
 	ActivatePage: func(input = -1)
@@ -344,15 +344,11 @@ var MFD = {
 					# activate "RAD ALT" test
 					me.SelectedSkPage = 9;
 					me.SelectedSk = 0;
-					me.i=0;
 
 					# use listener to remove frame if button released
-					mfdListener = setlistener("instrumentation/efis/mfd" ~me.Instance~ "btn1", func () {
-						# ignore first time
-						if(me.i==0) {
-							me.i+=1;
-						}
-						else {
+					mfdListener = setlistener("instrumentation/efis/mfd" ~(me.Instance+1)~ "btn1", func () {
+						# sometimes called multiple times
+						if(!getprop("instrumentation/efis/mfd" ~(me.Instance+1)~ "btn1")) {
 							me.SelectedSk = -1;
 							me.SkInstance.drawFrames([0,0,0,0,0]);
 							removelistener(mfdListener);
@@ -379,34 +375,27 @@ var MFD = {
 					# activate "TCAS" test
 					me.SelectedSkPage = 9;
 					me.SelectedSk = 2;
-					me.i=0;
+
+					setprop("instrumentation/efis/tcas", 1);
+					TestActive=1;
 
 					# use listener to remove frame if button released
-					mfdListener = setlistener("instrumentation/efis/mfd" ~me.Instance~ "btn3", func () {
-						# ignore first time
-						if(me.i==0) {
-							me.i+=1;
-						}
-						else {
-							me.SelectedSk = -1;
-							me.SkInstance.drawFrames([0,0,0,0,0]);
-							removelistener(mfdListener);
-						}
-					});
+					settimer(func () {
+						me.SelectedSk = -1;
+						me.SkInstance.drawFrames([0,0,0,0,0]);
+						setprop("instrumentation/efis/tcas", 0);
+						TestActive=0;
+					}, 2);
 				}
 				else if(input == 4) {
 					# activate "EFIS EICAS" test
 					me.SelectedSkPage = 9;
 					me.SelectedSk = 3;
-					me.i=0;
 
 					# use listener to remove frame if button released
-					mfdListener = setlistener("instrumentation/efis/mfd" ~me.Instance~ "btn4", func () {
-						# ignore first time
-						if(me.i==0) {
-							me.i+=1;
-						}
-						else {
+					mfdListener = setlistener("instrumentation/efis/mfd" ~(me.Instance+1)~ "btn4", func () {
+						# sometimes called multiple times
+						if(!getprop("instrumentation/efis/mfd" ~(me.Instance+1)~ "btn4")) {
 							me.SelectedSk = -1;
 							me.SkInstance.drawFrames([0,0,0,0,0]);
 							removelistener(mfdListener);
@@ -514,7 +503,7 @@ var mfd2Knob = func(input = 0) {
 	}
 }
 
-var mfdListener = setlistener("/sim/signals/fdm-initialized", func () {
+mfdListener = setlistener("/sim/signals/fdm-initialized", func () {
 
 	var mfd1Canvas = canvas.new({
 		"name": "MFD1",

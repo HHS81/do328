@@ -1,5 +1,6 @@
 ### Canvas CDU ###
 ### C. Le Moigne (clm76) - 2017 ###
+setprop("controls/lighting/cdu",0.8);
 
 var altDestApt = "autopilot/route-manager/alternate/airport";
 var altDestRwy = "autopilot/route-manager/alternate/runway";
@@ -635,11 +636,11 @@ var cduDsp = {
 		  var AppSpeed35 = sprintf("%i",getprop("autopilot/settings/app35-speed-kt"));
       me.Raz_lines();
       me.line.title.setText("APPROACH SPEED 1 / 1");
-      me.line.l1.setText(" FLAPS 5");
+      me.line.l1.setText(" FLAPS 12");
       me.line.l2.setText(AppSpeed5);
-      me.line.l3.setText(" FLAPS 15");
+      me.line.l3.setText(" FLAPS 20");
       me.line.l4.setText(AppSpeed15);
-      me.line.l5.setText(" FLAPS 35");
+      me.line.l5.setText(" FLAPS 32");
       me.line.l6.setText(AppSpeed35);
 			me.line.l7.setText("< NEXT PAGE");
 		  me.line.r7.setText("RETURN >");
