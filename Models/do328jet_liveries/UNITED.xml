@@ -5,12 +5,13 @@
 		<model>
 			
 				<livery>
-					<name type="string">Green</name>
-					 <index type="int">4</index>
-					  <texture>do328jet_liveries/GREEN.png</texture>
+					<name type="string">United Express</name>
+					 <index type="int">2</index>
+					  <texture>do328jet_liveries/UNITED.png</texture>
 				</livery>
+
 			<do328>
-			<material>
+<material>
 			<fuselage>
 						<diffuse>
 							<red>1.0</red>
@@ -33,7 +34,7 @@
 		</model>
 	  <rendering>
 	<refl_correction type="float">-0.3</refl_correction>
-	<fresnel-factor type="float">0.33</fresnel-factor>
+	<fresnel-factor type="float">0.3</fresnel-factor>
 	<refl-type type="int">1</refl-type>
     </rendering>
 	</sim>

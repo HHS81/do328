@@ -1276,7 +1276,7 @@
 		<object-name>TLL</object-name>
 		<condition>
 			<and>
-				<property>systems/electrical/Consumers/taxi-lights_Running</property>
+				<property>systems/electrical/outputs/taxi-lights</property>
 				<property>gear/gear[0]/position-norm</property>
 			</and>
 		</condition>
@@ -1286,7 +1286,7 @@
 		<object-name>WLR</object-name>
 		<object-name>WLL</object-name>
 		<condition>
-			<property>systems/electrical/Consumers/wing-lights_Running</property>
+			<property>systems/electrical/outputs/wing-lights</property>
 		</condition>
 	</animation>
 	<animation>
@@ -1313,7 +1313,7 @@
 		<type>select</type>
 		<object-name>LLR</object-name>
 		<condition>
-			<property>/systems/electrical/Consumers/landing-lights_Intensity</property>
+			<property>/systems/electrical/outputs/landing-lights-intensity</property>
 		</condition>
 	</animation>
 	<animation>
@@ -1340,7 +1340,7 @@
 		<type>select</type>
 		<object-name>LLL</object-name>
 		<condition>
-			<property>/systems/electrical/Consumers/landing-lights_Intensity</property>
+			<property>/systems/electrical/outputs/landing-lights-intensity</property>
 		</condition>
 	</animation>
 	<animation>
@@ -1367,7 +1367,7 @@
 		<type>select</type>
 		<object-name>PlaneTailLight</object-name>
 		<condition>
-			<property>/systems/electrical/Consumers/nav-lights_Running</property>
+			<property>/systems/electrical/outputs/nav-lights</property>
 		</condition>
 	</animation>
 	<animation>
@@ -1394,7 +1394,7 @@
 		<type>select</type>
 		<object-name>NavLightRed</object-name>
 		<condition>
-			<property>/systems/electrical/Consumers/nav-lights_Running</property>
+			<property>/systems/electrical/outputs/nav-lights</property>
 		</condition>
 	</animation>
 	<animation>
@@ -1421,7 +1421,7 @@
 		<type>select</type>
 		<object-name>NavLightGreen</object-name>
 		<condition>
-			<property>/systems/electrical/Consumers/nav-lights_Running</property>
+			<property>/systems/electrical/outputs/nav-lights</property>
 		</condition>
 	</animation>
 	<!--Beacon-->
@@ -1478,7 +1478,7 @@
 		<object-name>PlaneX</object-name>
 		<condition>
 			<and>
-				<property>/systems/electrical/Consumers/beacon_Running</property>
+				<property>/systems/electrical/outputs/beacon</property>
 				<property>/controls/lighting/beacon-state/state</property>
 			</and>
 		</condition>
@@ -1489,7 +1489,7 @@
 		<condition>
 			<not>
 				<and>
-					<property>/systems/electrical/Consumers/beacon_Running</property>
+					<property>/systems/electrical/outputs/beacon</property>
 					<property>/controls/lighting/beacon-state/state</property>
 				</and>
 			</not>
@@ -1549,7 +1549,7 @@
 		<object-name>Plane.002X</object-name>
 		<condition>
 			<and>
-				<property>/systems/electrical/Consumers/strobe_Running</property>
+				<property>/systems/electrical/outputs/strobe</property>
 				<property>controls/lighting/strobe-state/state</property>
 			</and>
 		</condition>
@@ -1608,7 +1608,7 @@
 		<object-name>Plane.003X</object-name>
 		<condition>
 			<and>
-				<property>/systems/electrical/Consumers/strobe_Running</property>
+				<property>/systems/electrical/outputs/strobe</property>
 				<property>controls/lighting/strobe-state/state</property>
 			</and>
 		</condition>

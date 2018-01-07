@@ -7,7 +7,7 @@
 				<livery>
 					<name type="string">TAC 2  D-BJET</name>
 					 <index type="int">4</index>
-					  <texture>do328jet_liveries/D-BJET.png</texture>
+					  <texture>D-BJET.png</texture>
 				</livery>
 			<do328>
 			<material>

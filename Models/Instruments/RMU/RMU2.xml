@@ -11,7 +11,7 @@
 	<type>select</type>
 	<object-name>RMU2.screen</object-name>
 	<condition>
-		<property>systems/electrical/Consumers/RMU_Running</property>
+		<property>systems/electrical/outputs/RMU</property>
 	</condition>
     </animation>
     <animation>
