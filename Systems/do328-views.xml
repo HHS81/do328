@@ -2,17 +2,17 @@
 <PropertyList>
    <allow-toggle-cockpit>true</allow-toggle-cockpit>
    <chase-distance-m type="double">-40.0</chase-distance-m>
+   
    <view n="0">
       <name>Pilot</name>
       <type>lookfrom</type>
-      <internal type="bool">true</internal>
+   <internal archive="y">true</internal>
       <config>
          <default-field-of-view-deg>84</default-field-of-view-deg>
          <ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
-         <pitch-offset-deg>-10.0</pitch-offset-deg>
-         <x-offset-m archive="y">-0.47</x-offset-m>
+  	 <x-offset-m archive="y">-0.47</x-offset-m>
          <!--Right - was -0.50-->
-         <y-offset-m archive="y">2.35</y-offset-m>
+         <y-offset-m archive="y">2.40</y-offset-m>
          <!--Up  028, 0.31-->
          <z-offset-m archive="y">-7.99</z-offset-m>
          <!--Forward was 7.6-->
@@ -32,43 +32,140 @@
          </limits>
       </config>
    </view>
-   <view n="1">
-      <config>
-         <ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
+   
+   
+   <view n="100">
+        <name>CoPilot View</name>
+    <internal archive="y">true</internal>
+    <type>lookfrom</type>
+    <config>
+         <default-field-of-view-deg>84</default-field-of-view-deg>
+      <from-model type="bool">true</from-model>
+      <ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
+         <x-offset-m archive="y">0.47</x-offset-m>
+         <!--Right - was -0.50-->
+         <y-offset-m archive="y">2.40</y-offset-m>
+         <!--Up  028, 0.31-->
+         <z-offset-m archive="y">-7.99</z-offset-m>
+         <!--Forward was 7.6-->
+         <pitch-offset-deg>-12</pitch-offset-deg>
+         <limits>
+            <enabled type="bool">true</enabled>
+            <left>
+               <heading-max-deg type="double">160</heading-max-deg>
+               <x-offset-max-m type="double">0.4</x-offset-max-m>
+               <x-offset-threshold-deg type="double">65</x-offset-threshold-deg>
+            </left>
+            <right>
+               <heading-max-deg type="double">120</heading-max-deg>
+               <x-offset-max-m type="double">0.32</x-offset-max-m>
+               <x-offset-threshold-deg type="double">45</x-offset-threshold-deg>
+            </right>
+         </limits>
       </config>
    </view>
-   <view n="2">
-      <config>
-         <ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
+   
+  <view n="101">
+        <name>Jumpseat View</name>
+    <internal archive="y">true</internal>
+    <type>lookfrom</type>
+    <config>
+         <default-field-of-view-deg>84</default-field-of-view-deg>
+      <from-model type="bool">true</from-model>
+      <ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
+         <x-offset-m archive="y">-0.04</x-offset-m>
+         <!--Right - was -0.50-->
+         <y-offset-m archive="y">2.40</y-offset-m>
+         <!--Up  028, 0.31-->
+         <z-offset-m archive="y">-7.42</z-offset-m>
+         <!--Forward was 7.6-->
+         <pitch-offset-deg>-12</pitch-offset-deg>
+         <limits>
+            <enabled type="bool">true</enabled>
+            <left>
+               <heading-max-deg type="double">120</heading-max-deg>
+               <x-offset-max-m type="double">0.32</x-offset-max-m>
+               <x-offset-threshold-deg type="double">45</x-offset-threshold-deg>
+            </left>
+            <right>
+               <heading-max-deg type="double">120</heading-max-deg>
+               <x-offset-max-m type="double">0.32</x-offset-max-m>
+               <x-offset-threshold-deg type="double">45</x-offset-threshold-deg>
+            </right>
+         </limits>
       </config>
    </view>
-   <view n="3">
-      <config>
-         <ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
+
+  <view n="102">
+        <name>Tailcam View</name>
+    <internal archive="y">true</internal>
+    <type>lookfrom</type>
+    <config>
+         <default-field-of-view-deg>120</default-field-of-view-deg>
+      <from-model type="bool">true</from-model>
+      <ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
+         <x-offset-m archive="y">-0.00</x-offset-m>
+         <!--Right - was -0.50-->
+         <y-offset-m archive="y">5.05</y-offset-m>
+         <!--Up  028, 0.31-->
+         <z-offset-m archive="y">6.28</z-offset-m>
+         <!--Forward was 7.6-->
+         <pitch-offset-deg>-12</pitch-offset-deg>
+         <limits>
+            <enabled type="bool">true</enabled>
+            <left>
+               <heading-max-deg type="double">0</heading-max-deg>
+               <x-offset-max-m type="double">0.32</x-offset-max-m>
+               <x-offset-threshold-deg type="double">45</x-offset-threshold-deg>
+            </left>
+            <right>
+               <heading-max-deg type="double">0</heading-max-deg>
+               <x-offset-max-m type="double">0.32</x-offset-max-m>
+               <x-offset-threshold-deg type="double">45</x-offset-threshold-deg>
+            </right>
+         </limits>
       </config>
    </view>
-   <view n="4">
-      <config>
-         <ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
-      </config>
-   </view>
-   <view n="5">
-      <config>
-         <ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
-      </config>
-   </view>
-   <view n="6">
-      <config>
-         <ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
+   
+ <view n="103">
+        <name>dashcam view</name>
+    <internal archive="y">true</internal>
+    <type>lookfrom</type>
+    <config>
+         <default-field-of-view-deg>120</default-field-of-view-deg>
+      <from-model type="bool">true</from-model>
+      <ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
+          <heading-offset-deg>320</heading-offset-deg> 
+	 <x-offset-m archive="y">-0.43</x-offset-m>
+         <!--Right - was -0.50-->
+         <y-offset-m archive="y">2.32</y-offset-m>
+         <!--Up  028, 0.31-->
+         <z-offset-m archive="y">-8.74</z-offset-m>
+         <!--Forward was 7.6-->
+         <pitch-offset-deg>6</pitch-offset-deg>
+         <limits>
+            <enabled type="bool">true</enabled>
+            <left>
+               <heading-max-deg type="double">0</heading-max-deg>
+               <x-offset-max-m type="double">0.32</x-offset-max-m>
+               <x-offset-threshold-deg type="double">45</x-offset-threshold-deg>
+            </left>
+            <right>
+               <heading-max-deg type="double">0</heading-max-deg>
+               <x-offset-max-m type="double">0.32</x-offset-max-m>
+               <x-offset-threshold-deg type="double">45</x-offset-threshold-deg>
+            </right>
+         </limits>
       </config>
    </view>
    <!--Disable Cabin View until Cabin is made
 
-<view n="100">
+<view n="104">
     <name>Passenger 1</name>
     <internal archive="y">true</internal>
     <type>lookfrom</type>
     <config>
+         <default-field-of-view-deg>84</default-field-of-view-deg>
       <from-model type="bool">true</from-model>
       <ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
       <heading-offset-deg type="double">0</heading-offset-deg>
@@ -94,11 +191,12 @@
     </config>
     </view>
 
-  <view n="101">
+  <view n="105">
     <name>Passenger 2</name>
     <internal archive="y">true</internal>
     <type>lookfrom</type>
     <config>
+         <default-field-of-view-deg>84</default-field-of-view-deg>
       <from-model type="bool">true</from-model>
       <ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
       <heading-offset-deg type="double">0</heading-offset-deg>
@@ -122,4 +220,39 @@
         </limits>
     </config>
     </view>-->
+<view n="1">
+			<config>
+				<target-z-offset-m archive="y" type="double">1.5</target-z-offset-m>
+			</config>
+		</view>
+
+		<view n="2">
+			<config>
+				<target-z-offset-m archive="y" type="double">1.5</target-z-offset-m>
+			</config>
+		</view>
+
+		<view n="3">
+			<config>
+				<target-z-offset-m archive="y" type="double">1.5</target-z-offset-m>
+			</config>
+		</view>
+
+		<view n="4">
+			<config>
+				<target-z-offset-m archive="y" type="double">1.5</target-z-offset-m>
+			</config>
+		</view>
+
+		<view n="5">
+			<config>
+				<target-z-offset-m archive="y" type="double">1.5</target-z-offset-m>
+			</config>
+		</view>
+
+		<view n="6">
+			<config>
+				<target-z-offset-m archive="y" type="double">1.5</target-z-offset-m>
+			</config>
+		</view>
 </PropertyList>

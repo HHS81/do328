@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!--originally made by syd Adams, DHC 6-->
+
+<PropertyList>
+
+<path>magcompass.ac</path>
+
+	 <animation>
+        <type>material</type>
+		<object-name>Compass.ball</object-name>
+            <emission>
+          <red>0.79</red>
+            <green>0.39</green>
+            <blue>0.198</blue>
+            <factor-prop>systems/electrical/outputs/instrument-lights-norm</factor-prop>
+        </emission>
+    </animation>
+
+   <animation>
+        <type>rotate</type>
+        <object-name>Compass.ball</object-name>
+        <property>instrumentation/magnetic-compass/indicated-heading-deg</property>
+		<factor>-1</factor>
+		<center>
+			<x-m>-8.703057</x-m>
+			<y-m>0</y-m>
+			<z-m>2.510319</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>0</y>
+			<z>-0.051764</z>
+		</axis>
+    </animation>
+
+</PropertyList>
