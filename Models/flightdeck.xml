@@ -1,7 +1,19 @@
-<?xml version = '1.0' encoding = 'UTF-8' ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <PropertyList>
 
 <path>Flightdeck23.7.2.ac</path>
+
+<model>
+  <name>FlightDeck</name>
+  <path>Aircraft/do328/Models/ohp.xml</path>
+  <offsets>
+    <x-m>-8.278</x-m>
+    <y-m>0.0</y-m>
+    <z-m>2.650</z-m>
+    <roll-deg>0</roll-deg>
+    <pitch-deg>-19</pitch-deg>
+  </offsets>
+</model>
 
 <animation>
   <type>select</type>
