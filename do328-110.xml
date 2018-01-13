@@ -530,6 +530,38 @@ Landing Distance MLW unfactored (what the aircraft demostrated without any safet
     </thruster>
   </engine>
 
+   <engine file="apu">
+    <location unit="IN">
+      <x>-143.17 </x>
+      <y> 0 </y>
+      <z>114.823 </z>
+    </location>
+    <orient unit="DEG">
+      <pitch> 0 </pitch>
+      <roll>  0 </roll>
+      <yaw>   0 </yaw>
+    </orient>
+    <feed>0</feed>
+    <feed>1</feed>
+    <feed>2</feed>
+    <feed>3</feed>
+    <feed>4</feed>
+    <feed>5</feed>
+    <thruster file="direct">
+    <sense>1</sense>
+     <location unit="IN">
+      <x>-200.35 </x>
+      <y> 0 </y>
+      <z>114.823 </z>
+     </location>
+     <orient unit="DEG">
+       <pitch> 0 </pitch>
+       <roll>  0 </roll>
+       <yaw>   0 </yaw>
+     </orient>
+    </thruster>
+  </engine>
+
 <!--http://328.eu/wp-content/uploads/2013/04/easa-tcds-do328.pdf-->
   <tank type="FUEL" number="0"><!--feeder tank-->
      <location unit="M">

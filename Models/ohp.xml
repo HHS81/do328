@@ -3,120 +3,25 @@
 
 <path>ohp.ac</path>
 
-    <animation>
-        <type>pick</type>
-        <object-name>BtnBat1</object-name>
-        <visible>true</visible>
-        <action>
-          <button>0</button>
-          <repeatable>false</repeatable>
-		<binding>
-			<command>property-toggle</command>
-			<property>systems/electrical/Battery1/Connected</property>
-		</binding>
-        </action>
-    </animation>
+  <!-- LEDs -->
     <animation>
 	<type>material</type>
-	<object-name>BtnBat1</object-name>
-	<ambient>
-		<red>1</red>
-		<green>1</green>
-		<blue>1</blue>
-		<factor-prop>systems/electrical/Battery1/Connected</factor-prop>
-	</ambient>
+	<object-name>Leds</object-name>
 	<diffuse>
 		<red>1</red>
 		<green>1</green>
 		<blue>1</blue>
-		<factor-prop>systems/electrical/Battery1/Connected</factor-prop>
+		<factor-prop>systems/electrical/EssBus/Voltage</factor-prop>
 	</diffuse>
 	<emission>
-		<red>1</red>
-		<green>1</green>
-		<blue>1</blue>
-		<factor-prop>systems/electrical/Battery1/Connected</factor-prop>
+		<red>0.5</red>
+		<green>0.5</green>
+		<blue>0.5</blue>
+		<factor-prop>systems/electrical/EssBus/Voltage</factor-prop>
 	</emission>
     </animation>
-    <animation>
-	<type>translate</type>
-	<object-name>BtnBat1</object-name>
-	<property>systems/electrical/Battery1/Connected</property>
-	<factor>0.001</factor>
-	<axis>
-		<x>0</x>
-		<y>0</y>
-		<z>1</z>
-	</axis>
-    </animation>
-    <animation>
-	<type>textranslate</type>
-	<object-name>BtnBat1</object-name>
-	<offset>8</offset>
-	<factor>0.029</factor>
-	<axis>
-		<x>1</x>
-		<y>0</y>
-	</axis>
-    </animation>
 
-    <animation>
-        <type>pick</type>
-        <object-name>BtnBat2</object-name>
-        <visible>true</visible>
-        <action>
-          <button>0</button>
-          <repeatable>false</repeatable>
-		<binding>
-			<command>property-toggle</command>
-			<property>systems/electrical/Battery2/Connected</property>
-		</binding>
-        </action>
-    </animation>
-    <animation>
-	<type>material</type>
-	<object-name>BtnBat2</object-name>
-	<ambient>
-		<red>1</red>
-		<green>1</green>
-		<blue>1</blue>
-		<factor-prop>systems/electrical/Battery2/Connected</factor-prop>
-	</ambient>
-	<diffuse>
-		<red>1</red>
-		<green>1</green>
-		<blue>1</blue>
-		<factor-prop>systems/electrical/Battery2/Connected</factor-prop>
-	</diffuse>
-	<emission>
-		<red>1</red>
-		<green>1</green>
-		<blue>1</blue>
-		<factor-prop>systems/electrical/Battery2/Connected</factor-prop>
-	</emission>
-    </animation>
-    <animation>
-	<type>translate</type>
-	<object-name>BtnBat2</object-name>
-	<property>systems/electrical/Battery2/Connected</property>
-	<factor>0.001</factor>
-	<axis>
-		<x>0</x>
-		<y>0</y>
-		<z>1</z>
-	</axis>
-    </animation>
-    <animation>
-	<type>textranslate</type>
-	<object-name>BtnBat2</object-name>
-	<offset>8</offset>
-	<factor>0.029</factor>
-	<axis>
-		<x>1</x>
-		<y>0</y>
-	</axis>
-    </animation>
-
+  <!-- Non-Essential Bus 1 -->
     <animation>
         <type>pick</type>
         <object-name>BtnNonEss1</object-name>
@@ -168,13 +73,14 @@
 	<object-name>BtnNonEss1</object-name>
 	<property>instrumentation/nonEssBus1/serviceable</property>
 	<offset>4</offset>
-	<factor>0.029</factor>
+	<factor>0.029297</factor>
 	<axis>
 		<x>1</x>
 		<y>0</y>
 	</axis>
     </animation>
 
+  <!-- Non-Essential Bus 1 -->
     <animation>
         <type>pick</type>
         <object-name>BtnNonEss2</object-name>
@@ -225,14 +131,15 @@
 	<type>textranslate</type>
 	<object-name>BtnNonEss2</object-name>
 	<property>instrumentation/nonEssBus2/serviceable</property>
-	<offset>4</offset>
-	<factor>0.029</factor>
+	<offset>6</offset>
+	<factor>0.029297</factor>
 	<axis>
 		<x>1</x>
 		<y>0</y>
 	</axis>
     </animation>
 
+  <!-- DC-Tie -->
     <animation>
         <type>pick</type>
         <object-name>BtnDCTie</object-name>
@@ -284,7 +191,181 @@
 	<object-name>BtnDCTie</object-name>
 	<property>systems/electrical/DCTie/Connected</property>
 	<offset>2</offset>
-	<factor>0.029</factor>
+	<factor>0.029297</factor>
+	<axis>
+		<x>1</x>
+		<y>0</y>
+	</axis>
+    </animation>
+
+  <!-- Generator 1 -->
+    <animation>
+        <type>pick</type>
+        <object-name>BtnGenLh</object-name>
+        <visible>true</visible>
+        <action>
+          <button>0</button>
+          <repeatable>false</repeatable>
+		<binding>
+			<command>property-toggle</command>
+			<property>systems/electrical/Generator1/Connected</property>
+		</binding>
+        </action>
+    </animation>
+    <animation>
+	<type>material</type>
+	<object-name>BtnGenLh</object-name>
+	<ambient>
+		<red>1</red>
+		<green>1</green>
+		<blue>1</blue>
+		<factor-prop>systems/electrical/Battery1/Connected</factor-prop>
+	</ambient>
+	<diffuse>
+		<red>1</red>
+		<green>1</green>
+		<blue>1</blue>
+		<factor-prop>systems/electrical/Battery1/Connected</factor-prop>
+	</diffuse>
+	<emission>
+		<red>1</red>
+		<green>1</green>
+		<blue>1</blue>
+		<factor-prop>systems/electrical/Battery1/Connected</factor-prop>
+	</emission>
+    </animation>
+    <animation>
+	<type>translate</type>
+	<object-name>BtnGenLh</object-name>
+	<property>systems/electrical/Generator1/Connected</property>
+	<factor>0.001</factor>
+	<axis>
+		<x>0</x>
+		<y>0</y>
+		<z>1</z>
+	</axis>
+    </animation>
+    <animation>
+	<type>textranslate</type>
+	<object-name>BtnGenLh</object-name>
+	<offset>9</offset>
+	<factor>0.029297</factor>
+	<axis>
+		<x>1</x>
+		<y>0</y>
+	</axis>
+    </animation>
+
+  <!-- Battery 1 -->
+    <animation>
+        <type>pick</type>
+        <object-name>BtnBat1</object-name>
+        <visible>true</visible>
+        <action>
+          <button>0</button>
+          <repeatable>false</repeatable>
+		<binding>
+			<command>property-toggle</command>
+			<property>systems/electrical/Battery1/Connected</property>
+		</binding>
+        </action>
+    </animation>
+    <animation>
+	<type>material</type>
+	<object-name>BtnBat1</object-name>
+	<ambient>
+		<red>1</red>
+		<green>1</green>
+		<blue>1</blue>
+		<factor-prop>systems/electrical/Battery1/Connected</factor-prop>
+	</ambient>
+	<diffuse>
+		<red>1</red>
+		<green>1</green>
+		<blue>1</blue>
+		<factor-prop>systems/electrical/Battery1/Connected</factor-prop>
+	</diffuse>
+	<emission>
+		<red>1</red>
+		<green>1</green>
+		<blue>1</blue>
+		<factor-prop>systems/electrical/Battery1/Connected</factor-prop>
+	</emission>
+    </animation>
+    <animation>
+	<type>translate</type>
+	<object-name>BtnBat1</object-name>
+	<property>systems/electrical/Battery1/Connected</property>
+	<factor>0.001</factor>
+	<axis>
+		<x>0</x>
+		<y>0</y>
+		<z>1</z>
+	</axis>
+    </animation>
+    <animation>
+	<type>textranslate</type>
+	<object-name>BtnBat1</object-name>
+	<offset>8</offset>
+	<factor>0.029297</factor>
+	<axis>
+		<x>1</x>
+		<y>0</y>
+	</axis>
+    </animation>
+
+  <!-- Battery 2 -->
+    <animation>
+        <type>pick</type>
+        <object-name>BtnBat2</object-name>
+        <visible>true</visible>
+        <action>
+          <button>0</button>
+          <repeatable>false</repeatable>
+		<binding>
+			<command>property-toggle</command>
+			<property>systems/electrical/Battery2/Connected</property>
+		</binding>
+        </action>
+    </animation>
+    <animation>
+	<type>material</type>
+	<object-name>BtnBat2</object-name>
+	<ambient>
+		<red>1</red>
+		<green>1</green>
+		<blue>1</blue>
+		<factor-prop>systems/electrical/Battery2/Connected</factor-prop>
+	</ambient>
+	<diffuse>
+		<red>1</red>
+		<green>1</green>
+		<blue>1</blue>
+		<factor-prop>systems/electrical/Battery2/Connected</factor-prop>
+	</diffuse>
+	<emission>
+		<red>1</red>
+		<green>1</green>
+		<blue>1</blue>
+		<factor-prop>systems/electrical/Battery2/Connected</factor-prop>
+	</emission>
+    </animation>
+    <animation>
+	<type>translate</type>
+	<object-name>BtnBat2</object-name>
+	<property>systems/electrical/Battery2/Connected</property>
+	<factor>0.001</factor>
+	<axis>
+		<x>0</x>
+		<y>0</y>
+		<z>1</z>
+	</axis>
+    </animation>
+    <animation>
+	<type>textranslate</type>
+	<object-name>BtnBat2</object-name>
+	<offset>8</offset>
+	<factor>0.029297</factor>
 	<axis>
 		<x>1</x>
 		<y>0</y>

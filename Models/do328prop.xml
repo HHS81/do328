@@ -98,8 +98,6 @@
 	<effect>
 		<inherits-from>Aircraft/do328/Models/Effects/do328miscreflect</inherits-from>
 		<object-name>GearBay</object-name>
-		<object-name>mlgwheelr</object-name>
-		<object-name>mlgwheell</object-name>
 		<object-name>mlgarml</object-name>
 		<object-name>mlgarmr</object-name>
 		<object-name>mlgabsorbl1</object-name>
@@ -108,7 +106,6 @@
 		<object-name>mlgabsorbr2</object-name>
 		<object-name>mlglegl</object-name>
 		<object-name>mlglegr</object-name>
-		<object-name>flgwheel</object-name>
 		<object-name>flgstrut2</object-name>
 		<object-name>flgstrut1</object-name>
 		<object-name>flgcylinder</object-name>
@@ -2132,5 +2129,54 @@
 				<property>controls/lighting/strobe-state/state</property>
 			</and>
 		</condition>
+	</animation>
+
+	<animation>
+		<type>spin</type>
+		<object-name>flgwheel</object-name>
+		<property>/gear/gear[0]/rollspeed-ms</property>
+		<factor> 30 </factor>
+		<center>
+			<x-m> -8.782 </x-m>
+			<y-m>  0.000 </y-m>
+			<z-m> -0.047 </z-m>
+		</center>
+		<axis>
+			<x>  0 </x>
+			<y> -1 </y>
+			<z>  0 </z>
+		</axis>
+	</animation>
+	<animation>
+		<type>spin</type>
+		<object-name>mlgwheell</object-name>
+		<property>/gear/gear[1]/rollspeed-ms</property>
+		<factor> 30 </factor>
+		<center>
+			<x-m> -1.470 </x-m>
+			<y-m>  0.000 </y-m>
+			<z-m>  0.044 </z-m>
+		</center>
+		<axis>
+			<x>  0 </x>
+			<y> -1 </y>
+			<z>  0 </z>
+		</axis>
+	</animation>
+	<animation>
+		<type>spin</type>
+		<object-name>mlgwheelr</object-name>
+		<property>/gear/gear[2]/rollspeed-ms</property>
+		<factor> 30 </factor>
+		<center>
+			<x-m> -1.470 </x-m>
+			<y-m>  0.000 </y-m>
+			<z-m>  0.044 </z-m>
+		</center>
+		<axis>
+			<x>  0 </x>
+			<y> -1 </y>
+			<z>  0 </z>
+		</axis>
 	</animation>
 </PropertyList>
