@@ -1232,7 +1232,7 @@
 		<object-name>propfast.L</object-name>
 		<condition>
 			<greater-than>
-				<property>engines/engine[1]/thruster/rpm</property>
+				<property>engines/engine[0]/thruster/rpm</property>
 				<value>250.0000</value>
 			</greater-than>
 		</condition>
@@ -1242,11 +1242,11 @@
         <object-name>Lslowprop</object-name>
         <condition>
             <greater-than>
-                <property>engines/engine[1]/thruster/rpm</property>
+                <property>engines/engine[0]/thruster/rpm</property>
                 <value>50.000</value>
             </greater-than>
             <less-than>
-                <property>engines/engine[1]/thruster/rpm</property>
+                <property>engines/engine[0]/thruster/rpm</property>
                 <value>1000</value>
             </less-than>
         </condition>
@@ -1256,7 +1256,7 @@
 		<object-name>Lprop</object-name>
 		<condition>
 			<less-than>
-				<property>engines/engine[1]/thruster/rpm</property>
+				<property>engines/engine[0]/thruster/rpm</property>
 				<value>250.00</value>
 			</less-than>
 		</condition>
@@ -1266,7 +1266,7 @@
 		<object-name>propfast.R</object-name>
 		<condition>
 			<greater-than>
-				<property>engines/engine[0]/thruster/rpm</property>
+				<property>engines/engine[1]/thruster/rpm</property>
 				<value>250.0000</value>
 			</greater-than>
 		</condition>
@@ -1276,11 +1276,11 @@
         <object-name>Rslowprop</object-name>
         <condition>
             <greater-than>
-                <property>engines/engine[0]/thruster/rpm</property>
+                <property>engines/engine[1]/thruster/rpm</property>
                 <value>50.000</value>
             </greater-than>
             <less-than>
-                <property>engines/engine[0]/thruster/rpm</property>
+                <property>engines/engine[1]/thruster/rpm</property>
                 <value>1000</value>
             </less-than>
         </condition>
@@ -1290,7 +1290,7 @@
 		<object-name>Rprop</object-name>
 		<condition>
 			<less-than>
-				<property>engines/engine[0]/thruster/rpm</property>
+				<property>engines/engine[1]/thruster/rpm</property>
 				<value>250.00</value>
 			</less-than>
 		</condition>
@@ -1298,7 +1298,7 @@
 	<animation>
 		<type>spin</type>
 		<object-name>propfast.L</object-name>
-		<property>engines/engine[1]/thruster/rpm</property>
+		<property>engines/engine[0]/thruster/rpm</property>
 		<factor>1.0</factor>
 		<center>
 			<x-m>-5.116</x-m>
@@ -1314,7 +1314,7 @@
 	<animation>
 		<type>spin</type>
 		<object-name>propfast.R</object-name>
-		<property>engines/engine[0]/thruster/rpm</property>
+		<property>engines/engine[1]/thruster/rpm</property>
 		<factor>1.0</factor>
 		<center>
 			<x-m>-5.116</x-m>
@@ -1330,7 +1330,7 @@
 	<animation>
 		<type>spin</type>
 		<object-name>Lprop</object-name>
-		<property>engines/engine[1]/thruster/rpm</property>
+		<property>engines/engine[0]/thruster/rpm</property>
 		<center>
 			<x-m>-5.116</x-m>
 			<y-m>-3.550</y-m>
@@ -1345,7 +1345,7 @@
 	<animation>
 		<type>spin</type>
 		<object-name>Rprop</object-name>
-		<property>engines/engine[0]/thruster/rpm</property>
+		<property>engines/engine[1]/thruster/rpm</property>
 		<center>
 			<x-m>-5.116</x-m>
 			<y-m>3.550</y-m>
@@ -1361,7 +1361,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>blade21</object-name>
-		<property>fdm/jsbsim/propulsion/engine[1]/blade-angle</property>
+		<property>fdm/jsbsim/propulsion/engine[0]/blade-angle</property>
 		<interpolation>
 			<entry>
 				<ind>77.0</ind>
@@ -1386,7 +1386,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>blade22</object-name>
-		<property>fdm/jsbsim/propulsion/engine[1]/blade-angle</property>
+		<property>fdm/jsbsim/propulsion/engine[0]/blade-angle</property>
 		<interpolation>
 			<entry>
 				<ind>77.0</ind>
@@ -1411,7 +1411,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>blade23</object-name>
-		<property>fdm/jsbsim/propulsion/engine[1]/blade-angle</property>
+		<property>fdm/jsbsim/propulsion/engine[0]/blade-angle</property>
 		<interpolation>
 			<entry>
 				<ind>77.0</ind>
@@ -1436,7 +1436,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>blade24</object-name>
-		<property>fdm/jsbsim/propulsion/engine[1]/blade-angle</property>
+		<property>fdm/jsbsim/propulsion/engine[0]/blade-angle</property>
 		<interpolation>
 			<entry>
 				<ind>77.0</ind>
@@ -1461,7 +1461,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>blade25</object-name>
-		<property>fdm/jsbsim/propulsion/engine[1]/blade-angle</property>
+		<property>fdm/jsbsim/propulsion/engine[0]/blade-angle</property>
 		<interpolation>
 			<entry>
 				<ind>77.0</ind>
@@ -1486,7 +1486,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>blade26</object-name>
-		<property>fdm/jsbsim/propulsion/engine[1]/blade-angle</property>
+		<property>fdm/jsbsim/propulsion/engine[0]/blade-angle</property>
 		<interpolation>
 			<entry>
 				<ind>77.0</ind>
@@ -1511,7 +1511,7 @@
 	<!--<animation>
 		<type>spin</type>
 		<object-name>Lslowprop</object-name>
-		  <property>engines/engine[0]/rpm</property>
+		  <property>engines/engine[1]/rpm</property>
 		  <factor>0.5</factor>
 		<center>
 			<x-m>-5.075114</x-m>
@@ -1528,7 +1528,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>blade11</object-name>
-		<property>fdm/jsbsim/propulsion/engine[0]/blade-angle</property>
+		<property>fdm/jsbsim/propulsion/engine[1]/blade-angle</property>
 		<interpolation>
 			<entry>
 				<ind>0.0</ind>
@@ -1553,7 +1553,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>blade12</object-name>
-		<property>fdm/jsbsim/propulsion/engine[0]/blade-angle</property>
+		<property>fdm/jsbsim/propulsion/engine[1]/blade-angle</property>
 		<interpolation>
 			<entry>
 				<ind>0.0</ind>
@@ -1578,7 +1578,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>blade13</object-name>
-		<property>fdm/jsbsim/propulsion/engine[0]/blade-angle</property>
+		<property>fdm/jsbsim/propulsion/engine[1]/blade-angle</property>
 		<interpolation>
 			<entry>
 				<ind>0.0</ind>
@@ -1603,7 +1603,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>blade14</object-name>
-		<property>fdm/jsbsim/propulsion/engine[0]/blade-angle</property>
+		<property>fdm/jsbsim/propulsion/engine[1]/blade-angle</property>
 		<interpolation>
 			<entry>
 				<ind>0.0</ind>
@@ -1628,7 +1628,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>blade15</object-name>
-		<property>fdm/jsbsim/propulsion/engine[0]/blade-angle</property>
+		<property>fdm/jsbsim/propulsion/engine[1]/blade-angle</property>
 		<interpolation>
 			<entry>
 				<ind>0.0</ind>
@@ -1653,7 +1653,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>blade16</object-name>
-		<property>fdm/jsbsim/propulsion/engine[0]/blade-angle</property>
+		<property>fdm/jsbsim/propulsion/engine[1]/blade-angle</property>
 		<interpolation>
 			<entry>
 				<ind>0.0</ind>

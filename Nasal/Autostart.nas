@@ -11,6 +11,7 @@ var Startup1 = func{
 	setprop("systems/electrical/Battery2/Connected",1);
 	setprop("systems/electrical/DCTie/Connected",1);
 	setprop("instrumentation/nonEssBus1/serviceable",1);
+	setprop("instrumentation/nonEssBus2/serviceable",1);
 	setprop("instrumentation/logo-lights/serviceable",1);
 	setprop("instrumentation/wing-lights/serviceable",1);
 	setprop("instrumentation/beacon/serviceable",1);

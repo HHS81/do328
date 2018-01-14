@@ -1005,13 +1005,29 @@
 			</binding>
 		</hovered>
 	</animation>
+
 	<!--prop throttle-->
 	<animation>
 		<type>rotate</type>
 		<object-name>PThrottle.L</object-name>
 		<object-name>PLLatch</object-name>
-		<property>controls/engines/engine[0]/throttle</property>
-		<factor>-34</factor>
+		<expression>
+			<sum>
+				<product>
+					<property>controls/engines/engine[0]/throttle</property>
+					<difference>
+						<property>controls/engines/engine[0]/reverser</property>
+						<value>1</value>
+					</difference>
+					<value>70</value>
+				</product>
+				<product>
+					<property>controls/engines/engine[0]/throttle</property>
+					<property>controls/engines/engine[0]/reverser</property>
+					<value>5</value>
+				</product>
+			</sum>
+		</expression>
 		<center>
 			<x-m>-8.347</x-m>
 			<y-m>0.0</y-m>
@@ -1024,47 +1040,27 @@
 		</axis>
 	</animation>
 	<animation>
-		<type>rotate</type>
-		<object-name>PThrottle.R</object-name>
-		<object-name>PRLatch</object-name>
-		<property>controls/engines/engine[1]/throttle</property>
-		<factor>-34</factor>
-		<center>
-			<x-m>-8.347</x-m>
-			<y-m>0.0</y-m>
-			<z-m>1.627</z-m>
-		</center>
-		<axis>
-			<x>0.0</x>
-			<y>1.0</y>
-			<z>0.0</z>
-		</axis>
-	</animation>
-	<animation>
-		<type>knob</type>
+		<type>pick</type>
 		<object-name>PThrottle.L</object-name>
-		<object-name>PLLatch</object-name>
-		<property>controls/engines/engine[0]/throttle</property>
-		<factor>-34.0</factor>
-		<drag-direction>vertical</drag-direction>
-		<center>
-			<x-m>-8.347</x-m>
-			<y-m>0.0</y-m>
-			<z-m>1.627</z-m>
-		</center>
-		<axis>
-			<x>0.0</x>
-			<y>1.0</y>
-			<z>0.0</z>
-		</axis>
 		<action>
-			<button>0</button>
+			<button>3</button>
 			<repeatable>true</repeatable>
-			<interval-sec>0.1</interval-sec>
 			<binding>
 				<command>property-adjust</command>
 				<property>controls/engines/engine[0]/throttle</property>
-				<factor>0.05</factor>
+				<step>-0.05</step>
+				<min>0</min>
+				<max>1</max>
+				<wrap>0</wrap>
+			</binding>
+		</action>
+		<action>
+			<button>4</button>
+			<repeatable>true</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/engines/engine[0]/throttle</property>
+				<step>0.05</step>
 				<min>0</min>
 				<max>1</max>
 				<wrap>0</wrap>
@@ -1081,61 +1077,51 @@
 		</hovered>
 	</animation>
 	<animation>
-		<type>knob</type>
-		<object-name>PThrottle.R</object-name>
-		<object-name>PRLatch</object-name>
-		<property>controls/engines/engine[1]/throttle</property>
-		<factor>-34.0</factor>
-		<drag-direction>vertical</drag-direction>
+		<type>rotate</type>
+		<object-name>PLLatch</object-name>
+		<property>controls/engines/engine[0]/reverser</property>
+		<factor>35</factor>
 		<center>
-			<x-m>-8.347</x-m>
+			<x-m>-8.266</x-m>
 			<y-m>0.0</y-m>
-			<z-m>1.627</z-m>
+			<z-m>1.801</z-m>
 		</center>
 		<axis>
 			<x>0.0</x>
 			<y>1.0</y>
 			<z>0.0</z>
 		</axis>
-		<action>
-			<button>0</button>
-			<repeatable>true</repeatable>
-			<interval-sec>0.1</interval-sec>
-			<binding>
-				<command>property-adjust</command>
-				<property>controls/engines/engine[1]/throttle</property>
-				<factor>0.05</factor>
-				<min>0</min>
-				<max>1</max>
-				<wrap>0</wrap>
-			</binding>
-		</action>
-		<hovered>
-			<binding>
-				<command>set-tooltip</command>
-				<label>RH Throttle: %1.0f</label>
-				<mapping>percent</mapping>
-				<tooltip-id>Left Throttle</tooltip-id>
-				<property>controls/engines/engine[1]/throttle</property>
-			</binding>
-		</hovered>
 	</animation>
 	<animation>
+		<type>pick</type>
+		<object-name>PLLatch</object-name>
+		<action>
+			<button>0</button>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/engines/engine[0]/reverser</property>
+			</binding>
+		</action>
+	</animation>
+
+	<animation>
 		<type>rotate</type>
-		<object-name>ConditionLever.L</object-name>
+		<object-name>PThrottle.R</object-name>
+		<object-name>PRLatch</object-name>
 		<expression>
 			<sum>
 				<product>
-					<property>controls/engines/engine[0]/propeller-pitch</property>
+					<property>controls/engines/engine[1]/throttle</property>
 					<difference>
-						<property>controls/engines/engine[0]/cutoff</property>
+						<property>controls/engines/engine[1]/reverser</property>
 						<value>1</value>
 					</difference>
-					<value>55</value>
+					<value>70</value>
 				</product>
 				<product>
-					<property>controls/engines/engine[0]/cutoff</property>
-					<value>10</value>
+					<property>controls/engines/engine[1]/throttle</property>
+					<property>controls/engines/engine[1]/reverser</property>
+					<value>5</value>
 				</product>
 			</sum>
 		</expression>
@@ -1151,10 +1137,89 @@
 		</axis>
 	</animation>
 	<animation>
+		<type>pick</type>
+		<object-name>PThrottle.R</object-name>
+		<action>
+			<button>3</button>
+			<repeatable>true</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/engines/engine[1]/throttle</property>
+				<step>-0.05</step>
+				<min>0</min>
+				<max>1</max>
+				<wrap>0</wrap>
+			</binding>
+		</action>
+		<action>
+			<button>4</button>
+			<repeatable>true</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/engines/engine[1]/throttle</property>
+				<step>0.05</step>
+				<min>0</min>
+				<max>1</max>
+				<wrap>0</wrap>
+			</binding>
+		</action>
+		<hovered>
+			<binding>
+				<command>set-tooltip</command>
+				<label>RH Throttle: %1.0f</label>
+				<mapping>percent</mapping>
+				<tooltip-id>Right Throttle</tooltip-id>
+				<property>controls/engines/engine[1]/throttle</property>
+			</binding>
+		</hovered>
+	</animation>
+	<animation>
 		<type>rotate</type>
-		<object-name>ConditionLever.R</object-name>
-		<property>controls/engines/engine[1]/propeller-pitch</property>
-		<factor>-27.5</factor>
+		<object-name>PRLatch</object-name>
+		<property>controls/engines/engine[1]/reverser</property>
+		<factor>35</factor>
+		<center>
+			<x-m>-8.266</x-m>
+			<y-m>0.0</y-m>
+			<z-m>1.801</z-m>
+		</center>
+		<axis>
+			<x>0.0</x>
+			<y>1.0</y>
+			<z>0.0</z>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>PRLatch</object-name>
+		<action>
+			<button>0</button>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/engines/engine[1]/reverser</property>
+			</binding>
+		</action>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>ConditionLever.L</object-name>
+		<expression>
+			<sum>
+				<product>
+					<property>controls/engines/engine[0]/propeller-pitch</property>
+					<difference>
+						<property>controls/engines/engine[0]/cutoff</property>
+						<value>1</value>
+					</difference>
+					<value>65</value>
+				</product>
+				<product>
+					<property>controls/engines/engine[0]/cutoff</property>
+					<value>12</value>
+				</product>
+			</sum>
+		</expression>
 		<center>
 			<x-m>-8.347</x-m>
 			<y-m>0.0</y-m>
@@ -1211,11 +1276,24 @@
 		</hovered>
 	</animation>
 	<animation>
-		<type>knob</type>
+		<type>rotate</type>
 		<object-name>ConditionLever.R</object-name>
-		<property>controls/engines/engine[1]/propeller-pitch</property>
-		<factor>-27.50</factor>
-		<drag-direction>vertical</drag-direction>
+		<expression>
+			<sum>
+				<product>
+					<property>controls/engines/engine[1]/propeller-pitch</property>
+					<difference>
+						<property>controls/engines/engine[1]/cutoff</property>
+						<value>1</value>
+					</difference>
+					<value>65</value>
+				</product>
+				<product>
+					<property>controls/engines/engine[1]/cutoff</property>
+					<value>12</value>
+				</product>
+			</sum>
+		</expression>
 		<center>
 			<x-m>-8.347</x-m>
 			<y-m>0.0</y-m>
@@ -1226,14 +1304,36 @@
 			<y>1.0</y>
 			<z>0.0</z>
 		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>ConditionLever.R</object-name>
 		<action>
 			<button>0</button>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/engines/engine[1]/cutoff</property>
+			</binding>
+		</action>
+		<action>
+			<button>3</button>
 			<repeatable>true</repeatable>
-			<interval-sec>0.1</interval-sec>
 			<binding>
 				<command>property-adjust</command>
 				<property>controls/engines/engine[1]/propeller-pitch</property>
-				<factor>0.05</factor>
+				<step>-0.05</step>
+				<min>0</min>
+				<max>1</max>
+				<wrap>0</wrap>
+			</binding>
+		</action>
+		<action>
+			<button>4</button>
+			<repeatable>true</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/engines/engine[1]/propeller-pitch</property>
+				<step>0.05</step>
 				<min>0</min>
 				<max>1</max>
 				<wrap>0</wrap>
@@ -1242,9 +1342,9 @@
 		<hovered>
 			<binding>
 				<command>set-tooltip</command>
-				<label>RH Throttle: %1.0f</label>
+				<label>RH Condition: %1.0f</label>
 				<mapping>percent</mapping>
-				<tooltip-id>Left Throttle</tooltip-id>
+				<tooltip-id>Left Condition</tooltip-id>
 				<property>controls/engines/engine[1]/propeller-pitch</property>
 			</binding>
 		</hovered>

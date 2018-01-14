@@ -14,9 +14,9 @@
 		<factor-prop>systems/electrical/EssBus/Voltage</factor-prop>
 	</diffuse>
 	<emission>
-		<red>0.5</red>
-		<green>0.5</green>
-		<blue>0.5</blue>
+		<red>1</red>
+		<green>1</green>
+		<blue>1</blue>
 		<factor-prop>systems/electrical/EssBus/Voltage</factor-prop>
 	</emission>
     </animation>
@@ -80,7 +80,7 @@
 	</axis>
     </animation>
 
-  <!-- Non-Essential Bus 1 -->
+  <!-- Non-Essential Bus 2 -->
     <animation>
         <type>pick</type>
         <object-name>BtnNonEss2</object-name>
@@ -198,6 +198,65 @@
 	</axis>
     </animation>
 
+  <!-- APU -->
+    <animation>
+        <type>pick</type>
+        <object-name>BtnGenApu</object-name>
+        <visible>true</visible>
+        <action>
+          <button>0</button>
+          <repeatable>false</repeatable>
+		<binding>
+			<command>property-toggle</command>
+			<property>systems/electrical/APU/Connected</property>
+		</binding>
+        </action>
+    </animation>
+    <animation>
+	<type>material</type>
+	<object-name>BtnGenApu</object-name>
+	<ambient>
+		<red>1</red>
+		<green>1</green>
+		<blue>1</blue>
+		<factor-prop>systems/electrical/APU/Indicator</factor-prop>
+	</ambient>
+	<diffuse>
+		<red>1</red>
+		<green>1</green>
+		<blue>1</blue>
+		<factor-prop>systems/electrical/APU/Indicator</factor-prop>
+	</diffuse>
+	<emission>
+		<red>1</red>
+		<green>1</green>
+		<blue>1</blue>
+		<factor-prop>systems/electrical/APU/Indicator</factor-prop>
+	</emission>
+    </animation>
+    <animation>
+	<type>translate</type>
+	<object-name>BtnGenApu</object-name>
+	<property>systems/electrical/APU/Connected</property>
+	<factor>0.001</factor>
+	<axis>
+		<x>0</x>
+		<y>0</y>
+		<z>1</z>
+	</axis>
+    </animation>
+    <animation>
+	<type>textranslate</type>
+	<object-name>BtnGenApu</object-name>
+	<property>systems/electrical/APU/Indicator</property>
+	<offset>8</offset>
+	<factor>0.029297</factor>
+	<axis>
+		<x>1</x>
+		<y>0</y>
+	</axis>
+    </animation>
+
   <!-- Generator 1 -->
     <animation>
         <type>pick</type>
@@ -219,19 +278,19 @@
 		<red>1</red>
 		<green>1</green>
 		<blue>1</blue>
-		<factor-prop>systems/electrical/Battery1/Connected</factor-prop>
+		<factor-prop>systems/electrical/Generator1/Indicator</factor-prop>
 	</ambient>
 	<diffuse>
 		<red>1</red>
 		<green>1</green>
 		<blue>1</blue>
-		<factor-prop>systems/electrical/Battery1/Connected</factor-prop>
+		<factor-prop>systems/electrical/Generator1/Indicator</factor-prop>
 	</diffuse>
 	<emission>
 		<red>1</red>
 		<green>1</green>
 		<blue>1</blue>
-		<factor-prop>systems/electrical/Battery1/Connected</factor-prop>
+		<factor-prop>systems/electrical/Generator1/Indicator</factor-prop>
 	</emission>
     </animation>
     <animation>
@@ -248,7 +307,67 @@
     <animation>
 	<type>textranslate</type>
 	<object-name>BtnGenLh</object-name>
-	<offset>9</offset>
+	<property>systems/electrical/Generator1/Indicator</property>
+	<offset>8</offset>
+	<factor>0.029297</factor>
+	<axis>
+		<x>1</x>
+		<y>0</y>
+	</axis>
+    </animation>
+
+  <!-- Generator 2 -->
+    <animation>
+        <type>pick</type>
+        <object-name>BtnGenRh</object-name>
+        <visible>true</visible>
+        <action>
+          <button>0</button>
+          <repeatable>false</repeatable>
+		<binding>
+			<command>property-toggle</command>
+			<property>systems/electrical/Generator2/Connected</property>
+		</binding>
+        </action>
+    </animation>
+    <animation>
+	<type>material</type>
+	<object-name>BtnGenRh</object-name>
+	<ambient>
+		<red>1</red>
+		<green>1</green>
+		<blue>1</blue>
+		<factor-prop>systems/electrical/Generator2/Indicator</factor-prop>
+	</ambient>
+	<diffuse>
+		<red>1</red>
+		<green>1</green>
+		<blue>1</blue>
+		<factor-prop>systems/electrical/Generator2/Indicator</factor-prop>
+	</diffuse>
+	<emission>
+		<red>1</red>
+		<green>1</green>
+		<blue>1</blue>
+		<factor-prop>systems/electrical/Generator2/Indicator</factor-prop>
+	</emission>
+    </animation>
+    <animation>
+	<type>translate</type>
+	<object-name>BtnGenRh</object-name>
+	<property>systems/electrical/Generator2/Connected</property>
+	<factor>0.001</factor>
+	<axis>
+		<x>0</x>
+		<y>0</y>
+		<z>1</z>
+	</axis>
+    </animation>
+    <animation>
+	<type>textranslate</type>
+	<object-name>BtnGenRh</object-name>
+	<property>systems/electrical/Generator2/Indicator</property>
+	<offset>8</offset>
 	<factor>0.029297</factor>
 	<axis>
 		<x>1</x>
