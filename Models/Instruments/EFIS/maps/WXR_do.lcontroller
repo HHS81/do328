@@ -26,14 +26,13 @@ var new = func(layer) {
 	return m;
 };
 var del = func() {
-	#print(name~"VOR.lcontroller.del()");
 	foreach (var l; me.listeners)
 		removelistener(l);
 };
 
-var WXR_do_model = {
-	new: func(n, idx, offset=0) {
-		var m = { parents:[WXR_do_model], idx:(idx+offset) };
+var WXR_cloud = {
+	new: func(n, idx, storm) {
+		var m = { parents:[WXR_cloud], idx:idx, storm:storm };
 		m.id = idx;
 		
 		m.lat = n.getNode("position/latitude-deg").getValue();
@@ -47,14 +46,40 @@ var WXR_do_model = {
 	},
 };
 
+var WXR_storm = {
+	new: func(n, idx, storm) {
+		var m = { parents:[WXR_storm], idx:idx, storm:storm };
+		m.id = idx;
+		
+		m.lat = n.getNode("latitude-deg").getValue();
+		m.lon = n.getNode("longitude-deg").getValue();
+		#print(m.lat," ",m.lon);
+		return m;
+	},
+	equals: func(other) {
+		# this is set on symbol init, so use this for equality...
+		me.id == other.id
+	},
+};
+
 var clouds = 0;
-var cloudSize = 0;
+var storms = 0;
+var numClouds = 0;
+var numStorms = 0;
+var counter = 0;
 var searchCmd = func {
 	clouds = props.globals.getNode("/local-weather/clouds/tile[1]",1).getChildren("cloud");
-	cloudSize = size(clouds);
 	var result = [];
-	for (var i = 0; i < cloudSize; i+=1)
-		append(result, WXR_do_model.new(clouds[i], i));
+	numClouds = size(clouds);
+	for(counter=0; counter < numClouds; counter+=1) {
+		append(result, WXR_cloud.new(clouds[counter], counter, 0));
+	}
+
+	storms = props.globals.getNode("/instrumentation/wxradar",1).getChildren("storm");
+	numStorms = size(storms);
+	for(counter=0; counter < numStorms; counter+=1) {
+		append(result, WXR_storm.new(storms[counter], counter+numClouds, 1));
+	}
 	return result;
 };
 

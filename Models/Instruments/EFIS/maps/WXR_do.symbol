@@ -9,9 +9,21 @@ var element_type = "group"; # we want a group, becomes "me.element"
 
 var init = func {
 	me.element.createChild('group');
-	canvas.parsesvg(me.element, "Aircraft/do328/Models/Instruments/EFIS/maps/cloud.svg");
-	me.element.setTranslation(-64,-64)
-		.setCenter(0,0);
+	canvas.parsesvg(me.element, "Aircraft/do328/Models/Instruments/EFIS/maps/storm.svg");
+	me.element.setTranslation(-64,-64).setCenter(0,0);
+	me.cloud = me.element.getElementById("cloud");
+	me.storm = me.element.getElementById("storm");
 };
 
-var draw = func;
+var draw = func {
+	if(me.model.storm) {
+		me.cloud.hide();
+		me.storm.show();
+		me.storm.setScale(10/me.map.getRange());
+	}
+	else {
+		me.cloud.show();
+		me.storm.hide();
+		me.cloud.setScale(10/me.map.getRange());
+	}
+};
