@@ -9,9 +9,7 @@ SymbolLayer.add(name, {
 	type: name, # Symbol type
 	df_controller: __self__, # controller to use by default -- this one
 	df_options: { # default configuration options
-		active_node: "/autopilot/route-manager/active",
-		current_wp_node: "/autopilot/route-manager/current-wp",
-		wp_num: "/autopilot/route-manager/route/num",
+		active_node: "instrumentation/efis/wxGmap1"
 	}
 });
 var new = func(layer) {
@@ -23,7 +21,6 @@ var new = func(layer) {
 		listeners: [],
 	};
 	layer.searcher._equals = func(l,r) l.equals(r);
-	append(m.listeners, setlistener(layer.options.active_node, func m.layer.update() ), setlistener(layer.options.wp_num, func m.layer.update() ));
 	m.addVisibilityListener();
 
 	return m;
@@ -37,7 +34,7 @@ var del = func() {
 var WXR_do_model = {
 	new: func(n, idx, offset=0) {
 		var m = { parents:[WXR_do_model], idx:(idx+offset) };
-		m.name = sprintf("cloud%d", idx);
+		m.id = idx;
 		
 		m.lat = n.getNode("position/latitude-deg").getValue();
 		m.lon = n.getNode("position/longitude-deg").getValue();
@@ -46,13 +43,15 @@ var WXR_do_model = {
 	},
 	equals: func(other) {
 		# this is set on symbol init, so use this for equality...
-		me.name == other.name
+		me.id == other.id
 	},
 };
 
+var clouds = 0;
+var cloudSize = 0;
 var searchCmd = func {
-	var clouds = props.globals.getNode("/local-weather/clouds/tile[1]",1).getChildren("cloud");
-	var cloudSize = size(clouds);
+	clouds = props.globals.getNode("/local-weather/clouds/tile[1]",1).getChildren("cloud");
+	cloudSize = size(clouds);
 	var result = [];
 	for (var i = 0; i < cloudSize; i+=1)
 		append(result, WXR_do_model.new(clouds[i], i));
