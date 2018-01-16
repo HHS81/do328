@@ -115,10 +115,10 @@ This file selects the instrumentation modules that should be available.
     </mk-viii>
 
     <radar>
-        <name>radar</name>
+        <name>wxradar</name>
         <number>0</number>
     </radar>
-    
+
   <radar-altimeter>
     <name>radar-altimeter</name>
     <number>0</number>

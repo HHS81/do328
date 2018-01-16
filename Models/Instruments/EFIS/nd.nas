@@ -1,7 +1,7 @@
 var ndlayers = [{name:'APT_do',style:{scale_factor:0.6,label_font_color:[1,1,1],color_default:[1,1,1],line_width:4}},
 		{name:'DME_do',style:{scale_factor:0.6,color_default:[0,1,0],line_width:4}},
 		{name:'WPT_do',style:{scale_factor:0.6,line_width:4}},
-		#{name:'WXR_do',style:{scale_factor:0.6,line_width:4}},
+		{name:'WXR_do',style:{scale_factor:0.6,line_width:4}},
 		{name:'RTE',style:{scale_factor:0.6,color:[0,1,0],line_width:3}}];
 
 var hdg = props.globals.getNode("orientation/heading-magnetic-deg");
@@ -18,13 +18,13 @@ var do328_controller = {
 		var m = { parents: [do328_controller],
 			map: map,
 			apt: map.getLayer('APT_do'),
-			dme: map.getLayer('DME_do')
-			#wxr: map.getLayer('WXR_do')
+			dme: map.getLayer('DME_do'),
+			wxr: map.getLayer('WXR_do')
 			};
 		m.index = index;
 		m.apt.hide();
 		m.dme.hide();
-		#m.wxr.hide();
+		m.wxr.hide();
 
 		setlistener("instrumentation/efis/trigger_nd"~index, func{
 			m.map.setRange(1.2*scales[Range[m.index]]);
@@ -32,22 +32,22 @@ var do328_controller = {
 			m.map.update();
 		});
 
-		setlistener("/instrumentation/efis/wptIdent0", func{
+		setlistener("instrumentation/efis/wptIdent0", func{
 			m.map.update();
 		});
 
-		setlistener("/instrumentation/efis/wxGmap"~index, func{
-			if(getprop("/instrumentation/efis/wxGmap"~m.index)) {
-				#m.wxr.show();
+		setlistener("instrumentation/efis/wxGmap"~index, func{
+			if(getprop("instrumentation/efis/wxGmap"~m.index)) {
+				m.wxr.show();
 			}
 			else {
-				#m.wxr.hide();
+				m.wxr.hide();
 			}
 			m.map.update();
 		});
 
-		setlistener("/instrumentation/efis/navaid"~index, func{
-			if(getprop("/instrumentation/efis/navaid"~m.index)) {
+		setlistener("instrumentation/efis/navaid"~index, func{
+			if(getprop("instrumentation/efis/navaid"~m.index)) {
 				m.apt.show();
 				m.dme.show();
 			}
