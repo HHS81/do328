@@ -62,23 +62,36 @@ var WXR_storm = {
 	},
 };
 
+var tiles = 0;
 var clouds = 0;
 var storms = 0;
+var numTiles = 0;
 var numClouds = 0;
 var numStorms = 0;
 var counter = 0;
+var tileCounter = 0;
+var cloudCounter = 0;
+var stormCounter = 0;
 var searchCmd = func {
-	clouds = props.globals.getNode("/local-weather/clouds/tile[1]",1).getChildren("cloud");
 	var result = [];
-	numClouds = size(clouds);
-	for(counter=0; counter < numClouds; counter+=1) {
-		append(result, WXR_cloud.new(clouds[counter], counter, 0));
+	counter = 0;
+
+	tiles = props.globals.getNode("local-weather/clouds",1).getChildren("tile");
+	numTiles = size(tiles);
+	for(tileCounter=0; tileCounter < numTiles; tileCounter+=1) {
+		clouds = tiles[tileCounter].getChildren("cloud");
+		numClouds = size(clouds);
+		for(cloudCounter=0; cloudCounter < numClouds; cloudCounter+=1) {
+			append(result, WXR_cloud.new(clouds[cloudCounter], counter, 0));
+			counter+=1;
+		}
 	}
 
-	storms = props.globals.getNode("/instrumentation/wxradar",1).getChildren("storm");
+	storms = props.globals.getNode("instrumentation/wxradar",1).getChildren("storm");
 	numStorms = size(storms);
-	for(counter=0; counter < numStorms; counter+=1) {
-		append(result, WXR_storm.new(storms[counter], counter+numClouds, 1));
+	for(stormCounter=0; stormCounter < numStorms; stormCounter+=1) {
+		append(result, WXR_storm.new(storms[stormCounter], counter+numClouds, 1));
+		counter+=1;
 	}
 	return result;
 };
