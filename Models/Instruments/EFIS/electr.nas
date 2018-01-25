@@ -16,10 +16,14 @@ var canvas_electr = {
 		canvas.parsesvg(canvasGroup, "Aircraft/do328/Models/Instruments/EFIS/electr.svg", {'font-mapper': font_mapper});
 
 		var svg_keys = ["VDC1","VDC2","VAC1","VAC2","VINV1H","VINV1L","VINV2L","VINV2H",
-				"AGenLH","AAPU","AGenRH","FailBatt1","FailBatt2","DCTie"];
+				"NonEss1A","NonEss1G","NonEss2A","NonEss2G","AGenLH","AAPU","AGenRH",
+				"FailBatt1","FailBatt2","DCTie"];
 		foreach(var key; svg_keys) {
 			m[key] = canvasGroup.getElementById(key);
 		}
+
+		m.NonEss1A.hide();
+		m.NonEss2A.hide();
 
 		m.AAPU.setText("0");
 		m.VAC1.setText("115");
@@ -33,6 +37,15 @@ var canvas_electr = {
 	},
 	update: func()
 	{
+		if(getprop("systems/electrical/outputs/nonEssBus2") > 0) {
+			me.NonEss2G.show();
+			me.NonEss2A.hide();
+		}
+		else {
+			me.NonEss2A.show();
+			me.NonEss2G.hide();
+		}
+
 		if(getprop("systems/electrical/DCTie/Connected")) {
 			me.DCTie.show();
 		}
