@@ -89,7 +89,7 @@ var canvas_PFD = {
 		me.pitch = getprop("orientation/pitch-deg");
 		me.roll = getprop("orientation/roll-deg");
 		me.hdg = getprop("orientation/heading-deg");
-		me.vSpd = getprop("/velocities/vertical-speed-fps");
+		me.vSpd = getprop("velocities/vertical-speed-fps");
 		me.wow = getprop("gear/gear/wow");
 		me.apAlt = getprop("autopilot/settings/target-altitude-ft");
 		me.apSpd = getprop("autopilot/settings/target-speed-kt");
@@ -103,26 +103,24 @@ var canvas_PFD = {
 			
 		# Flight director
 		if(!(getprop("autopilot/settings/stby") or 0)) {
-			if(getprop("autopilot/internal/target-roll-deg") != nil) {
-				me.fdRoll = (me.roll-getprop("/autopilot/internal/target-roll-deg"))*10.5;
-				if(me.fdRoll > 150) {
-					me.fdRoll = 150;
-				}
-				elsif(me.fdRoll < -150) {
-					me.fdRoll = -150;
-				}
-				me.fdX.setTranslation(-me.fdRoll, 0);
+			me.fdRoll = me.roll - (getprop("autopilot/internal/roll-bars") or 0)*10.5;
+			if(me.fdRoll > 150) {
+				me.fdRoll = 150;
 			}
-			if(getprop("/autopilot/internal/target-pitch-deg") != nil) {
-				me.fdpitch = (me.pitch-getprop("/autopilot/internal/target-pitch-deg"))*10.5;
-				if(me.fdpitch > 150) {
-					me.fdpitch = 150;
-				}
-				elsif(me.fdpitch < -150) {
-					me.fdpitch = -150;
-				}
-				me.fdY.setTranslation(0, me.fdpitch);
+			elsif(me.fdRoll < -150) {
+				me.fdRoll = -150;
 			}
+			me.fdX.setTranslation(-me.fdRoll, 0);
+
+			me.fdpitch = me.pitch - (getprop("autopilot/internal/pitch-bars") or 0)*10.5;
+			if(me.fdpitch > 150) {
+				me.fdpitch = 150;
+			}
+			elsif(me.fdpitch < -150) {
+				me.fdpitch = -150;
+			}
+			me.fdY.setTranslation(0, me.fdpitch);
+
 			me.fdX.show();
 			me.fdY.show();
 		} else {
@@ -223,41 +221,13 @@ var canvas_PFD = {
 	update_ap_modes: func()
 	{
 		# Modes
-		me.apRoll = getprop("/autopilot/locks/heading");
-		if(me.apRoll == "wing-leveler") {
-			me.rollMode.setText("ROLL");
-		}
-		elsif(me.apRoll == "dg-heading-hold") {
-			me.rollMode.setText("HDG");
-		}
-		elsif(me.apRoll == "nav1-hold") {
-			me.rollMode.setText("NAV");
-		}
-		else {
-			me.rollMode.setText("ROLL");
-		}
-
-		me.apPitch = getprop("/autopilot/locks/altitude");
-		if(me.apPitch == "vertical-speed-hold") {
-			me.pitchMode.setText("VS");
-		}
-		elsif(me.apPitch == "altitude-hold") {
-			me.pitchMode.setText("ALT");
-		}
-		elsif(me.apPitch == "gs1-hold") {
-			me.pitchMode.setText("GS");
-		}
-		elsif(me.apPitch == "speed-with-pitch-trim") {
-			me.pitchMode.setText("FLC");
-		}
-		else {
-			me.pitchMode.setText("PTCH");
-		}
+		me.rollMode.setText(getprop("autopilot/locks/heading"));
+		me.pitchMode.setText(getprop("autopilot/locks/altitude"));
 	},
 	update_slow: func()
 	{
 		me.wow = getprop("gear/gear/wow");
-		#me.flaps = getprop("/controls/flight/flaps");
+		#me.flaps = getprop("controls/flight/flaps");
 		#me.dh = getprop("instrumentation/mk-viii/inputs/arinc429/decision-height");
 		me.pfdCircle = getprop("instrumentation/efis/PFD"~(me.Instance+1)~"_Circle");
 		me.pfdRhombus = getprop("instrumentation/efis/PFD"~(me.Instance+1)~"_Rhombus");
@@ -388,7 +358,7 @@ var canvas_PFD = {
 	},
 };
 
-var pfdListener = setlistener("/sim/signals/fdm-initialized", func () {
+var pfdListener = setlistener("sim/signals/fdm-initialized", func () {
 	var group = {};
 
 	setprop("instrumentation/efis/PFD1_Circle","VOR1");

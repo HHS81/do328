@@ -558,8 +558,8 @@ update_electrical = func {
     acBus2.update();
     dcBus1.update();
     dcBus2.update();
-    dctie.update();
     essBus.update();
+    dctie.update();
     settimer(update_electrical, Refresh);
 }
 update_electrical();

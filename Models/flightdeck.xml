@@ -802,6 +802,40 @@
 			</binding>
 		</action>
 	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>GearLever</object-name>
+		<property>controls/gear/gear-down</property>
+		<factor>50</factor>
+		<center>
+			<x-m>-8.799</x-m>
+			<y-m>0.0</y-m>
+			<z-m>1.883</z-m>
+		</center>
+		<axis>
+			<x>0.0</x>
+			<y>1.0</y>
+			<z>0.0</z>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>GearLever</object-name>
+		<action>
+			<button>0</button>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/gear/gear-down</property>
+			</binding>
+		</action>
+		<hovered>
+			<binding>
+				<command>set-tooltip</command>
+				<label>Gear Lever</label>
+				<tooltip-id>Gear Lever</tooltip-id>
+			</binding>
+		</hovered>
+	</animation>
 	<model>
 		<path>Aircraft/do328/Models/Instruments/MagCompass/magcompass.xml</path>
 		<offsets>
@@ -1607,7 +1641,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
-				<script>do328.FD_set_mode("hdg")</script>
+				<script>systems.FD_set_mode("hdg")</script>
 			</binding>
 		</action>
 	</animation>
@@ -1620,7 +1654,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
-				<script>do328.FD_set_mode("alt")</script>
+				<script>systems.FD_set_mode("alt")</script>
 			</binding>
 		</action>
 	</animation>
@@ -1633,7 +1667,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
-				<script>do328.FD_set_mode("flc")</script>
+				<script>systems.FD_set_mode("flc")</script>
 			</binding>
 		</action>
 	</animation>
@@ -1646,7 +1680,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
-				<script>do328.FD_set_mode("nav")</script>
+				<script>systems.FD_set_mode("nav")</script>
 			</binding>
 		</action>
 	</animation>
@@ -1659,7 +1693,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
-				<script>do328.FD_set_mode("vnav")</script>
+				<script>systems.FD_set_mode("vnav")</script>
 			</binding>
 		</action>
 	</animation>
@@ -1672,7 +1706,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
-				<script>do328.FD_set_mode("app")</script>
+				<script>systems.FD_set_mode("app")</script>
 			</binding>
 		</action>
 	</animation>
@@ -1700,7 +1734,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
-				<script>do328.FD_set_mode("vs")</script>
+				<script>systems.FD_set_mode("vs")</script>
 			</binding>
 		</action>
 	</animation>
@@ -1713,7 +1747,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
-				<script>do328.FD_set_mode("bc")</script>
+				<script>systems.FD_set_mode("bc")</script>
 			</binding>
 		</action>
 	</animation>
@@ -1726,7 +1760,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
-				<script>do328.FD_set_mode("stby")</script>
+				<script>systems.FD_set_mode("stby")</script>
 			</binding>
 		</action>
 	</animation>
@@ -1739,7 +1773,7 @@
 			<repeatable>true</repeatable>
 			<binding>
 				<command>nasal</command>
-				<script>do328.pitch_wheel(-1)</script>
+				<script>systems.pitch_wheel(-1)</script>
 			</binding>
 		</action>
 		<action>
@@ -1747,7 +1781,7 @@
 			<repeatable>true</repeatable>
 			<binding>
 				<command>nasal</command>
-				<script>do328.pitch_wheel(1)</script>
+				<script>systems.pitch_wheel(1)</script>
 			</binding>
 		</action>
 		<action>
@@ -1755,7 +1789,7 @@
 			<repeatable>true</repeatable>
 			<binding>
 				<command>nasal</command>
-				<script>do328.pitch_wheel(-1)</script>
+				<script>systems.pitch_wheel(-1)</script>
 			</binding>
 		</action>
 		<action>
@@ -1763,7 +1797,7 @@
 			<repeatable>true</repeatable>
 			<binding>
 				<command>nasal</command>
-				<script>do328.pitch_wheel(1)</script>
+				<script>systems.pitch_wheel(1)</script>
 			</binding>
 		</action>
 	</animation>
@@ -1776,7 +1810,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
-				<script>do328.FD_set_mode("ap");</script>
+				<script>systems.FD_set_mode("ap");</script>
 			</binding>
 		</action>
 	</animation>
@@ -1789,7 +1823,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
-				<script>do328.FD_set_mode("yd");</script>
+				<script>systems.FD_set_mode("yd");</script>
 			</binding>
 		</action>
 	</animation>
@@ -1803,7 +1837,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
-				<script>do328.nav_src_set("nav");</script>
+				<script>systems.nav_src_set("nav");</script>
 			</binding>
 		</action>
 	</animation>
@@ -1816,7 +1850,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
-				<script>do328.nav_src_set("fms");</script>
+				<script>systems.nav_src_set("fms");</script>
 			</binding>
 		</action>
 	</animation>
@@ -2040,7 +2074,6 @@
 		<property>controls/SunVisorR[0]/position-deg</property>
 		<factor>1</factor>
 		<drag-direction>horizontal</drag-direction>
-		-
 		<offset-deg>0</offset-deg>
 		<center>
 			<x-m>-7.603435</x-m>
@@ -2094,7 +2127,6 @@
 		<property>controls/SunVisorR[1]/position-deg</property>
 		<factor>-5</factor>
 		<drag-direction>vertical</drag-direction>
-		-
 		<offset-deg>0</offset-deg>
 		<center>
 			<x-m>-7.621326</x-m>
@@ -2124,7 +2156,6 @@
 		<property>controls/SunVisorL[0]/position-deg</property>
 		<factor>1</factor>
 		<drag-direction>horizontal</drag-direction>
-		-
 		<offset-deg>0</offset-deg>
 		<center>
 			<x-m>-7.603435</x-m>
@@ -2178,7 +2209,6 @@
 		<property>controls/SunVisorL[1]/position-deg</property>
 		<factor>-5</factor>
 		<drag-direction>vertical</drag-direction>
-		-
 		<offset-deg>0</offset-deg>
 		<center>
 			<x-m>-7.621326</x-m>

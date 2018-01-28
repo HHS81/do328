@@ -260,7 +260,7 @@ V1 --> Vr --> Rotate to 8deg --> @50ft Rotate to 15deg -->Climb @V2 + 15ktn --> 
          <heading-arm type="string" />
          <altitude>PTCH</altitude>
          <altitude-arm type="string" />
-         <AP-status type="string" />
+         <AP-status type="bool">0</AP-status>
          <FD-status type="bool">1</FD-status>
          <yaw-damper type="bool">0</yaw-damper>
          <m-trim type="bool">0</m-trim>
@@ -380,7 +380,7 @@ V1 --> Vr --> Rotate to 8deg --> @50ft Rotate to 15deg -->Climb @V2 + 15ktn --> 
           <input type="string"/>
           <serviceable type="bool">1</serviceable>
           <ident>
-              <model>Citation X</model>
+              <model>Dornier 328</model>
           </ident>
       </cdu>
     </instrumentation>
