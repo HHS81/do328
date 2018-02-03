@@ -20,6 +20,7 @@ var Battery = {
             Connected: props.globals.initNode(ELNode ~ name ~ "/Connected", 0, "BOOL"),
             Current: props.globals.initNode(ELNode ~ name ~ "/Current", 0, "DOUBLE"), #A
             Voltage: props.globals.initNode(ELNode ~ name ~ "/Voltage", 24, "DOUBLE"), #V
+            Indicator: props.globals.initNode(ELNode ~ name ~ "/Indicator", 0, "INT"),
             Running: 0,
             RefVoltage: 24, #V
             Capacity: 40, #Ah
@@ -72,6 +73,18 @@ var Battery = {
             me.Running = 1;
         }
         me.Voltage.setValue(me.RefVoltage - me.Tmp);
+
+        if(me.Connected.getValue()) {
+            me.Indicator.setValue(0);
+        }
+        else {
+            if(essential) {
+                me.Indicator.setValue(1);
+            }
+            else {
+                me.Indicator.setValue(0);
+            }
+        }
     }
 };
 
@@ -281,11 +294,13 @@ var EssBus = {
 ##########################################################################################################
 var APU = {
     new: func(name, source, refVoltage) {
-        obj = { parents: [Generator],
+        obj = { parents: [APU],
             Connected: props.globals.initNode(ELNode ~ name ~ "/Connected", 0, "BOOL"),
             Current: props.globals.initNode(ELNode ~ name ~ "/Current", 0, "DOUBLE"), #A
             Voltage: props.globals.initNode(ELNode ~ name ~ "/Voltage", 0, "DOUBLE"), #V
-            Indicator: props.globals.initNode(ELNode ~ name ~ "/Indicator", 0, "INT"),
+            IndicatorGenerator: props.globals.initNode(ELNode ~ name ~ "/IndicatorGenerator", 0, "INT"),
+            IndicatorMaster: props.globals.initNode(ELNode ~ name ~ "/IndicatorMaster", 0, "INT"),
+            IndicatorStart: props.globals.initNode(ELNode ~ name ~ "/IndicatorStart", 0, "INT"),
             Source: props.globals.getNode(source, 1),
             Running: 0,
             RefVoltage: refVoltage, #V
@@ -319,29 +334,64 @@ var APU = {
     },
     setCurrent: func(current) {
         if(!essential) {
-            me.Indicator.setValue(0);
+            me.IndicatorGenerator.setValue(0);
             me.Current.setValue(0);
             return;
         }
 
         me.Running = me.Source.getValue() or 0;
 
-        if(me.Connected.getValue()) {
-            if(me.Running) {
-                # black
-                me.Indicator.setValue(0);
+        # generator
+        if(me.Running) {
+            if(me.Connected.getValue()) {
+                # on
+                me.IndicatorGenerator.setValue(1);
                 me.Current.setValue(current);
             }
             else {
-                # fail
-                me.Indicator.setValue(12);
+                # avail
+                me.IndicatorGenerator.setValue(11);
                 me.Current.setValue(0);
             }
         }
         else {
-            # off
-            me.Indicator.setValue(1);
+            # black
+            me.IndicatorGenerator.setValue(0);
             me.Current.setValue(0);
+        }
+
+        # master and start
+        if(essential and getprop("systems/electrical/APU/btnMaster")) {
+            # master on
+            me.IndicatorMaster.setValue(1);
+
+            if(me.Running) {
+                # start ready
+                me.IndicatorStart.setValue(1);
+            }
+            else {
+                if(getprop("controls/engines/engine[2]/starter")) {
+                    # start black
+                    me.IndicatorStart.setValue(0);
+                }
+                else {
+                    # start
+                    me.IndicatorStart.setValue(3);
+                }
+
+                if(getprop("systems/electrical/APU/btnStart")) {
+                    setprop("controls/engines/engine[2]/starter", 1);
+                }
+            }
+        }
+        else {
+            # black
+            me.IndicatorMaster.setValue(0);
+            me.IndicatorStart.setValue(0);
+
+            if(me.Running) {
+                stop_apu();
+            }
         }
     },
     setVoltage: func(volts) {
