@@ -333,13 +333,19 @@ var APU = {
         me.Connected.setValue(connected);
     },
     setCurrent: func(current) {
+        me.Running = me.Source.getValue() or 0;
+
         if(!essential) {
             me.IndicatorGenerator.setValue(0);
+            me.IndicatorMaster.setValue(0);
+            me.IndicatorStart.setValue(0);
             me.Current.setValue(0);
+
+            if(me.Running) {
+                stop_apu();
+            }
             return;
         }
-
-        me.Running = me.Source.getValue() or 0;
 
         # generator
         if(me.Running) {
@@ -361,7 +367,7 @@ var APU = {
         }
 
         # master and start
-        if(essential and getprop("systems/electrical/APU/btnMaster")) {
+        if(getprop("systems/electrical/APU/btnMaster")) {
             # master on
             me.IndicatorMaster.setValue(1);
 
