@@ -372,16 +372,16 @@ var APU = {
             me.IndicatorMaster.setValue(1);
 
             if(me.Running) {
-                # start ready
+                # starter ready
                 me.IndicatorStart.setValue(1);
             }
             else {
                 if(getprop("controls/engines/engine[2]/starter")) {
-                    # start black
+                    # starter black
                     me.IndicatorStart.setValue(0);
                 }
                 else {
-                    # start
+                    # starter start
                     me.IndicatorStart.setValue(3);
                 }
 

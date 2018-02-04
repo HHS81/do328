@@ -11,7 +11,13 @@ var gear_toggle = func(dir) {
 	setprop("controls/gear/gear-down", dir);
 }
 
-var stop_apu = func{
+var start_engine = func(index) {
+	if((getprop("systems/electrical/APU/Voltage") or 0) < 20) return;
+	setprop("controls/engines/engine["~index~"]/starter", 1);
+	setprop("fdm/jsbsim/propulsion/engine/EIP/state",1);
+}
+
+var stop_apu = func {
 	setprop("controls/engines/engine[2]/starter", 0);
 	setprop("controls/engines/engine[2]/cutoff", 1);
 }
