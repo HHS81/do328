@@ -1113,7 +1113,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>PLLatch</object-name>
-		<property>controls/engines/engine[0]/reverser</property>
+		<property>controls/engines/engine[0]/latch</property>
 		<factor>35</factor>
 		<center>
 			<x-m>-8.266</x-m>
@@ -1132,8 +1132,8 @@
 		<action>
 			<button>0</button>
 			<binding>
-				<command>property-toggle</command>
-				<property>controls/engines/engine[0]/reverser</property>
+				<command>nasal</command>
+				<script>systems.reverse(0)</script>
 			</binding>
 		</action>
 	</animation>
@@ -1210,7 +1210,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>PRLatch</object-name>
-		<property>controls/engines/engine[1]/reverser</property>
+		<property>controls/engines/engine[1]/latch</property>
 		<factor>35</factor>
 		<center>
 			<x-m>-8.266</x-m>
@@ -1229,8 +1229,8 @@
 		<action>
 			<button>0</button>
 			<binding>
-				<command>property-toggle</command>
-				<property>controls/engines/engine[1]/reverser</property>
+				<command>nasal</command>
+				<script>systems.reverse(1)</script>
 			</binding>
 		</action>
 	</animation>

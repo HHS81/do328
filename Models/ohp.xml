@@ -646,13 +646,13 @@
 			</binding>
 			<binding>
 				<command>property-assign</command>
-				<property>contrls/engines/engine[0]/btnStart</property>
+				<property>controls/engines/engine[0]/btnStart</property>
 				<value>1</value>
 			</binding>
 			<mod-up>
 				<binding>
 					<command>property-assign</command>
-					<property>contrls/engines/engine[0]/btnStart</property>
+					<property>controls/engines/engine[0]/btnStart</property>
 					<value>0</value>
 				</binding>
 			</mod-up>
@@ -661,7 +661,7 @@
 	<animation>
 		<type>translate</type>
 		<object-name>BtnEngStartLh</object-name>
-		<property>contrls/engines/engine[0]/btnStart</property>
+		<property>controls/engines/engine[0]/btnStart</property>
 		<factor>0.001</factor>
 		<axis>
 			<x>0</x>
@@ -716,13 +716,13 @@
 			</binding>
 			<binding>
 				<command>property-assign</command>
-				<property>contrls/engines/engine[1]/btnStart</property>
+				<property>controls/engines/engine[1]/btnStart</property>
 				<value>1</value>
 			</binding>
 			<mod-up>
 				<binding>
 					<command>property-assign</command>
-					<property>contrls/engines/engine[1]/btnStart</property>
+					<property>controls/engines/engine[1]/btnStart</property>
 					<value>0</value>
 				</binding>
 			</mod-up>
@@ -731,7 +731,7 @@
 	<animation>
 		<type>translate</type>
 		<object-name>BtnEngStartRh</object-name>
-		<property>contrls/engines/engine[1]/btnStart</property>
+		<property>controls/engines/engine[1]/btnStart</property>
 		<factor>0.001</factor>
 		<axis>
 			<x>0</x>

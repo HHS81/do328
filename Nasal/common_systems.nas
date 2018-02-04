@@ -1,3 +1,5 @@
+aircraft.livery.init("Aircraft/do328/Models/do328prop_liveries");
+
 var gear_toggle = func(dir) {
 	if(dir==-1) {
 		dir=0;
@@ -7,6 +9,20 @@ var gear_toggle = func(dir) {
 		}
 	}
 	setprop("controls/gear/gear-down", dir);
+}
+
+var reverse = func(index) {
+	if(getprop("controls/engines/engine["~index~"]/latch")) {
+		setprop("controls/engines/engine["~index~"]/latch", 0);
+		setprop("controls/engines/engine["~index~"]/reverser", 0);
+	}
+	else {
+		setprop("controls/engines/engine["~index~"]/latch", 1);
+
+		if(getprop("controls/engines/engine["~index~"]/throttle") < 0.1) {
+			setprop("controls/engines/engine["~index~"]/reverser", 1);
+		}
+	}
 }
 
 var start_engine = func(index) {

@@ -5,6 +5,7 @@
 		<load>var livery_update = aircraft.livery_update.new(
 	    "Aircraft/do328/Models/do328jet_liveries", 10,
 	    func { print("do328jet livery update") });</load>
+		<unload>livery_update.stop();</unload>
 	</nasal>
 	<model>
 		<name>FlightDeck</name>

@@ -152,9 +152,11 @@ V1 --> Vr --> Rotate to 8deg --> @50ft Rotate to 15deg -->Climb @V2 + 15ktn --> 
       <engines>
          <engine n="0">
             <condition type="double">1</condition>
+            <latch type="bool">0</latch>
          </engine>
          <engine n="1">
             <condition type="double">1</condition>
+            <latch type="bool">0</latch>
          </engine>
       </engines>
       <electric>
