@@ -102,8 +102,8 @@ var canvas_PFD = {
 		me.compass.setRotation(-me.hdg*D2R);
 			
 		# Flight director
-		if(!(getprop("autopilot/settings/stby") or 0)) {
-			me.fdRoll = me.roll - (getprop("autopilot/internal/roll-bars") or 0)*10.5;
+		if(getprop("autopilot/internal/show-bars") or 0) {
+			me.fdRoll = me.roll - (getprop("autopilot/internal/target-roll-deg") or 0)*10.5;
 			if(me.fdRoll > 150) {
 				me.fdRoll = 150;
 			}
@@ -112,7 +112,7 @@ var canvas_PFD = {
 			}
 			me.fdX.setTranslation(-me.fdRoll, 0);
 
-			me.fdpitch = me.pitch - (getprop("autopilot/internal/pitch-bars") or 0)*10.5;
+			me.fdpitch = me.pitch - (getprop("autopilot/internal/target-pitch-deg") or 0)*10.5;
 			if(me.fdpitch > 150) {
 				me.fdpitch = 150;
 			}
