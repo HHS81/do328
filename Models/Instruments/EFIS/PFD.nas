@@ -62,11 +62,22 @@ var canvas_PFD = {
 
 		m.Instance = instance;
 		m.update_ap_modes();
+		m.timer = maketimer(0.1, m, m.update);
+		m.timer.start();
 		m.update();
-		m.update_slow();
 		return m;
 	},
 	update: func()
+	{
+		me.update_fast();
+
+		me.frameCounter += 1;
+		if(me.frameCounter > 3) {
+			me.frameCounter = 0;
+			me.update_slow();
+		}
+	},
+	update_fast: func()
 	{
 		me.radioAlt = getprop("position/altitude-agl-ft") or 0; #instrumentation/radar-altimeter/radar-altitude-ft
 		if(me.radioAlt > 460) {
@@ -210,19 +221,6 @@ var canvas_PFD = {
 
 		me.spdTape.setTranslation(0, me.ias*5.93);
 		me.altTape.setTranslation(0, me.alt*0.45);
-
-		me.frameCounter += 1;
-		if(me.frameCounter > 3) {
-			me.frameCounter = 0;
-			me.update_slow();
-		}
-		settimer(func me.update(), 0.1);
-	},
-	update_ap_modes: func()
-	{
-		# Modes
-		me.rollMode.setText(getprop("autopilot/locks/heading"));
-		me.pitchMode.setText(getprop("autopilot/locks/altitude"));
 	},
 	update_slow: func()
 	{
@@ -356,6 +354,12 @@ var canvas_PFD = {
 		me.selHdgText.setText(sprintf("%03d", getprop("autopilot/settings/heading-bug-deg")));
 		me.speedText.setText(sprintf("%3.0f", me.apSpd));
 	},
+	update_ap_modes: func()
+	{
+		# Modes
+		me.rollMode.setText(getprop("autopilot/locks/heading"));
+		me.pitchMode.setText(getprop("autopilot/locks/altitude"));
+	}
 };
 
 var pfdListener = setlistener("sim/signals/fdm-initialized", func () {

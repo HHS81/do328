@@ -37,8 +37,6 @@ var stop_apu = func {
 }
 
 var apu_handler = func {
-	settimer(apu_handler, 0.1);
-
 	if(getprop("controls/engines/engine[2]/cutoff") == 1) {
 		if((getprop("engines/engine[2]/n2") or 0) > 20.0) {
 			if((getprop("engines/engine[2]/starter") or 0) == 1) {
@@ -47,4 +45,5 @@ var apu_handler = func {
 		}
 	}
 }
-apu_handler();
+var apu_timer = maketimer(0.1, apu_handler);
+apu_timer.start();

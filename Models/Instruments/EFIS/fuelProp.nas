@@ -31,10 +31,10 @@ var canvas_fuel = {
 			m["indicator_t"~n].createTransform().setTranslation(center[0], center[1]);
 		}
 
-		m.active = 0;
+		m.timer = maketimer(0.3, m, m.update);
 		return m;
 	},
-	slow_update: func()
+	update: func()
 	{
 		for(me.n=0; me.n<6; me.n+=1) {
 			me.fuel[me.n] = getprop("consumables/fuel/tank["~me.n~"]/level-lbs") or 0;
@@ -53,20 +53,16 @@ var canvas_fuel = {
 
 		me.readout_usedl.setText(sprintf("%3.0f",getprop("/fdm/jsbsim/propulsion/engine[0]/fuel-used-lbs") or 0));
 		me.readout_usedr.setText(sprintf("%3.0f",getprop("/fdm/jsbsim/propulsion/engine[1]/fuel-used-lbs") or 0));
-
-		if(me.active == 1) {
-			settimer(func me.slow_update(), 0.5);
-		}
 	},
 	show: func()
 	{
-		me.active = 1;
-		me.slow_update();
+		me.update();
+		me.timer.start();
 		me.group.show();
 	},
 	hide: func()
 	{
-		me.active = 0;
+		me.timer.stop();
 		me.group.hide();
 	}
 };

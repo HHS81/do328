@@ -47,10 +47,10 @@ var update_pressure = func {
 					14.7*math.exp((-0.284*pressure_altitude)/2400));
 
 	cabin_altitude_old = cabin_altitude;
-	settimer(update_pressure, 1);
 }
 
+var pressure_timer = maketimer(1, update_pressure);
 var _list = setlistener("sim/signals/fdm-initialized", func {
-	update_pressure();
+	pressure_timer.start();
 	removelistener(_list); # run ONCE
 });

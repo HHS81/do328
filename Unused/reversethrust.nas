@@ -84,24 +84,20 @@ var engine2 = engine.new(1);
 
 var engine1_init_listener = setlistener("/sim/signals/fdm-initialized", func {
 	removelistener(engine1_init_listener);
-	settimer(update_engine1,0);
 	print("Reversethrust1 ... check");
 });
 
 var engine2_init_listener = setlistener("/sim/signals/fdm-initialized", func {
 	removelistener(engine2_init_listener);
-	settimer(update_engine2,0);
 	print("Reversethrust2 ... check");
 });
 
-var update_engine1 = func {
+var update_engines = func {
 	engine1.reverser_update();
 #	engine1.reverse_thrust();
-	settimer(update_engine1, 0);
-}
-
-var update_engine2 = func {
 	engine2.reverser_update();
 #	engine2.reverse_thrust();
-	settimer(update_engine2, 0);
 }
+
+var reverser_timer = maketimer(0, update_engines);
+reverser_timer.start();

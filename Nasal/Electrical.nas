@@ -616,6 +616,6 @@ update_electrical = func {
     dcBus2.update();
     essBus.update();
     dctie.update();
-    settimer(update_electrical, Refresh);
 }
-update_electrical();
+var electrical_timer = maketimer(Refresh, update_electrical);
+electrical_timer.start();

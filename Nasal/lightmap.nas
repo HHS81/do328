@@ -31,8 +31,7 @@ call_lightmap = func {
    setprop("/systems/electrical/outputs/wing-lights-intensity",((SUN_ANGLE) * (WL * 0.0316)));
    setprop("/systems/electrical/outputs/beacon-intensity",((SUN_ANGLE) * (BL * BS * 0.0216)));
    setprop("/systems/electrical/outputs/landing-lights-intensity",((SUN_ANGLE)*(LaL * 0.0316)));
-
-   settimer(call_lightmap, 0);
 }
 
-settimer(call_lightmap, 0);
+var lightmap_timer = maketimer(0, call_lightmap);
+lightmap_timer.start();

@@ -25,7 +25,7 @@ var canvas_engine1 = {
 		m.ign1.setTranslation(-10,0);
 		m.ign2.hide();
 
-		m.active = 0;
+		m.timer = maketimer(0.1, m, m.update);
 		return m;
 	},
 	update: func()
@@ -44,10 +44,6 @@ var canvas_engine1 = {
 
 		me.alt.setText(sprintf("%3.0f", getprop("systems/pressurization/cabin-altitude-ft") or 0));
 		me.dp.setText(sprintf("%3.0f", getprop("systems/pressurization/cabin-rate-fpm") or 0));
-
-		if(me.active == 1) {
-			settimer(func me.update(), 0.3);
-		}
 	},
 	BtClick: func(input = -1) {
 		if(input == 10) {
@@ -61,13 +57,13 @@ var canvas_engine1 = {
 	},
 	show: func()
 	{
-		me.active = 1;
 		me.update();
+		me.timer.start();
 		me.group.show();
 	},
 	hide: func()
 	{
-		me.active = 0;
+		me.timer.stop();
 		me.group.hide();
 	}
 };

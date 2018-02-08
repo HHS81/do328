@@ -3,7 +3,6 @@ var canvas_electr = {
 	{
 		var m = { parents: [canvas_electr] };
 		m.group = canvasGroup;
-		m.active = 0;
 		m.tmp = 0;
 
 		var font_mapper = func(family, weight)
@@ -33,6 +32,7 @@ var canvas_electr = {
 		m.VINV2H.setText("115");
 		m.VINV2L.setText("28.0");
 
+		m.timer = maketimer(0.1, m, m.update);
 		return m;
 	},
 	update: func()
@@ -71,20 +71,16 @@ var canvas_electr = {
 		me.VDC2.setText(sprintf("%2.01f", getprop("systems/electrical/DCBus2/Voltage") or 0));
 		me.AGenLH.setText(sprintf("%3.0f", getprop("systems/electrical/Generator1/Current") or 0));
 		me.AGenRH.setText(sprintf("%3.0f", getprop("systems/electrical/Generator2/Current") or 0));
-
-		if(me.active == 1) {
-			settimer(func me.update(), 0.1);
-		}
 	},
 	show: func()
 	{
-		me.active = 1;
 		me.update();
+		me.timer.start();
 		me.group.show();
 	},
 	hide: func()
 	{
-		me.active = 0;
+		me.timer.stop();
 		me.group.hide();
 	}
 };

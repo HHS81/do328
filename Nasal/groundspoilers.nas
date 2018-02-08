@@ -60,7 +60,6 @@ call_groundspoilers = func {
         }
 }	
 
-
      } else {
        # we have touched down
        INAIR = "false";
@@ -80,9 +79,6 @@ call_groundspoilers = func {
           setprop("/controls/flight/spoiler-armed", "false");
 	  setprop("/controls/flight/spoilers", 0.0);
         }
-
-        
-       
      }
 
    } else {
@@ -90,15 +86,7 @@ call_groundspoilers = func {
       INAIR = "true";
       LANDED = "false";
    }
-
-
-   # schedule the next call
-   settimer(call_groundspoilers, 0.1);   
 }
+var spoiler_timer = maketimer(0.1, call_groundspoilers);
+spoiler_timer.start();
  
-init = func {
-   settimer(call_groundspoilers, 0.0);
-}
-
-init();
-  

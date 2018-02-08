@@ -30,7 +30,7 @@ var canvas_navigation = {
 		m.crsNeedle.set("clip", "rect(0, 250, 350, 100)");# top,right,bottom,left
 
 		m.ActivateRect(0);
-		m.active = 0;
+		m.timer = maketimer(0.1, m, m.update);
 		return m;
 	},
 	ActivateRect: func(input = -1) {
@@ -197,10 +197,6 @@ var canvas_navigation = {
 		} else {
 			me.markerBeacon.hide();
 		}
-
-		if(me.active == 1) {
-			settimer(func me.update(), 0.1);
-		}
 	},
 	BtClick: func(input = -1) {
 		if(input == 0) {
@@ -269,13 +265,13 @@ var canvas_navigation = {
 	},
 	show: func()
 	{
-		me.active = 1;
 		me.update();
+		me.timer.start();
 		me.group.show();
 	},
 	hide: func()
 	{
-		me.active = 0;
+		me.timer.stop();
 		me.group.hide();
 	}
 };
