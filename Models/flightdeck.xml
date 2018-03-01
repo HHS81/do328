@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PropertyList>
 	<path>Flightdeck23.7.2.ac</path>
+	<effect>
+		<inherits-from>Aircraft/do328/Models/Effects/do328-display</inherits-from>
+		<object-name>PFD1_Screen</object-name>
+		<object-name>PFD2_Screen</object-name>
+		<object-name>MFD1_Screen</object-name>
+		<object-name>MFD2_Screen</object-name>
+		<object-name>EICAS_Screen</object-name>
+	</effect>
 	<model>
 		<name>FlightDeck</name>
 		<path>Aircraft/do328/Models/ohp.xml</path>

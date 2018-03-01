@@ -14,8 +14,9 @@ var canvas_PFD = {
 		m.frameCounter = 0;
 		var font_mapper = func(family, weight)
 		{
-			if( family == "'Liberation Sans'" and weight == "normal" )
+			if(family == "'Liberation Sans'") {
 				return "honeywellfont.ttf";
+			}
 		};
 		
 		canvas.parsesvg(canvas_group, "Aircraft/do328/Models/Instruments/EFIS/pfd.svg", {'font-mapper': font_mapper});
