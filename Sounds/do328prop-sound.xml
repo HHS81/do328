@@ -110,7 +110,7 @@
         <condition>
             <and>
                 <greater-than>
-                    <property>engines/engine[0]/n1</property>
+                    <property>engines/engine[1]/n1</property>
                     <value>1</value>
                 </greater-than>
                 <not>
@@ -120,11 +120,11 @@
         </condition>
         <mode>looped</mode>
         <volume>
-            <property>engines/engine[0]/thruster/rpm</property>
+            <property>engines/engine[1]/thruster/rpm</property>
             <factor>0.00077</factor>
         </volume>
         <pitch>
-                <property>engines/engine[0]/thruster/rpm</property>
+                <property>engines/engine[1]/thruster/rpm</property>
                 <offset>0.0</offset>
                 <factor>0.0007692307692308</factor>
                 <min>0.5</min>
@@ -152,7 +152,7 @@
         <condition>
             <and>
                 <greater-than>
-                    <property>engines/engine[0]/n1</property>
+                    <property>engines/engine[1]/n1</property>
                     <value>1</value>
                 </greater-than>
                 <property>sim/current-view/internal</property>
@@ -160,11 +160,11 @@
         </condition>
         <mode>looped</mode>
         <volume>
-            <property>engines/engine[0]/thruster/rpm</property>
+            <property>engines/engine[1]/thruster/rpm</property>
             <factor>0.00077</factor>
         </volume>
         <pitch>
-                <property>engines/engine[0]/thruster/rpm</property>
+                <property>engines/engine[1]/thruster/rpm</property>
                 <offset>0.0</offset>
                 <factor>0.0007692307692308</factor>
                 <min>0.5</min>
