@@ -30,9 +30,9 @@ var canvas_softkeys = {
 	{
 		me.path.reset();
 
-		if(size(selectedSoftkeys) == 5) {
+		if(size(selectedSoftkeys) > 4) {
 
-			for(me.i = 0; me.i<5; me.i+=1) {
+			for(me.i = 0; me.i < 5; me.i+=1) {
 
 				if(selectedSoftkeys[me.i] == 1) {
 					me.center = me["sk"~(me.i+1)].getCenter();

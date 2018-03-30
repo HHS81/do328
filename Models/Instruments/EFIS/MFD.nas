@@ -1,9 +1,4 @@
 # by xcvb85
-#WxGmap: props.globals.initNode("/instrumentation/efis/wxGmap" ~ instance, 0, "BOOL"),
-#Sector: props.globals.initNode("/instrumentation/efis/sector" ~ instance, 0, "BOOL"),
-#TGT: props.globals.initNode("/instrumentation/efis/tgt" ~ instance, 0, "BOOL"),
-#WptIdent: props.globals.initNode("/instrumentation/efis/wptIdent" ~ instance, 0, "BOOL"),
-#Navaid: props.globals.initNode("/instrumentation/efis/navaid" ~ instance, 0, "BOOL"),
 
 var Mfd1Instance = {};
 var Mfd2Instance = {};
@@ -17,19 +12,7 @@ var testVar = "RNG";
 var MFD = {
 	new: func(group, instance)
 	{
-		var m = { parents: [MFD],
-			Pages: {},
-			SkInstance: {},
-			Menus: [],
-			SoftkeyFrames: [0,0,0,0,0],
-			Softkeys: ["","","","","","",""],
-			activeMenu: 0, # to know where button clicks must go
-			skFrameMenu: 0,
-			Cnt: 0,
-			Tmp: 0,
-			};
-
-		m.KnobMode = 1; # knob can have different functionalities
+		var m = { parents: [MFD, Device.new(instance)] };
 
 		# create pages
 		m.Pages[0] = canvas_nd.new(group.createChild('group'));
@@ -90,9 +73,9 @@ var MFD = {
 
 		m.Menus[3].SetItem(0, back);
 		m.Menus[3].SetItem(1, SkItem.new(1, m, "STBY\nTEST"));
-		m.Menus[3].SetItem(2, SkItem.new(2, m, "WX\nGMAP"));
-		m.Menus[3].SetItem(3, SkItem.new(3, m, "SECTOR"));
-		m.Menus[3].SetItem(4, SkItem.new(4, m, "TGT\n"));
+		m.Menus[3].SetItem(2, SkSwitchItem.new(2, m, "WX\nGMAP", "instrumentation/efis/wxGmap" ~ instance));
+		m.Menus[3].SetItem(3, SkSwitchItem.new(3, m, "SECTOR", "instrumentation/efis/sector" ~ instance));
+		m.Menus[3].SetItem(4, SkSwitchItem.new(4, m, "TGT\n", "instrumentation/efis/tgt" ~ instance));
 		m.Menus[3].SetItem(5, SkMenuActivateItem.new(5, m, "RADAR\nSUB", 11));
 		m.Menus[3].SetItem(6, SkMutableItem.new(6, m, testVar));
 
@@ -118,8 +101,8 @@ var MFD = {
 		m.Menus[6].SetItem(5, SkMenuActivateItem.new(5, m, "NEXT", 4));
 
 		m.Menus[7].SetItem(0, back);
-		m.Menus[7].SetItem(1, SkItem.new(1, m, "WAYPNT\nIDENT"));
-		m.Menus[7].SetItem(2, SkItem.new(2, m, "NAVAID\nAIRPRT"));
+		m.Menus[7].SetItem(1, SkSwitchItem.new(1, m, "WAYPNT\nIDENT", "instrumentation/efis/wptIdent" ~ instance));
+		m.Menus[7].SetItem(2, SkSwitchItem.new(2, m, "NAVAID\nAIRPRT", "instrumentation/efis/navaid" ~ instance));
 		m.Menus[7].SetItem(5, SkItem.new(5, m, "CURSOR"));
 		m.Menus[7].SetItem(6, SkMutableItem.new(6, m, testVar));
 
@@ -152,64 +135,9 @@ var MFD = {
 		m.Menus[11].SetItem(4, SkItem.new(4, m, "RCT"));
 		m.Menus[11].SetItem(6, SkMutableItem.new(6, m, testVar));
 
-		m.i = 0;
-		m.Instance = instance;
 		m.ActivatePage(0, 0);
 		m.ActivateMenu(0);
 		return m;
-	},
-	ActivateMenu: func(id) {
-		me.activeMenu = id;
-		me.Softkeys[0] = me.Menus[id].GetTitle();
-
-		# copy sk names to array
-		for(me.Cnt = 1; me.Cnt < 7; me.Cnt+=1) {
-			me.Tmp = me.Menus[id].GetItem(me.Cnt);
-			if(me.Tmp != nil) {
-				me.Softkeys[me.Cnt] = me.Tmp.GetTitle();
-				if(me.Cnt < 6) {
-					me.SoftkeyFrames[me.Cnt-1] = me.Tmp.GetDecoration();
-				}
-			}
-			else {
-				me.Softkeys[me.Cnt] = "";
-			}
-		}
-
-		me.SkInstance.setSoftkeys(me.Softkeys);
-		me.SkInstance.drawFrames(me.SoftkeyFrames);
-	},
-	ActivatePage: func(page, softkey) {
-		me.Menus[me.skFrameMenu].ResetDecoration();
-		me.skFrameMenu = me.activeMenu;
-		me.Menus[me.skFrameMenu].SetDecoration(softkey);
-
-		# update decorations
-		for(me.Cnt = 1; me.Cnt < 6; me.Cnt+=1) {
-			me.Tmp = me.Menus[me.skFrameMenu].GetItem(me.Cnt);
-			if(me.Tmp != nil) {
-				me.SoftkeyFrames[me.Cnt-1] = me.Tmp.GetDecoration();
-			}
-		}
-
-		me.SkInstance.setSoftkeys(me.Softkeys);
-		me.SkInstance.drawFrames(me.SoftkeyFrames);
-		for(me.i=0; me.i < size(me.Pages); me.i+=1) {
-			if(me.i == page) {
-				me.Pages[me.i].show();
-			}
-			else {
-				me.Pages[me.i].hide();
-			}
-		}
-	},
-	# input: 0=back, 1=sk1...5=sk5
-	BtClick: func(input = -1) {
-		me.Menus[me.activeMenu].ActivateItem(input);
-	},
-	GetKnobMode: func()
-	{
-		return me.KnobMode;
 	}
 };
 
