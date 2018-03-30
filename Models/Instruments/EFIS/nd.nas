@@ -32,7 +32,7 @@ var do328_controller = {
 			m.map.update();
 		});
 
-		setlistener("instrumentation/efis/wptIdent0", func{
+		setlistener("instrumentation/efis/wptIdent"~index, func{
 			m.map.update();
 		});
 

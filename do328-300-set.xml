@@ -111,6 +111,7 @@ Started by Heiko Schulz
       </systems>
       <efis>
          <file>Aircraft/do328/Models/Instruments/EFIS/maps/loader.nas</file>
+         <file>Aircraft/do328/Models/Instruments/EFIS/Framework.nas</file>
 
          <file>Aircraft/do328/Models/Instruments/EFIS/PFD.nas</file>
          <file>Aircraft/do328/Models/Instruments/EFIS/exceedance.nas</file>
