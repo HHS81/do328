@@ -1,6 +1,8 @@
 ##########################################################################################################
-# by xcvb85, battery class based on battery class from tu154b
+# Electrical Systems (battery class based on battery class from tu154b)
+# Daniel Overbeck - 2017
 ##########################################################################################################
+
 # global definces
 var ELNode = "systems/electrical/";
 var Refresh = 0.1;

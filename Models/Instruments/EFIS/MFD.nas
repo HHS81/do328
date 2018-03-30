@@ -1,4 +1,7 @@
-# by xcvb85
+##########################################################################################################
+# Canvas MFD
+# Daniel Overbeck - 2018
+##########################################################################################################
 
 var Mfd1Instance = {};
 var Mfd2Instance = {};
@@ -6,8 +9,6 @@ var Mfd2Instance = {};
 var Range=[0,0];
 var TestActive=0;
 var mfdListener=0;
-
-var testVar = "RNG";
 
 var MFD = {
 	new: func(group, instance)
@@ -35,7 +36,6 @@ var MFD = {
 		m.SkInstance = canvas_softkeys.new(group.createChild('group'));
 
 		# create menus
-		var back = SkMenuPageActivateItem.new(0, m, "back1", 0, 0);
 		append(m.Menus, SkMenu.new(0, m, "MAIN 1/2"));
 		append(m.Menus, SkMenu.new(1, m, "MAIN 2/2"));
 		append(m.Menus, SkMenu.new(2, m, "DISPLAY"));
@@ -50,18 +50,19 @@ var MFD = {
 		append(m.Menus, SkMenu.new(11, m, "RADAR SUB"));
 
 		# create softkeys
+		var back = SkMenuPageActivateItem.new(0, m, "back1", 0, 0);
 		m.Menus[0].SetItem(0, SkMenuActivateItem.new(0, m, "back2", 1));
 		m.Menus[0].SetItem(1, SkMenuActivateItem.new(1, m, "DISPLAY", 2));
 		m.Menus[0].SetItem(2, SkMenuActivateItem.new(2, m, "RADAR", 3));
 		m.Menus[0].SetItem(3, SkMenuActivateItem.new(3, m, "SYSTEM", 4));
 		m.Menus[0].SetItem(4, SkMenuActivateItem.new(4, m, "FMS", 7));
 		m.Menus[0].SetItem(5, SkMenuActivateItem.new(5, m, "MFD\nFORMAT", 8));
-		m.Menus[0].SetItem(6, SkMutableItem.new(6, m, testVar));
+		m.Menus[0].SetItem(6, SkItem.new(6, m, "RNG"));
 
 		m.Menus[1].SetItem(0, back);
 		m.Menus[1].SetItem(1, SkMenuActivateItem.new(1, m, "TEST", 9));
 		m.Menus[1].SetItem(3, SkMenuActivateItem.new(3, m, "MFD\nMAINT", 10));
-		m.Menus[1].SetItem(6, SkMutableItem.new(6, m, testVar));
+		m.Menus[1].SetItem(6, SkItem.new(6, m, "RNG"));
 
 		m.Menus[2].SetItem(0, back);
 		m.Menus[2].SetItem(1, SkItem.new(1, m, "IF\nYOU"));
@@ -69,7 +70,7 @@ var MFD = {
 		m.Menus[2].SetItem(3, SkItem.new(3, m, "CONTENT\nPLEASE"));
 		m.Menus[2].SetItem(4, SkItem.new(4, m, "LET\nME"));
 		m.Menus[2].SetItem(5, SkItem.new(5, m, "KNOW"));
-		m.Menus[2].SetItem(6, SkMutableItem.new(6, m, testVar));
+		m.Menus[2].SetItem(6, SkItem.new(6, m, "RNG"));
 
 		m.Menus[3].SetItem(0, back);
 		m.Menus[3].SetItem(1, SkItem.new(1, m, "STBY\nTEST"));
@@ -77,7 +78,7 @@ var MFD = {
 		m.Menus[3].SetItem(3, SkSwitchItem.new(3, m, "SECTOR", "instrumentation/efis/sector" ~ instance));
 		m.Menus[3].SetItem(4, SkSwitchItem.new(4, m, "TGT\n", "instrumentation/efis/tgt" ~ instance));
 		m.Menus[3].SetItem(5, SkMenuActivateItem.new(5, m, "RADAR\nSUB", 11));
-		m.Menus[3].SetItem(6, SkMutableItem.new(6, m, testVar));
+		m.Menus[3].SetItem(6, SkItem.new(6, m, "RNG"));
 
 		m.Menus[4].SetItem(0, back);
 		m.Menus[4].SetItem(1, SkPageActivateItem.new(1, m, "FLIGHT\nCONTROL", 1));
@@ -96,7 +97,7 @@ var MFD = {
 		m.Menus[6].SetItem(0, back);
 		m.Menus[6].SetItem(1, SkPageActivateItem.new(1, m, "CPCS/\nOXYGEN", 9));
 		m.Menus[6].SetItem(2, SkPageActivateItem.new(2, m, "DOORS", 10));
-		m.Menus[6].SetItem(3, SkItem.new(3, m, "SYS\nMAINT"));
+		m.Menus[6].SetItem(3, SkPageActivateItem.new(3, m, "SYS\nMAINT", 11));
 		m.Menus[6].SetItem(4, SkItem.new(4, m, "SENSOR\nDATA"));
 		m.Menus[6].SetItem(5, SkMenuActivateItem.new(5, m, "NEXT", 4));
 
@@ -104,7 +105,7 @@ var MFD = {
 		m.Menus[7].SetItem(1, SkSwitchItem.new(1, m, "WAYPNT\nIDENT", "instrumentation/efis/wptIdent" ~ instance));
 		m.Menus[7].SetItem(2, SkSwitchItem.new(2, m, "NAVAID\nAIRPRT", "instrumentation/efis/navaid" ~ instance));
 		m.Menus[7].SetItem(5, SkItem.new(5, m, "CURSOR"));
-		m.Menus[7].SetItem(6, SkMutableItem.new(6, m, testVar));
+		m.Menus[7].SetItem(6, SkItem.new(6, m, "RNG"));
 
 		m.Menus[8].SetItem(0, back);
 		m.Menus[8].SetItem(1, SkItem.new(1, m, "IF\nYOU"));
@@ -112,7 +113,7 @@ var MFD = {
 		m.Menus[8].SetItem(3, SkItem.new(3, m, "CONTENT\nPLEASE"));
 		m.Menus[8].SetItem(4, SkItem.new(4, m, "LET\nME"));
 		m.Menus[8].SetItem(5, SkItem.new(5, m, "KNOW"));
-		m.Menus[8].SetItem(6, SkMutableItem.new(6, m, testVar));
+		m.Menus[8].SetItem(6, SkItem.new(6, m, "RNG"));
 
 		m.Menus[9].SetItem(0, back);
 		m.Menus[9].SetItem(1, SkItem.new(1, m, "RAD ALT"));
@@ -120,7 +121,7 @@ var MFD = {
 		m.Menus[9].SetItem(3, SkItem.new(3, m, "TCAS"));
 		m.Menus[9].SetItem(4, SkItem.new(4, m, "EFIS\nEICAS"));
 		m.Menus[9].SetItem(5, SkItem.new(5, m, "EGPWS"));
-		m.Menus[9].SetItem(6, SkMutableItem.new(6, m, testVar));
+		m.Menus[9].SetItem(6, SkItem.new(6, m, "RNG"));
 
 		m.Menus[10].SetItem(0, back);
 		m.Menus[10].SetItem(1, SkItem.new(1, m, "TREND"));
@@ -133,7 +134,7 @@ var MFD = {
 		m.Menus[11].SetItem(2, SkItem.new(2, m, "RNG"));
 		m.Menus[11].SetItem(3, SkItem.new(3, m, "TILT"));
 		m.Menus[11].SetItem(4, SkItem.new(4, m, "RCT"));
-		m.Menus[11].SetItem(6, SkMutableItem.new(6, m, testVar));
+		m.Menus[11].SetItem(6, SkItem.new(6, m, "RNG"));
 
 		m.ActivatePage(0, 0);
 		m.ActivateMenu(0);

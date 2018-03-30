@@ -1,13 +1,18 @@
+##########################################################################################################
+# EFIS Framework
+# Daniel Overbeck - 2018
+##########################################################################################################
+
 var NUM_SOFTKEYS = 7;
 
 # base class
 var SkItem = {
-	new: func(id, device, title) {
+	new: func(id, device, title, decoration=0) {
 		var m = {parents: [SkItem]};
 		m.Id = id;
 		m.Device = device;
 		m.Title = title;
-		m.Decoration = 0;
+		m.Decoration = decoration;
 		return m;
 	},
 	Activate: func {
@@ -51,18 +56,19 @@ var SkMenuPageActivateItem = {
 
 # item with dynamic content, decoration always visible
 var SkMutableItem = {
-	new: func(id, device, path) {
-		var m = {parents: [SkMutableItem, SkItem.new(id, device, "")]};
-		m.Path = path;
+	new: func(id, device, path, format="%s", decoration=0) {
+		var m = {parents: [SkMutableItem, SkItem.new(id, device, "", decoration)]};
+		m.Node = props.globals.getNode(path, 1);
+		m.Format = format;
 		return m;
 	},
 	Activate: func {
 	},
 	GetDecoration: func {
-		return 1;
+		return me.Decoration;
 	},
 	GetTitle: func {
-		return me.Path;
+		return sprintf(me.Format, me.Node.getValue());
 	}
 };
 
@@ -155,18 +161,17 @@ var Device = {
 		var m = { parents: [Device],
 			Pages: {},
 			SkInstance: {},
-			InstanceId: instance,
 			Menus: [],
 			Softkeys: [],
 			SoftkeyFrames: [],
-			activeMenu: 0, # to know where button clicks must go
-			skFrameMenu: 0,
+			ActiveMenu: 0, # to know where button clicks must go
+			SkFrameMenu: 0,
+			InstanceId: instance,
 			KnobMode: 1, # knob can have different functionalities
-			Cnt: 0,
 			Tmp: 0,
 			};
 
-		for(m.Cnt=0; m.Cnt < NUM_SOFTKEYS; m.Cnt+=1) {
+		for(m.i=0; m.i < NUM_SOFTKEYS; m.i+=1) {
 			append(m.Softkeys, "");
 			append(m.SoftkeyFrames, 0);
 		}
@@ -174,25 +179,17 @@ var Device = {
 		return m;
 	},
 	ActivateMenu: func(id) {
-		me.activeMenu = id;
+		me.ActiveMenu = id;
 		me.Softkeys[0] = me.Menus[id].GetTitle();
 		me.UpdateMenu();
 	},
 	ActivatePage: func(page, softkey) {
-		me.Menus[me.skFrameMenu].ResetDecoration();
-		me.skFrameMenu = me.activeMenu;
-		me.Menus[me.skFrameMenu].SetDecoration(softkey);
+		me.Menus[me.SkFrameMenu].ResetDecoration();
+		me.SkFrameMenu = me.ActiveMenu;
+		me.Menus[me.SkFrameMenu].SetDecoration(softkey);
 
-		# update decorations
-		for(me.Cnt = 1; me.Cnt < 6; me.Cnt+=1) {
-			me.Tmp = me.Menus[me.skFrameMenu].GetItem(me.Cnt);
-			if(me.Tmp != nil) {
-				me.SoftkeyFrames[me.Cnt-1] = me.Tmp.GetDecoration();
-			}
-		}
+		me.UpdateMenu();
 
-		me.SkInstance.setSoftkeys(me.Softkeys);
-		me.SkInstance.drawFrames(me.SoftkeyFrames);
 		for(me.i=0; me.i < size(me.Pages); me.i+=1) {
 			if(me.i == page) {
 				me.Pages[me.i].show();
@@ -204,7 +201,7 @@ var Device = {
 	},
 	# input: 0=back, 1=sk1...5=sk5
 	BtClick: func(input = -1) {
-		me.Menus[me.activeMenu].ActivateItem(input);
+		me.Menus[me.ActiveMenu].ActivateItem(input);
 	},
 	GetKnobMode: func()
 	{
@@ -212,16 +209,19 @@ var Device = {
 	},
 	UpdateMenu: func() {
 		# copy sk names to array
-		for(me.Cnt = 1; me.Cnt < 7; me.Cnt+=1) {
-			me.Tmp = me.Menus[me.activeMenu].GetItem(me.Cnt);
+		for(me.i = 1; me.i < NUM_SOFTKEYS; me.i+=1) {
+			me.Tmp = me.Menus[me.ActiveMenu].GetItem(me.i);
 			if(me.Tmp != nil) {
-				me.Softkeys[me.Cnt] = me.Tmp.GetTitle();
-				if(me.Cnt < 6) {
-					me.SoftkeyFrames[me.Cnt-1] = me.Tmp.GetDecoration();
+				me.Softkeys[me.i] = me.Tmp.GetTitle();
+				if(me.i < 6) {
+					me.SoftkeyFrames[me.i-1] = me.Tmp.GetDecoration();
 				}
 			}
 			else {
-				me.Softkeys[me.Cnt] = "";
+				me.Softkeys[me.i] = "";
+				if(me.i < 6) {
+					me.SoftkeyFrames[me.i-1] = 0;
+				}
 			}
 		}
 

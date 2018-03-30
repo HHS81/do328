@@ -1,26 +1,16 @@
-# by xcvb85
+##########################################################################################################
+# Canvas EICAS
+# Daniel Overbeck - 2018
+##########################################################################################################
 
 var EicasInstance = {};
-var EicasSoftkeys = [["MAIN","CAPT\nSYSTEM","REF\nDATA","COPY","AHRS","F/O\nSYSTEM","MSG"], #0
-		["SYSTEM 1/3","FLIGHT\nCONTROL","HYDR","ENGINE","FUEL","NEXT",""], #1
-		["SYSTEM 2/3","ELECTR","ECS","ICE\nPROTECT","APU","NEXT",""], #2
-		["SYSTEM 3/3","CPCS/\nOXYGEN","DOORS","SYS\nMAINT","SENSOR\nDATA","NEXT",""], #3
-		["REF DATA","T/O","CLIMB","CRUISE","LANDG","SINGLE\nENGINE","MSG"], #4
-		["T/O","FLAPS\n12","V1\n102","VR\n108","V2\n113","T/O TQ","MSG"], #5
-		["CLIMB","VCL\n200","","","L 84.6\nR 84.6","","MSG"], #6
-		["CRUISE","VC\n239","","VSTD\n180","L 80.7\nR 80.7","","MSG"], #7
-		["LANDG","FLAPS\n32","VFL0\n170","VREF\n110","L100.0\nR100.0","","MSG"], #8
-		["T/O TQ","TEMP °C\n18","TEMP °F\n64","","L100.0\nR100.0","","MSG"]]; #9
 
 var EICAS = {
 	new: func(group)
 	{
-		var m = { parents: [EICAS], Pages:{}, SkInstance:{} };
+		var m = { parents: [EICAS, Device.new(0)] };
 
-		m.ShownSkPage = 0; # indicates which page (softkeys) is shown
-		m.SelectedSkPage = 0; # indicates which softkey gets a frame (page)
-		m.SelectedSk = -1; # indicates which softkey gets a frame (softkey number)
-
+		# create pages
 		m.Pages[0] = canvas_eicas.new(group.createChild('group'));
 		m.Pages[1] = canvas_flightctrl.new(group.createChild('group'));
 		m.Pages[2] = canvas_hydr.new(group.createChild('group'));
@@ -37,225 +27,94 @@ var EICAS = {
 		m.Pages[11] = canvas_maint.new(group.createChild('group'));
 
 		m.SkInstance = canvas_softkeys.new(group.createChild('group'));
-		m.SkInstance.setSoftkeys(EicasSoftkeys[0]);
-		m.ActivatePage(0);
 
+		# create menus
+		var back = SkMenuPageActivateItem.new(0, m, "back1", 0, 0);
+		append(m.Menus, SkMenu.new(0, m, "MAIN"));
+		append(m.Menus, SkMenu.new(1, m, "SYSTEM 1/3"));
+		append(m.Menus, SkMenu.new(2, m, "SYSTEM 2/3"));
+		append(m.Menus, SkMenu.new(3, m, "SYSTEM 3/3"));
+		append(m.Menus, SkMenu.new(4, m, "REF DATA"));
+		append(m.Menus, SkMenu.new(5, m, "T/O"));
+		append(m.Menus, SkMenu.new(6, m, "CLIMB"));
+		append(m.Menus, SkMenu.new(7, m, "CRUISE"));
+		append(m.Menus, SkMenu.new(8, m, "LANDG"));
+		append(m.Menus, SkMenu.new(9, m, "T/O TQ"));
+
+		# create softkeys
+		var back = SkMenuPageActivateItem.new(0, m, "back1", 0, 0);
+		m.Menus[0].SetItem(0, SkItem.new(0, m, "")); # no back on main page
+		m.Menus[0].SetItem(1, SkMenuActivateItem.new(1, m, "CAPT\nSYSTEM", 1));
+		m.Menus[0].SetItem(2, SkMenuActivateItem.new(2, m, "REF\nDATA", 4));
+		m.Menus[0].SetItem(3, SkItem.new(3, m, "COPY"));
+		m.Menus[0].SetItem(4, SkItem.new(4, m, "AHRS"));
+		m.Menus[0].SetItem(5, SkMenuActivateItem.new(5, m, "F/O\nSYSTEM", 1));
+		m.Menus[0].SetItem(6, SkItem.new(6, m, "MSG"));
+
+		m.Menus[1].SetItem(0, back);
+		m.Menus[1].SetItem(1, SkPageActivateItem.new(1, m, "FLIGHT\nCONTROL", 1));
+		m.Menus[1].SetItem(2, SkPageActivateItem.new(2, m, "HYDR", 2));
+		m.Menus[1].SetItem(3, SkPageActivateItem.new(3, m, "ENGINE", 3));
+		m.Menus[1].SetItem(4, SkPageActivateItem.new(4, m, "FUEL", 4));
+		m.Menus[1].SetItem(5, SkMenuActivateItem.new(5, m, "NEXT", 2));
+
+		m.Menus[2].SetItem(0, back);
+		m.Menus[2].SetItem(1, SkPageActivateItem.new(1, m, "ELECTR", 5));
+		m.Menus[2].SetItem(2, SkPageActivateItem.new(2, m, "ECS", 6));
+		m.Menus[2].SetItem(3, SkPageActivateItem.new(3, m, "ICE\nPROTECT", 7));
+		m.Menus[2].SetItem(4, SkPageActivateItem.new(4, m, "APU", 8));
+		m.Menus[2].SetItem(5, SkMenuActivateItem.new(5, m, "NEXT", 3));
+
+		m.Menus[3].SetItem(0, back);
+		m.Menus[3].SetItem(1, SkPageActivateItem.new(1, m, "CPCS/\nOXYGEN", 9));
+		m.Menus[3].SetItem(2, SkPageActivateItem.new(2, m, "DOORS", 10));
+		m.Menus[3].SetItem(3, SkPageActivateItem.new(3, m, "SYS\nMAINT", 11));
+		m.Menus[3].SetItem(4, SkItem.new(4, m, "SENSOR\nDATA"));
+		m.Menus[3].SetItem(5, SkMenuActivateItem.new(5, m, "NEXT", 1));
+
+		m.Menus[4].SetItem(0, back);
+		m.Menus[4].SetItem(1, SkMenuActivateItem.new(1, m, "T/O", 5));
+		m.Menus[4].SetItem(2, SkMenuActivateItem.new(2, m, "CLIMB", 6));
+		m.Menus[4].SetItem(3, SkMenuActivateItem.new(3, m, "CRUISE", 7));
+		m.Menus[4].SetItem(4, SkMenuActivateItem.new(4, m, "LANDG", 8));
+		m.Menus[4].SetItem(5, SkItem.new(5, m, "SINGLE\nENGINE"));
+		m.Menus[4].SetItem(6, SkItem.new(6, m, "MSG"));
+
+		m.Menus[5].SetItem(0, SkMenuActivateItem.new(1, m, "", 4)); # back
+		m.Menus[5].SetItem(1, SkItem.new(1, m, "FLAPS\n12", 1));
+		m.Menus[5].SetItem(2, SkMutableItem.new(2, m, "instrumentation/fmc/vspeeds/V1", "V1\n%d", 1));
+		m.Menus[5].SetItem(3, SkMutableItem.new(3, m, "instrumentation/fmc/vspeeds/VR", "VR\n%d", 1));
+		m.Menus[5].SetItem(4, SkMutableItem.new(4, m, "instrumentation/fmc/vspeeds/V2", "V2\n%d", 1));
+		m.Menus[5].SetItem(5, SkMenuActivateItem.new(5, m, "T/O TQ", 9));
+		m.Menus[5].SetItem(6, SkItem.new(6, m, "MSG"));
+
+		m.Menus[6].SetItem(0, SkMenuActivateItem.new(1, m, "", 4)); # back
+		m.Menus[6].SetItem(1, SkItem.new(1, m, "VCL\n200", 1));
+		m.Menus[6].SetItem(4, SkItem.new(4, m, "L 84.6\nR 84.6", 1));
+		m.Menus[6].SetItem(6, SkItem.new(6, m, "MSG"));
+
+		m.Menus[7].SetItem(0, SkMenuActivateItem.new(1, m, "", 4)); # back
+		m.Menus[7].SetItem(1, SkItem.new(1, m, "VC\n239", 1));
+		m.Menus[7].SetItem(3, SkItem.new(3, m, "VSTD\n180", 1));
+		m.Menus[7].SetItem(4, SkItem.new(4, m, "L 80.7\nR 80.7", 1));
+		m.Menus[7].SetItem(6, SkItem.new(6, m, "MSG"));
+
+		m.Menus[8].SetItem(0, SkMenuActivateItem.new(1, m, "", 4)); # back
+		m.Menus[8].SetItem(1, SkItem.new(1, m, "FLAPS\n32", 1));
+		m.Menus[8].SetItem(2, SkItem.new(2, m, "VFL0\n170", 1));
+		m.Menus[8].SetItem(3, SkItem.new(3, m, "VREF\n110", 1));
+		m.Menus[8].SetItem(4, SkItem.new(4, m, "L100.0\nR100.0", 1));
+		m.Menus[8].SetItem(6, SkItem.new(6, m, "MSG"));
+
+		m.Menus[9].SetItem(0, SkMenuActivateItem.new(1, m, "", 5)); # back
+		m.Menus[9].SetItem(1, SkItem.new(1, m, "TEMP °C\n18", 1));
+		m.Menus[9].SetItem(2, SkItem.new(2, m, "TEMP °F\n64", 1));
+		m.Menus[9].SetItem(4, SkItem.new(4, m, "L100.0\nR100.0", 1));
+		m.Menus[9].SetItem(6, SkItem.new(6, m, "MSG"));
+
+		m.ActivatePage(0, 0);
+		m.ActivateMenu(0);
 		return m;
-	},
-	ActivatePage: func(input = -1)
-	{
-		for(i=0; i<size(me.Pages); i+=1) {
-			if(i == input) {
-				me.Pages[i].show();
-			}
-			else {
-				me.Pages[i].hide();
-			}
-		}
-	},
-	# input: 0=back, 1=sk1...5=sk5
-	BtClick: func(input = -1) {
-
-		if(!getprop("systems/electrical/outputs/efis")) {
-			return;
-		}
-		if(input == 0) {
-			# back button pressed
-			if(me.ShownSkPage == 9) {
-				# TODO: This is not really nice
-				# activate "T/O"
-				setprop("instrumentation/fmc/phase-name", "T/O");
-				EicasSoftkeys[5][2] = sprintf("V1\n%3.0f",getprop("/instrumentation/fmc/vspeeds/V1"));
-				EicasSoftkeys[5][3] = sprintf("VR\n%3.0f",getprop("/instrumentation/fmc/vspeeds/VR"));
-				EicasSoftkeys[5][4] = sprintf("V2\n%3.0f",getprop("/instrumentation/fmc/vspeeds/V2"));
-				me.SkInstance.setSoftkeys(EicasSoftkeys[5]);
-				me.SkInstance.drawFrames([1,1,1,1,0]);
-				me.ShownSkPage = 5;
-				me.SelectedSkPage = 4;
-				me.SelectedSk = 0;
-			}
-			else if(me.ShownSkPage > 4) {
-				# go back to "REF DATA"
-				me.SkInstance.setSoftkeys(EicasSoftkeys[4]);
-				me.ShownSkPage = 4;
-			}
-			else {
-				# go back to main menu
-				me.SkInstance.setSoftkeys(EicasSoftkeys[0]);
-				me.ActivatePage(0);
-				me.ShownSkPage = 0;
-				me.SelectedSkPage = 0;
-				me.SelectedSk = -1;
-			}
-		}
-		else {
-			# softkey pressed
-			if(me.ShownSkPage == 0) {
-				# main menu
-				if(input == 1 or input == 5) {
-					# activate "CAPT SYSTEM" or "F/O SYSTEM" page
-					me.SkInstance.setSoftkeys(EicasSoftkeys[1]);
-					me.ShownSkPage = 1;
-				}
-				else if(input == 2) {
-					# activate "REF DATA" page
-					me.SkInstance.setSoftkeys(EicasSoftkeys[4]);
-					me.ShownSkPage = 4;
-				}
-			}
-			else if(me.ShownSkPage == 1) {
-				# "SYSTEM 1/3" page
-				if(input == 1) {
-					# activate "FLIGHT CONTROL" page
-					me.ActivatePage(1);
-					me.SelectedSkPage = 1;
-					me.SelectedSk = 0;
-				}
-				else if(input == 2) {
-					# activate "HYDR" page
-					me.ActivatePage(2);
-					me.SelectedSkPage = 1;
-					me.SelectedSk = 1;
-				}
-				else if(input == 3) {
-					# activate "ENGINE" page
-					me.ActivatePage(3);
-					me.SelectedSkPage = 1;
-					me.SelectedSk = 2;
-				}
-				else if(input == 4) {
-					# activate "FUEL" page
-					me.ActivatePage(4);
-					me.SelectedSkPage = 1;
-					me.SelectedSk = 3;
-				}
-				else if(input == 5) {
-					# activate "SYSTEM 2/3" page
-					me.SkInstance.setSoftkeys(EicasSoftkeys[2]);
-					me.ShownSkPage = 2;
-				}
-			}
-			else if(me.ShownSkPage == 2) {
-				# "SYSTEM 2/3" page
-				if(input == 1) {
-					# activate "ELECTR" page
-					me.ActivatePage(5);
-					me.SelectedSkPage = 2;
-					me.SelectedSk = 0;
-				}
-				else if(input == 2) {
-					# activate "ECS" page
-					me.ActivatePage(6);
-					me.SelectedSkPage = 2;
-					me.SelectedSk = 1;
-				}
-				else if(input == 3) {
-					# activate "ICE" page
-					me.ActivatePage(7);
-					me.SelectedSkPage = 2;
-					me.SelectedSk = 2;
-				}
-				else if(input == 4) {
-					# activate "APU" page
-					me.ActivatePage(8);
-					me.SelectedSkPage = 2;
-					me.SelectedSk = 3;
-				}
-				else if(input == 5) {
-					# activate "SYSTEM 3/3" page
-					me.SkInstance.setSoftkeys(EicasSoftkeys[3]);
-					me.ShownSkPage = 3;
-				}
-			}
-			else if(me.ShownSkPage == 3) {
-				# "SYSTEM 3/3" page
-				if(input == 1) {
-					# activate "CPCS" page
-					me.ActivatePage(9);
-					me.SelectedSkPage = 3;
-					me.SelectedSk = 0;
-				}
-				else if(input == 2) {
-					# activate "DOORS" page
-					me.ActivatePage(10);
-					me.SelectedSkPage = 3;
-					me.SelectedSk = 1;
-				}
-				else if(input == 3) {
-					# activate "MAINT" page
-					me.ActivatePage(11);
-					me.SelectedSkPage = 3;
-					me.SelectedSk = 2;
-				}
-				else if(input == 5) {
-					# activate "SYSTEM 1/3" page
-					me.SkInstance.setSoftkeys(EicasSoftkeys[1]);
-					me.ShownSkPage = 1;
-				}
-			}
-			else if(me.ShownSkPage == 4) {
-				# "REF DATA" page
-				if(input == 1) {
-					# activate "T/O"
-					setprop("instrumentation/fmc/phase-name", "T/O");
-					EicasSoftkeys[5][2] = sprintf("V1\n%3.0f",getprop("/instrumentation/fmc/vspeeds/V1"));
-					EicasSoftkeys[5][3] = sprintf("VR\n%3.0f",getprop("/instrumentation/fmc/vspeeds/VR"));
-					EicasSoftkeys[5][4] = sprintf("V2\n%3.0f",getprop("/instrumentation/fmc/vspeeds/V2"));
-					me.SkInstance.setSoftkeys(EicasSoftkeys[5]);
-					me.SkInstance.drawFrames([1,1,1,1,0]);
-					me.ShownSkPage = 5;
-					me.SelectedSkPage = 4;
-					me.SelectedSk = 0;
-				}
-				else if(input == 2) {
-					# activate "CLIMB"
-					setprop("instrumentation/fmc/phase-name", "CLIMB");
-					me.SkInstance.setSoftkeys(EicasSoftkeys[6]);
-					me.SkInstance.drawFrames([0,0,0,1,0]);
-					me.ShownSkPage = 6;
-					me.SelectedSkPage = 4;
-					me.SelectedSk = 1;
-				}
-				else if(input == 3) {
-					# activate "CRUISE"
-					setprop("instrumentation/fmc/phase-name", "CRUISE");
-					me.SkInstance.setSoftkeys(EicasSoftkeys[7]);
-					me.SkInstance.drawFrames([1,0,1,1,0]);
-					me.ShownSkPage = 7;
-					me.SelectedSkPage = 4;
-					me.SelectedSk = 2;
-				}
-				else if(input == 4) {
-					# activate "LANDG"
-					setprop("instrumentation/fmc/phase-name", "LANDG");
-					EicasSoftkeys[8][3] = sprintf("VREF\n%3.0f",getprop("/instrumentation/fmc/vspeeds/Vref"));
-					me.SkInstance.setSoftkeys(EicasSoftkeys[8]);
-					me.SkInstance.drawFrames([1,1,1,1,0]);
-					me.ShownSkPage = 8;
-					me.SelectedSkPage = 4;
-					me.SelectedSk = 3;
-				}
-			}
-			else if(me.ShownSkPage == 5) {
-				# "REF DATA" page
-				if(input == 5) {
-					# activate "T/O TQ"
-					me.SkInstance.setSoftkeys(EicasSoftkeys[9]);
-					me.SkInstance.drawFrames([0,0,0,0,0]);
-					me.ShownSkPage = 9;
-				}
-			}
-		}
-
-		# check if you selected the page where the selected softkey is located
-		if(me.ShownSkPage == me.SelectedSkPage and me.ShownSkPage > 0) {
-
-			if(me.SelectedSk >= 0) {
-				var softkeyFrames = [0,0,0,0,0];
-				softkeyFrames[me.SelectedSk] = 1;
-				me.SkInstance.drawFrames(softkeyFrames);
-			}
-		}
 	}
 };
 
