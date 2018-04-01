@@ -114,10 +114,10 @@ var MFD = {
 
 		m.Menus[9].SetItem(0, back);
 		m.Menus[9].SetItem(1, SkItem.new(1, m, "RAD ALT"));
-		m.Menus[9].SetItem(2, SkItem.new(2, m, "ATC\nEICAS"));
-		m.Menus[9].SetItem(3, SkItem.new(3, m, "TCAS"));
+		m.Menus[9].SetItem(2, SkTimerItem.new(2, m, "ATC\nEICAS", "instrumentation/mk-viii/inputs/discretes/beep", 3));
+		m.Menus[9].SetItem(3, SkTimerItem.new(3, m, "TCAS", "instrumentation/efis/tcas", 2));
 		m.Menus[9].SetItem(4, SkItem.new(4, m, "EFIS\nEICAS"));
-		m.Menus[9].SetItem(5, SkItem.new(5, m, "EGPWS"));
+		m.Menus[9].SetItem(5, SkTimerItem.new(5, m, "EGPWS", "instrumentation/mk-viii/inputs/discretes/self-test", 15));
 		m.Menus[9].SetItem(6, SkItem.new(6, m, "RNG"));
 
 		m.Menus[10].SetItem(0, back);

@@ -89,17 +89,41 @@ var SkSwitchItem = {
 	},
 	Activate: func {
 		if(me.Active) {
-			me.Node.setValue(0);
 			me.Active = 0;
 		}
 		else {
-			me.Node.setValue(1);
 			me.Active = 1;
 		}
+		me.Node.setValue(me.Active);
 		me.Device.UpdateMenu();
 	},
 	GetDecoration: func {
 		return me.Active;
+	}
+};
+
+# item which acts like a switch
+var SkTimerItem = {
+	new: func(id, device, title, path, timeout) {
+		var m = {parents: [SkTimerItem, SkItem.new(id, device, title)]};
+		m.Node = props.globals.initNode(path, 0, "BOOL");
+		m.Active = 0;
+		m.Timeout = timeout;
+		return m;
+	},
+	Activate: func {
+		me.Node.setValue(1);
+		me.Decoration = 1;
+		me.Device.UpdateMenu();
+		me.Device.SetLock(1);
+
+		# use listener to remove frame if button released
+		settimer(func () {
+			me.Node.setValue(0);
+			me.Decoration = 0;
+			me.Device.UpdateMenu();
+			me.Device.SetLock(0);
+		}, me.Timeout);
 	}
 };
 
@@ -163,6 +187,7 @@ var Device = {
 			SkFrameMenu: 0,
 			InstanceId: instance,
 			KnobMode: 1, # knob can have different functionalities
+			Lock: 0, # ignore button click
 			Tmp: 0,
 			};
 
@@ -196,7 +221,9 @@ var Device = {
 	},
 	# input: 0=back, 1=sk1...5=sk5
 	BtClick: func(input = -1) {
-		me.Menus[me.ActiveMenu].ActivateItem(input);
+		if(!me.Lock) {
+			me.Menus[me.ActiveMenu].ActivateItem(input);
+		}
 	},
 	GetKnobMode: func()
 	{
@@ -222,5 +249,9 @@ var Device = {
 
 		me.SkInstance.setSoftkeys(me.Softkeys);
 		me.SkInstance.drawFrames(me.SoftkeyFrames);
+	},
+	SetLock: func(lock)
+	{
+		me.Lock = lock;
 	}
 };
