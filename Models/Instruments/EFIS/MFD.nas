@@ -16,22 +16,19 @@ var MFD = {
 		var m = { parents: [MFD, Device.new(instance)] };
 
 		# create pages
-		m.Pages[0] = canvas_nd.new(group.createChild('group'));
-		m.Pages[1] = canvas_flightctrl.new(group.createChild('group'));
-		m.Pages[2] = canvas_hydr.new(group.createChild('group'));
-		m.Pages[3] = canvas_engine.new(group.createChild('group'));
-		m.Pages[4] = canvas_fuel.new(group.createChild('group'));
-
-		m.Pages[5] = canvas_electr.new(group.createChild('group'));
-		m.Pages[6] = canvas_ecs.new(group.createChild('group'));
-		m.Pages[7] = canvas_ice.new(group.createChild('group'));
-		m.Pages[8] = canvas_apu.new(group.createChild('group'));
-
-		m.Pages[9] = canvas_cpcs.new(group.createChild('group'));
-		m.Pages[10] = canvas_doors.new(group.createChild('group'));
-		m.Pages[11] = canvas_maint.new(group.createChild('group'));
-
-		m.Pages[12] = canvas_exceedance.new(group.createChild('group'));
+		append(m.Pages, canvas_nd.new(group.createChild('group'))); #0
+		append(m.Pages, canvas_flightctrl.new(group.createChild('group'))); #1
+		append(m.Pages, canvas_hydr.new(group.createChild('group'))); #2
+		append(m.Pages, canvas_engine.new(group.createChild('group'))); #3
+		append(m.Pages, canvas_fuel.new(group.createChild('group'))); #4
+		append(m.Pages, canvas_electr.new(group.createChild('group'))); #5
+		append(m.Pages, canvas_ecs.new(group.createChild('group'))); #6
+		append(m.Pages, canvas_ice.new(group.createChild('group'))); #7
+		append(m.Pages, canvas_apu.new(group.createChild('group'))); #8
+		append(m.Pages, canvas_cpcs.new(group.createChild('group'))); # 9
+		append(m.Pages, canvas_doors.new(group.createChild('group'))); #10
+		append(m.Pages, canvas_maint.new(group.createChild('group'))); #11
+		append(m.Pages, canvas_exceedance.new(group.createChild('group'))); #12
 
 		m.SkInstance = canvas_softkeys.new(group.createChild('group'));
 

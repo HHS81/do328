@@ -54,18 +54,13 @@ var SkMenuPageActivateItem = {
 	}
 };
 
-# item with dynamic content, decoration always visible
+# item with dynamic content
 var SkMutableItem = {
 	new: func(id, device, path, format="%s", decoration=0) {
 		var m = {parents: [SkMutableItem, SkItem.new(id, device, "", decoration)]};
 		m.Node = props.globals.getNode(path, 1);
 		m.Format = format;
 		return m;
-	},
-	Activate: func {
-	},
-	GetDecoration: func {
-		return me.Decoration;
 	},
 	GetTitle: func {
 		return sprintf(me.Format, me.Node.getValue());
@@ -119,11 +114,6 @@ var SkMenu = {
 		m.Tmp = 0;
 		return m;
 	},
-	SetItem: func(index, item) {
-		if(index >= 0 and index < NUM_SOFTKEYS) {
-			me.Items[index] = item;
-		}
-	},
 	ActivateItem: func(index) {
 		if(me.Items[index] != nil) {
 			me.Items[index].Activate();
@@ -153,14 +143,19 @@ var SkMenu = {
 				}
 			}
 		}
+	},
+	SetItem: func(index, item) {
+		if(index >= 0 and index < NUM_SOFTKEYS) {
+			me.Items[index] = item;
+		}
 	}
 };
 
 var Device = {
 	new: func(instance) {
 		var m = { parents: [Device],
-			Pages: {},
 			SkInstance: {},
+			Pages: [],
 			Menus: [],
 			Softkeys: [],
 			SoftkeyFrames: [],
