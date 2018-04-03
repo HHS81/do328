@@ -69,6 +69,7 @@ var canvas_electr = {
 
 		me.VDC1.setText(sprintf("%2.01f", getprop("systems/electrical/DCBus1/Voltage") or 0));
 		me.VDC2.setText(sprintf("%2.01f", getprop("systems/electrical/DCBus2/Voltage") or 0));
+		me.AAPU.setText(sprintf("%3.0f", getprop("systems/electrical/APU/Current") or 0));
 		me.AGenLH.setText(sprintf("%3.0f", getprop("systems/electrical/Generator1/Current") or 0));
 		me.AGenRH.setText(sprintf("%3.0f", getprop("systems/electrical/Generator2/Current") or 0));
 	},

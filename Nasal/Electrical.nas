@@ -97,7 +97,7 @@ var Bus = {
             Devices: [],
             Voltage: props.globals.initNode(ELNode ~ "/" ~ name ~ "/Voltage", 0, "DOUBLE"),
             Current: props.globals.initNode(ELNode ~ "/" ~ name ~ "/Current", 0, "DOUBLE"),
-            Cnt: 0,
+            Device: 0,
             Max: 0,
             Tmp: 0,
             Producers: 0
@@ -105,54 +105,52 @@ var Bus = {
         return obj;
     },
     append: func(device) {
-        me.Tmp = size(me.Devices);
-        setsize(me.Devices, me.Tmp+1);
-        me.Devices[me.Tmp] = device;
+	append(me.Devices, device);
     },
     getCurrent: func {
         return me.Current.getValue();
     },
-    getVoltage: func {
-        return me.Voltage.getValue();
-    },
     getProducers: func {
         return me.Producers;
     },
+    getVoltage: func {
+        return me.Voltage.getValue();
+    },
     setCurrent: func(current) {
         me.Current.setValue(current);
+    },
+    setProducers: func(producers) {
+        me.Producers = producers;
     },
     setVoltage: func(voltage) {
         me.Voltage.setValue(voltage);
     },
     update: func {
-        #first set old values, then get new values
-        #old values can be manipulated by bus tie
+        # values can be manipulated by bus tie
         me.updateCurrent();
         me.updateVoltage();
     },
     updateCurrent: func {
-        #set old current
+        # set old current
         me.Tmp = me.Current.getValue();
-        for(me.Cnt=0; me.Cnt < size(me.Devices); me.Cnt+=1) {
+
+        foreach(me.Device; me.Devices) {
             if(me.Producers > 0) {
-                me.Devices[me.Cnt].setCurrent(me.Tmp / me.Producers);
-            }
-            else {
-                me.Devices[me.Cnt].setCurrent(0);
+                me.Device.setCurrent(me.Tmp / me.Producers);
             }
         }
 
-        #get new current
+        # get new current
         me.Max = 0;
         me.Producers = 0;
-        for(me.Cnt=0; me.Cnt < size(me.Devices); me.Cnt+=1) {
-            me.Tmp = me.Devices[me.Cnt].getCurrent();
+        foreach(me.Device; me.Devices) {
+            me.Tmp = me.Device.getCurrent();
 
             if(me.Tmp < 0) {
-                me.Producers += 1; #Producer
+                me.Producers += 1; # Producer
             }
             else {
-                me.Max += me.Tmp; #Consumer
+                me.Max += me.Tmp; # Consumer
             }
         }
         me.Current.setValue(me.Max);
@@ -160,12 +158,12 @@ var Bus = {
     updateVoltage: func {
         me.Max = 0;
 
-        for(me.Cnt=0; me.Cnt < size(me.Devices); me.Cnt+=1) {
-            #set old voltage
-            me.Devices[me.Cnt].setVoltage(me.Voltage.getValue());
+        foreach(me.Device; me.Devices) {
+            # set old voltage
+            me.Device.setVoltage(me.Voltage.getValue());
 
-            #get new voltage
-            me.Tmp = me.Devices[me.Cnt].getVoltage();
+            # get new voltage
+            me.Tmp = me.Device.getVoltage();
             if(me.Tmp > me.Max) {
                 me.Max = me.Tmp;
             }
@@ -504,18 +502,13 @@ var Tie = {
     updateCurrent: func {
         me.Current = me.Bus1.getCurrent();
         me.Current += me.Bus2.getCurrent();
+        me.Bus1.setCurrent(me.Current);
+        me.Bus2.setCurrent(me.Current);
+
         me.Producers = me.Bus1.getProducers();
         me.Producers += me.Bus2.getProducers();
-
-        if(me.Producers > 0) {
-            me.Current /= me.Producers;
-            me.Bus1.setCurrent(me.Current);
-            me.Bus2.setCurrent(me.Current);
-        }
-        else {
-            me.Bus1.setCurrent(0);
-            me.Bus2.setCurrent(0);
-        }
+        me.Bus1.setProducers(me.Producers);
+        me.Bus2.setProducers(me.Producers);
     },
     updateVoltage: func {
         me.Voltage = me.Bus1.getVoltage();
