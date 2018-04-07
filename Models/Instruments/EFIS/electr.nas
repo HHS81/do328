@@ -24,14 +24,6 @@ var canvas_electr = {
 		m.NonEss1A.hide();
 		m.NonEss2A.hide();
 
-		m.AAPU.setText("0");
-		m.VAC1.setText("0");
-		m.VAC2.setText("0");
-		m.VINV1H.setText("0");
-		m.VINV1L.setText("0");
-		m.VINV2H.setText("0");
-		m.VINV2L.setText("0");
-
 		m.timer = maketimer(0.1, m, m.update);
 		return m;
 	},

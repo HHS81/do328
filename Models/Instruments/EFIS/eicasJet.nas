@@ -124,8 +124,8 @@ var canvas_eicas = {
 		me.readout_tr.setText(sprintf("%3.0f", me.tmp));
 
 		# pressurization
-		me.readout_ft.setText(sprintf("%3.0f", getprop("systems/pressurization/cabin-altitude-ft") or 0));
-		me.readout_fpm.setText(sprintf("%3.0f", getprop("systems/pressurization/cabin-rate-fpm") or 0));
+		me.readout_ft.setText(sprintf("%d", getprop("systems/pressurization/cabin-altitude-ft") or 0));
+		me.readout_fpm.setText(sprintf("%d", getprop("systems/pressurization/cabin-rate-fpm") or 0));
 
 		# spoiler
 		if((getprop("controls/flight/spoilers") or 0) > 0) {

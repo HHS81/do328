@@ -1,6 +1,6 @@
-var input_land_elevation = props.globals.initNode("systems/pressurization/land_elevation", 0, "DOUBLE");
-var output_cabin_altitude = props.globals.initNode("systems/pressurization/cabin-altitude-ft", 0, "DOUBLE");
-var output_cabin_rate = props.globals.initNode("systems/pressurization/cabin-rate-fpm", 0, "DOUBLE");
+var input_land_elevation = props.globals.initNode("systems/pressurization/land_elevation", 0, "INT");
+var output_cabin_altitude = props.globals.initNode("systems/pressurization/cabin-altitude-ft", 0, "INT");
+var output_cabin_rate = props.globals.initNode("systems/pressurization/cabin-rate-fpm", 0, "INT");
 var output_diff_pressure = props.globals.initNode("systems/pressurization/diff-pressure", 0, "DOUBLE");
 
 var pressure_altitude = 0;
@@ -36,8 +36,8 @@ var update_pressure = func {
 	cabin_rate = cabin_altitude - cabin_altitude_old;
 
 	# limit cabin rate to 10ft/s = 600ft/min
-	if(cabin_rate > 10) cabin_rate = 10;
-	if(cabin_rate < -10) cabin_rate = -10;
+	#if(cabin_rate > 10) cabin_rate = 10;
+	#if(cabin_rate < -10) cabin_rate = -10;
 
 	cabin_altitude = cabin_altitude_old + cabin_rate;
 
