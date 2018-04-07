@@ -25,12 +25,12 @@ var canvas_electr = {
 		m.NonEss2A.hide();
 
 		m.AAPU.setText("0");
-		m.VAC1.setText("115");
-		m.VAC2.setText("115");
-		m.VINV1H.setText("115");
-		m.VINV1L.setText("28.0");
-		m.VINV2H.setText("115");
-		m.VINV2L.setText("28.0");
+		m.VAC1.setText("0");
+		m.VAC2.setText("0");
+		m.VINV1H.setText("0");
+		m.VINV1L.setText("0");
+		m.VINV2H.setText("0");
+		m.VINV2L.setText("0");
 
 		m.timer = maketimer(0.1, m, m.update);
 		return m;
@@ -67,8 +67,22 @@ var canvas_electr = {
 			me.FailBatt2.show();
 		}
 
-		me.VDC1.setText(sprintf("%2.01f", getprop("systems/electrical/DCBus1/Voltage") or 0));
-		me.VDC2.setText(sprintf("%2.01f", getprop("systems/electrical/DCBus2/Voltage") or 0));
+		me.tmp = sprintf("%2.01f", getprop("systems/electrical/DCBus1/Voltage") or 0);
+		me.VDC1.setText(me.tmp);
+		me.VINV1L.setText(me.tmp);
+
+		me.tmp = sprintf("%2.01f", getprop("systems/electrical/DCBus2/Voltage") or 0);
+		me.VDC2.setText(me.tmp);
+		me.VINV2L.setText(me.tmp);
+
+		me.tmp = sprintf("%d", getprop("systems/electrical/ACBus1/Voltage") or 0);
+		me.VAC1.setText(me.tmp);
+		me.VINV1H.setText(me.tmp);
+
+		me.tmp = sprintf("%d", getprop("systems/electrical/ACBus2/Voltage") or 0);
+		me.VAC2.setText(me.tmp);
+		me.VINV2H.setText(me.tmp);
+
 		me.AAPU.setText(sprintf("%3.0f", getprop("systems/electrical/APU/Current") or 0));
 		me.AGenLH.setText(sprintf("%3.0f", getprop("systems/electrical/Generator1/Current") or 0));
 		me.AGenRH.setText(sprintf("%3.0f", getprop("systems/electrical/Generator2/Current") or 0));

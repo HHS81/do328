@@ -244,18 +244,17 @@ V1 --> Vr --> Rotate to 8deg --> @50ft Rotate to 15deg -->Climb @V2 + 15ktn --> 
 
    <autopilot>
       <settings>
-         <minimums type="int">200</minimums>
-         <target-roll-deg type="double">0</target-roll-deg>
-         <target-pitch-deg type="double">0</target-pitch-deg>
-         <vertical-speed-fpm type="int">0</vertical-speed-fpm>
-         <nav-source type="string">NAV1</nav-source>
          <bank-limit type="int">27</bank-limit>
-         <target-speed-kt type="int">137</target-speed-kt>
-         <target-speed-mach type="double">0.40</target-speed-mach>
          <changeover type="bool">0</changeover>
          <heading-bug-deg type="int">0</heading-bug-deg>
+         <minimums type="int">200</minimums>
+         <nav-source type="string">NAV1</nav-source>
+         <target-altitude-ft type="int">10000</target-altitude-ft>
+         <target-pitch-deg type="double">0</target-pitch-deg>
+         <target-roll-deg type="double">0</target-roll-deg>
+         <target-speed-kt type="int">137</target-speed-kt>
+         <target-speed-mach type="double">0.40</target-speed-mach>
          <vertical-speed-fpm type="int">0</vertical-speed-fpm>
-         <asel type="int">100</asel>
       </settings>
       <locks>
          <heading>ROLL</heading>

@@ -15,6 +15,119 @@ aircraft.light.new("controls/lighting/beacon-state", [0.015, 1.0], beacon_switch
 var essential = 0;
 
 ##########################################################################################################
+var APU = {
+    new: func(name, source, refVoltage) {
+        obj = { parents: [APU],
+            Connected: props.globals.initNode(ELNode ~ name ~ "/Connected", 0, "BOOL"),
+            Current: props.globals.initNode(ELNode ~ name ~ "/Current", 0, "DOUBLE"), #A
+            Voltage: props.globals.initNode(ELNode ~ name ~ "/Voltage", 0, "DOUBLE"), #V
+            IndicatorGenerator: props.globals.initNode(ELNode ~ name ~ "/IndicatorGenerator", 0, "INT"),
+            IndicatorMaster: props.globals.initNode(ELNode ~ name ~ "/IndicatorMaster", 0, "INT"),
+            IndicatorStart: props.globals.initNode(ELNode ~ name ~ "/IndicatorStart", 0, "INT"),
+            Source: props.globals.getNode(source, 1),
+            Running: 0,
+            RefVoltage: refVoltage, #V
+            Tmp: 0
+        };
+        return obj;
+    },
+    getCurrent: func {
+        if(!me.Connected.getValue() or !me.Running) {
+            return 0;
+        }
+        return -1; #negative value -> producer
+    },
+    getVoltage: func {
+        me.Tmp = 0;
+
+        if(me.Running) {
+            me.Voltage.setValue(me.RefVoltage);
+
+            if(me.Connected.getValue()) {
+                me.Tmp = me.RefVoltage;
+            }
+        }
+        else {
+            me.Voltage.setValue(0);
+        }
+        return me.Tmp;
+    },
+    setConnected: func(connected) {
+        me.Connected.setValue(connected);
+    },
+    setCurrent: func(current) {
+        me.Running = me.Source.getValue() or 0;
+
+        if(!essential) {
+            me.IndicatorGenerator.setValue(0);
+            me.IndicatorMaster.setValue(0);
+            me.IndicatorStart.setValue(0);
+            me.Current.setValue(0);
+
+            if(me.Running) {
+                stop_apu();
+            }
+            return;
+        }
+
+        # generator
+        if(me.Running) {
+            if(me.Connected.getValue()) {
+                # on
+                me.IndicatorGenerator.setValue(1);
+                me.Current.setValue(current);
+            }
+            else {
+                # avail
+                me.IndicatorGenerator.setValue(11);
+                me.Current.setValue(0);
+            }
+        }
+        else {
+            # black
+            me.IndicatorGenerator.setValue(0);
+            me.Current.setValue(0);
+        }
+
+        # master and start
+        if(getprop("systems/electrical/APU/btnMaster")) {
+            # master on
+            me.IndicatorMaster.setValue(1);
+
+            if(me.Running) {
+                # starter ready
+                me.IndicatorStart.setValue(1);
+            }
+            else {
+                if(getprop("controls/engines/engine[2]/starter")) {
+                    # starter black
+                    me.IndicatorStart.setValue(0);
+                }
+                else {
+                    # starter start
+                    me.IndicatorStart.setValue(3);
+                }
+
+                if(getprop("systems/electrical/APU/btnStart")) {
+                    setprop("controls/engines/engine[2]/starter", 1);
+                }
+            }
+        }
+        else {
+            # black
+            me.IndicatorMaster.setValue(0);
+            me.IndicatorStart.setValue(0);
+
+            if(me.Running) {
+                stop_apu();
+            }
+        }
+    },
+    setVoltage: func(volts) {
+    }
+};
+
+##########################################################################################################
 # From ATA 24.41: "Two identical nickel cadmium batteries (BAT) 24 V/40 Ah are installed in the aircraft."
 var Battery = {
     new: func(name) {
@@ -292,119 +405,6 @@ var EssBus = {
 };
 
 ##########################################################################################################
-var APU = {
-    new: func(name, source, refVoltage) {
-        obj = { parents: [APU],
-            Connected: props.globals.initNode(ELNode ~ name ~ "/Connected", 0, "BOOL"),
-            Current: props.globals.initNode(ELNode ~ name ~ "/Current", 0, "DOUBLE"), #A
-            Voltage: props.globals.initNode(ELNode ~ name ~ "/Voltage", 0, "DOUBLE"), #V
-            IndicatorGenerator: props.globals.initNode(ELNode ~ name ~ "/IndicatorGenerator", 0, "INT"),
-            IndicatorMaster: props.globals.initNode(ELNode ~ name ~ "/IndicatorMaster", 0, "INT"),
-            IndicatorStart: props.globals.initNode(ELNode ~ name ~ "/IndicatorStart", 0, "INT"),
-            Source: props.globals.getNode(source, 1),
-            Running: 0,
-            RefVoltage: refVoltage, #V
-            Tmp: 0
-        };
-        return obj;
-    },
-    getCurrent: func {
-        if(!me.Connected.getValue() or !me.Running) {
-            return 0;
-        }
-        return -1; #negative value -> producer
-    },
-    getVoltage: func {
-        me.Tmp = 0;
-
-        if(me.Running) {
-            me.Voltage.setValue(me.RefVoltage);
-
-            if(me.Connected.getValue()) {
-                me.Tmp = me.RefVoltage;
-            }
-        }
-        else {
-            me.Voltage.setValue(0);
-        }
-        return me.Tmp;
-    },
-    setConnected: func(connected) {
-        me.Connected.setValue(connected);
-    },
-    setCurrent: func(current) {
-        me.Running = me.Source.getValue() or 0;
-
-        if(!essential) {
-            me.IndicatorGenerator.setValue(0);
-            me.IndicatorMaster.setValue(0);
-            me.IndicatorStart.setValue(0);
-            me.Current.setValue(0);
-
-            if(me.Running) {
-                stop_apu();
-            }
-            return;
-        }
-
-        # generator
-        if(me.Running) {
-            if(me.Connected.getValue()) {
-                # on
-                me.IndicatorGenerator.setValue(1);
-                me.Current.setValue(current);
-            }
-            else {
-                # avail
-                me.IndicatorGenerator.setValue(11);
-                me.Current.setValue(0);
-            }
-        }
-        else {
-            # black
-            me.IndicatorGenerator.setValue(0);
-            me.Current.setValue(0);
-        }
-
-        # master and start
-        if(getprop("systems/electrical/APU/btnMaster")) {
-            # master on
-            me.IndicatorMaster.setValue(1);
-
-            if(me.Running) {
-                # starter ready
-                me.IndicatorStart.setValue(1);
-            }
-            else {
-                if(getprop("controls/engines/engine[2]/starter")) {
-                    # starter black
-                    me.IndicatorStart.setValue(0);
-                }
-                else {
-                    # starter start
-                    me.IndicatorStart.setValue(3);
-                }
-
-                if(getprop("systems/electrical/APU/btnStart")) {
-                    setprop("controls/engines/engine[2]/starter", 1);
-                }
-            }
-        }
-        else {
-            # black
-            me.IndicatorMaster.setValue(0);
-            me.IndicatorStart.setValue(0);
-
-            if(me.Running) {
-                stop_apu();
-            }
-        }
-    },
-    setVoltage: func(volts) {
-    }
-};
-
-##########################################################################################################
 # From ATA 24.25: "The starter/generator system, with each of its two starter/generators (S/G), provides a
 # separate DC MAIN BUS with 28.5 VDC."
 var Generator = {
@@ -430,6 +430,8 @@ var Generator = {
     getVoltage: func {
         me.Tmp = 0;
 
+        me.Running = me.Source.getValue() or 0;
+
         if(me.Running) {
             me.Voltage.setValue(me.RefVoltage);
 
@@ -451,8 +453,6 @@ var Generator = {
             me.Current.setValue(0);
             return;
         }
-
-        me.Running = me.Source.getValue() or 0;
 
         if(me.Connected.getValue()) {
             if(me.Running) {

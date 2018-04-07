@@ -2,7 +2,7 @@
 <PropertyList>
 
     <logic>
-       <name>FD bars shown</name>
+       <name>FD bars</name>
        <input>
          <and>
            <property>autopilot/locks/FD-status</property>

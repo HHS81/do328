@@ -603,7 +603,7 @@ var cduDsp = {
 		  var DescAngle = sprintf("%.1f",getprop("autopilot/settings/descent-angle"));
 		  var CruiseSpeed_kt = getprop("autopilot/settings/cruise-speed-kt");
 		  var CruiseSpeed_mc = sprintf("%.2f",getprop("autopilot/settings/cruise-speed-mc"));
-		  var Cruise_alt = getprop("autopilot/settings/asel");
+		  var Cruise_alt = getprop("autopilot/settings/target-altitude-ft");
       me.Raz_lines();
       me.line.title.setText("PERFORMANCE INIT "~me.nrPage~" / "~getprop(nbPage));
       me.line.l1.setText(" CLIMB");
@@ -808,8 +808,15 @@ var cduDsp = {
 
   Prog_timer : func {
 		me.timer = maketimer(0.1,func() {
+		if(getprop("/velocities/groundspeed-kt") > 30){
 		  FuelEstWp = int((getprop("/autopilot/internal/nav-distance")/getprop("/velocities/groundspeed-kt"))*(getprop("/engines/engine[0]/fuel-flow_pph")+getprop("/engines/engine[1]/fuel-flow_pph")));
 		  FuelEstDest = int((getprop("/autopilot/route-manager/distance-remaining-nm")/getprop("/velocities/groundspeed-kt"))*(getprop("/engines/engine[0]/fuel-flow_pph")+getprop("/engines/engine[1]/fuel-flow_pph")));
+		}
+		else {
+		  FuelEstWp = 0;
+		  FuelEstDest = 0;
+		}
+
       nav_id = getprop("autopilot/internal/nav-id");
 		  ETA = getprop("autopilot/route-manager/wp/eta");
 		  if (!ETA) {ETA = "0+00"}
@@ -847,8 +854,9 @@ var cduDsp = {
 		  if (Nav_type == "VOR1" or Nav_type == "FMS1") { 
 			  me.line.l5.setText("     " ~Nav_type~" <---");
         me.line.r5.setText(left(Nav_type,3)~"2    ").setColor(me.white);
-		  }	else {
-			  me.line.l5.setText("     " ~left(Nav_type,3)~"1");
+		  } else {
+			  #me.line.l5.setText("     " ~left(Nav_type,3)~"1");
+			  me.line.l5.setText("     " ~Nav_type~"1");
         me.line.r5.setText("---> "~Nav_type~"    ").setColor(me.white)}
       me.line.r6r.setText(Nav2_id~" "~Nav2_freq~" ").setColor(me.green);
     });

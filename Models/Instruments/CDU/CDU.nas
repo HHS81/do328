@@ -65,7 +65,7 @@ var cduMain = {
 	  setprop("autopilot/settings/cruise-speed-mc",0.88);
 	  setprop("autopilot/route-manager/cruise/altitude-ft",10000);
 	  setprop("autopilot/route-manager/cruise/flight-level",100);
-	  setprop("autopilot/settings/asel",getprop("autopilot/route-manager/cruise/flight-level"));
+	  #setprop("autopilot/settings/target-altitude-ft",getprop("autopilot/route-manager/cruise/flight-level"));
 	  setprop("autopilot/settings/climb-speed-kt",250);
 	  setprop("autopilot/settings/climb-speed-mc",0.65);
 	  setprop("autopilot/settings/descent-speed-kt",200);
@@ -781,7 +781,7 @@ var cduMain = {
 			  v = "";
         if (cduInput) {
           cduInput = (cduInput > 510 ? 510 : cduInput);
-		      setprop("autopilot/settings/asel",cduInput);
+		      setprop("autopilot/settings/target-altitude-ft",cduInput);
 		      cduInput = "";
         }
 		  }
@@ -961,8 +961,8 @@ var cduMain = {
 		        setprop("autopilot/route-manager/input","@INSERT"~ind~":"~wpt~"@"~cduInput);
 		        setprop("autopilot/route-manager/input","@DELETE"~(ind+1));
           }
-          if (fp.getWP(ind).alt_cstr > getprop("autopilot/settings/asel")/100 and getprop(fp_active)) {
-            setprop("autopilot/settings/asel",fp.getWP(ind).alt_cstr/100);
+          if (fp.getWP(ind).alt_cstr > getprop("autopilot/settings/target-altitude-ft")/100 and getprop(fp_active)) {
+            setprop("autopilot/settings/target-altitude-ft",fp.getWP(ind).alt_cstr/100);
           }
         }
       call(func {fp.getWP(ind).setSpeed(wp_spd,'at')},nil,var err = []);

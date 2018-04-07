@@ -717,7 +717,7 @@
                 <legend>&lt;&lt;</legend>
                 <binding>
                     <command>property-adjust</command>
-                    <property>autopilot/settings/asel</property>
+                    <property>autopilot/settings/target-altitude-ft</property>
                     <step>-1000</step>
                     <min>0</min>
                     <max>65500</max>
@@ -736,7 +736,7 @@
                 <legend>&lt;</legend>
                 <binding>
                     <command>property-adjust</command>
-                    <property>autopilot/settings/asel</property>
+                    <property>autopilot/settings/target-altitude-ft</property>
                     <step>-100</step>
                     <min>0</min>
                     <max>65500</max>
@@ -752,7 +752,7 @@
                 <y>25</y>
                 <width>60</width>
                 <height>20</height>
-                <property>autopilot/settings/asel</property>
+                <property>autopilot/settings/target-altitude-ft</property>
                 <live>true</live>
                 <binding>
                     <command>dialog-apply</command>
@@ -767,7 +767,7 @@
                 <legend>&gt;</legend>
                 <binding>
                     <command>property-adjust</command>
-                    <property>autopilot/settings/asel</property>
+                    <property>autopilot/settings/target-altitude-ft</property>
                     <step>100</step>
                     <min>0</min>
                     <max>65500</max>
@@ -786,7 +786,7 @@
                 <legend>&gt;&gt;</legend>
                 <binding>
                     <command>property-adjust</command>
-                    <property>autopilot/settings/asel</property>
+                    <property>autopilot/settings/target-altitude-ft</property>
                     <step>1000</step>
                     <min>0</min>
                     <max>65500</max>
@@ -805,7 +805,7 @@
                 <legend>@</legend>
                 <binding>
                     <command>property-assign</command>
-                    <property>autopilot/settings/asel</property>
+                    <property>autopilot/settings/target-altitude-ft</property>
                     <value>10000</value>
                 </binding>
                 <binding>

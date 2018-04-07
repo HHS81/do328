@@ -6,7 +6,7 @@ float SCANTHICK = 2.0;
 float INTENSITY = 0.15;
 float BRIGHTBOOST = 0.15;
 float DISTORTION = 0.03;
-float THRESHOLD = 0.05;
+float THRESHOLD = 0.07;
 
 vec2 TextureSize = vec2(800, 950);
 
