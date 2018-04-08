@@ -32,9 +32,9 @@ var canvas_cpcs = {
 		me.readout_ca.setText(sprintf("%d", me.tmp));
 		me.slider_ca.setTranslation(0, -me.tmp*0.025); # 200/9000
 
-		me.tmp = getprop("systems/pressurization/cabin-rate-fpm") or 0;
-		me.readout_dp.setText(sprintf("%d", me.tmp));
-		me.slider_dp.setTranslation(0, -me.tmp*30); # 300/10
+		me.tmp = getprop("systems/pressurization/diff-pressure") or 0;
+		me.readout_dp.setText(sprintf("%3.02f", me.tmp));
+		me.slider_dp.setTranslation(0, -me.tmp*43); # 300/7
 
 		me.tmp = getprop("systems/pressurization/cabin-rate-fpm") or 0;
 		me.readout_cr.setText(sprintf("%d", abs(me.tmp)));

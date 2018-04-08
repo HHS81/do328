@@ -14,12 +14,12 @@ var canvas_fuel = {
 		
 		canvas.parsesvg(canvasGroup, "Aircraft/do328/Models/Instruments/EFIS/fuelJet.svg", {'font-mapper': font_mapper});
 		
-		var svg_keys = ["indicator_t1","indicator_t2","indicator_t3",
+		var svg_keys = ["readout_ffl","readout_ffr","readout_usedl","readout_usedr",
+				"indicator_t1","indicator_t2","indicator_t3",
 				"indicator_t4","indicator_t5","indicator_t6",
 				"readout_t1","readout_t2","readout_t3",
 				"readout_t4","readout_t5","readout_t6",
-				"readout_tl","readout_tt","readout_tr",
-				"readout_usedl","readout_usedr"];
+				"readout_tl","readout_tt","readout_tr"];
 		foreach(var key; svg_keys) {
 			m[key] = canvasGroup.getElementById(key);
 		}
@@ -36,6 +36,11 @@ var canvas_fuel = {
 	},
 	update: func()
 	{
+		me.readout_ffl.setText(sprintf("%3.0f",getprop("engines/engine[0]/fuel-flow_pph") or 0));
+		me.readout_ffr.setText(sprintf("%3.0f",getprop("engines/engine[1]/fuel-flow_pph") or 0));
+		me.readout_usedl.setText(sprintf("%3.0f",getprop("fdm/jsbsim/propulsion/engine[0]/fuel-used-lbs") or 0));
+		me.readout_usedr.setText(sprintf("%3.0f",getprop("fdm/jsbsim/propulsion/engine[1]/fuel-used-lbs") or 0));
+
 		for(me.n=0; me.n<6; me.n+=1) {
 			me.fuel[me.n] = getprop("consumables/fuel/tank["~me.n~"]/level-lbs") or 0;
 			me["readout_t"~(me.n+1)].setText(sprintf("%3.0f",me.fuel[me.n]));
@@ -50,9 +55,6 @@ var canvas_fuel = {
 		me.indicator_t4_scale.setScale(1,me.fuel[3]/2183);
 		me.indicator_t5_scale.setScale(1,me.fuel[4]/1396);
 		me.indicator_t6_scale.setScale(1,me.fuel[5]/187);
-
-		me.readout_usedl.setText(sprintf("%3.0f",getprop("/fdm/jsbsim/propulsion/engine[0]/fuel-used-lbs") or 0));
-		me.readout_usedr.setText(sprintf("%3.0f",getprop("/fdm/jsbsim/propulsion/engine[1]/fuel-used-lbs") or 0));
 	},
 	show: func()
 	{

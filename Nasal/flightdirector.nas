@@ -111,7 +111,17 @@ var FD_set_mode = func(btn) {
 	elsif(btn == "app") {
 		Lateral_arm.setValue("");
 		Vertical_arm.setValue("");
-		set_apr();
+
+	# NAVSRC = 2: FMS
+		if(NAVSRC < 2) {
+			#if(getprop("instrumentation/nav["~NAVSRC~"]/nav-loc") and
+			#   getprop("instrumentation/nav["~NAVSRC~"]/has-gs")) {
+			#	Lateral_arm.setValue("LOC");
+			#	Vertical_arm.setValue("GS");
+			#}
+			Lateral.setValue("LOC");
+			Vertical.setValue("GS");
+		}
 		setprop("autopilot/settings/low-bank", 0);
 	}
 	elsif(btn == "vs") {
@@ -157,18 +167,6 @@ var set_pitch = func {
 var set_roll = func {
 	Lateral.setValue("ROLL");
 	setprop("autopilot/settings/target-roll-deg", 0.0);
-}
-
-var set_apr = func {
-	# NAVSRC = 2: FMS
-	if(NAVSRC < 2) {
-		if(getprop("instrumentation/nav["~NAVSRC~"]/nav-loc") and
-		   getprop("instrumentation/nav["~NAVSRC~"]/has-gs")) {
-			Lateral_arm.setValue("LOC");
-			Vertical_arm.setValue("GS");
-			Lateral.setValue("HDG");
-		}
-	}
 }
 
 var set_nav_mode = func {

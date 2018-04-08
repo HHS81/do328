@@ -101,7 +101,7 @@ var EICAS = {
 		m.Menus[8].SetItem(0, SkMenuActivateItem.new(1, m, "", 4)); # back
 		m.Menus[8].SetItem(1, SkItem.new(1, m, "FLAPS\n32", 1));
 		m.Menus[8].SetItem(2, SkItem.new(2, m, "VFL0\n170", 1));
-		m.Menus[8].SetItem(3, SkItem.new(3, m, "VREF\n110", 1));
+		m.Menus[8].SetItem(3, SkMutableItem.new(3, m, "instrumentation/fmc/vspeeds/Vref", "VREF\n%d", 1));
 		m.Menus[8].SetItem(4, SkItem.new(4, m, "L100.0\nR100.0", 1));
 		m.Menus[8].SetItem(6, SkItem.new(6, m, "MSG"));
 

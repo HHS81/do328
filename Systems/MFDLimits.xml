@@ -40,7 +40,7 @@
 22046lbs = 10000kg		95	
 20943lbs = 9500kg		92	
 -->
-		<fcs_function name="/systems/vspeeds/takeoff/v1">
+		<fcs_function name="systems/vspeeds/takeoff/v1">
 			<function>
 				<table>
 					<independentVar>inertia/weight-lbs</independentVar>
@@ -58,7 +58,7 @@
 					</tableData>
 				</table>
 			</function>
-			<output>instrumentation/fmc/vspeeds/V1</output>
+			<output>/instrumentation/fmc/vspeeds/V1</output>
 		</fcs_function>
 		<fcs_function name="systems/vspeeds/takeoff/vr">
 			<function>
@@ -80,7 +80,7 @@
 					</table>
 				</product>
 			</function>
-			<output>instrumentation/fmc/vspeeds/VR</output>
+			<output>/instrumentation/fmc/vspeeds/VR</output>
 		</fcs_function>
 		<fcs_function name="systems/vspeeds/takeoff/v2">
 			<function>
@@ -102,7 +102,7 @@
 					</table>
 				</product>
 			</function>
-			<output>instrumentation/fmc/vspeeds/V2</output>
+			<output>/instrumentation/fmc/vspeeds/V2</output>
 		</fcs_function>
 		<fcs_function name="systems/vspeeds/landing/vref32">
 			<function>
@@ -124,7 +124,7 @@
 					</table>
 				</product>
 			</function>
-			<output>instrumentation/fmc/vspeeds/Vref</output>
+			<output>/instrumentation/fmc/vspeeds/Vref</output>
 		</fcs_function>
 	</channel>
 </system>

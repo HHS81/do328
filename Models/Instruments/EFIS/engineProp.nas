@@ -20,7 +20,8 @@ var canvas_engine = {
 				"readout_oilTemp1","readout_oilTemp2","readout_oilPrss1","readout_oilPrss2",
 				"arrowOilTemp1","arrowOilTemp2","arrowOilPrss1","arrowOilPrss2",
 				"oilTempLow1","oilTempLow2","oilTempHigh1","oilTempHigh2",
-				"oilPrssLow1","oilPrssLow2","hideme"];
+				"oilPrssLow1","oilPrssLow2","hideme",
+				"readout_oat","readout_ft"];
 
 		foreach(var key; svg_keys) {
 			m[key] = canvasGroup.getElementById(key);
@@ -80,6 +81,8 @@ var canvas_engine = {
 			}
 			me["readout_ff"~(me.n+1)].setText(sprintf("%3.0f",(getprop("engines/engine["~me.n~"]/fuel-flow_pph") or 0)));
 		}
+		me.readout_oat.setText(sprintf("%3.01f", getprop("environment/temperature-degc") or 0));
+		me.readout_ft.setText(sprintf("%3.0f", getprop("instrumentation/altimeter/indicated-altitude-ft") or 0));
 	},
 	show: func()
 	{

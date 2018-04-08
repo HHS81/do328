@@ -220,7 +220,7 @@
                     <legend>APP</legend>
                     <binding>
                         <command>nasal</command>
-                        <script>systems.FD_set_mode("apr")</script>
+                        <script>systems.FD_set_mode("app")</script>
                     </binding>
                 </button>
 
