@@ -77,7 +77,7 @@
             <y>10</y>
             <width>14</width>
             <height>14</height>
-            <label>B/C active</label>
+            <label>B/C</label>
             <property>instrumentation/nav/back-course-btn</property>
             <live>true</live>
             <binding>
@@ -86,14 +86,26 @@
         </checkbox>
 
         <button>
+            <x>190</x>
+            <y>8</y>
+            <width>35</width>
+            <height>20</height>
+            <legend>NAV</legend>
+            <binding>
+                <command>nasal</command>
+                <script>systems.nav_src_set("NAV");</script>
+            </binding>
+        </button>
+
+        <button>
             <x>225</x>
             <y>8</y>
             <width>35</width>
             <height>20</height>
-            <legend>FMS</legend>
+            <legend>MLS</legend>
             <binding>
                 <command>nasal</command>
-                <script>systems.nav_src_set("fms");</script>
+                <script>systems.nav_src_set("MLS");</script>
             </binding>
         </button>
 
@@ -102,13 +114,12 @@
             <y>8</y>
             <width>35</width>
             <height>20</height>
-            <legend>NAV</legend>
+            <legend>FMS</legend>
             <binding>
                 <command>nasal</command>
-                <script>systems.nav_src_set("nav");</script>
+                <script>systems.nav_src_set("FMS");</script>
             </binding>
         </button>
-
     </frame>
 
     <text>
@@ -136,7 +147,7 @@
                     <legend>HDG</legend>
                     <binding>
                         <command>nasal</command>
-                        <script>systems.FD_set_mode("hdg")</script>
+                        <script>systems.FDBtClick("HDG")</script>
                     </binding>
                 </button>
 
@@ -148,7 +159,7 @@
                     <legend>BANK</legend>
                     <binding>
                         <command>nasal</command>
-                        <script>systems.FD_set_mode("bank")</script>
+                        <script>systems.FDBtClick("BANK")</script>
                     </binding>
                 </button>
 
@@ -160,7 +171,7 @@
                     <legend>FLC</legend>
                     <binding>
                         <command>nasal</command>
-                        <script>systems.FD_set_mode("flc")</script>
+                        <script>systems.FDBtClick("FLCH")</script>
                     </binding>
                 </button>
 
@@ -178,7 +189,7 @@
                     <legend>NAV</legend>
                     <binding>
                         <command>nasal</command>
-                        <script>systems.FD_set_mode("nav")</script>
+                        <script>systems.FDBtClick("NAV")</script>
                     </binding>
                 </button>
 
@@ -190,7 +201,7 @@
                     <legend>STBY</legend>
                     <binding>
                         <command>nasal</command>
-                        <script>systems.FD_set_mode("stby")</script>
+                        <script>systems.FDBtClick("STBY")</script>
                     </binding>
                 </button>
 
@@ -202,7 +213,7 @@
                     <legend>VS</legend>
                     <binding>
                         <command>nasal</command>
-                        <script>systems.FD_set_mode("vs")</script>
+                        <script>systems.FDBtClick("VS")</script>
                     </binding>
                 </button>
 
@@ -220,7 +231,7 @@
                     <legend>APP</legend>
                     <binding>
                         <command>nasal</command>
-                        <script>systems.FD_set_mode("app")</script>
+                        <script>systems.FDBtClick("APP")</script>
                     </binding>
                 </button>
 
@@ -233,7 +244,7 @@
                     <legend>ALT</legend>
                     <binding>
                         <command>nasal</command>
-                        <script>systems.FD_set_mode("alt")</script>
+                        <script>systems.FDBtClick("ALT")</script>
                     </binding>
                 </button>
 
@@ -251,7 +262,7 @@
                     <legend>BC</legend>
                     <binding>
                         <command>nasal</command>
-                        <script>systems.FD_set_mode("bc")</script>
+                        <script>systems.FDBtClick("BC")</script>
                     </binding>
                 </button>
 
@@ -264,7 +275,7 @@
                     <legend>VNAV</legend>
                     <binding>
                         <command>nasal</command>
-                        <script>systems.FD_set_mode("vnav")</script>
+                        <script>systems.FDBtClick("VNAV")</script>
                     </binding>
                 </button>
 
@@ -319,7 +330,7 @@
                 <legend>AP</legend>
                 <binding>
                     <command>nasal</command>
-                    <script>systems.FD_set_mode("ap")</script>
+                    <script>systems.FDBtClick("AP")</script>
                 </binding>
             </button>
 
@@ -332,7 +343,7 @@
                 <legend>YD</legend>
                 <binding>
                     <command>nasal</command>
-                    <script>systems.FD_set_mode("yd")</script>
+                    <script>systems.FDBtClick("YD")</script>
                 </binding>
             </button>
 
@@ -346,7 +357,7 @@
                 <legend>CPL</legend>
                 <binding>
                     <command>nasal</command>
-                    <script>systems.FD_set_mode("pfdsel")</script>
+                    <script>systems.FDBtClick("CPL")</script>
                 </binding>
             </button>
 

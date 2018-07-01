@@ -17,6 +17,9 @@ var SkItem = {
 	},
 	Activate: func {
 	},
+	GetId: func {
+		return me.Id;
+	},
 	GetDecoration: func {
 		return me.Decoration;
 	},
@@ -168,7 +171,8 @@ var SkMenu = {
 			}
 		}
 	},
-	SetItem: func(index, item) {
+	AddItem: func(item) {
+		var index = item.GetId();
 		if(index >= 0 and index < NUM_SOFTKEYS) {
 			me.Items[index] = item;
 		}

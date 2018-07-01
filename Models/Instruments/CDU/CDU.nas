@@ -23,7 +23,6 @@ var destRwy = "autopilot/route-manager/destination/runway";
 var direct = "instrumentation/cdu/direct";
 var direct_to = "instrumentation/cdu/direct-to";
 var fp_active = "autopilot/route-manager/active";
-var navSrc = "autopilot/settings/nav-source";
 
 var nbPage = "instrumentation/cdu/nbpage";
 var num = "autopilot/route-manager/route/num";
@@ -106,7 +105,7 @@ var cduMain = {
 		    setprop("instrumentation/cdu/input","");
 		    setprop(cduInput1,"");
 		    setprop("autopilot/locks/TOD",0);
-		    setprop(navSrc, "NAV1");
+		    setprop("autopilot/settings/nav-source", "NAV1");
 		    setprop("autopilot/locks/altitude","PTCH");
 		    setprop("autopilot/locks/heading","ROLL");
         if (altFp != nil) {
