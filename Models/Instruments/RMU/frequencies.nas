@@ -38,12 +38,12 @@ var canvas_frequencies = {
 		setlistener("instrumentation/rmu[0]/offside", func{ me.update() });
 		setlistener("instrumentation/rmu[1]/offside", func{ me.update() });
 		setlistener("instrumentation/comm[0]/frequencies/selected-mhz", func{ me.update() });
-		setlistener("instrumentation/comm[0]/frequencies/standby-mhz", func{ me.update() });
-		setlistener("instrumentation/nav[0]/frequencies/selected-mhz", func{ me.update() });
-		setlistener("instrumentation/nav[0]/frequencies/standby-mhz", func{ me.update() });
 		setlistener("instrumentation/comm[1]/frequencies/selected-mhz", func{ me.update() });
+		setlistener("instrumentation/comm[0]/frequencies/standby-mhz", func{ me.update() });
 		setlistener("instrumentation/comm[1]/frequencies/standby-mhz", func{ me.update() });
+		setlistener("instrumentation/nav[0]/frequencies/selected-mhz", func{ me.update() });
 		setlistener("instrumentation/nav[1]/frequencies/selected-mhz", func{ me.update() });
+		setlistener("instrumentation/nav[0]/frequencies/standby-mhz", func{ me.update() });
 		setlistener("instrumentation/nav[1]/frequencies/standby-mhz", func{ me.update() });
 		setlistener("instrumentation/adf[0]/frequencies/selected-khz", func{ me.update() });
 		setlistener("instrumentation/adf[1]/frequencies/selected-khz", func{ me.update() });
@@ -61,9 +61,9 @@ var canvas_frequencies = {
 	},
 	update: func() {
 		me.Id = me.Instance;
-		var offside = 0;
+		var offsideId = 0;
 		if(me.Id == 0) {
-			offside = 1;
+			offsideId = 1;
 		}
 
 		if(getprop("instrumentation/rmu["~me.Instance~"]/offside")) {
@@ -87,7 +87,7 @@ var canvas_frequencies = {
 			me.tcas.setColor(magenta);
 			me.tcasNum.setColor(magenta);
 
-			me.Id = offside;
+			me.Id = offsideId;
 		}
 		else {
 			# normal mode

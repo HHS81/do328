@@ -37,8 +37,8 @@
      inkscape:pageopacity="1"
      inkscape:pageshadow="2"
      inkscape:zoom="1.266831"
-     inkscape:cx="181.24633"
-     inkscape:cy="203.45641"
+     inkscape:cx="-142.79099"
+     inkscape:cy="176.9567"
      inkscape:document-units="px"
      inkscape:current-layer="frequencies"
      showgrid="false"
@@ -409,4 +409,10 @@
      width="129.41516"
      id="adfRect"
      style="opacity:1;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#ffd700;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+  <path
+     style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#00ff00;stroke-width:3;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+     d="m 157.5,160 10,0 0,17.5 -10,0 z"
+     id="rect4186"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="ccccc" />
 </svg>

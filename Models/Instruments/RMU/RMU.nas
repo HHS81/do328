@@ -1,6 +1,5 @@
 ### Canvas RMU ###
-### clm76 - 2016 ###
-### xcvb - 2017 ###
+### xcvb 2017-2018 ###
 
 var RMU1Instance = {};
 var RMU2Instance = {};
@@ -15,17 +14,18 @@ var white = [1,1,1];
 var PageEnum = {frequencies:0,
 	pagemenu:1,
 	memorycom:2,
-	navigation:3,
-	engine1:4,
-	engine2:5,
-	atctcas:6,
-	maintenance:7,
-	strapsmenu:8,
-	straps:9,
-	software:10,
-	maintlogmenu:11,
-	maintlog:12,
-	rmusetup:13
+	memorynav:3,
+	navigation:4,
+	engine1:5,
+	engine2:6,
+	atctcas:7,
+	maintenance:8,
+	strapsmenu:9,
+	straps:10,
+	software:11,
+	maintlogmenu:12,
+	maintlog:13,
+	rmusetup:14
 };
 
 ### RMU ###
@@ -40,6 +40,7 @@ var RMU = {
 		m.Pages[PageEnum.frequencies] = canvas_frequencies.new(group.createChild('group'), instance);
 		m.Pages[PageEnum.pagemenu] = canvas_pagemenu.new(group.createChild('group'), instance);
 		m.Pages[PageEnum.memorycom] = canvas_memorycom.new(group.createChild('group'), instance);
+		m.Pages[PageEnum.memorynav] = canvas_memorynav.new(group.createChild('group'), instance);
 		m.Pages[PageEnum.navigation] = canvas_navigation.new(group.createChild('group'), instance);
 		m.Pages[PageEnum.engine1] = canvas_engine1.new(group.createChild('group'), instance);
 		m.Pages[PageEnum.engine2] = canvas_engine2.new(group.createChild('group'), instance);

@@ -1838,27 +1838,79 @@
 	<!--DHC-panel-->
 	<animation>
 		<type>pick</type>
-		<object-name>FMC.nav</object-name>
+		<object-name>FMC.nav1</object-name>
 		<visible>true</visible>
 		<action>
 			<button>0</button>
 			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
-				<script>systems.nav_src_set("NAV");</script>
+				<script>systems.NAVBtClick("NAV");</script>
 			</binding>
 		</action>
 	</animation>
 	<animation>
 		<type>pick</type>
-		<object-name>FMC.fms</object-name>
+		<object-name>FMC.nav2</object-name>
 		<visible>true</visible>
 		<action>
 			<button>0</button>
 			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
-				<script>systems.nav_src_set("FMS");</script>
+				<script>systems.NAVBtClick("NAV");</script>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>FMC.mls1</object-name>
+		<visible>true</visible>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>systems.NAVBtClick("MLS");</script>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>FMC.mls2</object-name>
+		<visible>true</visible>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>systems.NAVBtClick("MLS");</script>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>FMC.fms1</object-name>
+		<visible>true</visible>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>systems.NAVBtClick("FMS");</script>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>FMC.fms2</object-name>
+		<visible>true</visible>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>systems.NAVBtClick("FMS");</script>
 			</binding>
 		</action>
 	</animation>

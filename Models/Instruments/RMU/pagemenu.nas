@@ -30,7 +30,7 @@ var canvas_pagemenu = {
 			setprop("instrumentation/rmu["~me.Instance~"]/page", PageEnum.navigation);
 		}
 		if(input == 4) {
-			setprop("instrumentation/rmu["~me.Instance~"]/page", PageEnum.memorycom);
+			setprop("instrumentation/rmu["~me.Instance~"]/page", PageEnum.memorynav);
 		}
 		if(input == 5) {
 			setprop("instrumentation/rmu["~me.Instance~"]/page", PageEnum.engine1);

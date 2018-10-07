@@ -93,7 +93,7 @@
             <legend>NAV</legend>
             <binding>
                 <command>nasal</command>
-                <script>systems.nav_src_set("NAV");</script>
+                <script>systems.NAVBtClick("NAV");</script>
             </binding>
         </button>
 
@@ -105,7 +105,7 @@
             <legend>MLS</legend>
             <binding>
                 <command>nasal</command>
-                <script>systems.nav_src_set("MLS");</script>
+                <script>systems.NAVBtClick("MLS");</script>
             </binding>
         </button>
 
@@ -117,7 +117,7 @@
             <legend>FMS</legend>
             <binding>
                 <command>nasal</command>
-                <script>systems.nav_src_set("FMS");</script>
+                <script>systems.NAVBtClick("FMS");</script>
             </binding>
         </button>
     </frame>

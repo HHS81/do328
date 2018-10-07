@@ -10,27 +10,15 @@ var Vertical = props.globals.getNode("autopilot/locks/altitude");
 var Vertical_arm = props.globals.getNode("autopilot/locks/altitude-arm");
 var AP = props.globals.getNode("autopilot/locks/AP-status");
 
-var Lmode = nil;
-var LAmode = nil;
-var Vmode = nil;
-var VAmode = nil;
 var NAVsrc = 0; # 0: CPT, 1: FO
 var NAVmode = "NAV"; # 0: NAV, MLS (not in use) or FMS
 var Tmp = 0;
 
 var FDBtClick = func(btn) {
-	Lmode = Lateral.getValue();
-	LAmode = Lateral_arm.getValue();
-	Vmode = Vertical.getValue();
-	VAmode = Vertical_arm.getValue();
-
 	if(btn == "AP") {
 		if(!AP.getValue()) {
 			Lateral_arm.setValue("");
 			Vertical_arm.setValue("");
-
-			if(Vmode=="PTCH") set_pitch();
-			if(Lmode=="ROLL") set_roll();
 
 			AP.setValue(1);
 		}
@@ -38,24 +26,26 @@ var FDBtClick = func(btn) {
 			AP.setValue(0);
 		}
 	}
-	elsif(btn == "hdg") {
-		if(Lmode != "HDG") {
+	elsif(btn == "HDG") {
+		if(Lateral.getValue() != "HDG") {
 			Lateral.setValue("HDG");
 		}
 		else {
-			set_roll();
+			Lateral.setValue("ROLL");
+			setprop("autopilot/settings/target-roll-deg", 0.0);
 		}
 		Lateral_arm.setValue("");
 		Vertical_arm.setValue("");
 	}
 	elsif(btn == "ALT") {
-		if(Vmode != "ALT") {
+		if(Vertical.getValue() != "ALT") {
 			Vertical.setValue("ALT");
 			setprop("autopilot/settings/altitude",
 				(getprop("instrumentation/altimeter/mode-c-alt-ft") * 0.01));
 		}
 		else {
-			set_pitch();
+			Vertical.setValue("PTCH");
+			setprop("autopilot/settings/target-pitch-deg", getprop("orientation/pitch-deg"));
 		}
 		Lateral_arm.setValue("");
 		Vertical_arm.setValue("");
@@ -64,13 +54,12 @@ var FDBtClick = func(btn) {
 		var flcmode = "FLCH";
 		var asel = "ASEL";
 
-		# FMS
 		if(NAVmode == "FMS") {
 			flcmode = "VFLC";
 			asel = "VASEL";
 		}
 
-		if(Vmode != flcmode) {
+		if(Vertical.getValue() != flcmode) {
 			var mc = getprop("instrumentation/airspeed-indicator/indicated-mach");
 			var kt = int(getprop("instrumentation/airspeed-indicator/indicated-speed-kt"));
 
@@ -92,7 +81,8 @@ var FDBtClick = func(btn) {
 			}
 		}
 		else {
-			set_pitch();
+			Vertical.setValue("PTCH");
+			setprop("autopilot/settings/target-pitch-deg", getprop("orientation/pitch-deg"));
 		}
 	}
 	elsif(btn == "NAV") {
@@ -100,53 +90,64 @@ var FDBtClick = func(btn) {
 		setprop("autopilot/settings/low-bank",0);
 	}
 	elsif(btn == "VNAV") {
-		if(Vmode!="VALT") {
+		if(Vertical.getValue()!="VALT") {
 			if(NAVmode=="FMS") {
 				Lateral.setValue("LNAV");
 				Vertical.setValue("VALT");
 			}
 		}
 		else {
-			set_pitch();
+			Vertical.setValue("PTCH");
+			setprop("autopilot/settings/target-pitch-deg", getprop("orientation/pitch-deg"));
 		}
 	}
 	elsif(btn == "APP") {
-		Lateral_arm.setValue("");
-		Vertical_arm.setValue("");
-
 		if(NAVmode == "NAV") {
-			if(getprop("instrumentation/nav["~NAVsrc~"]/nav-loc") and
-			   getprop("instrumentation/nav["~NAVsrc~"]/has-gs")) {
+			if(!getprop("instrumentation/nav["~NAVsrc~"]/gs-in-range")) {
+				# no ILS at all -> STBY
+				Lateral_arm.setValue("");
+				Vertical_arm.setValue("");
+				Lateral.setValue("HDG");
+				Vertical.setValue("PTCH");
+				setprop("autopilot/settings/target-pitch-deg", 3.0);
+			}
+			else if(getprop("instrumentation/nav["~NAVsrc~"]/nav-loc") and
+				getprop("instrumentation/nav["~NAVsrc~"]/has-gs")) {
+				# activate ILS catch settings
 				Lateral_arm.setValue("LOC");
 				Vertical_arm.setValue("GS");
+				Lateral.setValue("HDG");
+				Vertical.setValue("GS");
 			}
-			Lateral.setValue("LOC");
-			Vertical.setValue("GS");
 		}
 		setprop("autopilot/settings/low-bank", 0);
 	}
 	elsif(btn == "VS") {
 		Lateral_arm.setValue("");
 		Vertical_arm.setValue("");
-		if(Vmode!="VS"){
+		if(Vertical.getValue()!="VS"){
 			Vertical.setValue("VS");
 			Tmp = (int(getprop("autopilot/internal/vert-speed-fpm") * 0.01)) * 100;
 			setprop("autopilot/settings/vertical-speed-fpm", Tmp);
 		}
 		else {
-			set_pitch();
+			Vertical.setValue("PTCH");
+			setprop("autopilot/settings/target-pitch-deg", getprop("orientation/pitch-deg"));
 		}
 	}
 	elsif(btn == "STBY") {
 		Lateral_arm.setValue("");
 		Vertical_arm.setValue("");
-		set_pitch();
-		set_roll();
+		Vertical.setValue("PTCH");
+		setprop("autopilot/settings/target-pitch-deg", getprop("orientation/pitch-deg"));
+		Lateral.setValue("ROLL");
+		setprop("autopilot/settings/target-roll-deg", 0.0);
 		setprop("autopilot/settings/low-bank",0);
 	}
 	elsif(btn == "BANK") {
-		if(Lmode=="HDG") {
-			Tmp = getprop("autopilot/settings/low-bank");
+		if(Lateral.getValue()=="HDG") {
+			# TODO: bool instead of 0/1
+			Tmp = getprop("autopilot/settings/low-bank") or 0;
 			setprop("autopilot/settings/low-bank", 1 - Tmp);
 		}
 	}
@@ -163,37 +164,25 @@ var FDBtClick = func(btn) {
 	}
 }
 
+var NAVBtClick = func(btn) {
+	if(btn == "NAV") {
+		setprop("autopilot/settings/nav-source", btn~(NAVsrc+1));
+	}
+	elsif(btn == "MLS") {
+		setprop("autopilot/settings/nav-source", btn~(NAVsrc+1));
+	}
+	elsif(btn == "FMS") {
+		setprop("autopilot/settings/nav-source", btn);
+	}
+}
+
 var pitch_wheel = func(dir) {
         Tmp = int(getprop("autopilot/settings/vertical-speed-fpm")) + (dir * 100);
         Tmp = (Tmp < -8000 ? -8000 : Tmp > 6000 ? 6000 : Tmp);
         setprop("autopilot/settings/vertical-speed-fpm", Tmp);
 }
 
-var nav_src_set = func(src){
-	NAVmode = src;
-
-	if(src == "FMS") {
-		setprop("autopilot/settings/nav-source", src);
-	}
-	else if(src == "MLS") {
-		setprop("autopilot/settings/nav-source", src~(NAVsrc+1));
-	}
-	else {
-		setprop("autopilot/settings/nav-source", src~(NAVsrc+1));
-	}
-}
-
 ########    FD INTERNAL ACTIONS  #############
-
-var set_pitch = func {
-	Vertical.setValue("PTCH");
-	setprop("autopilot/settings/target-pitch-deg", getprop("orientation/pitch-deg"));
-}
-
-var set_roll = func {
-	Lateral.setValue("ROLL");
-	setprop("autopilot/settings/target-roll-deg", 0.0);
-}
 
 var set_nav_mode = func {
 	Lateral_arm.setValue("");

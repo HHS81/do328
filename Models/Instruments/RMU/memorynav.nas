@@ -1,7 +1,7 @@
-var canvas_memorycom = {
+var canvas_memorynav = {
 	new: func(canvasGroup, instance)
 	{
-		var m = { parents: [canvas_memorycom] };
+		var m = { parents: [canvas_memorynav] };
 		m.group = canvasGroup;
 		m.Instance = instance;
 		m.Tmp = 0;
@@ -20,7 +20,7 @@ var canvas_memorycom = {
 			m["mem"~(m.Counter)] = canvasGroup.getElementById("mem"~(m.Counter+1));
 			m["n"~(m.Counter)] = canvasGroup.getElementById("n"~(m.Counter+1));
 
-			m.Tmp = getprop("instrumentation/rmu/memory/comm/mem["~m.Counter~"]") or 0;
+			m.Tmp = getprop("instrumentation/rmu/memory/nav/mem["~m.Counter~"]") or 0;
 			if(m.Tmp > 100) {
 				m["mem"~m.Counter].setText(sprintf("%.2f", m.Tmp));
 			}
@@ -30,7 +30,7 @@ var canvas_memorycom = {
 		}
 		m.comFreq = canvasGroup.getElementById("comFreq");
 
-		setlistener("instrumentation/comm["~instance~"]/frequencies/selected-mhz", func{ m.update(); });
+		setlistener("instrumentation/nav["~instance~"]/frequencies/selected-mhz", func{ m.update(); });
 		m.update();
 
 		m.ActivateRect(m.ActiveRect);
@@ -48,7 +48,7 @@ var canvas_memorycom = {
 		me.ActiveRect = input;
 	},
 	update: func() {
-		me.comFreq.setText(sprintf("%.2f", getprop("instrumentation/comm["~me.Instance~"]/frequencies/selected-mhz")));
+		me.comFreq.setText(sprintf("%.2f", getprop("instrumentation/nav["~me.Instance~"]/frequencies/selected-mhz")));
 	},
 	BtClick: func(input = -1) {
 		if(input < 8) {
@@ -85,7 +85,7 @@ var canvas_memorycom = {
 			{
 				me["n"~me.Counter].setText(sprintf("%d", me.Counter + me.Offset + 1));
 
-				me.Tmp = getprop("instrumentation/rmu/memory/comm/mem["~(me.Counter + me.Offset)~"]") or 0;
+				me.Tmp = getprop("instrumentation/rmu/memory/nav/mem["~(me.Counter + me.Offset)~"]") or 0;
 				if(me.Tmp > 100) {
 					me["mem"~me.Counter].setText(sprintf("%.2f", me.Tmp));
 				}
@@ -96,15 +96,15 @@ var canvas_memorycom = {
 		}
 		if(input == 9) {
 			# insert
-			me.Tmp = getprop("instrumentation/rmu/memory/comm/mem["~(me.ActiveRect + me.Offset)~"]") or 0;
+			me.Tmp = getprop("instrumentation/rmu/memory/nav/mem["~(me.ActiveRect + me.Offset)~"]") or 0;
 
 			if(me.Tmp < 100) {
-				me.Tmp = getprop("instrumentation/comm["~me.Instance~"]/frequencies/selected-mhz") or 0;
+				me.Tmp = getprop("instrumentation/nav["~me.Instance~"]/frequencies/selected-mhz") or 0;
 				me["mem"~me.ActiveRect].setText(sprintf("%.2f", me.Tmp));
-				setprop("instrumentation/rmu/memory/comm/mem["~(me.ActiveRect + me.Offset)~"]", me.Tmp);
+				setprop("instrumentation/rmu/memory/nav/mem["~(me.ActiveRect + me.Offset)~"]", me.Tmp);
 			}
 			else {
-				setprop("instrumentation/comm["~me.Instance~"]/frequencies/selected-mhz", me.Tmp);
+				setprop("instrumentation/nav["~me.Instance~"]/frequencies/selected-mhz", me.Tmp);
 			}
 		}
 		if(input == 10) {
@@ -113,7 +113,7 @@ var canvas_memorycom = {
 		if(input == 11) {
 			# delete
 			me["mem"~me.ActiveRect].setText("");
-			setprop("instrumentation/rmu/memory/comm/mem["~(me.ActiveRect + me.Offset)~"]", 0);
+			setprop("instrumentation/rmu/memory/nav/mem["~(me.ActiveRect + me.Offset)~"]", 0);
 		}
 		if(input == 17) {
 			setprop("instrumentation/rmu["~me.Instance~"]/page", PageEnum.pagemenu);
