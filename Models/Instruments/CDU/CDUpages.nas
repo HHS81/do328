@@ -60,9 +60,9 @@ var cduDsp = {
 		m.group = m.canvas.createGroup();
 		var font_mapper = func(family, weight)
 		{
-			return "honeywellfont.ttf";
+			return "BoeingCDU-Fixed.ttf";
 		};
-		canvas.parsesvg(m.group, "Aircraft/do328/Models/Instruments/CDU/CDU.svg");#, {'font-mapper': font_mapper});
+		canvas.parsesvg(m.group, "Aircraft/do328/Models/Instruments/CDU/CDU.svg", {'font-mapper': font_mapper});
 		m.line = {};
 		m.line_val = ["title","l1","l2","l2r","l3","l4","l4r","l5","l6","l7",
                   "r1","r2l","r2r","r3","r4l","r4r",
