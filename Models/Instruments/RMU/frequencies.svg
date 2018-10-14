@@ -37,8 +37,8 @@
      inkscape:pageopacity="1"
      inkscape:pageshadow="2"
      inkscape:zoom="1.266831"
-     inkscape:cx="-142.79099"
-     inkscape:cy="176.9567"
+     inkscape:cx="191.46958"
+     inkscape:cy="166.34935"
      inkscape:document-units="px"
      inkscape:current-layer="frequencies"
      showgrid="false"
@@ -57,6 +57,12 @@
      fit-margin-bottom="0"
      inkscape:showpageshadow="false" />
   <path
+     sodipodi:nodetypes="cc"
+     inkscape:connector-curvature="0"
+     id="path4568"
+     d="m 27,276.80204 296,0"
+     style="fill:#00ff00;fill-opacity:1;fill-rule:evenodd;stroke:#00ff00;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+  <path
      inkscape:connector-curvature="0"
      id="path4542"
      d="m 145.07895,168.90949 38.92199,0"
@@ -73,18 +79,6 @@
      id="path4550"
      d="m 180,35 0,338"
      style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#00ff00;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-  <path
-     sodipodi:nodetypes="cc"
-     inkscape:connector-curvature="0"
-     id="path4562"
-     d="m 27,276.802 12,4e-5"
-     style="fill:#00ff00;fill-opacity:1;fill-rule:evenodd;stroke:#00ff00;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-  <path
-     sodipodi:nodetypes="cc"
-     inkscape:connector-curvature="0"
-     id="path4568"
-     d="m 157.5,276.80204 165.5,0"
-     style="fill:#00ff00;fill-opacity:1;fill-rule:evenodd;stroke:#00ff00;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
   <path
      inkscape:connector-curvature="0"
      id="path4335"
@@ -176,19 +170,6 @@
        x="213.03221"
        y="264.90082">ADF</tspan></text>
   <text
-     transform="scale(1.0631578,0.94059415)"
-     sodipodi:linespacing="125%"
-     id="tcas"
-     y="299.80963"
-     x="39.4967"
-     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:19.19345665px;line-height:125%;font-family:'Liberation Mono';-inkscape-font-specification:'Liberation Mono, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0.43887296px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-     xml:space="preserve"><tspan
-       y="299.80963"
-       x="39.4967"
-       id="tspan4387"
-       sodipodi:role="line"
-       style="stroke-width:0.43887296px">TCAS DSP</tspan></text>
-  <text
      transform="scale(1.1006455,0.90855776)"
      sodipodi:linespacing="125%"
      id="comNum"
@@ -229,21 +210,44 @@
        x="205.17737"
        id="tspan4416-4-6"
        sodipodi:role="line">1</tspan></text>
-  <text
-     transform="scale(1.1006455,0.90855776)"
-     inkscape:transform-center-y="-56.667502"
-     inkscape:transform-center-x="9.0059965"
-     sodipodi:linespacing="125%"
-     id="tcasNum"
-     y="310.45718"
-     x="129.91728"
-     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.58886147px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0.42505029;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-     xml:space="preserve"><tspan
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.58886147px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.42505029"
-       y="310.45718"
+  <g
+     id="tcasDsp"
+     transform="translate(-10.016377,0.02661)">
+    <path
+       sodipodi:nodetypes="ccccc"
+       inkscape:connector-curvature="0"
+       id="tcasBg"
+       d="m 42.516377,267.47339 112.211963,0 0,17.5 -112.211963,0 z"
+       style="opacity:1;fill:#141711;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:3;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:19.19345665px;line-height:125%;font-family:'Liberation Mono';-inkscape-font-specification:'Liberation Mono, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0.43887296px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="39.4967"
+       y="299.80963"
+       id="tcas"
+       sodipodi:linespacing="125%"
+       transform="scale(1.0631578,0.94059415)"><tspan
+         style="stroke-width:0.43887296px"
+         sodipodi:role="line"
+         id="tspan4387"
+         x="39.4967"
+         y="299.80963">TCAS DSP</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.58886147px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0.42505029;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        x="129.91728"
-       id="tspan4416-4-6-3"
-       sodipodi:role="line">1</tspan></text>
+       y="310.45718"
+       id="tcasNum"
+       sodipodi:linespacing="125%"
+       inkscape:transform-center-x="9.0059965"
+       inkscape:transform-center-y="-56.667502"
+       transform="scale(1.1006455,0.90855776)"><tspan
+         sodipodi:role="line"
+         id="tspan4416-4-6-3"
+         x="129.91728"
+         y="310.45718"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.58886147px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.42505029">1</tspan></text>
+  </g>
   <text
      transform="scale(1.0631578,0.94059415)"
      sodipodi:linespacing="125%"
@@ -410,9 +414,46 @@
      id="adfRect"
      style="opacity:1;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#ffd700;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
   <path
-     style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#00ff00;stroke-width:3;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+     style="opacity:1;fill:#141711;fill-opacity:1;fill-rule:nonzero;stroke:#00ff00;stroke-width:3;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
      d="m 157.5,160 10,0 0,17.5 -10,0 z"
      id="rect4186"
      inkscape:connector-curvature="0"
      sodipodi:nodetypes="ccccc" />
+  <g
+     id="mlsDsp">
+    <path
+       sodipodi:nodetypes="ccccc"
+       inkscape:connector-curvature="0"
+       id="mlsBg"
+       d="m 185,267.5 49.85163,0 0,17.5 L 185,285 Z"
+       style="opacity:1;fill:#141711;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:3;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:19.19345665px;line-height:125%;font-family:'Liberation Mono';-inkscape-font-specification:'Liberation Mono, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0.43887296px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="173.51596"
+       y="299.83792"
+       id="mls"
+       sodipodi:linespacing="125%"
+       transform="scale(1.0631578,0.94059415)"><tspan
+         style="stroke-width:0.43887296px"
+         sodipodi:role="line"
+         id="tspan4387-3"
+         x="173.51596"
+         y="299.83792">MLS</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.58886147px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0.42505029;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       x="202.57635"
+       y="310.48648"
+       id="mlsNum"
+       sodipodi:linespacing="125%"
+       inkscape:transform-center-x="9.0059965"
+       inkscape:transform-center-y="-56.667502"
+       transform="scale(1.1006455,0.90855776)"><tspan
+         sodipodi:role="line"
+         id="tspan4416-4-6-3-6"
+         x="202.57635"
+         y="310.48648"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.58886147px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.42505029">1</tspan></text>
+  </g>
 </svg>

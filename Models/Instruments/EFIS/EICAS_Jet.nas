@@ -28,7 +28,6 @@ var EICAS = {
 		m.SkInstance = canvas_softkeys.new(group.createChild('group'));
 
 		# create menus
-		var back = SkMenuPageActivateItem.new(0, m, "back1", 0, 0);
 		append(m.Menus, SkMenu.new(0, m, "MAIN"));
 		append(m.Menus, SkMenu.new(1, m, "SYSTEM 1/3"));
 		append(m.Menus, SkMenu.new(2, m, "SYSTEM 2/3"));

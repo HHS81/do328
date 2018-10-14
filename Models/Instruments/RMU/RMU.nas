@@ -19,13 +19,14 @@ var PageEnum = {frequencies:0,
 	engine1:5,
 	engine2:6,
 	atctcas:7,
-	maintenance:8,
-	strapsmenu:9,
-	straps:10,
-	software:11,
-	maintlogmenu:12,
-	maintlog:13,
-	rmusetup:14
+	mls:8,
+	maintenance:9,
+	strapsmenu:10,
+	straps:11,
+	software:12,
+	maintlogmenu:13,
+	maintlog:14,
+	rmusetup:15
 };
 
 ### RMU ###
@@ -45,6 +46,7 @@ var RMU = {
 		m.Pages[PageEnum.engine1] = canvas_engine1.new(group.createChild('group'), instance);
 		m.Pages[PageEnum.engine2] = canvas_engine2.new(group.createChild('group'), instance);
 		m.Pages[PageEnum.atctcas] = canvas_atctcas.new(group.createChild('group'), instance);
+		m.Pages[PageEnum.mls] = canvas_mls.new(group.createChild('group'), instance);
 		m.Pages[PageEnum.maintenance] = canvas_maintenance.new(group.createChild('group'), instance);
 		m.Pages[PageEnum.strapsmenu] = canvas_strapsmenu.new(group.createChild('group'), instance);
 		m.Pages[PageEnum.straps] = canvas_straps.new(group.createChild('group'), instance);
@@ -176,12 +178,16 @@ var rmuListener = setlistener("/sim/signals/fdm-initialized", func () {
 	setprop("instrumentation/rmu[1]/lighting", 1);
 	setprop("instrumentation/rmu[0]/offside", 0);
 	setprop("instrumentation/rmu[1]/offside", 0);
+	setprop("instrumentation/rmu[0]/mlsDsp", 0);
+	setprop("instrumentation/rmu[1]/mlsDsp", 0);
 	setprop("instrumentation/rmu[0]/atcId", 0);
 	setprop("instrumentation/rmu[1]/atcId", 0);
-	setprop("instrumentation/rmu[0]/tcasDisplay", 1);
-	setprop("instrumentation/rmu[1]/tcasDisplay", 1);
+	setprop("instrumentation/rmu[0]/tcasDsp", 1);
+	setprop("instrumentation/rmu[1]/tcasDsp", 1);
 	setprop("instrumentation/rmu[0]/tcasRange", 1);
 	setprop("instrumentation/rmu[1]/tcasRange", 1);
+	setprop("instrumentation/rmu[0]/autoBright", 0);
+	setprop("instrumentation/rmu[1]/autoBright", 0);
 
 	frequencyStorage();
 

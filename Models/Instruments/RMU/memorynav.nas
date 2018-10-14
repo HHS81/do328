@@ -4,10 +4,11 @@ var canvas_memorynav = {
 		var m = { parents: [canvas_memorynav] };
 		m.group = canvasGroup;
 		m.Instance = instance;
-		m.Tmp = 0;
 		m.Counter = 0;
 		m.ActiveRect = 0;
 		m.Offset = 0;
+		m.Step = 0;
+		m.Tmp = 0;
 
 		var font_mapper = func(family, weight)
 		{
@@ -51,6 +52,14 @@ var canvas_memorynav = {
 		me.comFreq.setText(sprintf("%.2f", getprop("instrumentation/nav["~me.Instance~"]/frequencies/selected-mhz")));
 	},
 	BtClick: func(input = -1) {
+		if(input == 0) {
+			# load
+			me.Tmp = getprop("instrumentation/rmu/memory/nav/mem["~(me.ActiveRect + me.Offset)~"]") or 0;
+
+			if(me.Tmp > 100) {
+				setprop("instrumentation/nav["~me.Instance~"]/frequencies/selected-mhz", me.Tmp);
+			}
+		}
 		if(input < 8) {
 			if(input == 2) {
 				me.ActiveRect = 0;
@@ -96,16 +105,9 @@ var canvas_memorynav = {
 		}
 		if(input == 9) {
 			# insert
-			me.Tmp = getprop("instrumentation/rmu/memory/nav/mem["~(me.ActiveRect + me.Offset)~"]") or 0;
-
-			if(me.Tmp < 100) {
-				me.Tmp = getprop("instrumentation/nav["~me.Instance~"]/frequencies/selected-mhz") or 0;
-				me["mem"~me.ActiveRect].setText(sprintf("%.2f", me.Tmp));
-				setprop("instrumentation/rmu/memory/nav/mem["~(me.ActiveRect + me.Offset)~"]", me.Tmp);
-			}
-			else {
-				setprop("instrumentation/nav["~me.Instance~"]/frequencies/selected-mhz", me.Tmp);
-			}
+			me.Tmp = getprop("instrumentation/nav["~me.Instance~"]/frequencies/selected-mhz") or 0;
+			me["mem"~me.ActiveRect].setText(sprintf("%.2f", me.Tmp));
+			setprop("instrumentation/rmu/memory/nav/mem["~(me.ActiveRect + me.Offset)~"]", me.Tmp);
 		}
 		if(input == 10) {
 			setprop("instrumentation/rmu["~me.Instance~"]/page", PageEnum.frequencies);
@@ -120,6 +122,21 @@ var canvas_memorynav = {
 		}
 	},
 	Knob: func(index = -1, input = -1) {
+		me.Step = 1;
+		me.Tmp = getprop("instrumentation/rmu/memory/nav/mem["~(me.ActiveRect + me.Offset)~"]") or 0;
+
+		if(me.Tmp > 100) {
+			if(index == 1) {
+				#step = 0.025;#wide
+				me.Step = 0.05;#narrow
+			}
+			me.Tmp += me.Step * input;
+
+			if(me.Tmp >= 108 and me.Tmp <= 117.95) {
+				me["mem"~me.ActiveRect].setText(sprintf("%.2f", me.Tmp));
+				setprop("instrumentation/rmu/memory/nav/mem["~(me.ActiveRect + me.Offset)~"]", me.Tmp);
+			}
+		}
 	},
 	show: func()
 	{

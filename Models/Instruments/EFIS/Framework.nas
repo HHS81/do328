@@ -105,7 +105,7 @@ var SkSwitchItem = {
 	}
 };
 
-# item which acts like a switch
+# item which is active for a limited time
 var SkTimerItem = {
 	new: func(id, device, title, path, timeout) {
 		var m = {parents: [SkTimerItem, SkItem.new(id, device, title)]};

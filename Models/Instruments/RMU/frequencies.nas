@@ -5,6 +5,8 @@ var canvas_frequencies = {
 		m.group = canvasGroup;
 		m.Instance = instance;
 		m.Id = instance;
+		m.Step = 0;
+		m.Tmp = 0;
 
 		var font_mapper = func(family, weight)
 		{
@@ -17,14 +19,15 @@ var canvas_frequencies = {
 				"memCom","memNav",
 				"com","comNum","nav","navNum",
 				"atc","adf1","adfNum",
-				"tcas","tcasNum"];
+				"tcas","tcasNum","tcasDsp",
+				"mls","mlsNum","mlsDsp"];
 		foreach(var key; svg_keys) {
 			m[key] = canvasGroup.getElementById(key);
 		}
 
 		var svg_rects = ["comStbyRect","navStbyRect","trspCodeRect",
 				"adfRect","trspModeRect"];
-		for(i=0; i<size(svg_rects); i=i+1) {
+		for(i=0; i<size(svg_rects); i+=1) {
 			m.rects[i] = canvasGroup.getElementById(svg_rects[i]);
 		}
 
@@ -37,6 +40,12 @@ var canvas_frequencies = {
 		# listen to all properties for cross side mode
 		setlistener("instrumentation/rmu[0]/offside", func{ me.update() });
 		setlistener("instrumentation/rmu[1]/offside", func{ me.update() });
+		setlistener("instrumentation/rmu[0]/mlsDsp", func{ me.update() });
+		setlistener("instrumentation/rmu[1]/mlsDsp", func{ me.update() });
+		setlistener("instrumentation/rmu[0]/atcId", func{ me.update() });
+		setlistener("instrumentation/rmu[1]/atcId", func{ me.update() });
+		setlistener("instrumentation/rmu[0]/tcasDsp", func{ me.update() });
+		setlistener("instrumentation/rmu[1]/tcasDsp", func{ me.update() });
 		setlistener("instrumentation/comm[0]/frequencies/selected-mhz", func{ me.update() });
 		setlistener("instrumentation/comm[1]/frequencies/selected-mhz", func{ me.update() });
 		setlistener("instrumentation/comm[0]/frequencies/standby-mhz", func{ me.update() });
@@ -86,6 +95,8 @@ var canvas_frequencies = {
 			me.adfFreq.setColor(white);
 			me.tcas.setColor(magenta);
 			me.tcasNum.setColor(magenta);
+			me.mls.setColor(magenta);
+			me.mlsNum.setColor(magenta);
 
 			me.Id = offsideId;
 		}
@@ -109,12 +120,15 @@ var canvas_frequencies = {
 			me.adfFreq.setColor(white);
 			me.tcas.setColor(white);
 			me.tcasNum.setColor(white);
+			me.mls.setColor(white);
+			me.mlsNum.setColor(white);
 		}
 
 		me.comNum.setText(sprintf("%d",me.Id+1));
 		me.navNum.setText(sprintf("%d",me.Id+1));
 		me.adfNum.setText(sprintf("%d",me.Id+1));
 		me.tcasNum.setText(sprintf("%d",me.Id+1));
+		me.mlsNum.setText(sprintf("%d",me.Id+1));
 		me.trspNum.setText("1");
 		me.memCom.setText("MEMORY-1");
 		me.memNav.setText("MEMORY-1");
@@ -124,6 +138,20 @@ var canvas_frequencies = {
 		me.navFreq.setText(sprintf("%.2f",getprop("instrumentation/nav["~me.Id~"]/frequencies/selected-mhz")));
 		me.navStby.setText(sprintf("%.2f",getprop("instrumentation/nav["~me.Id~"]/frequencies/standby-mhz")));
 		me.adfFreq.setText(sprintf("%d",getprop("instrumentation/adf["~me.Id~"]/frequencies/selected-khz")));
+
+		if(getprop("instrumentation/rmu["~me.Id~"]/mlsDsp") or 0) {
+			me.mlsDsp.show();
+		}
+		else {
+			me.mlsDsp.hide();
+		}
+
+		if(getprop("instrumentation/rmu["~me.Id~"]/tcasDsp") or 0) {
+			me.tcasDsp.show();
+		}
+		else {
+			me.tcasDsp.hide();
+		}
 	},
 	BtClick: func(input = -1) {
 		if(input == 0) {
@@ -165,52 +193,41 @@ var canvas_frequencies = {
 		me.update();
 	},
 	Knob: func(index = -1, input = -1) {
-		var step = 1;
+		me.Step = 1;
 
 		if(me.ActiveRect == 0) {
 			if(index == 1) {
 				#step = 0.025;#wide
-				step = 0.05;#narrow
+				me.Step = 0.05;#narrow
 			}
-			var freq = getprop("instrumentation/comm["~me.Id~"]/frequencies/standby-mhz");
-			if(input > 0) {
-				freq = freq + step;
-			}
-			else {
-				freq = freq - step;
-			}
-			if(freq >= 117.975 and freq <= 137) {
-				setprop("instrumentation/comm["~me.Id~"]/frequencies/standby-mhz", freq);
+			me.Tmp = getprop("instrumentation/comm["~me.Id~"]/frequencies/standby-mhz");
+			me.Tmp += me.Step * input;
+
+			if(me.Tmp >= 117.975 and me.Tmp <= 137) {
+				setprop("instrumentation/comm["~me.Id~"]/frequencies/standby-mhz", me.Tmp);
 			}
 		}
 		if(me.ActiveRect == 1) {
 			if(index == 1) {
-				step = 0.05;
+				#step = 0.025;#wide
+				me.Step = 0.05;#narrow
 			}
-			var freq = getprop("instrumentation/nav["~me.Id~"]/frequencies/standby-mhz");
-			if(input > 0) {
-				freq = freq + step;
-			}
-			else {
-				freq = freq - step;
-			}
-			if(freq >= 108 and freq <= 117.95) {
-				setprop("instrumentation/nav["~me.Id~"]/frequencies/standby-mhz", freq);
+			me.Tmp = getprop("instrumentation/nav["~me.Id~"]/frequencies/standby-mhz");
+			me.Tmp += me.Step * input;
+
+			if(me.Tmp >= 108 and me.Tmp <= 117.95) {
+				setprop("instrumentation/nav["~me.Id~"]/frequencies/standby-mhz", me.Tmp);
 			}
 		}
 		if(me.ActiveRect == 3) {
 			if(index == 0) {
-				step = 100;
+				me.Step = 100;
 			}
-			var freq = getprop("instrumentation/adf["~me.Id~"]/frequencies/selected-khz");
-			if(input > 0) {
-				freq = freq + step;
-			}
-			else {
-				freq = freq - step;
-			}
-			if(freq >= 180 and freq <= 1750) {
-				setprop("instrumentation/adf["~me.Id~"]/frequencies/selected-khz", freq);
+			me.Tmp = getprop("instrumentation/adf["~me.Id~"]/frequencies/selected-khz");
+			me.Tmp += me.Step * input;
+
+			if(me.Tmp >= 180 and me.Tmp <= 1750) {
+				setprop("instrumentation/adf["~me.Id~"]/frequencies/selected-khz", me.Tmp);
 			}
 		}
 		me.update();

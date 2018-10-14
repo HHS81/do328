@@ -106,14 +106,14 @@ var canvas_nd = {
 		m.map.setController(do328_controller);
 		index+=1;
 
-		m.timer = maketimer(0.1, m, m.update);
+		m.timer = maketimer(0.15, m, m.update);
 		return m;
 	},
 	update: func()
 	{
 		me.Tmp = hdg.getValue() or 0;
 
-		if(me.counter > 5 or math.abs(me.Tmp-me.oldHeading) > 0.3 or Range[me.index]!=me.range) {
+		if(1) { #me.counter > 5 or math.abs(me.Tmp-me.oldHeading) > 0.3 or Range[me.index]!=me.range) {
 			var hdg = hdgBug.getValue()-me.Tmp;
 			me.hdg.setText(sprintf("%3.0f", me.Tmp));
 			me.compass.setRotation(-me.Tmp*D2R);

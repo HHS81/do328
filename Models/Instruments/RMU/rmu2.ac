@@ -2829,7 +2829,7 @@ refs 4
 8 0.482595 0.372433
 kids 0
 OBJECT poly
-name "RMU2.half"
+name "RMU2.offside"
 crease 30.0
 texture "rmu.png"
 texrep 1 1
