@@ -517,9 +517,9 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>BtnNonEss1</object-name>
-		<property>instrumentation/nonEssBus1/serviceable</property>
-		<offset>4</offset>
-		<factor>0.029297</factor>
+		<property>systems/electrical/outputs/nonEssBus1</property>
+		<offset>96</offset>
+		<factor>0.00122</factor>
 		<axis>
 			<x>1</x>
 			<y>0</y>
@@ -576,9 +576,9 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>BtnNonEss2</object-name>
-		<property>instrumentation/nonEssBus2/serviceable</property>
-		<offset>6</offset>
-		<factor>0.029297</factor>
+		<property>systems/electrical/outputs/nonEssBus2</property>
+		<offset>144</offset>
+		<factor>0.00122</factor>
 		<axis>
 			<x>1</x>
 			<y>0</y>
@@ -595,7 +595,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>systems/electrical/DCTie/Connected</property>
+				<property>systems/electrical/DCTie/Switched</property>
 			</binding>
 		</action>
 	</animation>
@@ -624,7 +624,7 @@
 	<animation>
 		<type>translate</type>
 		<object-name>BtnDCTie</object-name>
-		<property>systems/electrical/DCTie/Connected</property>
+		<property>systems/electrical/DCTie/Switched</property>
 		<factor>0.001</factor>
 		<axis>
 			<x>0</x>

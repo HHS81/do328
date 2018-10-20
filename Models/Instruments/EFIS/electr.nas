@@ -29,6 +29,15 @@ var canvas_electr = {
 	},
 	update: func()
 	{
+		if(getprop("systems/electrical/outputs/nonEssBus1") > 0) {
+			me.NonEss1G.show();
+			me.NonEss1A.hide();
+		}
+		else {
+			me.NonEss1A.show();
+			me.NonEss1G.hide();
+		}
+
 		if(getprop("systems/electrical/outputs/nonEssBus2") > 0) {
 			me.NonEss2G.show();
 			me.NonEss2A.hide();

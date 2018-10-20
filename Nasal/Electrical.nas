@@ -251,6 +251,9 @@ var Bus = {
             if(me.Producers > 0) {
                 me.Device.setCurrent(me.Tmp / me.Producers);
             }
+            else {
+                me.Device.setCurrent(0);
+            }
         }
 
         # get new current
@@ -481,6 +484,7 @@ var Tie = {
     new: func(name, a, b) {
         obj = { parents: [Tie],
             Connected: props.globals.initNode(ELNode ~ name ~ "/Connected", 0, "BOOL"),
+            Switched: props.globals.initNode(ELNode ~ name ~ "/Switched", 0, "BOOL"),
             Voltage: 0,
             Current: 0,
             Bus1: a,
@@ -491,12 +495,21 @@ var Tie = {
         return obj;
     },
     setConnected: func(connected) {
-        me.Connected.setValue(connected);
+            me.Switched.setValue(connected);
     },
     update: func {
-        if(me.Connected.getValue()) {
-            me.updateCurrent();
-            me.updateVoltage();
+        if(me.Switched.getValue()) {
+            if(me.Bus1.getVoltage() > 25 or me.Bus2.getVoltage() > 25) {
+                me.Connected.setValue(1);
+                me.updateCurrent();
+                me.updateVoltage();
+	    }
+            else {
+                me.Connected.setValue(0);
+            }
+        }
+        else {
+            me.Connected.setValue(0);
         }
     },
     updateCurrent: func {
@@ -529,8 +542,8 @@ var acBus2 = Bus.new("ACBus2");
 var dcBus1 = Bus.new("DCBus1");
 var dcBus2 = Bus.new("DCBus2");
 var essBus = EssBus.new("EssBus", dcBus1, dcBus2);
-var nonEssBus1 = Consumer.new("nonEssBus1", 0, 17);
-var nonEssBus2 = Consumer.new("nonEssBus2", 0, 17);
+var nonEssBus1 = Consumer.new("nonEssBus1", 0, 25);
+var nonEssBus2 = Consumer.new("nonEssBus2", 0, 25);
 
 # ties
 var dctie = Tie.new("DCTie", dcBus1, dcBus2);
@@ -577,6 +590,11 @@ var nav = Consumer.new("nav", 1, 18);
 var adf = Consumer.new("adf", 1, 18);
 var dme = Consumer.new("dme", 1, 18);
 var transponder = Consumer.new("transponder", 1, 18);
+var efis = Consumer.new("efis", 10, 18.01); # name, amps, required volts
+var cdu = Consumer.new("cdu", 2, 18);
+var mkviii = Consumer.new("mk-viii", 1, 18);
+var gps = Consumer.new("gps", 1, 18);
+var turn = Consumer.new("turn-coordinator", 1, 18);
 essBus.append(rmu);
 essBus.append(comm);
 essBus.append(comm1);
@@ -584,18 +602,13 @@ essBus.append(nav);
 essBus.append(adf);
 essBus.append(dme);
 essBus.append(transponder);
+essBus.append(efis);
+essBus.append(cdu);
+essBus.append(mkviii);
+essBus.append(gps);
+essBus.append(turn);
 
 # consumers non-ess
-var efis = Consumer.new("efis", 10, 18.01); # name, amps, required volts
-var cdu = Consumer.new("cdu", 2, 18);
-var mkviii = Consumer.new("mk-viii", 1, 18);
-var gps = Consumer.new("gps", 1, 18);
-var turn = Consumer.new("turn-coordinator", 1, 18);
-nonEssBus1.append(efis);
-nonEssBus1.append(cdu);
-nonEssBus1.append(mkviii);
-nonEssBus1.append(gps);
-nonEssBus1.append(turn);
 
 # no separate switch
 setprop("instrumentation/efis/serviceable", 1);
