@@ -64,17 +64,6 @@
 		</condition>
 	</animation>
 	<animation>
-		<type>select</type>
-		<object-name>PFD1_Screen</object-name>
-		<object-name>PFD2_Screen</object-name>
-		<object-name>MFD1_Screen</object-name>
-		<object-name>MFD2_Screen</object-name>
-		<object-name>EICAS_Screen</object-name>
-		<condition>
-			<property>systems/electrical/outputs/efis</property>
-		</condition>
-	</animation>
-	<animation>
 		<type>pick</type>
 		<object-name>PFD1_BT_Circle</object-name>
 		<action>
