@@ -322,6 +322,8 @@
     <!-- real control -->
     <filter>
         <name>Elevator Trim Slow Down</name>
+        <type>noise-spike</type>
+        <max-rate-of-change>0.1</max-rate-of-change>
         <debug>false</debug>
         <feedback-if-disabled>true</feedback-if-disabled>
         <initialize-to>output</initialize-to>
@@ -332,8 +334,6 @@
             <property>controls/flight/elevator-trim-ideal</property>
         </input>
         <output>controls/flight/elevator-trim</output>
-        <type>noise-spike</type>
-        <max-rate-of-change>0.1</max-rate-of-change>
     </filter>
 
     <!-- =============================================================== -->

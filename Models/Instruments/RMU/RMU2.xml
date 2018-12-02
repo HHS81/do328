@@ -7,51 +7,10 @@
 
 <!--#########  Screens/Lamps ########## -->
 
-    <animation>
-	<type>select</type>
-	<object-name>RMU2.screen</object-name>
-	<condition>
-		<property>systems/electrical/outputs/rmu</property>
-	</condition>
-    </animation>
-    <animation>
-	<type>material</type>
-	<object-name>RMU2.screen</object-name>
-	<ambient>
-		<red>1</red>
-		<green>1</green>
-		<blue>1</blue>
-		<factor-prop>instrumentation/rmu[1]/lighting</factor-prop>
-	</ambient>
-	<diffuse>
-		<red>1</red>
-		<green>1</green>
-		<blue>1</blue>
-		<factor-prop>instrumentation/rmu[1]/lighting</factor-prop>
-	</diffuse>
-	<emission>
-		<red>1</red>
-		<green>1</green>
-		<blue>1</blue>
-		<factor-prop>instrumentation/rmu[1]/lighting</factor-prop>
-	</emission>
-    </animation>
-
-    <animation>
-	<type>material</type>
-	<object-name>RMU2.lamp</object-name>
-	<condition>
-		<or>
-			<property>systems/electrical/left-emer-bus</property>
-			<property>systems/electrical/left-bus-norm</property>
-		</or>
-	</condition>
-	<emission>
-		<red>0</red>
-		<green>1</green>
-		<blue>0</blue>
-	</emission>
-    </animation>
+    <effect>
+        <inherits-from>Aircraft/do328/Models/Effects/do328-lcd2</inherits-from>
+        <object-name>RMU2.screen</object-name>
+    </effect>
 
 <!--#########  Upper Buttons ########## -->
 

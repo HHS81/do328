@@ -37,7 +37,6 @@ var RMU = {
 		m.knob = 0;
 		m.knob1 = 0;
 
-		canvas.parsesvg(group.createChild('group'), "Aircraft/do328/Models/Instruments/RMU/background.svg");
 		m.Pages[PageEnum.frequencies] = canvas_frequencies.new(group.createChild('group'), instance);
 		m.Pages[PageEnum.pagemenu] = canvas_pagemenu.new(group.createChild('group'), instance);
 		m.Pages[PageEnum.memorycom] = canvas_memorycom.new(group.createChild('group'), instance);
@@ -57,7 +56,6 @@ var RMU = {
 		m.DisplayDim = canvas_displaydim.new(group.createChild('group'), instance);
 		m.DisplayDim.hide();
 		m.DimActive = 0;
-		canvas.parsesvg(group.createChild('group'), "Aircraft/do328/Models/Instruments/RMU/mask.svg");
 
 		setlistener("instrumentation/rmu["~m.Instance~"]/page", func {
 			var page = getprop("instrumentation/rmu["~m.Instance~"]/page");

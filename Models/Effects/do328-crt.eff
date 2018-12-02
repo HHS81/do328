@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PropertyList>
-	<name>do328-display</name>
-<!--	<inherits-from>Effects/model-default</inherits-from> -->
-
+	<name>do328-crt</name>
 	<parameters>
-		<!-- Reflection -->
+		<!-- Dirt -->
 		<texture n="4">
 			<image>Aircraft/do328/Models/Effects/fingerprints.jpg</image>
 			<type>2d</type>
@@ -47,7 +45,7 @@
 
 	<technique n="5">
 		<pass>
-			<!-- Diffuse texture unit-->
+			<!-- Base texture unit-->
 			<texture-unit>
 				<unit>0</unit>
 				<type><use>texture[0]/type</use></type>
@@ -57,7 +55,7 @@
 				<wrap-t><use>texture[0]/wrap-t</use></wrap-t>
 				<internal-format><use>texture[0]/internal-format</use></internal-format>
 			</texture-unit>
-			<!-- ReflectMap texture unit-->
+			<!-- Dirt texture unit-->
 			<texture-unit>
 				<unit>1</unit>
 				<image><use>texture[4]/image</use></image>
@@ -86,7 +84,7 @@
 
 			<program>
 				<vertex-shader>Shaders/reflect.vert</vertex-shader>
-				<fragment-shader>Aircraft/do328/Models/Effects/do328-display.frag</fragment-shader>
+				<fragment-shader>Aircraft/do328/Models/Effects/do328-crt.frag</fragment-shader>
 			</program>
 
 			<uniform>
@@ -95,7 +93,7 @@
 				<value type="int">0</value>
 			</uniform>
 			<uniform>
-				<name>ReflMapTex</name>
+				<name>DirtTex</name>
 				<type>sampler-2d</type>
 				<value type="int">1</value>
 			</uniform>
@@ -113,11 +111,6 @@
 				<name>display_enabled</name>
 				<type>int</type>
 				<value><use>display-enabled</use></value>
-			</uniform>
-			<uniform>
-				<name>FOV</name>
-				<type>float</type>
-				<value><use>field-of-view</use></value>
 			</uniform>
 		</pass>
 	</technique>

@@ -11,15 +11,11 @@ var canvas_software = {
 		};
 		canvas.parsesvg(canvasGroup, "Aircraft/do328/Models/Instruments/RMU/software.svg", {'font-mapper': font_mapper});
 
-		var svg_keys = ["fgversion","osgversion","glversion", "glslversion"];
+		var svg_keys = ["title"];
 		foreach(var key; svg_keys) {
 			m[key] = canvasGroup.getElementById(key);
 		}
-
-		m.fgversion.setText(getprop("sim/version/flightgear"));
-		m.osgversion.setText(getprop("sim/version/openscenegraph"));
-		m.glversion.setText(getprop("sim/rendering/gl-version"));
-		m.glslversion.setText(getprop("sim/rendering/gl-shading-language-version"));
+		m.title.setText(sprintf("SOFTWARE^VERSIONS^SYS^%d", m.Instance+1));
 
 		return m;
 	},

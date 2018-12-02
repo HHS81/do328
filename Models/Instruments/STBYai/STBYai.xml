@@ -1,85 +1,106 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 Standby Gyro
 Syd Adams
 -->
 <PropertyList>
-
-<path>STBYai.ac</path>
-
-    <animation>
-        <type>texmultiple</type>
-        <object-name>STBYai.ball</object-name>
-        <transform>
+	<path>STBYai.ac</path>
+	<animation>
+		<type>material</type>
+		<object-name>STBYai.ball</object-name>
+		<object-name>STBYai.rollneedle</object-name>
+		<object-name>cage.flag</object-name>
+		<condition>
+			<or>
+				<property>systems/electrical/left-emer-bus</property>
+				<property>systems/electrical/left-bus-norm</property>
+			</or>
+		</condition>
+		<emission>
+			<red>1</red>
+			<green>1</green>
+			<blue>1</blue>
+			<factor-prop>controls/lighting/instruments-norm</factor-prop>
+		</emission>
+	</animation>
+	<animation>
+		<type>texmultiple</type>
+		<object-name>STBYai.ball</object-name>
+		<transform>
+			<!--
             <property>instrumentation/attitude-indicator/indicated-pitch-deg</property>
-            <subtype>textranslate</subtype>
-            <factor>0.00423</factor>
-            <axis>
-                <x>0</x>
-                <y>1</y>
-                <z>0</z>
-            </axis>
-        </transform>
-        <transform>
+-->
+			<property>orientation/pitch-deg</property>
+			<subtype>textranslate</subtype>
+			<factor>0.00423</factor>
+			<axis>
+				<x>0</x>
+				<y>1</y>
+				<z>0</z>
+			</axis>
+		</transform>
+		<transform>
+			<!--
             <property>instrumentation/attitude-indicator/indicated-roll-deg</property>
-            <subtype>texrotate</subtype>
-            <center>
-                <x>0.25</x>
-                <y>0.50</y>
-            </center>
-            <axis>
-                <x>0</x>
-                <y>0</y>
-                <z>-1</z>
-            </axis>
-        </transform>
-    </animation>
-
-    <animation>
-        <type>rotate</type>
-        <object-name>STBYai.rollneedle</object-name>
+-->
+			<property>orientation/roll-deg</property>
+			<subtype>texrotate</subtype>
+			<center>
+				<x>0.25</x>
+				<y>0.50</y>
+			</center>
+			<axis>
+				<x>0</x>
+				<y>0</y>
+				<z>-1</z>
+			</axis>
+		</transform>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>STBYai.rollneedle</object-name>
+		<!--
         <property>instrumentation/attitude-indicator/indicated-roll-deg</property>
-        <axis>
-            <x>1</x>
-            <y>0</y>
-            <z>0</z>
-        </axis>
-        <center>
-            <x-m>0</x-m>
-            <y-m>0</y-m>
-            <z-m>0</z-m>
-        </center>
-    </animation>
-
-    <animation>
-        <type>rotate</type>
-        <object-name>cage.flag</object-name>
-        <property>instrumentation/attitude-indicator/caged-flag</property>
-        <factor>35</factor>
-        <axis>
-            <x>-1</x>
-            <y>0</y>
-            <z>0</z>
-        </axis>
-        <center>
-            <x-m>0</x-m>
-            <y-m>0.031</y-m>
-            <z-m>0.013</z-m>
-        </center>
-    </animation>
-
-    <animation>
-        <type>pick</type>
-        <object-name>STBYai.cage</object-name>
-        <visible>true</visible>
-        <action>
-            <button>0</button>
-            <repeatable>false</repeatable>
-            <binding>
-                <command>property-toggle</command>
-                <property>instrumentation/attitude-indicator/caged-flag</property>
-            </binding>
-        </action>
-    </animation>
-
+-->
+		<property>orientation/roll-deg</property>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0</y-m>
+			<z-m>0</z-m>
+		</center>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>cage.flag</object-name>
+		<property>instrumentation/attitude-indicator/caged-flag</property>
+		<factor>35</factor>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0.031</y-m>
+			<z-m>0.013</z-m>
+		</center>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>STBYai.cage</object-name>
+		<visible>true</visible>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>instrumentation/attitude-indicator/caged-flag</property>
+			</binding>
+		</action>
+	</animation>
 </PropertyList>

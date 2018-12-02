@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PropertyList>
+	<name>do328-lcd</name>
+	<parameters>
+		<!-- Dirt -->
+		<texture n="4">
+			<image>Aircraft/do328/Models/Effects/dust.jpg</image>
+			<type>2d</type>
+			<filter>linear-mipmap-linear</filter>
+			<wrap-s>clamp</wrap-s>
+			<wrap-t>clamp</wrap-t>
+			<internal-format>normalized</internal-format>
+		</texture>
+		<display-enabled type="int">
+			<use>systems/electrical/outputs/efis</use>
+		</display-enabled>
+		<display-brightness type="float">
+			<use>instrumentation/rmu[0]/lighting</use>
+		</display-brightness>
+	</parameters>
+
+	<technique n="5">
+		<pass>
+			<!-- Base texture unit-->
+			<texture-unit>
+				<unit>0</unit>
+				<type><use>texture[0]/type</use></type>
+				<image><use>texture[0]/image</use></image>
+				<filter><use>texture[0]/filter</use></filter>
+				<wrap-s><use>texture[0]/wrap-s</use></wrap-s>
+				<wrap-t><use>texture[0]/wrap-t</use></wrap-t>
+				<internal-format><use>texture[0]/internal-format</use></internal-format>
+			</texture-unit>
+			<!-- Dirt texture unit-->
+			<texture-unit>
+				<unit>1</unit>
+				<image><use>texture[4]/image</use></image>
+				<type><use>texture[4]/type</use></type>
+				<filter><use>texture[4]/filter</use></filter>
+				<wrap-s><use>texture[4]/wrap-s</use></wrap-s>
+				<wrap-t><use>texture[4]/wrap-t</use></wrap-t>
+				<internal-format><use>texture[4]/internal-format</use></internal-format>
+			</texture-unit>
+
+			<program>
+				<vertex-shader>Shaders/reflect.vert</vertex-shader>
+				<fragment-shader>Aircraft/do328/Models/Effects/do328-lcd.frag</fragment-shader>
+			</program>
+
+			<uniform>
+				<name>BaseTex</name>
+				<type>sampler-2d</type>
+				<value type="int">0</value>
+			</uniform>
+			<uniform>
+				<name>DirtTex</name>
+				<type>sampler-2d</type>
+				<value type="int">1</value>
+			</uniform>
+			<uniform>
+				<name>display_enabled</name>
+				<type>int</type>
+				<value><use>display-enabled</use></value>
+			</uniform>
+			<uniform>
+				<name>display_brightness</name>
+				<type>float</type>
+				<value><use>display-brightness</use></value>
+			</uniform>
+		</pass>
+	</technique>
+</PropertyList>
