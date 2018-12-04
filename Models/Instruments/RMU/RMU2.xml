@@ -11,6 +11,28 @@
         <inherits-from>Aircraft/do328/Models/Effects/do328-lcd2</inherits-from>
         <object-name>RMU2.screen</object-name>
     </effect>
+    <animation>
+	<type>material</type>
+	<object-name>RMU2.screen</object-name>
+	<ambient>
+		<red>1</red>
+		<green>1</green>
+		<blue>1</blue>
+		<factor-prop>systems/electrical/outputs/rmu</factor-prop>
+	</ambient>
+	<diffuse>
+		<red>1</red>
+		<green>1</green>
+		<blue>1</blue>
+		<factor-prop>systems/electrical/outputs/rmu</factor-prop>
+	</diffuse>
+	<emission>
+		<red>1</red>
+		<green>1</green>
+		<blue>1</blue>
+		<factor-prop>systems/electrical/outputs/rmu</factor-prop>
+	</emission>
+    </animation>
 
 <!--#########  Upper Buttons ########## -->
 

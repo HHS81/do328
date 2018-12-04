@@ -9,6 +9,32 @@
 		<object-name>MFD2_Screen</object-name>
 		<object-name>EICAS_Screen</object-name>
 	</effect>
+	<animation>
+		<type>material</type>
+		<object-name>PFD1_Screen</object-name>
+		<object-name>PFD2_Screen</object-name>
+		<object-name>MFD1_Screen</object-name>
+		<object-name>MFD2_Screen</object-name>
+		<object-name>EICAS_Screen</object-name>
+		<ambient>
+			<red>1</red>
+			<green>1</green>
+			<blue>1</blue>
+			<factor-prop>systems/electrical/outputs/efis</factor-prop>
+		</ambient>
+		<diffuse>
+			<red>1</red>
+			<green>1</green>
+			<blue>1</blue>
+			<factor-prop>systems/electrical/outputs/efis</factor-prop>
+		</diffuse>
+		<emission>
+			<red>1</red>
+			<green>1</green>
+			<blue>1</blue>
+			<factor-prop>systems/electrical/outputs/efis</factor-prop>
+		</emission>
+	</animation>
 	<model>
 		<name>FlightDeck</name>
 		<path>Aircraft/do328/Models/ohp.xml</path>
