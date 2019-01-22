@@ -12,7 +12,7 @@
    viewBox="0 0 799.99999 950.00001"
    id="svg4208"
    version="1.1"
-   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"
+   inkscape:version="0.91 r13725"
    sodipodi:docname="nd.svg">
   <metadata
      id="metadata100">
@@ -34,15 +34,15 @@
      guidetolerance="10"
      inkscape:pageopacity="1"
      inkscape:pageshadow="2"
-     inkscape:window-width="1920"
-     inkscape:window-height="1016"
+     inkscape:window-width="1366"
+     inkscape:window-height="711"
      id="namedview50"
      showgrid="false"
-     inkscape:zoom="2.2778947"
-     inkscape:cx="571.73642"
-     inkscape:cy="435.96085"
+     inkscape:zoom="0.4026787"
+     inkscape:cx="-192.05356"
+     inkscape:cy="645.82927"
      inkscape:window-x="0"
-     inkscape:window-y="27"
+     inkscape:window-y="0"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg4208"
      units="px"
@@ -278,7 +278,8 @@
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:50.79999924px;line-height:0%;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;display:inline;fill:#ff00ff;fill-opacity:1;stroke:none"
      x="721.0556"
      y="74.658203"
-     id="text5132"><tspan
+     id="navMode"
+     sodipodi:linespacing="0%"><tspan
        id="tspan5134"
        x="696.09375"
        y="74.658203"

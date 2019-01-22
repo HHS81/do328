@@ -178,14 +178,14 @@ var rmuListener = setlistener("/sim/signals/fdm-initialized", func () {
 	setprop("instrumentation/rmu[1]/offside", 0);
 	setprop("instrumentation/rmu[0]/mlsDsp", 0);
 	setprop("instrumentation/rmu[1]/mlsDsp", 0);
-	setprop("instrumentation/rmu[0]/atcId", 0);
-	setprop("instrumentation/rmu[1]/atcId", 0);
+	setprop("instrumentation/rmu[0]/atcId", 1);
+	setprop("instrumentation/rmu[1]/atcId", 1);
 	setprop("instrumentation/rmu[0]/tcasDsp", 1);
 	setprop("instrumentation/rmu[1]/tcasDsp", 1);
 	setprop("instrumentation/rmu[0]/tcasRange", 1);
 	setprop("instrumentation/rmu[1]/tcasRange", 1);
-	setprop("instrumentation/rmu[0]/autoBright", 0);
-	setprop("instrumentation/rmu[1]/autoBright", 0);
+#	setprop("instrumentation/rmu[0]/autoBright", 0);
+#	setprop("instrumentation/rmu[1]/autoBright", 0);
 
 	frequencyStorage();
 

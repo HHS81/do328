@@ -1,13 +1,14 @@
 #version 120
 
-//varying vec3 VNormal;
-//varying vec3 vViewVec;
-//varying vec3 reflVec;
+varying vec3 VNormal;
+varying vec3 vViewVec;
+varying vec3 reflVec;
 
 uniform sampler2D BaseTex;
 uniform sampler2D DirtTex;
 
 uniform int display_enabled;
+uniform int display_autobright;
 uniform float display_brightness;
 
 vec3 rgb2hsv(vec3 c)
@@ -28,9 +29,23 @@ vec3 hsv2rgb(vec3 c)
 	return c.z * mix(K.xxx, clamp(p - K.xxx, 0.0, 1.0), c.y);
 }
 
+float specular()
+{
+	float NdotL;
+	vec4 specular = vec4(0.0);
+	vec3 n = normalize(VNormal);
+	vec3 lightDir = gl_LightSource[0].position.xyz;
+	vec3 halfVector = normalize(gl_LightSource[0].halfVector.xyz);
+
+	NdotL = max(dot(n, lightDir), 0.0);
+
+	return NdotL;
+}
+
 void main(void)
 {
 	vec3 texel = vec3(0.0, 0.0, 0.0);
+	float brightness = display_brightness;
 
 	if(display_enabled > 0) {
 		// get texel from texture
@@ -39,8 +54,13 @@ void main(void)
 		// the following operations can only be done in hsv scope
 		texel = rgb2hsv(texel);
 
+		if(display_autobright > 0) {
+			brightness = 0.4 + 0.6 * specular();
+			if(brightness > 1.0) brightness = 1.0;
+		}
+
 		// apply brightness
-		texel.z *= display_brightness;
+		texel.z *= brightness;
 
 		// make dark pixels black to avoid problems when making them too bright
 		if(texel.z < 0.1) texel.y = 0;

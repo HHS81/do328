@@ -15,6 +15,9 @@
 		<display-enabled type="int">
 			<use>systems/electrical/outputs/efis</use>
 		</display-enabled>
+		<display-autobright type="int">
+			<use>instrumentation/rmu[1]/autoBright</use>
+		</display-autobright>
 		<display-brightness type="float">
 			<use>instrumentation/rmu[1]/lighting</use>
 		</display-brightness>
@@ -80,6 +83,11 @@
 				<name>display_enabled</name>
 				<type>int</type>
 				<value><use>display-enabled</use></value>
+			</uniform>
+			<uniform>
+				<name>display_autobright</name>
+				<type>int</type>
+				<value><use>display-autobright</use></value>
 			</uniform>
 			<uniform>
 				<name>display_brightness</name>

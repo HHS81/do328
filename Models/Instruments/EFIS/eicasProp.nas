@@ -19,7 +19,7 @@ var canvas_eicas = {
 		canvas.parsesvg(canvasGroup, "Aircraft/do328/Models/Instruments/EFIS/eicasProp.svg", {'font-mapper': font_mapper});
 		
 		var svg_keys = ["msgMemo","msgWarning","msgCaution","msgAdvisory",
-				"readout_tq1","readout_tq2","dial_tq1","dial_tq2",
+				"readout_tq1","readout_tq2","dial_tq1","dial_tq2","dial_at1","dial_at2",
 				"readout_np1","readout_np2","dial_np1","dial_np2",
 				"readout_itt1","readout_itt2","dial_itt1","dial_itt2",
 				"readout_nh1","readout_nh2","dial_nh1","dial_nh2",
@@ -52,6 +52,8 @@ var canvas_eicas = {
 		m.msgCaution.setText("");
 		m.msgAdvisory.setText("");
 
+		m.dial_at1.setRotation(90*D2R);
+
 		m.timer = maketimer(0.1, m, m.update);
 		return m;
 	},
@@ -67,6 +69,10 @@ var canvas_eicas = {
 	},
 	updateFast: func()
 	{
+		me.tmp = getprop("autopilot/settings/target-throttle") or 0;
+		me.dial_at1.setRotation(270 * D2R * me.tmp);
+		me.dial_at2.setRotation(270 * D2R * me.tmp);
+
 		for(me.n = 0; me.n<2; me.n+=1) {
 			# engine dials
 			me["dial_tq"~(me.n+1)].setRotation((270/100) * D2R *

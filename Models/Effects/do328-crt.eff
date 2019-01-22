@@ -39,9 +39,9 @@
 		<display-enabled type="int">
 			<use>systems/electrical/outputs/efis</use>
 		</display-enabled>
-		<field-of-view type="float">
-			<use>sim/current-view/field-of-view</use>
-		</field-of-view>
+		<view-y type="float"> <!-- views have different coordinate system -->
+			<use>sim/current-view/x-offset-m</use>
+		</view-y>
 	</parameters>
 
 	<technique n="5">
@@ -130,6 +130,11 @@
 				<name>display_enabled</name>
 				<type>int</type>
 				<value><use>display-enabled</use></value>
+			</uniform>
+			<uniform>
+				<name>view_y</name>
+				<type>float</type>
+				<value><use>view-y</use></value>
 			</uniform>
 		</pass>
 	</technique>

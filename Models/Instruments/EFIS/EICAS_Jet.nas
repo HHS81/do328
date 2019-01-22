@@ -86,11 +86,13 @@ var EICAS = {
 		m.Menus[5].AddItem(SkItem.new(6, m, "MSG"));
 
 		m.Menus[6].AddItem(SkMenuActivateItem.new(0, m, "", 4)); # back
+		m.Menus[6].AddItem(SkItem.new(4, m, "L100.0\nR100.0"));
 		m.Menus[6].AddItem(SkItem.new(6, m, "MSG"));
 
 		m.Menus[7].AddItem(SkMenuActivateItem.new(0, m, "", 4)); # back
-		m.Menus[7].AddItem(SkItem.new(1, m, "VC\n239", 1));
-		m.Menus[7].AddItem(SkItem.new(3, m, "VSTD\n180", 1));
+		m.Menus[7].AddItem(SkItem.new(1, m, "VSTD\n250", 1));
+		m.Menus[7].AddItem(SkItem.new(2, m, "VLRNG\n200", 1));
+		m.Menus[7].AddItem(SkItem.new(3, m, "VMRNG\n200", 1));
 		m.Menus[7].AddItem(SkItem.new(4, m, "L 80.7\nR 80.7", 1));
 		m.Menus[7].AddItem(SkItem.new(6, m, "MSG"));
 

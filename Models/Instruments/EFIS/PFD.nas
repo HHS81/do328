@@ -24,14 +24,14 @@ var canvas_PFD = {
 		var svg_keys = ["altTape","altText","altMeters","bankPointer","baroSet","circIndicator","circNeedle",
 				"circSource","compass","curAlt1","curAlt2","curAlt3","curAltBox","curSpd","curSpdTen",
 				"fdX","fdY","gpwsAlert","ground","gsPtr","gsScale","horizon","locPtr","locScale",
-				"machText","markerBeacon","markerBeaconText","maxSpdInd","minSpdInd","pitchMode",
-				"rhombIndicator","rhombNeedle","rhombSource","rollMode","selHdgText","spdTape",
+				"machText","markerBeacon","markerBeaconText","maxSpdInd","minSpdInd",
+				"LMode","LArmed","VMode","VArmed","crsNeedle","crsPtr","fmsNeedle","fmsPtr",
+				"rhombIndicator","rhombNeedle","rhombSource","selHdgText","spdTape",
 				"spdTrend","speedText","tenThousand","v1","v2","vc","vcl","vertSpd","vr","vref",
 				"vsiNeedle"];
 		foreach(var key; svg_keys) {
 			m[key] = canvas_group.getElementById(key);
 		}
-		debug.dump(m.horizon.getCenter());
 		m.h_trans = m.horizon.createTransform();
 		m.h_rot = m.horizon.createTransform();
 		
@@ -56,14 +56,27 @@ var canvas_PFD = {
 		m.ground.createTransform().setTranslation(center[0], center[1]);
 		m.ground_scale.setScale(1,0);
 
-		setlistener("autopilot/locks/passive-mode",            func { m.update_ap_modes() } );
-		setlistener("autopilot/locks/altitude",                func { m.update_ap_modes() } );
-		setlistener("autopilot/locks/heading",                 func { m.update_ap_modes() } );
-		setlistener("autopilot/locks/speed",                   func { m.update_ap_modes() } );
+		setlistener("autopilot/locks/passive-mode", func { m.update_ap_modes() } );
+		setlistener("autopilot/locks/altitude",     func { m.update_ap_modes() } );
+		setlistener("autopilot/locks/heading",      func { m.update_ap_modes() } );
+		setlistener("autopilot/locks/speed",        func { m.update_ap_modes() } );
+
+		m.pitch = 0;
+		m.roll = 0;
+		m.hdg = 0;
+		m.vSpd = 0;
+		m.wow = 0;
+		m.apAlt = 0;
+		m.apSpd = 0;
+		m.wow = 0;
+		m.flaps = 0;
+		m.dh = 0;
+		m.pfdCircle = 0;
+		m.pfdRhombus = 0;
 
 		m.Instance = instance;
 		m.update_ap_modes();
-		m.timer = maketimer(0.1, m, m.update);
+		m.timer = maketimer(0.2, m, m.update);
 		m.timer.start();
 		m.update();
 		return m;
@@ -112,7 +125,27 @@ var canvas_PFD = {
 		
 		me.bankPointer.setRotation(-me.roll*D2R);
 		me.compass.setRotation(-me.hdg*D2R);
-			
+
+		if(getprop("autopilot/settings/nav-mode") == "FMS") {
+			me.fmsNeedle.show();
+			me.fmsPtr.show();;
+			me.crsNeedle.hide();
+			me.crsPtr.hide();
+		}
+		else {
+			me.crsNeedle.show();
+			me.crsPtr.show();
+			me.fmsNeedle.hide();
+			me.fmsPtr.hide();
+			me.crsNeedle.setRotation(getprop("instrumentation/nav["~me.Instance~"]/radials/selected-deg")*D2R);
+			if((getprop("instrumentation/nav["~me.Instance~"]/signal-quality-norm") or 0) > 0.95) {
+				me.crsPtr.setTranslation(getprop("instrumentation/nav/heading-needle-deflection-norm")*95, 0);
+			}
+			else {
+				me.crsPtr.setTranslation(0, 0);
+			}
+		}
+
 		# Flight director
 		if(getprop("autopilot/internal/show-bars") or 0) {
 			me.fdRoll = me.roll - (getprop("autopilot/internal/target-roll-deg") or 0)*10.5;
@@ -358,8 +391,10 @@ var canvas_PFD = {
 	update_ap_modes: func()
 	{
 		# Modes
-		me.rollMode.setText(getprop("autopilot/locks/heading"));
-		me.pitchMode.setText(getprop("autopilot/locks/altitude"));
+		me.LMode.setText(getprop("autopilot/locks/heading"));
+		me.LArmed.setText(getprop("autopilot/locks/heading-arm"));
+		me.VMode.setText(getprop("autopilot/locks/altitude"));
+		me.VArmed.setText(getprop("autopilot/locks/altitude-arm"));
 	}
 };
 

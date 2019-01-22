@@ -68,7 +68,6 @@ var canvas_nd = {
 		m.group = canvasGroup;
 		m.map = canvasGroup.createChild('map');
 		m.index = index;
-		m.counter = 0;
 		m.Tmp = 0;
 		m.oldHeading = 0;
 		m.range = Range[0];
@@ -84,7 +83,7 @@ var canvas_nd = {
 
 		var svg_keys = ["compass","hdg","hdgBug","arrowL","arrowR","range1","range2",
 				"hdgText","satText","tasText","gsText","wpBearingText",
-				"wpDistText","wpIdText","eteText"];
+				"wpDistText","wpIdText","eteText","navMode"];
 		foreach(var key; svg_keys) {
 			m[key] = canvasGroup.getElementById(key);
 		}
@@ -106,70 +105,65 @@ var canvas_nd = {
 		m.map.setController(do328_controller);
 		index+=1;
 
-		m.timer = maketimer(0.15, m, m.update);
+		m.timer = maketimer(0.2, m, m.update);
 		return m;
 	},
 	update: func()
 	{
 		me.Tmp = hdg.getValue() or 0;
+		me.hdg.setText(sprintf("%3.0f", me.Tmp));
+		me.compass.setRotation(-me.Tmp*D2R);
+		me.oldHeading = me.Tmp;
 
-		if(1) { #me.counter > 5 or math.abs(me.Tmp-me.oldHeading) > 0.3 or Range[me.index]!=me.range) {
-			var hdg = hdgBug.getValue()-me.Tmp;
-			me.hdg.setText(sprintf("%3.0f", me.Tmp));
-			me.compass.setRotation(-me.Tmp*D2R);
-			me.oldHeading = me.Tmp;
+		me.Tmp = hdgBug.getValue() - me.Tmp;
+		if(me.Tmp < -180) me.Tmp = me.Tmp + 360;
+		if(me.Tmp < 50 and me.Tmp > -50) {
+			me.hdgBug.setRotation(me.Tmp * D2R);
+			me.hdgBug.show();
+			me.arrowL.hide();
+			me.arrowR.hide();
+		}
+		else {
+			me.hdgBug.hide();
 
-			if(hdg < -180) hdg = hdg + 360;
-			if(hdg < 50 and hdg > -50) {
-				me.hdgBug.setRotation(hdg*D2R);
-				me.hdgBug.show();
+			if(me.Tmp < 180 and me.Tmp > 0) {
+				me.arrowR.show();
 				me.arrowL.hide();
+			}
+			else {
+				me.arrowL.show();
 				me.arrowR.hide();
 			}
-			else {
-				me.hdgBug.hide();
-
-				if(hdg < 180 and hdg > 0) {
-					me.arrowR.show();
-					me.arrowL.hide();
-				}
-				else {
-					me.arrowL.show();
-					me.arrowR.hide();
-				}
-			}
-
-			setprop("instrumentation/efis/trigger_nd"~me.index, 1);
-			me.range = Range[me.index];
-			if(me.range == 0 or me.range == 2) {
-				me.range1.setText(sprintf("%2.1f", scales[me.range]));
-				me.range2.setText(sprintf("%2.1f", scales[me.range]));
-			}
-			else {
-				me.range1.setText(sprintf("%d", scales[me.range]));
-				me.range2.setText(sprintf("%d", scales[me.range]));
-			}
-
-			me.Tmp = getprop("autopilot/route-manager/wp/dist") or 0;
-
-			if(me.Tmp < 10) {
-				me.wpDistText.setText(sprintf("%2.1f", me.Tmp));
-			}
-			else {
-				me.wpDistText.setText(sprintf("%d", me.Tmp));
-			}
-
-			me.wpBearingText.setText(sprintf("%03d", getprop("autopilot/route-manager/wp/bearing-deg") or 0));
-			me.wpIdText.setText(getprop("autopilot/route-manager/wp/id"));
-			me.hdgText.setText(sprintf("%03d", getprop("autopilot/settings/heading-bug-deg")));
-			me.satText.setText(sprintf("%03d", getprop("environment/temperature-degc")));
-			me.tasText.setText(sprintf("%03d", getprop("instrumentation/airspeed-indicator/true-speed-kt")));
-			me.gsText.setText(sprintf("%03d", getprop("velocities/groundspeed-kt")));
-			me.eteText.setText(sprintf("%s", getprop("autopilot/route-manager/wp/eta") or "0:00"));
-
-			me.counter = 0;
 		}
-		me.counter+=1;
+
+		setprop("instrumentation/efis/trigger_nd"~me.index, 1);
+		me.range = Range[me.index];
+		if(me.range == 0 or me.range == 2) {
+			me.range1.setText(sprintf("%2.1f", scales[me.range]));
+			me.range2.setText(sprintf("%2.1f", scales[me.range]));
+		}
+		else {
+			me.range1.setText(sprintf("%d", scales[me.range]));
+			me.range2.setText(sprintf("%d", scales[me.range]));
+		}
+
+		me.Tmp = getprop("autopilot/route-manager/wp/dist") or 0;
+
+		if(me.Tmp < 10) {
+			me.wpDistText.setText(sprintf("%2.1f", me.Tmp));
+		}
+		else {
+			me.wpDistText.setText(sprintf("%d", me.Tmp));
+		}
+
+		me.navMode.setText(getprop("autopilot/settings/nav-mode"));
+		me.wpBearingText.setText(sprintf("%03d", getprop("autopilot/route-manager/wp/bearing-deg") or 0));
+		me.wpIdText.setText(getprop("autopilot/route-manager/wp/id"));
+		me.hdgText.setText(sprintf("%03d", getprop("autopilot/settings/heading-bug-deg")));
+		me.satText.setText(sprintf("%03d", getprop("environment/temperature-degc")));
+		me.tasText.setText(sprintf("%03d", getprop("instrumentation/airspeed-indicator/true-speed-kt")));
+		me.gsText.setText(sprintf("%03d", getprop("velocities/groundspeed-kt")));
+		me.eteText.setText(sprintf("%s", getprop("autopilot/route-manager/wp/eta") or "0:00"));
 	},
 	show: func()
 	{

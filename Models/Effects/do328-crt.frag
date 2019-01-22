@@ -12,6 +12,7 @@ uniform sampler2D Scanlines;
 uniform samplerCube Environment;
 
 uniform int display_enabled;
+uniform float view_y;
 
 float SCANTHICK = 2.0;
 float INTENSITY = 0.15;
@@ -87,26 +88,24 @@ vec3 flickering(vec2 position, vec3 texel)
 	return texel;
 }
 
-float specular()
+vec3 reflection()
 {
+	vec3 coords;
+	coords.x = reflVec.x; // distance
+	coords.y = 1.5*reflVec.y + 0.5*view_y;
+	coords.z = 1.5*reflVec.z - 0.25;
+	vec3 reflection = 0.1*textureCube(Environment, coords).rgb;
 	float NdotL;
-	vec4 specular = vec4(0.0);
 	vec3 n = normalize(VNormal);
 	vec3 lightDir = gl_LightSource[0].position.xyz;
-	vec3 halfVector = normalize(gl_LightSource[0].halfVector.xyz);
-
 	NdotL = max(dot(n, lightDir), 0.0);
-
-	return NdotL;
+	return NdotL*reflection;
 }
 
 void main()
 {
 	vec3 texel = vec3(0.0, 0.0, 0.0);
 	vec3 dirt = 0.1*texture2D(DirtTex, gl_TexCoord[0].xy).rgb;
-	vec3 coord = reflVec;
-	vec3 reflection = 0.3*textureCube(Environment, coord).rgb;
-	float spec = specular();
 
 	// crt-effect
 	if(display_enabled > 0) {
@@ -123,7 +122,7 @@ void main()
 	}
 
 	texel += dirt;
-	// texel +=(spec*reflection);
+	texel += reflection();
 	texel = clamp(texel, 0.0, 1.0);
 
 	gl_FragColor = vec4(texel, 1.0);

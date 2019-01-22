@@ -1860,7 +1860,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
-				<script>systems.NAVBtClick("NAV");</script>
+				<script>systems.NAVBtClick("VOR");</script>
 			</binding>
 		</action>
 	</animation>
@@ -1873,7 +1873,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
-				<script>systems.NAVBtClick("NAV");</script>
+				<script>systems.NAVBtClick("VOR");</script>
 			</binding>
 		</action>
 	</animation>

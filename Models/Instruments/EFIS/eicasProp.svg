@@ -42,9 +42,9 @@
      inkscape:window-height="711"
      id="namedview3588"
      showgrid="false"
-     inkscape:zoom="2.2778948"
-     inkscape:cx="604.2045"
-     inkscape:cy="226.88908"
+     inkscape:zoom="0.80535743"
+     inkscape:cx="498.27212"
+     inkscape:cy="768.62976"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -845,11 +845,10 @@
       <path
          style="fill:#00ff00;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          d="m 133,39.60496 7,13 7,-13 z"
-         id="green"
-         sodipodi:nodetypes="cccc"
+         id="dial_at1"
+         inkscape:transform-center-y="-70"
          inkscape:connector-curvature="0" />
       <path
-         sodipodi:nodetypes="cc"
          id="dial_tq1"
          d="m 139.125,118.75914 0,-66.000001"
          style="fill:none;stroke:#ffffff;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
@@ -1325,8 +1324,8 @@
          sodipodi:nodetypes="cc"
          inkscape:connector-curvature="0" />
       <path
-         sodipodi:nodetypes="cccc"
-         id="path4540"
+         inkscape:transform-center-y="-70"
+         id="dial_at2"
          d="m 384.03004,39.60496 7,13 7,-13 z"
          style="fill:#00ff00;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          inkscape:connector-curvature="0" />
@@ -1335,7 +1334,6 @@
          style="fill:none;stroke:#ffffff;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
          d="m 390.155,118.75914 0,-66.000001"
          id="dial_tq2"
-         sodipodi:nodetypes="cc"
          inkscape:connector-curvature="0" />
     </g>
     <g

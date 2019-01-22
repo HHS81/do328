@@ -20,14 +20,6 @@ var canvas_memorynav = {
 			m["rect"~(m.Counter)] = canvasGroup.getElementById("rect"~(m.Counter+1));
 			m["mem"~(m.Counter)] = canvasGroup.getElementById("mem"~(m.Counter+1));
 			m["n"~(m.Counter)] = canvasGroup.getElementById("n"~(m.Counter+1));
-
-			m.Tmp = getprop("instrumentation/rmu/memory/nav/mem["~m.Counter~"]") or 0;
-			if(m.Tmp > 100) {
-				m["mem"~m.Counter].setText(sprintf("%.2f", m.Tmp));
-			}
-			else {
-				m["mem"~m.Counter].setText("");
-			}
 		}
 		m.comFreq = canvasGroup.getElementById("comFreq");
 
@@ -50,6 +42,19 @@ var canvas_memorynav = {
 	},
 	update: func() {
 		me.comFreq.setText(sprintf("%.2f", getprop("instrumentation/nav["~me.Instance~"]/frequencies/selected-mhz")));
+
+		for(me.Counter = 0; me.Counter < 6; me.Counter += 1)
+		{
+			me["n"~me.Counter].setText(sprintf("%d", me.Counter + me.Offset + 1));
+
+			me.Tmp = getprop("instrumentation/rmu/memory/nav/mem["~(me.Counter + me.Offset)~"]") or 0;
+			if(me.Tmp > 100) {
+				me["mem"~me.Counter].setText(sprintf("%.2f", me.Tmp));
+			}
+			else {
+				me["mem"~me.Counter].setText("");
+			}
+		}
 	},
 	BtClick: func(input = -1) {
 		if(input == 0) {
@@ -89,19 +94,7 @@ var canvas_memorynav = {
 			else {
 				me.Offset = 0;
 			}
-
-			for(me.Counter = 0; me.Counter < 6; me.Counter += 1)
-			{
-				me["n"~me.Counter].setText(sprintf("%d", me.Counter + me.Offset + 1));
-
-				me.Tmp = getprop("instrumentation/rmu/memory/nav/mem["~(me.Counter + me.Offset)~"]") or 0;
-				if(me.Tmp > 100) {
-					me["mem"~me.Counter].setText(sprintf("%.2f", me.Tmp));
-				}
-				else {
-					me["mem"~me.Counter].setText("");
-				}
-			}
+			me.update();
 		}
 		if(input == 9) {
 			# insert
@@ -140,6 +133,7 @@ var canvas_memorynav = {
 	},
 	show: func()
 	{
+		me.update();
 		me.group.show();
 	},
 	hide: func()

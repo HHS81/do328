@@ -248,7 +248,7 @@ V1 --> Vr --> Rotate to 8deg --> @50ft Rotate to 15deg -->Climb @V2 + 15ktn --> 
          <changeover type="bool">0</changeover>
          <heading-bug-deg type="int">0</heading-bug-deg>
          <minimums type="int">200</minimums>
-         <nav-source type="string">NAV1</nav-source>
+		 <nav-mode type="string">FMS</nav-mode>
          <target-altitude-ft type="int">10000</target-altitude-ft>
          <target-pitch-deg type="double">0</target-pitch-deg>
          <target-roll-deg type="double">0</target-roll-deg>

@@ -11,7 +11,8 @@ var Vertical_arm = props.globals.getNode("autopilot/locks/altitude-arm");
 var AP = props.globals.getNode("autopilot/locks/AP-status");
 
 var NAVsrc = 0; # 0: CPT, 1: FO
-var NAVmode = "NAV"; # 0: NAV, MLS (not in use) or FMS
+var NAVmode = props.globals.getNode("autopilot/settings/nav-mode"); # 0: NAV, MLS (not in use) or FMS
+var Counter = 0;
 var Tmp = 0;
 
 var FDBtClick = func(btn) {
@@ -19,7 +20,6 @@ var FDBtClick = func(btn) {
 		if(!AP.getValue()) {
 			Lateral_arm.setValue("");
 			Vertical_arm.setValue("");
-
 			AP.setValue(1);
 		}
 		else {
@@ -51,47 +51,14 @@ var FDBtClick = func(btn) {
 		Vertical_arm.setValue("");
 	}
 	elsif(btn == "FLCH") {
-		var flcmode = "FLCH";
-		var asel = "ASEL";
-
-		if(NAVmode == "FMS") {
-			flcmode = "VFLC";
-			asel = "VASEL";
-		}
-
-		if(Vertical.getValue() != flcmode) {
-			var mc = getprop("instrumentation/airspeed-indicator/indicated-mach");
-			var kt = int(getprop("instrumentation/airspeed-indicator/indicated-speed-kt"));
-
-			if(!getprop("autopilot/settings/changeover")) {
-				if(kt > 80 and kt < 340) {
-					setprop(Vertical, flcmode);
-					setprop(Vertical_arm, asel);
-					setprop("autopilot/settings/target-speed-kt", kt);
-					setprop("autopilot/settings/target-speed-mach", mc);
-				}
-			}
-			else {
-				if(mc > 0.40 and mc < 0.85) {
-					setprop(Vertical,flcmode);
-					setprop(Vertical_arm,asel);
-					setprop("autopilot/settings/target-speed-kt",kt);
-					setprop("autopilot/settings/target-speed-mach",mc);
-				}
-			}
-		}
-		else {
-			Vertical.setValue("PTCH");
-			setprop("autopilot/settings/target-pitch-deg", getprop("orientation/pitch-deg"));
-		}
 	}
 	elsif(btn == "NAV") {
 		set_nav_mode();
-		setprop("autopilot/settings/low-bank",0);
+		setprop("autopilot/settings/low-bank", 0);
 	}
 	elsif(btn == "VNAV") {
 		if(Vertical.getValue()!="VALT") {
-			if(NAVmode=="FMS") {
+			if(NAVmode.getValue() == "FMS") {
 				Lateral.setValue("LNAV");
 				Vertical.setValue("VALT");
 			}
@@ -102,7 +69,7 @@ var FDBtClick = func(btn) {
 		}
 	}
 	elsif(btn == "APP") {
-		if(NAVmode == "NAV") {
+		if(NAVmode.getValue() == "VOR") {
 			if(!getprop("instrumentation/nav["~NAVsrc~"]/gs-in-range")) {
 				# no ILS at all -> STBY
 				Lateral_arm.setValue("");
@@ -124,11 +91,9 @@ var FDBtClick = func(btn) {
 	}
 	elsif(btn == "VS") {
 		Lateral_arm.setValue("");
-		Vertical_arm.setValue("");
+		Vertical_arm.setValue("ASEL");
 		if(Vertical.getValue()!="VS"){
 			Vertical.setValue("VS");
-			Tmp = (int(getprop("autopilot/internal/vert-speed-fpm") * 0.01)) * 100;
-			setprop("autopilot/settings/vertical-speed-fpm", Tmp);
 		}
 		else {
 			Vertical.setValue("PTCH");
@@ -158,28 +123,20 @@ var FDBtClick = func(btn) {
 		else {
 			NAVsrc = 0;
 		}
-		if(NAVmode != "FMS") {
-			setprop("autopilot/settings/nav-source", NAVmode~(NAVsrc+1));
+		if(NAVmode.getValue() != "FMS") {
+			setprop("autopilot/settings/nav-source", (NAVsrc+1));
 		}
 	}
 }
 
 var NAVBtClick = func(btn) {
-	if(btn == "NAV") {
-		setprop("autopilot/settings/nav-source", btn~(NAVsrc+1));
-	}
-	elsif(btn == "MLS") {
-		setprop("autopilot/settings/nav-source", btn~(NAVsrc+1));
-	}
-	elsif(btn == "FMS") {
-		setprop("autopilot/settings/nav-source", btn);
-	}
+	NAVmode.setValue(btn);
 }
 
 var pitch_wheel = func(dir) {
-        Tmp = int(getprop("autopilot/settings/vertical-speed-fpm")) + (dir * 100);
-        Tmp = (Tmp < -8000 ? -8000 : Tmp > 6000 ? 6000 : Tmp);
-        setprop("autopilot/settings/vertical-speed-fpm", Tmp);
+	Tmp = int(getprop("autopilot/settings/vertical-speed-fpm")) + (dir * 100);
+	Tmp = (Tmp < -8000 ? -8000 : Tmp > 6000 ? 6000 : Tmp);
+	setprop("autopilot/settings/vertical-speed-fpm", Tmp);
 }
 
 ########    FD INTERNAL ACTIONS  #############
@@ -188,8 +145,12 @@ var set_nav_mode = func {
 	Lateral_arm.setValue("");
 	Vertical_arm.setValue("");
 
-	if(NAVmode=="FMS") {
+	if(NAVmode.getValue() == "FMS") {
 		if(getprop("autopilot/route-manager/active")) Lateral.setValue("LNAV");
+	}
+	elsif(NAVmode.getValue() == "MLS") {
+		Lateral_arm.setValue("LOC "); # never engaged (MLS no longer in use)
+		Lateral.setValue("HDG");
 	}
 	else {
 		if(getprop("instrumentation/nav["~NAVsrc~"]/data-is-valid")) {
@@ -203,3 +164,37 @@ var set_nav_mode = func {
 		}
 	}
 }
+
+var monitor_L_armed = func{
+	#if(Lateral_arm.getValue() != "") {
+	#}
+}
+
+var monitor_V_armed = func{
+	if(Vertical_arm.getValue() == "GS") {
+		if(Lateral.getValue() == "LOC") {
+			if(getprop("autopilot/internal/gs-in-range")) {
+				Tmp = getprop("autopilot/internal/gs-deflection");
+				if(gs_dst <= 15.0) {
+					Tmp = getprop("autopilot/internal/nav-distance");
+					if(gs_err >-0.25 and gs_err < 0.25) {
+						Vertical.setValue("GS");
+						Vertical_arm.setValue("");
+					}
+				}
+			}
+		}
+	}
+}
+
+###  Main loop ###
+
+var update_fd = func {
+	if(Counter==0) monitor_L_armed();
+	if(Counter==1) monitor_V_armed();
+	Counter+=1;
+	if(Counter > 1) Counter = 0;
+}
+
+var Timer = maketimer(0.1, update_fd);
+Timer.start();
