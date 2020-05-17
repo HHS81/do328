@@ -9,6 +9,7 @@ Started by Heiko Schulz
 <PropertyList include="do328-common.xml">
    <sim>
       <description>Dornier 328-300</description>
+      <variant-of>do328-110</variant-of>
       <author>HHS (3d, config, fdm); xcvb85 (EICAS, RMU, systems); clm76 (CDU, RCU); Jentron (prop and turbine files)</author>
       <status>devel</status>
       <flight-model>jsb</flight-model>
