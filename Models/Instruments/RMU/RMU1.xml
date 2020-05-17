@@ -6,11 +6,12 @@
 <path>rmu1.ac</path>
 
 <!--#########  Screens ########## -->
-
+<!-- TODO: Port to Compositor
     <effect>
         <inherits-from>Aircraft/do328/Models/Effects/do328-lcd1</inherits-from>
         <object-name>RMU1.screen</object-name>
     </effect>
+-->
     <animation>
 	<type>material</type>
 	<object-name>RMU1.screen</object-name>
