@@ -76,7 +76,7 @@ var canvas_PFD = {
 
 		m.Instance = instance;
 		m.update_ap_modes();
-		m.timer = maketimer(0.2, m, m.update);
+		m.timer = maketimer(0.1, m, m.update);
 		m.timer.start();
 		m.update();
 		return m;

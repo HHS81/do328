@@ -303,7 +303,7 @@
             <use>vertex-program-two-side</use>
          </vertex-program-two-side>
          <program>
-            <vertex-shader n="0">Aircraft/JA37/Models/Effects/displays/lcd.vert</vertex-shader>
+            <vertex-shader n="0">Aircraft/do328/Models/Effects/lcd.vert</vertex-shader>
             <fragment-shader n="0">Aircraft/do328/Models/Effects/do328-crt.frag</fragment-shader>
             <fragment-shader n="1">Shaders/ALS/noise.frag</fragment-shader>
             <fragment-shader n="2">Shaders/ALS/filters.frag</fragment-shader>
