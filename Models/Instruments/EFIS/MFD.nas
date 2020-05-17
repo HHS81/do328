@@ -41,10 +41,10 @@ var MFD = {
 		append(m.Menus, SkMenu.new(5, m, "SYSTEM 2/3"));
 		append(m.Menus, SkMenu.new(6, m, "SYSTEM 3/3"));
 		append(m.Menus, SkMenu.new(7, m, "FMS"));
-		append(m.Menus, SkMenu.new(8, m, "MFD FORMAT"));
-		append(m.Menus, SkMenu.new(9, m, "TEST"));
-		append(m.Menus, SkMenu.new(10, m, "MAINT"));
-		append(m.Menus, SkMenu.new(11, m, "RADAR SUB"));
+		append(m.Menus, SkMenu.new(8, m, "TEST"));
+		append(m.Menus, SkMenu.new(9, m, "MAINT"));
+		append(m.Menus, SkMenu.new(10, m, "RADAR SUB"));
+		append(m.Menus, SkMenu.new(11, m, "CURSOR"));
 
 		# create softkeys
 		var back = SkMenuPageActivateItem.new(0, m, "back1", 0, 0);
@@ -53,20 +53,19 @@ var MFD = {
 		m.Menus[0].AddItem(SkMenuActivateItem.new(2, m, "RADAR", 3));
 		m.Menus[0].AddItem(SkMenuActivateItem.new(3, m, "SYSTEM", 4));
 		m.Menus[0].AddItem(SkMenuActivateItem.new(4, m, "FMS", 7));
-		m.Menus[0].AddItem(SkMenuActivateItem.new(5, m, "MFD\nFORMAT", 8));
+		m.Menus[0].AddItem(SkItem.new(5, m, "MFD\nFORMAT")); # TODO: this toggles ND between rose and arc
 		m.Menus[0].AddItem(SkItem.new(6, m, "RNG"));
 
 		m.Menus[1].AddItem(back);
-		m.Menus[1].AddItem(SkMenuActivateItem.new(1, m, "TEST", 9));
-		m.Menus[1].AddItem(SkMenuActivateItem.new(3, m, "MFD\nMAINT", 10));
+		m.Menus[1].AddItem(SkMenuActivateItem.new(1, m, "TEST", 8));
+		m.Menus[1].AddItem(SkMenuActivateItem.new(3, m, "GND\nMAINT", 9));
 		m.Menus[1].AddItem(SkItem.new(6, m, "RNG"));
 
 		m.Menus[2].AddItem(back);
-		m.Menus[2].AddItem(SkItem.new(1, m, "IF\nYOU"));
-		m.Menus[2].AddItem(SkItem.new(2, m, "KNOW\nTHIS"));
-		m.Menus[2].AddItem(SkItem.new(3, m, "CONTENT\nPLEASE"));
-		m.Menus[2].AddItem(SkItem.new(4, m, "LET\nME"));
-		m.Menus[2].AddItem(SkItem.new(5, m, "KNOW"));
+		m.Menus[2].AddItem(SkItem.new(1, m, "--PFD--\nFD"));
+		m.Menus[2].AddItem(SkItem.new(2, m, "\nSC CP"));
+		m.Menus[2].AddItem(SkItem.new(3, m, "--MFD--\nRADAR"));
+		m.Menus[2].AddItem(SkItem.new(4, m, "\nTCAS"));
 		m.Menus[2].AddItem(SkItem.new(6, m, "RNG"));
 
 		m.Menus[3].AddItem(back);
@@ -74,7 +73,7 @@ var MFD = {
 		m.Menus[3].AddItem(SkSwitchItem.new(2, m, "WX\nGMAP", "instrumentation/efis/wxGmap" ~ instance));
 		m.Menus[3].AddItem(SkSwitchItem.new(3, m, "SECTOR", "instrumentation/efis/sector" ~ instance));
 		m.Menus[3].AddItem(SkSwitchItem.new(4, m, "TGT\n", "instrumentation/efis/tgt" ~ instance));
-		m.Menus[3].AddItem(SkMenuActivateItem.new(5, m, "RADAR\nSUB", 11));
+		m.Menus[3].AddItem(SkMenuActivateItem.new(5, m, "RADAR\nSUB", 10));
 		m.Menus[3].AddItem(SkItem.new(6, m, "RNG"));
 
 		m.Menus[4].AddItem(back);
@@ -101,37 +100,37 @@ var MFD = {
 		m.Menus[7].AddItem(back);
 		m.Menus[7].AddItem(SkSwitchItem.new(1, m, "WAYPNT\nIDENT", "instrumentation/efis/wptIdent" ~ instance));
 		m.Menus[7].AddItem(SkSwitchItem.new(2, m, "NAVAID\nAIRPRT", "instrumentation/efis/navaid" ~ instance));
-		m.Menus[7].AddItem(SkItem.new(5, m, "CURSOR"));
+		m.Menus[7].AddItem(SkMenuActivateItem.new(5, m, "CURSOR", 11));
 		m.Menus[7].AddItem(SkItem.new(6, m, "RNG"));
 
 		m.Menus[8].AddItem(back);
-		m.Menus[8].AddItem(SkItem.new(1, m, "IF\nYOU"));
-		m.Menus[8].AddItem(SkItem.new(2, m, "KNOW\nTHIS"));
-		m.Menus[8].AddItem(SkItem.new(3, m, "CONTENT\nPLEASE"));
-		m.Menus[8].AddItem(SkItem.new(4, m, "LET\nME"));
-		m.Menus[8].AddItem(SkItem.new(5, m, "KNOW"));
+		m.Menus[8].AddItem(SkItem.new(1, m, "RAD ALT"));
+		m.Menus[8].AddItem(SkTimerItem.new(2, m, "ATC\nEICAS", "instrumentation/mk-viii/inputs/discretes/beep", 3));
+		m.Menus[8].AddItem(SkTimerItem.new(3, m, "TCAS", "instrumentation/efis/tcas", 2));
+		m.Menus[8].AddItem(SkItem.new(4, m, "EFIS\nEICAS"));
+		m.Menus[8].AddItem(SkTimerItem.new(5, m, "EGPWS", "instrumentation/mk-viii/inputs/discretes/self-test", 15));
 		m.Menus[8].AddItem(SkItem.new(6, m, "RNG"));
 
 		m.Menus[9].AddItem(back);
-		m.Menus[9].AddItem(SkItem.new(1, m, "RAD ALT"));
-		m.Menus[9].AddItem(SkTimerItem.new(2, m, "ATC\nEICAS", "instrumentation/mk-viii/inputs/discretes/beep", 3));
-		m.Menus[9].AddItem(SkTimerItem.new(3, m, "TCAS", "instrumentation/efis/tcas", 2));
-		m.Menus[9].AddItem(SkItem.new(4, m, "EFIS\nEICAS"));
-		m.Menus[9].AddItem(SkTimerItem.new(5, m, "EGPWS", "instrumentation/mk-viii/inputs/discretes/self-test", 15));
-		m.Menus[9].AddItem(SkItem.new(6, m, "RNG"));
+		m.Menus[9].AddItem(SkItem.new(1, m, "TREND"));
+		m.Menus[9].AddItem(SkPageActivateItem.new(2, m, "EXCEED", 12));
+		m.Menus[9].AddItem(SkItem.new(3, m, "FAULT"));
+		m.Menus[9].AddItem(SkItem.new(4, m, "GNDMNT"));
 
-		m.Menus[10].AddItem(back);
-		m.Menus[10].AddItem(SkItem.new(1, m, "TREND"));
-		m.Menus[10].AddItem(SkPageActivateItem.new(2, m, "EXCEED", 12));
-		m.Menus[10].AddItem(SkItem.new(3, m, "FAULT"));
-		m.Menus[10].AddItem(SkItem.new(4, m, "GNDMNT"));
+		m.Menus[10].AddItem(SkMenuActivateItem.new(0, m, "", 3));
+		m.Menus[10].AddItem(SkItem.new(1, m, "GAIN\nPRE VAR"));
+		m.Menus[10].AddItem(SkItem.new(2, m, "RNG"));
+		m.Menus[10].AddItem(SkItem.new(3, m, "TILT"));
+		m.Menus[10].AddItem(SkItem.new(4, m, "RCT"));
+		m.Menus[10].AddItem(SkItem.new(6, m, "RNG"));
 
-		m.Menus[11].AddItem(SkMenuActivateItem.new(0, m, "", 3));
-		m.Menus[11].AddItem(SkItem.new(1, m, "GAIN\nPRE VAR"));
-		m.Menus[11].AddItem(SkItem.new(2, m, "RNG"));
-		m.Menus[11].AddItem(SkItem.new(3, m, "TILT"));
-		m.Menus[11].AddItem(SkItem.new(4, m, "RCT"));
-		m.Menus[11].AddItem(SkItem.new(6, m, "RNG"));
+		m.Menus[11].AddItem(SkMenuActivateItem.new(0, m, "", 7));
+		m.Menus[11].AddItem(SkItem.new(1, m, "XFER"));
+		m.Menus[11].AddItem(SkItem.new(2, m, "CLEAR"));
+		m.Menus[11].AddItem(SkItem.new(3, m, "SCROLL\nFORE"));
+		m.Menus[11].AddItem(SkItem.new(4, m, "SCROLL\nBACK"));
+		m.Menus[11].AddItem(SkItem.new(5, m, "CURSOR\nBRG DIS"));
+		m.Menus[11].AddItem(SkItem.new(6, m, "DIS"));
 
 		m.ActivatePage(0, 0);
 		m.ActivateMenu(0);

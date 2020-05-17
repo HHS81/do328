@@ -34,7 +34,7 @@ var EICAS = {
 		append(m.Menus, SkMenu.new(3, m, "SYSTEM 3/3"));
 		append(m.Menus, SkMenu.new(4, m, "REF DATA"));
 		append(m.Menus, SkMenu.new(5, m, "COPY"));
-		append(m.Menus, SkMenu.new(6, m, "AHRS"));
+		append(m.Menus, SkMenu.new(6, m, "AHRS1                    AHRS2"));
 		append(m.Menus, SkMenu.new(7, m, "T/O"));
 		append(m.Menus, SkMenu.new(8, m, "CLIMB"));
 		append(m.Menus, SkMenu.new(9, m, "CRUISE"));

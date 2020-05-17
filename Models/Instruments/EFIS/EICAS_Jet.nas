@@ -33,18 +33,20 @@ var EICAS = {
 		append(m.Menus, SkMenu.new(2, m, "SYSTEM 2/3"));
 		append(m.Menus, SkMenu.new(3, m, "SYSTEM 3/3"));
 		append(m.Menus, SkMenu.new(4, m, "REF DATA"));
-		append(m.Menus, SkMenu.new(5, m, "T/O SPD"));
-		append(m.Menus, SkMenu.new(6, m, "T/O PWR"));
-		append(m.Menus, SkMenu.new(7, m, "CRUISE"));
-		append(m.Menus, SkMenu.new(8, m, "LANDG"));
+		append(m.Menus, SkMenu.new(5, m, "COPY"));
+		append(m.Menus, SkMenu.new(6, m, "AHRS1                    AHRS2"));
+		append(m.Menus, SkMenu.new(7, m, "T/O SPD"));
+		append(m.Menus, SkMenu.new(8, m, "T/O PWR"));
+		append(m.Menus, SkMenu.new(9, m, "CRUISE"));
+		append(m.Menus, SkMenu.new(10, m, "LANDG"));
 
 		# create softkeys
 		var back = SkMenuPageActivateItem.new(0, m, "back1", 0, 0);
 		m.Menus[0].AddItem(SkItem.new(0, m, "")); # no back on main page
 		m.Menus[0].AddItem(SkMenuActivateItem.new(1, m, "CAPT\nSYSTEM", 1));
 		m.Menus[0].AddItem(SkMenuActivateItem.new(2, m, "REF\nDATA", 4));
-		m.Menus[0].AddItem(SkItem.new(3, m, "COPY"));
-		m.Menus[0].AddItem(SkItem.new(4, m, "AHRS"));
+		m.Menus[0].AddItem(SkMenuActivateItem.new(3, m, "COPY", 5));
+		m.Menus[0].AddItem(SkMenuActivateItem.new(4, m, "AHRS", 6));
 		m.Menus[0].AddItem(SkMenuActivateItem.new(5, m, "F/O\nSYSTEM", 1));
 		m.Menus[0].AddItem(SkItem.new(6, m, "MSG"));
 
@@ -70,38 +72,49 @@ var EICAS = {
 		m.Menus[3].AddItem(SkMenuActivateItem.new(5, m, "NEXT", 1));
 
 		m.Menus[4].AddItem(back);
-		m.Menus[4].AddItem(SkMenuActivateItem.new(1, m, "T/O\nSPD", 5));
-		m.Menus[4].AddItem(SkMenuActivateItem.new(2, m, "T/O\nPWR", 6));
-		m.Menus[4].AddItem(SkMenuActivateItem.new(3, m, "CRUISE", 7));
-		m.Menus[4].AddItem(SkMenuActivateItem.new(4, m, "LANDG", 8));
-		m.Menus[4].AddItem(SkItem.new(5, m, "SINGLE\nENGINE"));
+		m.Menus[4].AddItem(SkMenuActivateItem.new(1, m, "T/O\nSPD", 7));
+		m.Menus[4].AddItem(SkMenuActivateItem.new(2, m, "T/O\nPWR", 8));
+		m.Menus[4].AddItem(SkMenuActivateItem.new(4, m, "CRUISE", 9));
+		m.Menus[4].AddItem(SkMenuActivateItem.new(5, m, "LANDG", 10));
 		m.Menus[4].AddItem(SkItem.new(6, m, "MSG"));
 
-		m.Menus[5].AddItem(SkMenuActivateItem.new(0, m, "", 4)); # back
-		m.Menus[5].AddItem(SkItem.new(1, m, "FLAPS\n12", 1));
-		m.Menus[5].AddItem(SkMutableItem.new(2, m, "instrumentation/fmc/vspeeds/V1", "V1\n%d", 1));
-		m.Menus[5].AddItem(SkMutableItem.new(3, m, "instrumentation/fmc/vspeeds/VR", "VR\n%d", 1));
-		m.Menus[5].AddItem(SkMutableItem.new(4, m, "instrumentation/fmc/vspeeds/V2", "V2\n%d", 1));
-		m.Menus[5].AddItem(SkItem.new(5, m, "VSEC\n184"));
+		m.Menus[5].AddItem(back);
+		m.Menus[5].AddItem(SkItem.new(1, m, "<--"));
+		m.Menus[5].AddItem(SkItem.new(5, m, "-->"));
 		m.Menus[5].AddItem(SkItem.new(6, m, "MSG"));
 
-		m.Menus[6].AddItem(SkMenuActivateItem.new(0, m, "", 4)); # back
-		m.Menus[6].AddItem(SkItem.new(4, m, "L100.0\nR100.0"));
-		m.Menus[6].AddItem(SkItem.new(6, m, "MSG"));
+		m.Menus[6].AddItem(back);
+		m.Menus[6].AddItem(SkItem.new(1, m, "NORM\nDEG"));
+		m.Menus[6].AddItem(SkItem.new(2, m, "DG SET"));
+		m.Menus[6].AddItem(SkItem.new(4, m, "NORM\nDEG"));
+		m.Menus[6].AddItem(SkItem.new(5, m, "DG SET"));
+		m.Menus[6].AddItem(SkItem.new(6, m, "SET"));
 
 		m.Menus[7].AddItem(SkMenuActivateItem.new(0, m, "", 4)); # back
-		m.Menus[7].AddItem(SkItem.new(1, m, "VSTD\n250", 1));
-		m.Menus[7].AddItem(SkItem.new(2, m, "VLRNG\n200", 1));
-		m.Menus[7].AddItem(SkItem.new(3, m, "VMRNG\n200", 1));
-		m.Menus[7].AddItem(SkItem.new(4, m, "L 80.7\nR 80.7", 1));
+		m.Menus[7].AddItem(SkItem.new(1, m, "FLAPS\n12", 1));
+		m.Menus[7].AddItem(SkMutableItem.new(2, m, "instrumentation/fmc/vspeeds/V1", "V1\n%d", 1));
+		m.Menus[7].AddItem(SkMutableItem.new(3, m, "instrumentation/fmc/vspeeds/VR", "VR\n%d", 1));
+		m.Menus[7].AddItem(SkMutableItem.new(4, m, "instrumentation/fmc/vspeeds/V2", "V2\n%d", 1));
+		m.Menus[7].AddItem(SkItem.new(5, m, "VSEC\n184"));
 		m.Menus[7].AddItem(SkItem.new(6, m, "MSG"));
 
 		m.Menus[8].AddItem(SkMenuActivateItem.new(0, m, "", 4)); # back
-		m.Menus[8].AddItem(SkItem.new(1, m, "FLAPS\n32", 1));
-		m.Menus[8].AddItem(SkItem.new(2, m, "VFL0\n170", 1));
-		m.Menus[8].AddItem(SkMutableItem.new(3, m, "instrumentation/fmc/vspeeds/Vref", "VREF\n%d", 1));
-		m.Menus[8].AddItem(SkItem.new(4, m, "L100.0\nR100.0", 1));
+		m.Menus[8].AddItem(SkItem.new(4, m, "L100.0\nR100.0"));
 		m.Menus[8].AddItem(SkItem.new(6, m, "MSG"));
+
+		m.Menus[9].AddItem(SkMenuActivateItem.new(0, m, "", 4)); # back
+		m.Menus[9].AddItem(SkItem.new(1, m, "VSTD\n250", 1));
+		m.Menus[9].AddItem(SkItem.new(2, m, "VLRNG\n200", 1));
+		m.Menus[9].AddItem(SkItem.new(3, m, "VMRNG\n200", 1));
+		m.Menus[9].AddItem(SkItem.new(4, m, "L 80.7\nR 80.7", 1));
+		m.Menus[9].AddItem(SkItem.new(6, m, "MSG"));
+
+		m.Menus[10].AddItem(SkMenuActivateItem.new(0, m, "", 4)); # back
+		m.Menus[10].AddItem(SkItem.new(1, m, "FLAPS\n32", 1));
+		m.Menus[10].AddItem(SkItem.new(2, m, "VFL0\n170", 1));
+		m.Menus[10].AddItem(SkMutableItem.new(3, m, "instrumentation/fmc/vspeeds/Vref", "VREF\n%d", 1));
+		m.Menus[10].AddItem(SkItem.new(4, m, "L100.0\nR100.0", 1));
+		m.Menus[10].AddItem(SkItem.new(6, m, "MSG"));
 
 		m.ActivatePage(0, 0);
 		m.ActivateMenu(0);
