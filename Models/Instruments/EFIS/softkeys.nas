@@ -13,7 +13,7 @@ var canvas_softkeys = {
 		
 		canvas.parsesvg(canvasGroup, "Aircraft/do328/Models/Instruments/EFIS/softkeys.svg", {'font-mapper': font_mapper});
 
-		var svg_keys = ["title","sk1","sk2","sk3","sk4","sk5","knob","frame1","frame2","frame3","frame4","frame5"];
+		var svg_keys = ["title","sk1","sk2","sk3","sk4","sk5","knob"];
 		foreach(var key; svg_keys) {
 			m[key] = canvasGroup.getElementById(key);
 		}
@@ -26,9 +26,31 @@ var canvas_softkeys = {
 	{
 		me.path.reset();
 	},
-	drawFrames: func(selectedSoftkeys)
+	drawRect1: func(xmin, ymin, xmax, ymax, padding=0)
 	{
-		me.path.reset();
+		me.path.moveTo(xmin-padding,ymin)
+			.lineTo(xmax+padding,ymin)
+			.lineTo(xmax+padding,ymax+padding+10)
+			.lineTo(xmin-padding,ymax+padding+10)
+			.lineTo(xmin-padding,ymin);
+	},
+	drawRect: func(coordinates, padding=0)
+	{
+		me.path.moveTo(coordinates[0]-padding,coordinates[1])
+			.lineTo(coordinates[2]+padding,coordinates[1])
+			.lineTo(coordinates[2]+padding,coordinates[3]+padding+10)
+			.lineTo(coordinates[0]-padding,coordinates[3]+padding+10)
+			.lineTo(coordinates[0]-padding,coordinates[1]);
+	},
+	setSoftkeys: func(softkeys, selectedSoftkeys)
+	{
+		me.title.setText(softkeys[0]);
+		me.sk1.setText(softkeys[1]);
+		me.sk2.setText(softkeys[2]);
+		me.sk3.setText(softkeys[3]);
+		me.sk4.setText(softkeys[4]);
+		me.sk5.setText(softkeys[5]);
+		me.knob.setText(softkeys[6]);
 
 		if(size(selectedSoftkeys) > 4) {
 
@@ -38,24 +60,10 @@ var canvas_softkeys = {
 					me.center = me["sk"~(me.i+1)].getCenter();
 					me.bbox = me["sk"~(me.i+1)].getBoundingBox();
 
-					me.path.moveTo(me.center[0]+me.bbox[0]-5,me.center[1]+me.bbox[1])
-						.lineTo(me.center[0]+me.bbox[2]+5,me.center[1]+me.bbox[1])
-						.lineTo(me.center[0]+me.bbox[2]+5,me.center[1]+me.bbox[3]+15)
-						.lineTo(me.center[0]+me.bbox[0]-5,me.center[1]+me.bbox[3]+15)
-						.lineTo(me.center[0]+me.bbox[0]-5,me.center[1]+me.bbox[1]);
+					me.drawRect([me.center[0]+me.bbox[0], me.center[1]+me.bbox[1],
+								 me.center[0]+me.bbox[2], me.center[1]+me.bbox[3]], 5);
 				}
 			}
 		}
-	},
-	setSoftkeys: func(softkeys)
-	{
-		me.title.setText(softkeys[0]);
-		me.sk1.setText(softkeys[1]);
-		me.sk2.setText(softkeys[2]);
-		me.sk3.setText(softkeys[3]);
-		me.sk4.setText(softkeys[4]);
-		me.sk5.setText(softkeys[5]);
-		me.knob.setText(softkeys[6]);
-		me.path.reset();
 	}
 };

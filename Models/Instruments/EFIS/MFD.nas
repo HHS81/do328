@@ -63,7 +63,7 @@ var MFD = {
 
 		m.Menus[2].AddItem(back);
 		m.Menus[2].AddItem(SkItem.new(1, m, "--PFD--\nFD"));
-		m.Menus[2].AddItem(SkItem.new(2, m, "\nSC CP"));
+		m.Menus[2].AddItem(SkAdvSwitchItem.new(2, m, "\nSC CP", "instrumentation/efis/sccp" ~ instance, [240,875,275,900], [280,875,315,900]));
 		m.Menus[2].AddItem(SkItem.new(3, m, "--MFD--\nRADAR"));
 		m.Menus[2].AddItem(SkItem.new(4, m, "\nTCAS"));
 		m.Menus[2].AddItem(SkItem.new(6, m, "RNG"));

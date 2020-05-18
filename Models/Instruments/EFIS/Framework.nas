@@ -105,6 +105,37 @@ var SkSwitchItem = {
 	}
 };
 
+# advanced switch item with manual frame coordinates
+var SkAdvSwitchItem = {
+	new: func(id, device, title, path, coordinates1, coordinates2) {
+		var m = {parents: [SkAdvSwitchItem, SkItem.new(id, device, title)]};
+		m.Coordinates1 = coordinates1;
+		m.Coordinates2 = coordinates2;
+		m.Node = props.globals.initNode(path, 0, "BOOL");
+		m.Active = 0;
+		return m;
+	},
+	Activate: func {
+		if(me.Active) {
+			me.Active = 0;
+		}
+		else {
+			me.Active = 1;
+		}
+		me.Node.setValue(me.Active);
+		me.Device.UpdateMenu();
+	},
+	GetDecoration: func {
+		return -1;
+	},
+	GetFrameCoordinates: func {
+		if(me.Active) {
+			return me.Coordinates1;
+		}
+		return me.Coordinates2;
+	}
+};
+
 # item which is active for a limited time
 var SkTimerItem = {
 	new: func(id, device, title, path, timeout) {
@@ -234,25 +265,31 @@ var Device = {
 		return me.KnobMode;
 	},
 	UpdateMenu: func() {
+		me.SkInstance.resetFrames();
+
 		# copy sk names to array
 		for(me.i = 1; me.i < NUM_SOFTKEYS; me.i+=1) {
 			me.Tmp = me.Menus[me.ActiveMenu].GetItem(me.i);
 			if(me.Tmp != nil) {
 				me.Softkeys[me.i] = me.Tmp.GetTitle();
 				if(me.i < 6) {
-					me.SoftkeyFrames[me.i-1] = me.Tmp.GetDecoration();
+					if(me.Tmp.GetDecoration() >= 0) {
+						me.SoftkeyFrames[me.i-1] = me.Tmp.GetDecoration();
+					}
+					else {
+						me.SoftkeyFrames[me.i-1] = 0;
+						me.SkInstance.drawRect(me.Tmp.GetFrameCoordinates());
+					}
 				}
 			}
 			else {
 				me.Softkeys[me.i] = "";
-				if(me.i < 6) {
+				if(me.i < NUM_SOFTKEYS-1) {
 					me.SoftkeyFrames[me.i-1] = 0;
 				}
 			}
 		}
-
-		me.SkInstance.setSoftkeys(me.Softkeys);
-		me.SkInstance.drawFrames(me.SoftkeyFrames);
+		me.SkInstance.setSoftkeys(me.Softkeys, me.SoftkeyFrames);
 	},
 	SetLock: func(lock)
 	{
