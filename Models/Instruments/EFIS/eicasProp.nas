@@ -19,7 +19,7 @@ var canvas_eicas = {
 		canvas.parsesvg(canvasGroup, "Aircraft/do328/Models/Instruments/EFIS/eicasProp.svg", {'font-mapper': font_mapper});
 		
 		var svg_keys = ["msgMemo","msgWarning","msgCaution","msgAdvisory",
-				"readout_tq1","readout_tq2","dial_tq1","dial_tq2",
+				"readout_tq1","readout_tq2","dial_tq1","dial_tq2","dial_at1","dial_at2",
 				"readout_np1","readout_np2","dial_np1","dial_np2",
 				"readout_itt1","readout_itt2","dial_itt1","dial_itt2",
 				"readout_nh1","readout_nh2","dial_nh1","dial_nh2",
@@ -52,7 +52,9 @@ var canvas_eicas = {
 		m.msgCaution.setText("");
 		m.msgAdvisory.setText("");
 
-		m.active = 0;
+		m.dial_at1.setRotation(90*D2R);
+
+		m.timer = maketimer(0.1, m, m.update);
 		return m;
 	},
 	update: func()
@@ -64,13 +66,13 @@ var canvas_eicas = {
 			me.frameCounter = 0;
 			me.updateSlow();
 		}
-
-		if(me.active == 1) {
-			settimer(func me.update(), 0.1);
-		}
 	},
 	updateFast: func()
 	{
+		me.tmp = getprop("autopilot/settings/target-throttle") or 0;
+		me.dial_at1.setRotation(270 * D2R * me.tmp);
+		me.dial_at2.setRotation(270 * D2R * me.tmp);
+
 		for(me.n = 0; me.n<2; me.n+=1) {
 			# engine dials
 			me["dial_tq"~(me.n+1)].setRotation((270/100) * D2R *
@@ -141,17 +143,17 @@ var canvas_eicas = {
 			if(me.tmp < 95) {
 				me["oilTempLow"~(me.n+1)].show();
 				me["oilTempHigh"~(me.n+1)].hide();
-				me["arrowOilTemp"~(me.n+1)].setColorFill(1, 0.75, 0);
+				me["arrowOilTemp"~(me.n+1)].setColorFill(1,0.84,0);
 			}
 			else if(me.tmp > 195) {
 				me["oilTempLow"~(me.n+1)].hide();
 				me["oilTempHigh"~(me.n+1)].show();
-				me["arrowOilTemp"~(me.n+1)].setColorFill(1, 0, 0);
+				me["arrowOilTemp"~(me.n+1)].setColorFill(1,0,0);
 			}
 			else {
 				me["oilTempLow"~(me.n+1)].hide();
 				me["oilTempHigh"~(me.n+1)].hide();
-				me["arrowOilTemp"~(me.n+1)].setColorFill(1, 1, 1);
+				me["arrowOilTemp"~(me.n+1)].setColorFill(1,1,1);
 			}
 			me["readout_ff"~(me.n+1)].setText(sprintf("%3.0f",(getprop("engines/engine["~me.n~"]/fuel-flow_pph") or 0)));
 		}
@@ -169,8 +171,8 @@ var canvas_eicas = {
 		me.readout_tr.setText(sprintf("%3.0f", me.tmp));
 
 		# pressurization
-		me.readout_ft.setText(sprintf("%3.0f", getprop("systems/pressurization/cabin-altitude-ft") or 0));
-		me.readout_fpm.setText(sprintf("%3.0f", getprop("systems/pressurization/cabin-rate-fpm") or 0));
+		me.readout_ft.setText(sprintf("%d", getprop("systems/pressurization/cabin-altitude-ft") or 0));
+		me.readout_fpm.setText(sprintf("%d", getprop("systems/pressurization/cabin-rate-fpm") or 0));
 
 		# spoiler
 		if((getprop("controls/flight/spoilers") or 0) > 0) {
@@ -197,9 +199,9 @@ var canvas_eicas = {
 				me.flaps_to.setColor(1,1,1);
 			}
 			else {
-				me.readout_flaps1.setColor(1,0.75,0);
-				me.readout_flaps2.setColor(1,0.75,0);
-				me.flaps_to.setColor(1,0.75,0);
+				me.readout_flaps1.setColor(1,0.84,0);
+				me.readout_flaps2.setColor(1,0.84,0);
+				me.flaps_to.setColor(1,0.84,0);
 			}
 			me.trim_to.show();
 			me.flaps_to.show();
@@ -213,9 +215,9 @@ var canvas_eicas = {
 				me.flaps_landg.setColor(1,1,1);
 			}
 			else {
-				me.readout_flaps1.setColor(1,0.75,0);
-				me.readout_flaps2.setColor(1,0.75,0);
-				me.flaps_landg.setColor(1,0.75,0);
+				me.readout_flaps1.setColor(1,0.84,0);
+				me.readout_flaps2.setColor(1,0.84,0);
+				me.flaps_landg.setColor(1,0.84,0);
 			}
 			me.trim_pitch.setColorFill(1,1,1);
 			me.trim_to.hide();
@@ -238,13 +240,13 @@ var canvas_eicas = {
 	},
 	show: func()
 	{
-		me.active = 1;
 		me.update();
+		me.timer.start();
 		me.group.show();
 	},
 	hide: func()
 	{
-		me.active = 0;
+		me.timer.stop();
 		me.group.hide();
 	}
 };

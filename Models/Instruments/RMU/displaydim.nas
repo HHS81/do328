@@ -46,6 +46,7 @@ var canvas_displaydim = {
 	},
 	show: func()
 	{
+		setprop("instrumentation/rmu["~me.Instance~"]/autoBright", 0);
 		me.group.show();
 	},
 	hide: func()

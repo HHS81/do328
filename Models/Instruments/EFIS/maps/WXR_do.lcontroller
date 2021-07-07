@@ -1,0 +1,98 @@
+# See: http://wiki.flightgear.org/MapStructure
+# Class things:
+var name = 'WXR_do'; # for waypoints
+var parents = [SymbolLayer.Controller];
+var __self__ = caller(0)[0];
+SymbolLayer.Controller.add(name, __self__);
+SymbolLayer.add(name, {
+	parents: [MultiSymbolLayer],
+	type: name, # Symbol type
+	df_controller: __self__, # controller to use by default -- this one
+	df_options: { # default configuration options
+		active_node: "instrumentation/efis/wxGmap1"
+	}
+});
+var new = func(layer) {
+	var m = {
+		parents: [__self__],
+		layer: layer,
+		options: layer.options,
+		map: layer.map,
+		listeners: [],
+	};
+	layer.searcher._equals = func(l,r) l.equals(r);
+	m.addVisibilityListener();
+
+	return m;
+};
+var del = func() {
+	foreach (var l; me.listeners)
+		removelistener(l);
+};
+
+var WXR_cloud = {
+	new: func(n, idx, storm) {
+		var m = { parents:[WXR_cloud], idx:idx, storm:storm };
+		m.id = idx;
+		
+		m.lat = n.getNode("position/latitude-deg").getValue();
+		m.lon = n.getNode("position/longitude-deg").getValue();
+		#print(m.lat," ",m.lon);
+		return m;
+	},
+	equals: func(other) {
+		# this is set on symbol init, so use this for equality...
+		me.id == other.id
+	},
+};
+
+var WXR_storm = {
+	new: func(n, idx, storm) {
+		var m = { parents:[WXR_storm], idx:idx, storm:storm };
+		m.id = idx;
+		
+		m.lat = n.getNode("latitude-deg").getValue();
+		m.lon = n.getNode("longitude-deg").getValue();
+		#print(m.lat," ",m.lon);
+		return m;
+	},
+	equals: func(other) {
+		# this is set on symbol init, so use this for equality...
+		me.id == other.id
+	},
+};
+
+var tiles = 0;
+var clouds = 0;
+var storms = 0;
+var numTiles = 0;
+var numClouds = 0;
+var numStorms = 0;
+var counter = 0;
+var tileCounter = 0;
+var cloudCounter = 0;
+var stormCounter = 0;
+var searchCmd = func {
+	var result = [];
+	counter = 0;
+
+	tiles = props.globals.getNode("local-weather/clouds",1).getChildren("tile");
+	numTiles = size(tiles);
+	for(tileCounter=0; tileCounter < numTiles; tileCounter+=1) {
+		clouds = tiles[tileCounter].getChildren("cloud");
+		numClouds = size(clouds);
+		for(cloudCounter=0; cloudCounter < numClouds; cloudCounter+=1) {
+			append(result, WXR_cloud.new(clouds[cloudCounter], counter, 0));
+			counter+=1;
+		}
+	}
+
+	storms = props.globals.getNode("instrumentation/wxradar",1).getChildren("storm");
+	numStorms = size(storms);
+	for(stormCounter=0; stormCounter < numStorms; stormCounter+=1) {
+		append(result, WXR_storm.new(storms[stormCounter], counter+numClouds, 1));
+		counter+=1;
+	}
+	return result;
+};
+

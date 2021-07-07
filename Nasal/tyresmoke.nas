@@ -62,14 +62,12 @@ if (run_tyresmoke2)
 tyresmoke_2.update();
 settimer(tyresmoke, 0);
 }# end tyresmoke
-# == fire it up ===
-tyresmoke();
+var tyresmoke_timer = maketimer(0, apu_handler);
+tyresmoke_timer.start();
 #============================ Rain ===================================
 aircraft.rain.init();
 var rain = func {
 aircraft.rain.update();
-settimer(rain, 0);
 }
-# == fire it up ===
-rain()
-# end 
+var rain_timer = maketimer(0, rain);
+rain_timer.start();

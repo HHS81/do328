@@ -1,6 +1,25 @@
 <?xml version="1.0"?>
 <PropertyList>
 <fx>
+    <beep>
+        <name>overspeed</name>
+        <path>Sounds/beep.wav</path>
+        <property>instrumentation/mk-viii/inputs/discretes/beep</property>
+        <mode>looped</mode>
+    </beep>
+    <beep>
+        <name>tcas</name>
+        <path>tcas.wav</path>
+        <property>instrumentation/efis/tcas</property>
+        <mode>once</mode>
+    </beep>
+    <beep>
+        <name>squelch</name>
+        <path>radio-5s.wav</path>
+        <property>instrumentation/rcu/squelch</property>
+        <mode>looped</mode>
+    </beep>
+
 <!-- Engine 1 -->
     <engine>
         <name>engine left outside</name>

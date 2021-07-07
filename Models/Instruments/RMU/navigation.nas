@@ -1,11 +1,12 @@
-var hdg = props.globals.getNode("orientation/heading-magnetic-deg");
-
 var canvas_navigation = {
 	new: func(canvasGroup, instance)
 	{
 		var m = { parents: [canvas_navigation], rects:{} };
-		m.group = canvasGroup;
+		m.Group = canvasGroup;
 		m.Instance = instance;
+		m.Hdg = 0;
+		m.VorDeg = 0;
+		m.Tmp = 0;
 
 		var font_mapper = func(family, weight)
 		{
@@ -30,7 +31,7 @@ var canvas_navigation = {
 		m.crsNeedle.set("clip", "rect(0, 250, 350, 100)");# top,right,bottom,left
 
 		m.ActivateRect(0);
-		m.active = 0;
+		m.Timer = maketimer(0.1, m, m.update);
 		return m;
 	},
 	ActivateRect: func(input = -1) {
@@ -46,14 +47,10 @@ var canvas_navigation = {
 	},
 	update: func()
 	{
-		var heading = hdg.getValue();
-		var crs = getprop("instrumentation/nav["~me.Instance~"]/radials/selected-deg");
-
-		if(heading != nil) {
-			me.hdg.setText(sprintf("%3.0f",heading));
-			me.compass.setRotation(-heading*D2R);
-			me.crsNeedle.setRotation((crs-heading)*D2R);
-		}
+		me.Hdg = getprop("orientation/heading-magnetic-deg") or 0;
+		me.hdg.setText(sprintf("%3.0f", me.Hdg));
+		me.compass.setRotation(-me.Hdg*D2R);
+		me.crsNeedle.setRotation((getprop("instrumentation/nav["~me.Instance~"]/radials/selected-deg")-me.Hdg)*D2R);
 
 		me.navFreq.setText(sprintf("%.2f",getprop("instrumentation/nav["~me.Instance~"]/frequencies/selected-mhz")));
 		me.adfFreq.setText(sprintf("%.1f",getprop("instrumentation/adf["~me.Instance~"]/frequencies/selected-khz")));
@@ -70,7 +67,7 @@ var canvas_navigation = {
 		}
 
 		if(getprop("instrumentation/nav["~me.Instance~"]/in-range")) {
-			var vorDeg = getprop("instrumentation/nav["~me.Instance~"]/radials/reciprocal-radial-deg");
+			me.VorDeg = getprop("instrumentation/nav["~me.Instance~"]/radials/reciprocal-radial-deg");
 
 			if(getprop("instrumentation/nav["~me.Instance~"]/has-gs")) {
 				# ILS Mode
@@ -91,16 +88,16 @@ var canvas_navigation = {
 			}
 			else {
 				# VOR Mode
-				var circDeg = vorDeg - heading;
+				me.Tmp = me.VorDeg - me.Hdg;
 
-				if(circDeg < -180) circDeg = circDeg + 360;
-				if(circDeg > 180) circDeg = circDeg - 360;
+				if(me.Tmp < -180) me.Tmp = me.Tmp + 360;
+				if(me.Tmp > 180) me.Tmp = me.Tmp - 360;
 
-				if(circDeg > 40 and circDeg < 140) {
+				if(me.Tmp > 40 and me.Tmp < 140) {
 					me.arrowCL.hide();
 					me.arrowCR.show();
 				}
-				else if(circDeg < -40 and circDeg > -140) {
+				else if(me.Tmp < -40 and me.Tmp > -140) {
 					me.arrowCL.show();
 					me.arrowCR.hide();
 				}
@@ -108,16 +105,18 @@ var canvas_navigation = {
 					me.arrowCL.hide();
 					me.arrowCR.hide();
 				}
+				me.circNeedle.setRotation(me.Tmp*D2R);
+				me.circNeedle.show();
 
-				var direction = abs(crs-vorDeg);
-				if(direction > 360) {
+				me.Tmp = abs(getprop("instrumentation/nav["~me.Instance~"]/radials/selected-deg")-me.VorDeg);
+				if(me.Tmp > 360) {
 					diff = diff - 360;
 				}
-				if(direction < 80 or direction > 280) {
+				if(me.Tmp < 80 or me.Tmp > 280) {
 					me.vorDirection.setText("TO");
 					me.vorDirection.show();
 				}
-				else if(direction > 100 and direction < 260) {
+				else if(me.Tmp > 100 and me.Tmp < 260) {
 					me.vorDirection.setText("FROM");
 					me.vorDirection.show();
 				}
@@ -125,10 +124,8 @@ var canvas_navigation = {
 					me.vorDirection.hide();
 				}
 
-				me.circIndicator.setText(sprintf("%d°", vorDeg));
-				me.circNeedle.setRotation(circDeg*D2R);
+				me.circIndicator.setText(sprintf("%d°", me.VorDeg));
 				me.circle.show();
-				me.circNeedle.show();
 				me.gsScale.hide();
 			}
 
@@ -143,13 +140,13 @@ var canvas_navigation = {
 		}
 
 		if(getprop("instrumentation/adf["~me.Instance~"]/in-range")) {
-			var adfDeg = getprop("instrumentation/adf["~me.Instance~"]/indicated-bearing-deg")+heading;
+			var adfDeg = getprop("instrumentation/adf["~me.Instance~"]/indicated-bearing-deg")+me.Hdg;
 			if(adfDeg > 360) adfDeg = adfDeg - 360;
 			if(adfDeg < 0) adfDeg = adfDeg + 360;
-			var rhombDeg = adfDeg - heading;
+			var rhombDeg = adfDeg - me.Hdg;
 
-			if(rhombDeg < -180) rhombDeg = rhombDeg + 360;
-			if(rhombDeg > 180) rhombDeg = rhombDeg - 360;
+			if(rhombDeg < -180) rhombDeg += 360;
+			if(rhombDeg > 180) rhombDeg -= 360;
 
 			if(rhombDeg > 40 and rhombDeg < 140) {
 				me.arrowRL.hide();
@@ -176,10 +173,8 @@ var canvas_navigation = {
 			me.arrowRR.hide();
 		}
 
-		var quality = getprop("instrumentation/nav["~me.Instance~"]/signal-quality-norm") or 0;
-		if(quality > 0.95) {
-			var deflection = getprop("instrumentation/nav/heading-needle-deflection-norm");
-			me.crsPtr.setTranslation(deflection*95, 0);
+		if((getprop("instrumentation/nav["~me.Instance~"]/signal-quality-norm") or 0) > 0.95) {
+			me.crsPtr.setTranslation(getprop("instrumentation/nav/heading-needle-deflection-norm")*95, 0);
 		}
 		else {
 			me.crsPtr.setTranslation(0, 0);
@@ -196,10 +191,6 @@ var canvas_navigation = {
 			me.markerBeacon.setText("IM");
 		} else {
 			me.markerBeacon.hide();
-		}
-
-		if(me.active == 1) {
-			settimer(func me.update(), 0.1);
 		}
 	},
 	BtClick: func(input = -1) {
@@ -223,59 +214,58 @@ var canvas_navigation = {
 			if(index == 0) {
 				step = 10;
 			}
-			var crs = getprop("instrumentation/nav["~me.Instance~"]/radials/selected-deg");
+			me.Tmp = getprop("instrumentation/nav["~me.Instance~"]/radials/selected-deg");
 			if(input > 0) {
-				crs = crs + step;
+				me.Tmp += step;
 			}
 			else {
-				crs = crs - step;
+				me.Tmp -= step;
 			}
-			if(crs >= 360) crs = crs-360;
-			if(crs < 0) crs = crs+360;
-
-			setprop("instrumentation/nav["~me.Instance~"]/radials/selected-deg", crs);
+			if(me.Tmp >= 360) me.Tmp -= 360;
+			if(me.Tmp < 0) me.Tmp += 360;
+			setprop("instrumentation/nav["~me.Instance~"]/radials/selected-deg", me.Tmp);
 		}
 		if(me.ActiveRect == 1) {
 			if(index == 1) {
-				#step = 0.025;#wide
-				step = 0.05;#narrow
+				#step = 0.025; #wide
+				step = 0.05; #narrow
 			}
-			var freq = getprop("instrumentation/nav["~me.Instance~"]/frequencies/selected-mhz");
+			me.Tmp = getprop("instrumentation/nav["~me.Instance~"]/frequencies/selected-mhz");
 			if(input > 0) {
-				freq = freq + step;
+				me.Tmp += step;
 			}
 			else {
-				freq = freq - step;
+				me.Tmp -= step;
 			}
-			if(freq >= 108 and freq <= 117.95) {
-				setprop("instrumentation/nav["~me.Instance~"]/frequencies/selected-mhz", freq);
+			if(me.Tmp >= 108 and me.Tmp <= 117.95) {
+				setprop("instrumentation/nav["~me.Instance~"]/frequencies/selected-mhz", me.Tmp);
 			}
 		}
 		if(me.ActiveRect == 2) {
 			if(index == 0) {
 				step = 100;
 			}
-			var freq = getprop("instrumentation/adf["~me.Instance~"]/frequencies/selected-khz");
+			me.Tmp = getprop("instrumentation/adf["~me.Instance~"]/frequencies/selected-khz");
 			if(input > 0) {
-				freq = freq + step;
+				me.Tmp += step;
 			}
 			else {
-				freq = freq - step;
+				me.Tmp -= step;
 			}
-			if(freq >= 180 and freq <= 1750) {
-				setprop("instrumentation/adf["~me.Instance~"]/frequencies/selected-khz", freq);
+			if(me.Tmp >= 180 and me.Tmp <= 1750) {
+				setprop("instrumentation/adf["~me.Instance~"]/frequencies/selected-khz", me.Tmp);
 			}
 		}
 	},
 	show: func()
 	{
-		me.active = 1;
 		me.update();
-		me.group.show();
+		me.Timer.start();
+		me.Group.show();
 	},
 	hide: func()
 	{
-		me.active = 0;
-		me.group.hide();
+		me.Timer.stop();
+		me.Group.hide();
 	}
 };

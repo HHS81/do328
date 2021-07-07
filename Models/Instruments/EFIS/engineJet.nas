@@ -25,7 +25,7 @@ var canvas_engine = {
 		}
 
 		m.hideme.hide();
-		m.active = 0;
+		m.timer = maketimer(0.1, m, m.update);
 		return m;
 	},
 	update: func()
@@ -45,20 +45,16 @@ var canvas_engine = {
 			me["readout_oilPrss"~(me.n+1)].setText(sprintf("%3.01f", me.tmp));
 			me["arrowOilPrss"~(me.n+1)].setTranslation(me.tmp*1.8, 0); #135/40
 		}
-
-		if(me.active == 1) {
-			settimer(func me.update(), 0.1);
-		}
 	},
 	show: func()
 	{
-		me.active = 1;
 		me.update();
+		me.timer.start();
 		me.group.show();
 	},
 	hide: func()
 	{
-		me.active = 0;
+		me.timer.stop();
 		me.group.hide();
 	}
 };

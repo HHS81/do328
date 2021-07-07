@@ -98,8 +98,6 @@
 	<effect>
 		<inherits-from>Aircraft/do328/Models/Effects/do328miscreflect</inherits-from>
 		<object-name>GearBay</object-name>
-		<object-name>mlgwheelr</object-name>
-		<object-name>mlgwheell</object-name>
 		<object-name>mlgarml</object-name>
 		<object-name>mlgarmr</object-name>
 		<object-name>mlgabsorbl1</object-name>
@@ -108,7 +106,6 @@
 		<object-name>mlgabsorbr2</object-name>
 		<object-name>mlglegl</object-name>
 		<object-name>mlglegr</object-name>
-		<object-name>flgwheel</object-name>
 		<object-name>flgstrut2</object-name>
 		<object-name>flgstrut1</object-name>
 		<object-name>flgcylinder</object-name>
@@ -1235,7 +1232,7 @@
 		<object-name>propfast.L</object-name>
 		<condition>
 			<greater-than>
-				<property>engines/engine[1]/thruster/rpm</property>
+				<property>engines/engine[0]/thruster/rpm</property>
 				<value>250.0000</value>
 			</greater-than>
 		</condition>
@@ -1245,11 +1242,11 @@
         <object-name>Lslowprop</object-name>
         <condition>
             <greater-than>
-                <property>engines/engine[1]/thruster/rpm</property>
+                <property>engines/engine[0]/thruster/rpm</property>
                 <value>50.000</value>
             </greater-than>
             <less-than>
-                <property>engines/engine[1]/thruster/rpm</property>
+                <property>engines/engine[0]/thruster/rpm</property>
                 <value>1000</value>
             </less-than>
         </condition>
@@ -1259,7 +1256,7 @@
 		<object-name>Lprop</object-name>
 		<condition>
 			<less-than>
-				<property>engines/engine[1]/thruster/rpm</property>
+				<property>engines/engine[0]/thruster/rpm</property>
 				<value>250.00</value>
 			</less-than>
 		</condition>
@@ -1269,7 +1266,7 @@
 		<object-name>propfast.R</object-name>
 		<condition>
 			<greater-than>
-				<property>engines/engine[0]/thruster/rpm</property>
+				<property>engines/engine[1]/thruster/rpm</property>
 				<value>250.0000</value>
 			</greater-than>
 		</condition>
@@ -1279,11 +1276,11 @@
         <object-name>Rslowprop</object-name>
         <condition>
             <greater-than>
-                <property>engines/engine[0]/thruster/rpm</property>
+                <property>engines/engine[1]/thruster/rpm</property>
                 <value>50.000</value>
             </greater-than>
             <less-than>
-                <property>engines/engine[0]/thruster/rpm</property>
+                <property>engines/engine[1]/thruster/rpm</property>
                 <value>1000</value>
             </less-than>
         </condition>
@@ -1293,7 +1290,7 @@
 		<object-name>Rprop</object-name>
 		<condition>
 			<less-than>
-				<property>engines/engine[0]/thruster/rpm</property>
+				<property>engines/engine[1]/thruster/rpm</property>
 				<value>250.00</value>
 			</less-than>
 		</condition>
@@ -1301,7 +1298,7 @@
 	<animation>
 		<type>spin</type>
 		<object-name>propfast.L</object-name>
-		<property>engines/engine[1]/thruster/rpm</property>
+		<property>engines/engine[0]/thruster/rpm</property>
 		<factor>1.0</factor>
 		<center>
 			<x-m>-5.116</x-m>
@@ -1317,7 +1314,7 @@
 	<animation>
 		<type>spin</type>
 		<object-name>propfast.R</object-name>
-		<property>engines/engine[0]/thruster/rpm</property>
+		<property>engines/engine[1]/thruster/rpm</property>
 		<factor>1.0</factor>
 		<center>
 			<x-m>-5.116</x-m>
@@ -1333,7 +1330,7 @@
 	<animation>
 		<type>spin</type>
 		<object-name>Lprop</object-name>
-		<property>engines/engine[1]/thruster/rpm</property>
+		<property>engines/engine[0]/thruster/rpm</property>
 		<center>
 			<x-m>-5.116</x-m>
 			<y-m>-3.550</y-m>
@@ -1348,7 +1345,7 @@
 	<animation>
 		<type>spin</type>
 		<object-name>Rprop</object-name>
-		<property>engines/engine[0]/thruster/rpm</property>
+		<property>engines/engine[1]/thruster/rpm</property>
 		<center>
 			<x-m>-5.116</x-m>
 			<y-m>3.550</y-m>
@@ -1364,7 +1361,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>blade21</object-name>
-		<property>fdm/jsbsim/propulsion/engine[1]/blade-angle</property>
+		<property>fdm/jsbsim/propulsion/engine[0]/blade-angle</property>
 		<interpolation>
 			<entry>
 				<ind>77.0</ind>
@@ -1389,7 +1386,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>blade22</object-name>
-		<property>fdm/jsbsim/propulsion/engine[1]/blade-angle</property>
+		<property>fdm/jsbsim/propulsion/engine[0]/blade-angle</property>
 		<interpolation>
 			<entry>
 				<ind>77.0</ind>
@@ -1414,7 +1411,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>blade23</object-name>
-		<property>fdm/jsbsim/propulsion/engine[1]/blade-angle</property>
+		<property>fdm/jsbsim/propulsion/engine[0]/blade-angle</property>
 		<interpolation>
 			<entry>
 				<ind>77.0</ind>
@@ -1439,7 +1436,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>blade24</object-name>
-		<property>fdm/jsbsim/propulsion/engine[1]/blade-angle</property>
+		<property>fdm/jsbsim/propulsion/engine[0]/blade-angle</property>
 		<interpolation>
 			<entry>
 				<ind>77.0</ind>
@@ -1464,7 +1461,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>blade25</object-name>
-		<property>fdm/jsbsim/propulsion/engine[1]/blade-angle</property>
+		<property>fdm/jsbsim/propulsion/engine[0]/blade-angle</property>
 		<interpolation>
 			<entry>
 				<ind>77.0</ind>
@@ -1489,7 +1486,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>blade26</object-name>
-		<property>fdm/jsbsim/propulsion/engine[1]/blade-angle</property>
+		<property>fdm/jsbsim/propulsion/engine[0]/blade-angle</property>
 		<interpolation>
 			<entry>
 				<ind>77.0</ind>
@@ -1514,7 +1511,7 @@
 	<!--<animation>
 		<type>spin</type>
 		<object-name>Lslowprop</object-name>
-		  <property>engines/engine[0]/rpm</property>
+		  <property>engines/engine[1]/rpm</property>
 		  <factor>0.5</factor>
 		<center>
 			<x-m>-5.075114</x-m>
@@ -1531,7 +1528,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>blade11</object-name>
-		<property>fdm/jsbsim/propulsion/engine[0]/blade-angle</property>
+		<property>fdm/jsbsim/propulsion/engine[1]/blade-angle</property>
 		<interpolation>
 			<entry>
 				<ind>0.0</ind>
@@ -1556,7 +1553,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>blade12</object-name>
-		<property>fdm/jsbsim/propulsion/engine[0]/blade-angle</property>
+		<property>fdm/jsbsim/propulsion/engine[1]/blade-angle</property>
 		<interpolation>
 			<entry>
 				<ind>0.0</ind>
@@ -1581,7 +1578,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>blade13</object-name>
-		<property>fdm/jsbsim/propulsion/engine[0]/blade-angle</property>
+		<property>fdm/jsbsim/propulsion/engine[1]/blade-angle</property>
 		<interpolation>
 			<entry>
 				<ind>0.0</ind>
@@ -1606,7 +1603,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>blade14</object-name>
-		<property>fdm/jsbsim/propulsion/engine[0]/blade-angle</property>
+		<property>fdm/jsbsim/propulsion/engine[1]/blade-angle</property>
 		<interpolation>
 			<entry>
 				<ind>0.0</ind>
@@ -1631,7 +1628,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>blade15</object-name>
-		<property>fdm/jsbsim/propulsion/engine[0]/blade-angle</property>
+		<property>fdm/jsbsim/propulsion/engine[1]/blade-angle</property>
 		<interpolation>
 			<entry>
 				<ind>0.0</ind>
@@ -1656,7 +1653,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>blade16</object-name>
-		<property>fdm/jsbsim/propulsion/engine[0]/blade-angle</property>
+		<property>fdm/jsbsim/propulsion/engine[1]/blade-angle</property>
 		<interpolation>
 			<entry>
 				<ind>0.0</ind>
@@ -2132,5 +2129,54 @@
 				<property>controls/lighting/strobe-state/state</property>
 			</and>
 		</condition>
+	</animation>
+
+	<animation>
+		<type>spin</type>
+		<object-name>flgwheel</object-name>
+		<property>/gear/gear[0]/rollspeed-ms</property>
+		<factor> 30 </factor>
+		<center>
+			<x-m> -8.782 </x-m>
+			<y-m>  0.000 </y-m>
+			<z-m> -0.047 </z-m>
+		</center>
+		<axis>
+			<x>  0 </x>
+			<y> -1 </y>
+			<z>  0 </z>
+		</axis>
+	</animation>
+	<animation>
+		<type>spin</type>
+		<object-name>mlgwheell</object-name>
+		<property>/gear/gear[1]/rollspeed-ms</property>
+		<factor> 30 </factor>
+		<center>
+			<x-m> -1.470 </x-m>
+			<y-m>  0.000 </y-m>
+			<z-m>  0.044 </z-m>
+		</center>
+		<axis>
+			<x>  0 </x>
+			<y> -1 </y>
+			<z>  0 </z>
+		</axis>
+	</animation>
+	<animation>
+		<type>spin</type>
+		<object-name>mlgwheelr</object-name>
+		<property>/gear/gear[2]/rollspeed-ms</property>
+		<factor> 30 </factor>
+		<center>
+			<x-m> -1.470 </x-m>
+			<y-m>  0.000 </y-m>
+			<z-m>  0.044 </z-m>
+		</center>
+		<axis>
+			<x>  0 </x>
+			<y> -1 </y>
+			<z>  0 </z>
+		</axis>
 	</animation>
 </PropertyList>

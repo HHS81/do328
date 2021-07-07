@@ -115,14 +115,22 @@ This file selects the instrumentation modules that should be available.
     </mk-viii>
 
     <radar>
-        <name>radar</name>
+        <name>wxradar</name>
         <number>0</number>
     </radar>
-    
+
   <radar-altimeter>
     <name>radar-altimeter</name>
     <number>0</number>
     <update-interval-sec>0.1</update-interval-sec>
   </radar-altimeter>
 
+  <transponder>
+    <name type="string">transponder</name>
+    <number type="int">0</number>
+    <mode type="int">1</mode> <!-- 0 = Mode A, 1 = Mode C, 2 = Mode S -->
+    <bus-volts type="double">8.0</bus-volts>
+    <encoder-path type="string">/instrumentation/altimeter</encoder-path>
+    <kt70-compatibility type="bool">0</kt70-compatibility>
+  </transponder>
 </PropertyList>

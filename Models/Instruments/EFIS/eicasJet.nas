@@ -49,7 +49,7 @@ var canvas_eicas = {
 
 		m.hideme.hide();
 
-		m.active = 0;
+		m.timer = maketimer(0.1, m, m.update);
 		return m;
 	},
 	update: func()
@@ -60,10 +60,6 @@ var canvas_eicas = {
 		if(me.frameCounter > 3) {
 			me.frameCounter = 0;
 			me.updateSlow();
-		}
-
-		if(me.active == 1) {
-			settimer(func me.update(), 0.1);
 		}
 	},
 	updateFast: func()
@@ -128,8 +124,8 @@ var canvas_eicas = {
 		me.readout_tr.setText(sprintf("%3.0f", me.tmp));
 
 		# pressurization
-		me.readout_ft.setText(sprintf("%3.0f", getprop("systems/pressurization/cabin-altitude-ft") or 0));
-		me.readout_fpm.setText(sprintf("%3.0f", getprop("systems/pressurization/cabin-rate-fpm") or 0));
+		me.readout_ft.setText(sprintf("%d", getprop("systems/pressurization/cabin-altitude-ft") or 0));
+		me.readout_fpm.setText(sprintf("%d", getprop("systems/pressurization/cabin-rate-fpm") or 0));
 
 		# spoiler
 		if((getprop("controls/flight/spoilers") or 0) > 0) {
@@ -156,9 +152,9 @@ var canvas_eicas = {
 				me.flaps_to.setColor(1,1,1);
 			}
 			else {
-				me.readout_flaps1.setColor(1,0.75,0);
-				me.readout_flaps2.setColor(1,0.75,0);
-				me.flaps_to.setColor(1,0.75,0);
+				me.readout_flaps1.setColor(1,0.84,0);
+				me.readout_flaps2.setColor(1,0.84,0);
+				me.flaps_to.setColor(1,0.84,0);
 			}
 			me.trim_to.show();
 			me.flaps_to.show();
@@ -172,9 +168,9 @@ var canvas_eicas = {
 				me.flaps_landg.setColor(1,1,1);
 			}
 			else {
-				me.readout_flaps1.setColor(1,0.75,0);
-				me.readout_flaps2.setColor(1,0.75,0);
-				me.flaps_landg.setColor(1,0.75,0);
+				me.readout_flaps1.setColor(1,0.84,0);
+				me.readout_flaps2.setColor(1,0.84,0);
+				me.flaps_landg.setColor(1,0.84,0);
 			}
 			me.trim_pitch.setColorFill(1,1,1);
 			me.trim_to.hide();
@@ -197,13 +193,13 @@ var canvas_eicas = {
 	},
 	show: func()
 	{
-		me.active = 1;
 		me.update();
+		me.timer.start();
 		me.group.show();
 	},
 	hide: func()
 	{
-		me.active = 0;
+		me.timer.stop();
 		me.group.hide();
 	}
 };

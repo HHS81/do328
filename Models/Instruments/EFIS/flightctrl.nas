@@ -49,7 +49,7 @@ var canvas_flightctrl = {
 		m.indicator_roll.hide();
 		m.indicator_spoilers.hide();
 
-		m.active = 0;
+		m.timer = maketimer(0.1, m, m.update);
 		return m;
 	},
 	update: func()
@@ -77,20 +77,16 @@ var canvas_flightctrl = {
 		else {
 			me.indicator_spoilers.hide();
 		}
-
-		if(me.active == 1) {
-			settimer(func me.update(), 0.1);
-		}
 	},
 	show: func()
 	{
-		me.active = 1;
 		me.update();
+		me.timer.start();
 		me.group.show();
 	},
 	hide: func()
 	{
-		me.active = 0;
+		me.timer.stop();
 		me.group.hide();
 	}
 };

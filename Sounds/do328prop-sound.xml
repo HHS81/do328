@@ -1,6 +1,25 @@
 <?xml version="1.0"?>
 <PropertyList>
 <fx>
+    <beep>
+        <name>overspeed</name>
+        <path>Sounds/beep.wav</path>
+        <property>instrumentation/mk-viii/inputs/discretes/beep</property>
+        <mode>looped</mode>
+    </beep>
+    <beep>
+        <name>tcas</name>
+        <path>tcas.wav</path>
+        <property>instrumentation/efis/tcas</property>
+        <mode>once</mode>
+    </beep>
+    <beep>
+        <name>squelch</name>
+        <path>radio-5s.wav</path>
+        <property>instrumentation/rcu/squelch</property>
+        <mode>looped</mode>
+    </beep>
+
 <!-- Engine 1 -->
     <engine>
         <name>engine left outside</name>
@@ -91,7 +110,7 @@
         <condition>
             <and>
                 <greater-than>
-                    <property>engines/engine[0]/n1</property>
+                    <property>engines/engine[1]/n1</property>
                     <value>1</value>
                 </greater-than>
                 <not>
@@ -101,11 +120,11 @@
         </condition>
         <mode>looped</mode>
         <volume>
-            <property>engines/engine[0]/thruster/rpm</property>
+            <property>engines/engine[1]/thruster/rpm</property>
             <factor>0.00077</factor>
         </volume>
         <pitch>
-                <property>engines/engine[0]/thruster/rpm</property>
+                <property>engines/engine[1]/thruster/rpm</property>
                 <offset>0.0</offset>
                 <factor>0.0007692307692308</factor>
                 <min>0.5</min>
@@ -133,7 +152,7 @@
         <condition>
             <and>
                 <greater-than>
-                    <property>engines/engine[0]/n1</property>
+                    <property>engines/engine[1]/n1</property>
                     <value>1</value>
                 </greater-than>
                 <property>sim/current-view/internal</property>
@@ -141,11 +160,11 @@
         </condition>
         <mode>looped</mode>
         <volume>
-            <property>engines/engine[0]/thruster/rpm</property>
+            <property>engines/engine[1]/thruster/rpm</property>
             <factor>0.00077</factor>
         </volume>
         <pitch>
-                <property>engines/engine[0]/thruster/rpm</property>
+                <property>engines/engine[1]/thruster/rpm</property>
                 <offset>0.0</offset>
                 <factor>0.0007692307692308</factor>
                 <min>0.5</min>

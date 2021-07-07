@@ -1,0 +1,48 @@
+# See: http://wiki.flightgear.org/MapStructure
+# Class things:
+var name = 'DME_do';
+var parents = [DotSym];
+var __self__ = caller(0)[0];
+DotSym.makeinstance( name, __self__ );
+
+var element_type = "group"; # we want a group, becomes "me.element"
+var icon_dme_do = nil;
+var text_dme_do = nil;
+
+# add the draw routine from airports-nd.draw here
+var init = func {
+	var icon_dme_do = me.element.createChild("path", name ~ " icon")
+		.moveTo(-15,0)
+		.line(-12.5,-7.5)
+		.line(7.5,-12.5)
+		.line(12.5,7.5)
+		.lineTo(7.5,-12.5)
+		.line(12.5,-7.5)
+		.line(7.5,12.5)
+		.line(-12.5,7.5)
+		.lineTo(15,0)
+		.lineTo(7.5,12.5)
+		.vert(14.5)
+		.horiz(-14.5)
+		.vert(-14.5)
+		.close()
+		.moveTo(-15,0)
+		.line(7.5,-12.5)
+		.moveTo(7.5,-12.5)
+		.line(7.5,12.5)
+		.moveTo(7.5,12.5)
+		.horiz(-14.5)
+		.setColor(me.layer.style.color_default)
+		.setStrokeLineWidth(me.layer.style.line_width);
+	var text_dme_do = me.element.createChild("text", name ~ " label")
+		.setDrawMode(canvas.Text.TEXT)
+		.setTranslation(30,-15)
+		.setText(me.model.id)
+		.setFont("honeywellfont.ttf")
+		.setColor(me.layer.style.color_default)
+		.setFontSize(32);
+
+	# FIXME: this applies scale to the whole group, better do this separately for each element?
+	me.element.setScale(me.layer.style.scale_factor);
+};
+var draw = func;

@@ -5,7 +5,7 @@
 	<animation>
 		<type>select</type>
 		<condition>
-		<property>systems/electrical/outputs/EFIS</property>
+		<property>systems/electrical/outputs/rmu</property>
 		</condition>
 		<object-name>RCU.screen</object-name>
 	</animation>
@@ -15,7 +15,7 @@
 		<object-name>RCU.swap</object-name>
 		<object-name>RCU.navAudio</object-name>
 		<condition>
-			<property>systems/electrical/outputs/EFIS</property>
+			<property>systems/electrical/outputs/rmu</property>
 		</condition>
 		<emission>
 			<red>1</red>
@@ -52,15 +52,6 @@
 				<property>sim/sound/click</property>
 			</binding>
 		</action>
-		<hovered>
-			<binding>
-				<command>set-tooltip</command>
-				<tooltip-id>RcuSq</tooltip-id>
-				<label>Squelch : %s</label>
-				<property>instrumentation/rcu/sq</property>
-				<mapping>on-off</mapping>
-			</binding>
-		</hovered>
 	</animation>
 	<animation>
 		<type>translate</type>

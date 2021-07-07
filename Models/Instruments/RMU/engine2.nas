@@ -18,7 +18,7 @@ var canvas_engine2 = {
 			m[key] = canvasGroup.getElementById(key);
 		}
 
-		m.active = 0;
+		m.timer = maketimer(0.1, m, m.update);
 		return m;
 	},
 	update: func()
@@ -27,10 +27,6 @@ var canvas_engine2 = {
 			me["ff"~(me.n+1)].setText(sprintf("%3.0f",(getprop("engines/engine["~me.n~"]/fuel-flow_pph") or 0)));
 			me["oilt"~(me.n+1)].setText(sprintf("%3.0f",(getprop("engines/engine["~me.n~"]/oil-temperature-degf") or 0)));
 			me["oilp"~(me.n+1)].setText(sprintf("%3.0f",(getprop("engines/engine["~me.n~"]/oil-pressure-psi") or 0)));
-		}
-
-		if(me.active == 1) {
-			settimer(func me.update(), 0.3);
 		}
 	},
 	BtClick: func(input = -1) {
@@ -45,13 +41,13 @@ var canvas_engine2 = {
 	},
 	show: func()
 	{
-		me.active = 1;
 		me.update();
+		me.timer.start();
 		me.group.show();
 	},
 	hide: func()
 	{
-		me.active = 0;
+		me.timer.stop();
 		me.group.hide();
 	}
 };

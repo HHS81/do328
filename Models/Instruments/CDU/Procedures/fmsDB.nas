@@ -8,7 +8,6 @@ var fmsDB = {
         me.airport = icao;
         me.wptps   = [];
         
-
       var tp = fmsTP.new();
       var wp = fmsWP.new();
       var trans = fmsTransition.new();
@@ -178,7 +177,7 @@ var fmsDB = {
 				}
 
         if (name == "Runways") {
-           print("[FMS] do Runways");
+           ##print("[FMS] do Runways");
            var data = pop(xmlStack);
            wp.wp_runway = data;           
          }
@@ -257,15 +256,15 @@ var fmsDB = {
         if (data != nil) {
           data = string.trim(data);
           if (size(data) > 0) {
+            ##print("data : ",data);
             append(xmlStack, data);
           }
         }
       }
 
      ############ constructor ####################
-			root = getprop("/sim/fg-aircraft");
-			fn = call(func parsexml(root~"/TerraSync/Airports/"~left(icao,1)~"/"~substr(icao,1,1)~"/"~substr(icao,2,1)~ "/"~icao~".procedures.xml", start, end, data),nil,var err = []);
-
+			root = getprop("/sim/fg-scenery");
+			fn = call(func parsexml(root~"/Airports/"~left(icao,1)~"/"~substr(icao,1,1)~"/"~substr(icao,2,1)~ "/"~icao~".procedures.xml", start, end, data),nil,var err = []);
 
       if (size(err)) {
 #         print("[FMS] failed to find SID/STAR database file for: "~icao);
@@ -335,8 +334,8 @@ var fmsDB = {
       foreach(var s; me.wptps) {
         if (s.tp_type == "Approach") {
           foreach(var r; s.runways) {
-						##print("r = "~r);
             if (r == runway or r == "All") {
+							##print(s.wp_name);
               append(appList, s);
             }
           }
@@ -352,7 +351,7 @@ var fmsDB = {
       var appList = [];
       foreach(var s; me.wptps) {
         if (s.tp_type == "Approach") {
-							#print(s.wp_name);
+							##print(s.wp_name);
               append(appList, s);
         }
       }

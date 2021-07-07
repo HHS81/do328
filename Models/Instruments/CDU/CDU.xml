@@ -29,449 +29,67 @@
         <type>pick</type>
         <object-name>CDU-knob</object-name>
         <action>
-            <button>1</button>
-            <repeatable>true</repeatable>
-            <interval-sec>0.1</interval-sec>
-            <binding>
-                <command>property-adjust</command>
-                <property>controls/lighting/cdu</property>
-                <step>0.05</step>
-                <min>0</min>
-                <max>1.0</max>
-                <wrap>false</wrap>
-            </binding>
+          <button>0</button>
+          <button>3</button>
+          <repeatable>true</repeatable>
+          <interval-sec>0.1</interval-sec>
+          <binding>
+              <command>property-adjust</command>
+              <property>controls/lighting/cdu</property>
+              <step>0.05</step>
+              <min>0</min>
+              <max>1.0</max>
+              <wrap>false</wrap>
+          </binding>
+					<binding>
+						<condition>
+							<greater-than>
+	              <property>controls/lighting/cdu</property>
+								<value>0.05</value>
+							</greater-than>
+						</condition>
+						<command>property-assign</command>
+							<property>instrumentation/cdu/init</property>
+							<value>0</value>
+					</binding>				
         </action>
     </animation>
 
     <animation>
-        <type>pick</type>
-        <object-name>CDU-knob</object-name>
-        <action>
-            <button>2</button>
-            <repeatable>true</repeatable>
-            <interval-sec>0.1</interval-sec>
-            <binding>
-                <command>property-adjust</command>
-                <property>controls/lighting/cdu</property>
-                <step>-0.05</step>
-                <min>0</min>
-                <max>1.0</max>
-                <wrap>false</wrap>
-            </binding>
+      <type>pick</type>
+      <object-name>CDU-knob</object-name>
+      <action>
+          <button>4</button>
+          <repeatable>true</repeatable>
+          <interval-sec>0.1</interval-sec>
+          <binding>
+              <command>property-adjust</command>
+              <property>controls/lighting/cdu</property>
+              <step>-0.05</step>
+              <min>0</min>
+              <max>1.0</max>
+              <wrap>false</wrap>
+          </binding>
+					<binding>
+						<condition>
+							<less-than>
+	              <property>controls/lighting/cdu</property>
+								<value>0.05</value>
+							</less-than>
+						</condition>
+						<command>property-assign</command>
+							<property>instrumentation/cdu/init</property>
+							<value>1</value>
+					</binding>				
         </action>
     </animation>
-
-    <animation>
-        <type>pick</type>
-        <object-name>CDU-knob</object-name>
-        <action>
-            <button>3</button>
-            <repeatable>true</repeatable>
-            <interval-sec>0.1</interval-sec>
-            <binding>
-                <command>property-adjust</command>
-                <property>controls/lighting/cdu</property>
-                <step>0.05</step>
-                <min>0</min>
-                <max>1.0</max>
-                <wrap>false</wrap>
-            </binding>
-        </action>
-    </animation>
-
-    <animation>
-        <type>pick</type>
-        <object-name>CDU-knob</object-name>
-        <action>
-            <button>4</button>
-            <repeatable>true</repeatable>
-            <interval-sec>0.1</interval-sec>
-            <binding>
-                <command>property-adjust</command>
-                <property>controls/lighting/cdu</property>
-                <step>-0.05</step>
-                <min>0</min>
-                <max>1.0</max>
-                <wrap>false</wrap>
-            </binding>
-        </action>
-    </animation>
-
-  <params>
-    <header>instrumentation/cdu/page</header>
-    <L0>instrumentation/cdu/L[0]</L0>
-    <L1>instrumentation/cdu/L[1]</L1>
-    <L2>instrumentation/cdu/L[2]</L2>
-    <L3>instrumentation/cdu/L[3]</L3>
-    <L4>instrumentation/cdu/L[4]</L4>
-		<L5>instrumentation/cdu/L[5]</L5>
-		<L6>instrumentation/cdu/L[6]</L6>
-    <R0>instrumentation/cdu/R[0]</R0>
-    <R1>instrumentation/cdu/R[1]</R1>
-    <R2>instrumentation/cdu/R[2]</R2>
-    <R3>instrumentation/cdu/R[3]</R3>
-    <R4>instrumentation/cdu/R[4]</R4>
-    <R5>instrumentation/cdu/R[5]</R5>
-		<R6>instrumentation/cdu/R[6]</R6>
-		<S0>instrumentation/cdu/input</S0>
-  </params>
-
-    <text>
-        <name>Page</name>
-        <offsets>
-            <x-m>0.003</x-m>
-            <y-m>0.0</y-m>
-            <z-m>0.062</z-m>
-        </offsets>
-        <alignment>center-center</alignment>
-        <axis-alignment>yz-plane</axis-alignment>
-        <type>text-value</type>
-        <property alias="../../params/header"/>
-        <font>helvetica_bold.txf</font>
-        <character-size>0.006</character-size>
-        <character-aspect-ratio type="double">1.2</character-aspect-ratio>
-        <font-resolution>
-            <width type="int">32</width>
-            <height type="int">32</height>
-        </font-resolution>
-    </text>
-
-<!-- left column -->
-
-    <text>
-        <name>L0</name>
-        <offsets>
-            <x-m>0.003</x-m>
-            <y-m>-0.048</y-m>
-            <z-m>0.055</z-m>
-        </offsets>
-        <alignment>left-center</alignment>
-        <axis-alignment>yz-plane</axis-alignment>
-        <type>text-value</type>
-        <property alias="../../params/L0"/>
-        <font>helvetica_bold.txf</font>
-        <character-size>0.006</character-size>
-        <character-aspect-ratio type="double">1.2</character-aspect-ratio>
-        <font-resolution>
-            <width type="int">32</width>
-            <height type="int">32</height>
-        </font-resolution>
-    </text>
-
-    <text>
-        <name>L1</name>
-        <offsets>
-            <x-m>0.003</x-m>
-            <y-m>-0.048</y-m>
-            <z-m>0.048</z-m>
-        </offsets>
-        <alignment>left-center</alignment>
-        <axis-alignment>yz-plane</axis-alignment>
-        <type>text-value</type>
-        <property alias="../../params/L1"/>
-        <font>helvetica_bold.txf</font>
-        <character-size>0.006</character-size>
-        <character-aspect-ratio type="double">1.1</character-aspect-ratio>
-        <font-resolution>
-            <width type="int">32</width>
-            <height type="int">32</height>
-        </font-resolution>
-    </text>
-
-    <text>
-        <name>L2</name>
-        <offsets>
-            <x-m>0.003</x-m>
-            <y-m>-0.048</y-m>
-            <z-m>0.041</z-m>
-        </offsets>
-        <alignment>left-center</alignment>
-        <axis-alignment>yz-plane</axis-alignment>
-        <type>text-value</type>
-        <property alias="../../params/L2"/>
-        <font>helvetica_bold.txf</font>
-        <character-size>0.006</character-size>
-        <character-aspect-ratio type="double">1.2</character-aspect-ratio>
-        <font-resolution>
-            <width type="int">32</width>
-            <height type="int">32</height>
-        </font-resolution>
-    </text>
-
-    <text>
-        <name>L3</name>
-        <offsets>
-            <x-m>0.003</x-m>
-            <y-m>-0.048</y-m>
-            <z-m>0.034</z-m>
-        </offsets>
-        <alignment>left-center</alignment>
-        <axis-alignment>yz-plane</axis-alignment>
-        <type>text-value</type>
-        <property alias="../../params/L3"/>
-        <font>helvetica_bold.txf</font>
-        <character-size>0.006</character-size>
-        <character-aspect-ratio type="double">1.1</character-aspect-ratio>
-        <font-resolution>
-            <width type="int">32</width>
-            <height type="int">32</height>
-        </font-resolution>
-    </text>
-
-    <text>
-        <name>L4</name>
-        <offsets>
-            <x-m>0.003</x-m>
-            <y-m>-0.048</y-m>
-            <z-m>0.026</z-m>
-        </offsets>
-        <alignment>left-center</alignment>
-        <axis-alignment>yz-plane</axis-alignment>
-        <type>text-value</type>
-        <property alias="../../params/L4"/>
-        <font>helvetica_bold.txf</font>
-        <character-size>0.006</character-size>
-        <character-aspect-ratio type="double">1.2</character-aspect-ratio>
-        <font-resolution>
-            <width type="int">32</width>
-            <height type="int">32</height>
-        </font-resolution>
-    </text>
-
-    <text>
-        <name>L5</name>
-        <offsets>
-            <x-m>0.003</x-m>
-            <y-m>-0.048</y-m>
-            <z-m>0.019</z-m>
-        </offsets>
-        <alignment>left-center</alignment>
-        <axis-alignment>yz-plane</axis-alignment>
-        <type>text-value</type>
-        <property alias="../../params/L5"/>
-        <font>helvetica_bold.txf</font>
-        <character-size>0.006</character-size>
-        <character-aspect-ratio type="double">1.1</character-aspect-ratio>
-        <font-resolution>
-            <width type="int">32</width>
-            <height type="int">32</height>
-        </font-resolution>
-    </text>
-
-    <text>
-        <name>L6</name>
-        <offsets>
-            <x-m>0.003</x-m>
-            <y-m>-0.048</y-m>
-            <z-m>0.012</z-m>
-        </offsets>
-        <alignment>left-center</alignment>
-        <axis-alignment>yz-plane</axis-alignment>
-        <type>text-value</type>
-        <property alias="../../params/L6"/>
-        <font>helvetica_bold.txf</font>
-        <character-size>0.006</character-size>
-        <character-aspect-ratio type="double">1.2</character-aspect-ratio>
-        <font-resolution>
-            <width type="int">32</width>
-            <height type="int">32</height>
-        </font-resolution>
-    </text>
-
-<!-- Right column-->
-
-    <text>
-        <name>R0</name>
-        <offsets>
-            <x-m>0.003</x-m>
-            <y-m>0.048</y-m>
-            <z-m>0.055</z-m>
-        </offsets>
-        <alignment>right-center</alignment>
-        <axis-alignment>yz-plane</axis-alignment>
-        <type>text-value</type>
-        <property alias="../../params/R0"/>
-        <font>helvetica_bold.txf</font>
-        <character-size>0.006</character-size>
-        <character-aspect-ratio type="double">1.2</character-aspect-ratio>
-        <font-resolution>
-            <width type="int">32</width>
-            <height type="int">32</height>
-        </font-resolution>
-    </text>
-
-    <text>
-        <name>R1</name>
-        <offsets>
-            <x-m>0.003</x-m>
-            <y-m>0.048</y-m>
-            <z-m>0.048</z-m>
-        </offsets>
-        <alignment>right-center</alignment>
-        <axis-alignment>yz-plane</axis-alignment>
-        <type>text-value</type>
-        <property alias="../../params/R1"/>
-        <font>helvetica_bold.txf</font>
-        <character-size>0.006</character-size>
-        <character-aspect-ratio type="double">1.1</character-aspect-ratio>
-        <font-resolution>
-            <width type="int">32</width>
-            <height type="int">32</height>
-        </font-resolution>
-    </text>
-
-    <text>
-        <name>R2</name>
-        <offsets>
-            <x-m>0.003</x-m>
-            <y-m>0.048</y-m>
-            <z-m>0.041</z-m>
-        </offsets>
-        <alignment>right-center</alignment>
-        <axis-alignment>yz-plane</axis-alignment>
-        <type>text-value</type>
-        <property alias="../../params/R2"/>
-        <font>helvetica_bold.txf</font>
-        <character-size>0.006</character-size>
-        <character-aspect-ratio type="double">1.2</character-aspect-ratio>
-        <font-resolution>
-            <width type="int">32</width>
-            <height type="int">32</height>
-        </font-resolution>
-    </text>
-
-    <text>
-        <name>R3</name>
-        <offsets>
-            <x-m>0.003</x-m>
-            <y-m>0.048</y-m>
-            <z-m>0.034</z-m>
-        </offsets>
-        <alignment>right-center</alignment>
-        <axis-alignment>yz-plane</axis-alignment>
-        <type>text-value</type>
-        <property alias="../../params/R3"/>
-        <font>helvetica_bold.txf</font>
-        <character-size>0.006</character-size>
-        <character-aspect-ratio type="double">1.1</character-aspect-ratio>
-        <font-resolution>
-            <width type="int">32</width>
-            <height type="int">32</height>
-        </font-resolution>
-    </text>
-
-    <text>
-        <name>R4</name>
-        <offsets>
-            <x-m>0.003</x-m>
-            <y-m>0.048</y-m>
-            <z-m>0.026</z-m>
-        </offsets>
-        <alignment>right-center</alignment>
-        <axis-alignment>yz-plane</axis-alignment>
-        <type>text-value</type>
-        <property alias="../../params/R4"/>
-        <font>helvetica_bold.txf</font>
-        <character-size>0.006</character-size>
-        <character-aspect-ratio type="double">1.2</character-aspect-ratio>
-        <font-resolution>
-            <width type="int">32</width>
-            <height type="int">32</height>
-        </font-resolution>
-    </text>
-
-    <text>
-        <name>R5</name>
-        <offsets>
-            <x-m>0.003</x-m>
-            <y-m>0.048</y-m>
-            <z-m>0.019</z-m>
-        </offsets>
-        <alignment>right-center</alignment>
-        <axis-alignment>yz-plane</axis-alignment>
-        <type>text-value</type>
-        <property alias="../../params/R5"/>
-        <font>helvetica_bold.txf</font>
-        <character-size>0.006</character-size>
-        <character-aspect-ratio type="double">1.1</character-aspect-ratio>
-        <font-resolution>
-            <width type="int">32</width>
-            <height type="int">32</height>
-        </font-resolution>
-    </text>
-
-    <text>
-        <name>R6</name>
-        <offsets>
-            <x-m>0.003</x-m>
-            <y-m>0.048</y-m>
-            <z-m>0.012</z-m>
-        </offsets>
-        <alignment>right-center</alignment>
-        <axis-alignment>yz-plane</axis-alignment>
-        <type>text-value</type>
-        <property alias="../../params/R6"/>
-        <font>helvetica_bold.txf</font>
-        <character-size>0.006</character-size>
-        <character-aspect-ratio type="double">1.2</character-aspect-ratio>
-        <font-resolution>
-            <width type="int">32</width>
-            <height type="int">32</height>
-        </font-resolution>
-    </text>
-
-<!-- Scratchpad-->
-
-    <text>
-        <name>S0</name>
-        <offsets>
-            <x-m>0.003</x-m>
-            <y-m>-0.0</y-m>
-            <z-m>0.005</z-m>
-        </offsets>
-        <alignment>center-center</alignment>
-        <axis-alignment>yz-plane</axis-alignment>
-        <type>text-value</type>
-        <property alias="../../params/S0"/>
-        <font>helvetica_bold.txf</font>
-        <character-size>0.007</character-size>
-        <character-aspect-ratio type="double">1</character-aspect-ratio>
-        <font-resolution>
-            <width type="int">32</width>
-            <height type="int">32</height>
-        </font-resolution>
-    </text>
-
-<!-- -->
 
     <animation>
         <type>select</type>
-        <object-name>Page</object-name>
-        <object-name>L0</object-name>
-        <object-name>L1</object-name>
-        <object-name>L2</object-name>
-        <object-name>L3</object-name>
-        <object-name>L4</object-name>
-        <object-name>L5</object-name>
-        <object-name>L6</object-name>
-        <object-name>R0</object-name>
-        <object-name>R1</object-name>
-        <object-name>R2</object-name>
-        <object-name>R3</object-name>
-        <object-name>R4</object-name>
-        <object-name>R5</object-name>
-        <object-name>R6</object-name>
-        <object-name>S0</object-name>
         <object-name>CDU-screen</object-name>
         <object-name>CDU-lamp</object-name>
-				<condition>
-					<and>
-               <property>systems/electrical/outputs/CDU</property>
-            <greater-than>
-                <property>controls/lighting/cdu</property>
-                <value>0.02</value>
-            </greater-than>
-					</and>					
+        <condition>
+            <property>systems/electrical/outputs/cdu</property>
         </condition>
     </animation>
 
@@ -547,289 +165,6 @@
         </emission>
     </animation>
 
-    <animation>
-        <name>white</name>
-        <type>material</type>
-        <object-name>Page</object-name> 
-       	<object-name>L0</object-name>
-        <object-name>L2</object-name>
-	      <object-name>R0</object-name>
-        <object-name>R2</object-name>
-        <object-name>R4</object-name>
-        <emission>
-            <red-prop>sim/color-set/white/r</red-prop>
-            <green-prop>sim/color-set/white/g</green-prop>
-            <blue-prop>sim/color-set/white/b</blue-prop>
-            <alpha-prop>sim/color-set/white/a</alpha-prop>
-						<factor-prop>controls/lighting/cdu</factor-prop>
-        </emission>
-        <ambient>
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-        </ambient>
-        <diffuse>
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-        </diffuse>
-        <specular>
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-        </specular>
-    </animation>
-
-    <animation>
-        <name>white</name>
-        <type>material</type>
-        <object-name>L4</object-name>
-				<condition>
-					<not-equals>
-						<property>instrumentation/cdu/display</property>
-						<value>NAV-SELT[1]</value>
-					</not-equals>
-				</condition>
-        <emission>
-            <red-prop>sim/color-set/white/r</red-prop>
-            <green-prop>sim/color-set/white/g</green-prop>
-            <blue-prop>sim/color-set/white/b</blue-prop>
-            <alpha-prop>sim/color-set/white/a</alpha-prop>
-						<factor-prop>controls/lighting/cdu</factor-prop>
-        </emission>
-        <ambient>
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-        </ambient>
-        <diffuse>
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-        </diffuse>
-        <specular>
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-        </specular>
-    </animation>
-
-
-    <animation>
-        <name>green</name>
-        <type>material</type>
-        <object-name>L4</object-name>
-				<condition>
-					<equals>
-						<property>instrumentation/cdu/display</property>
-						<value>NAV-SELT[1]</value>
-					</equals>
-				</condition>
-        <emission>
-            <red-prop>sim/color-set/green/r</red-prop>
-            <green-prop>sim/color-set/green/g</green-prop>
-            <blue-prop>sim/color-set/green/b</blue-prop>
-            <alpha-prop>sim/color-set/green/a</alpha-prop>
-						<factor-prop>controls/lighting/cdu</factor-prop>
-        </emission>
-        <ambient>
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-        </ambient>
-        <diffuse>
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-        </diffuse>
-        <specular>
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-        </specular>
-    </animation>
-
-    <animation>
-        <name>green</name>
-        <type>material</type>
-        <object-name>L1</object-name>
-        <object-name>L3</object-name>
-        <object-name>R1</object-name>
-        <object-name>R3</object-name>
-        <object-name>R5</object-name>
-        <emission>
-            <red-prop>sim/color-set/green/r</red-prop>
-            <green-prop>sim/color-set/green/g</green-prop>
-            <blue-prop>sim/color-set/green/b</blue-prop>
-            <alpha-prop>sim/color-set/green/a</alpha-prop>
-						<factor-prop>controls/lighting/cdu</factor-prop>
-        </emission>
-        <ambient>
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-        </ambient>
-        <diffuse>
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-        </diffuse>
-        <specular>
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-        </specular>
-    </animation>
-
-    <animation>
-        <name>green</name>
-        <type>material</type>
-        <object-name>L5</object-name>
-				<condition>
-					<and>
-						<not-equals>
-							<property>instrumentation/cdu/display</property>
-							<value>NAV-SELT[1]</value>
-						</not-equals>
-						<not-equals>
-							<property>instrumentation/cdu/display</property>
-							<value>FLT-PLAN[6]</value>
-						</not-equals>
-					</and>
-				</condition>					
-        <emission>
-            <red-prop>sim/color-set/green/r</red-prop>
-            <green-prop>sim/color-set/green/g</green-prop>
-            <blue-prop>sim/color-set/green/b</blue-prop>
-            <alpha-prop>sim/color-set/green/a</alpha-prop>
-						<factor-prop>controls/lighting/cdu</factor-prop>
-        </emission>
-        <ambient>
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-        </ambient>
-        <diffuse>
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-        </diffuse>
-        <specular>
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-        </specular>
-    </animation>
-
-    <animation>
-        <name>amber</name>
-        <type>material</type>
-        <object-name>L5</object-name>
-				<condition>
-					<or>
-						<equals>
-							<property>instrumentation/cdu/display</property>
-							<value>NAV-SELT[1]</value>
-						</equals>
-						<equals>
-							<property>instrumentation/cdu/display</property>
-							<value>FLT-PLAN[6]</value>
-						</equals>
-					</or>
-				</condition>					
-        <emission>
-            <red-prop>sim/color-set/amber/r</red-prop>
-            <green-prop>sim/color-set/amber/g</green-prop>
-            <blue-prop>sim/color-set/amber/b</blue-prop>
-            <alpha-prop>sim/color-set/amber/a</alpha-prop>
-						<factor-prop>controls/lighting/cdu</factor-prop>
-        </emission>
-        <ambient>
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-        </ambient>
-        <diffuse>
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-        </diffuse>
-        <specular>
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-        </specular>
-    </animation>
-
-    <animation>
-        <name>green</name>
-        <type>material</type>
-        <object-name>CDU-lamp</object-name>
-        <emission>
-            <red-prop>sim/color-set/green/r</red-prop>
-            <green-prop>sim/color-set/green/g</green-prop>
-            <blue-prop>sim/color-set/green/b</blue-prop>
-            <alpha-prop>sim/color-set/green/a</alpha-prop>
-        </emission>
-    </animation>
-
-    <animation>
-        <name>magenta</name>
-        <type>material</type>
-        <object-name>L6</object-name>
-        <object-name>R6</object-name>
-        <emission>
-            <red-prop>sim/color-set/magenta/r</red-prop>
-            <green-prop>sim/color-set/magenta/g</green-prop>
-            <blue-prop>sim/color-set/magenta/b</blue-prop>
-            <alpha-prop>sim/color-set/magenta/a</alpha-prop>
-						<factor-prop>controls/lighting/cdu</factor-prop>
-        </emission>
-        <ambient>
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-        </ambient>
-        <diffuse>
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-        </diffuse>
-        <specular>
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-        </specular>
-    </animation>
-
-    <animation>
-        <name>yellow</name>
-        <type>material</type>
-        <object-name>S0</object-name>
-        <emission>
-            <red-prop>sim/color-set/yellow/r</red-prop>
-            <green-prop>sim/color-set/yellow/g</green-prop>
-            <blue-prop>sim/color-set/yellow/b</blue-prop>
-            <alpha-prop>sim/color-set/yellow/a</alpha-prop>
-						<factor-prop>controls/lighting/cdu</factor-prop>
-        </emission>
-        <ambient>
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-        </ambient>
-        <diffuse>
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-        </diffuse>
-        <specular>
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-        </specular>
-    </animation>
-
 <!-- Hotspots -->
 
 <animation>
@@ -840,7 +175,7 @@
 		<repeatable>false</repeatable>
 		<binding>
 			<command>nasal</command>
-			<script>cdu.next();</script>
+			<script>cdu.cduMain.next_key();</script>
 		</binding>
 	</action>
 </animation>
@@ -853,7 +188,7 @@
 		<repeatable>false</repeatable>
 		<binding>
 			<command>nasal</command>
-			<script>cdu.previous();</script>
+			<script>cdu.cduMain.previous();</script>
 		</binding>
 	</action>
 </animation>
@@ -866,7 +201,7 @@
 		<repeatable>false</repeatable>
 		<binding>
 			<command>nasal</command>
-			<script>cdu.key('FPL');</script>
+			<script>cdu.cduMain.key('FPL');</script>
 		</binding>
 	</action>
 </animation>
@@ -879,7 +214,7 @@
 		<repeatable>false</repeatable>
 		<binding>
 			<command>nasal</command>
-			<script>cdu.key('NAV');</script>
+			<script>cdu.cduMain.key('NAV');</script>
 		</binding>
 	</action>
 </animation>
@@ -892,7 +227,7 @@
 		<repeatable>false</repeatable>
 		<binding>
 			<command>nasal</command>
-			<script>cdu.key('PERF');</script>
+			<script>cdu.cduMain.key('PERF');</script>
 		</binding>
 	</action>
 </animation>
@@ -905,7 +240,26 @@
 		<repeatable>false</repeatable>
 		<binding>
 			<command>nasal</command>
-			<script>cdu.key('PROG');</script>
+			<script>cdu.cduMain.key('PROG');</script>
+		</binding>
+	</action>
+</animation>
+
+<animation>
+	<type>pick</type>
+	<object-name>btn.dir</object-name>
+	<action>
+		<button>0</button>
+		<repeatable>false</repeatable>
+		<binding>
+      <condition>
+        <equals>
+          <property>autopilot/settings/nav-source</property>
+          <value>FMS1</value>
+        </equals>
+      </condition>
+	    <command>property-toggle</command>
+	    <property>instrumentation/cdu/direct</property>
 		</binding>
 	</action>
 </animation>
@@ -918,7 +272,7 @@
 		<repeatable>false</repeatable>
 		<binding>
 			<command>nasal</command>
-			<script>cdu.key('B1L');</script>
+			<script>cdu.cduMain.key('B1L');</script>
 		</binding>
 	</action>
 </animation>
@@ -931,7 +285,7 @@
 		<repeatable>false</repeatable>
 		<binding>
 			<command>nasal</command>
-			<script>cdu.key('B2L');</script>
+			<script>cdu.cduMain.key('B2L');</script>
 		</binding>
 	</action>
 </animation>
@@ -944,7 +298,7 @@
 		<repeatable>false</repeatable>
 		<binding>
 			<command>nasal</command>
-			<script>cdu.key('B3L');</script>
+			<script>cdu.cduMain.key('B3L');</script>
 		</binding>
 	</action>
 </animation>
@@ -957,7 +311,7 @@
 		<repeatable>false</repeatable>
 		<binding>
 			<command>nasal</command>
-			<script>cdu.key('B4L');</script>
+			<script>cdu.cduMain.key('B4L');</script>
 		</binding>
 	</action>
 </animation>
@@ -970,7 +324,7 @@
 		<repeatable>false</repeatable>
 		<binding>
 			<command>nasal</command>
-			<script>cdu.key('B1R');</script>
+			<script>cdu.cduMain.key('B1R');</script>
 		</binding>
 	</action>
 </animation>
@@ -983,7 +337,7 @@
 		<repeatable>false</repeatable>
 		<binding>
 			<command>nasal</command>
-			<script>cdu.key('B2R');</script>
+			<script>cdu.cduMain.key('B2R');</script>
 		</binding>
 	</action>
 </animation>
@@ -996,7 +350,7 @@
 		<repeatable>false</repeatable>
 		<binding>
 			<command>nasal</command>
-			<script>cdu.key('B3R');</script>
+			<script>cdu.cduMain.key('B3R');</script>
 		</binding>
 	</action>
 </animation>
@@ -1009,7 +363,7 @@
 		<repeatable>false</repeatable>
 		<binding>
 			<command>nasal</command>
-			<script>cdu.key('B4R');</script>
+			<script>cdu.cduMain.key('B4R');</script>
 		</binding>
 	</action>
 </animation>
@@ -1022,7 +376,7 @@
 		<repeatable>false</repeatable>
 		<binding>
 			<command>nasal</command>
-			<script>cdu.input('0');</script>
+			<script>cdu.cduMain.btn('0');</script>
 		</binding>
 	</action>
 </animation>
@@ -1035,7 +389,7 @@
 		<repeatable>false</repeatable>
 		<binding>
 			<command>nasal</command>
-			<script>cdu.input('1');</script>
+			<script>cdu.cduMain.btn('1');</script>
 		</binding>
 	</action>
 </animation>
@@ -1048,7 +402,7 @@
 		<repeatable>false</repeatable>
 		<binding>
 			<command>nasal</command>
-			<script>cdu.input('2');</script>
+			<script>cdu.cduMain.btn('2');</script>
 		</binding>
 	</action>
 </animation>
@@ -1061,7 +415,7 @@
 		<repeatable>false</repeatable>
 		<binding>
 			<command>nasal</command>
-			<script>cdu.input('3');</script>
+			<script>cdu.cduMain.btn('3');</script>
 		</binding>
 	</action>
 </animation>
@@ -1074,7 +428,7 @@
 		<repeatable>false</repeatable>
 		<binding>
 			<command>nasal</command>
-			<script>cdu.input('4');</script>
+			<script>cdu.cduMain.btn('4');</script>
 		</binding>
 	</action>
 </animation>
@@ -1087,7 +441,7 @@
 		<repeatable>false</repeatable>
 		<binding>
 			<command>nasal</command>
-			<script>cdu.input('5');</script>
+			<script>cdu.cduMain.btn('5');</script>
 		</binding>
 	</action>
 </animation>
@@ -1100,7 +454,7 @@
 		<repeatable>false</repeatable>
 		<binding>
 			<command>nasal</command>
-			<script>cdu.input('6');</script>
+			<script>cdu.cduMain.btn('6');</script>
 		</binding>
 	</action>
 </animation>
@@ -1113,7 +467,7 @@
 		<repeatable>false</repeatable>
 		<binding>
 			<command>nasal</command>
-			<script>cdu.input('7');</script>
+			<script>cdu.cduMain.btn('7');</script>
 		</binding>
 	</action>
 </animation>
@@ -1126,7 +480,7 @@
 		<repeatable>false</repeatable>
 		<binding>
 			<command>nasal</command>
-			<script>cdu.input('8');</script>
+			<script>cdu.cduMain.btn('8');</script>
 		</binding>
 	</action>
 </animation>
@@ -1139,7 +493,7 @@
 		<repeatable>false</repeatable>
 		<binding>
 			<command>nasal</command>
-			<script>cdu.input('9');</script>
+			<script>cdu.cduMain.btn('9');</script>
 		</binding>
 	</action>
 </animation>
@@ -1152,7 +506,7 @@
 		<repeatable>false</repeatable>
 		<binding>
 			<command>nasal</command>
-			<script>cdu.input('A');</script>
+			<script>cdu.cduMain.btn('A');</script>
 		</binding>
 	</action>
 </animation>
@@ -1165,7 +519,7 @@
 		<repeatable>false</repeatable>
 		<binding>
 			<command>nasal</command>
-			<script>cdu.input('B');</script>
+			<script>cdu.cduMain.btn('B');</script>
 		</binding>
 	</action>
 </animation>
@@ -1178,7 +532,7 @@
 		<repeatable>false</repeatable>
 		<binding>
 			<command>nasal</command>
-			<script>cdu.input('C');</script>
+			<script>cdu.cduMain.btn('C');</script>
 		</binding>
 	</action>
 </animation>
@@ -1191,7 +545,7 @@
 		<repeatable>false</repeatable>
 		<binding>
 			<command>nasal</command>
-			<script>cdu.input('D');</script>
+			<script>cdu.cduMain.btn('D');</script>
 		</binding>
 	</action>
 </animation>
@@ -1204,7 +558,7 @@
 		<repeatable>false</repeatable>
 		<binding>
 			<command>nasal</command>
-			<script>cdu.input('E');</script>
+			<script>cdu.cduMain.btn('E');</script>
 		</binding>
 	</action>
 </animation>
@@ -1217,7 +571,7 @@
 		<repeatable>false</repeatable>
 		<binding>
 			<command>nasal</command>
-			<script>cdu.input('F');</script>
+			<script>cdu.cduMain.btn('F');</script>
 		</binding>
 	</action>
 </animation>
@@ -1230,7 +584,7 @@
 		<repeatable>false</repeatable>
 		<binding>
 			<command>nasal</command>
-			<script>cdu.input('G');</script>
+			<script>cdu.cduMain.btn('G');</script>
 		</binding>
 	</action>
 </animation>
@@ -1243,7 +597,7 @@
 		<repeatable>false</repeatable>
 		<binding>
 			<command>nasal</command>
-			<script>cdu.input('H');</script>
+			<script>cdu.cduMain.btn('H');</script>
 		</binding>
 	</action>
 </animation>
@@ -1256,7 +610,7 @@
 		<repeatable>false</repeatable>
 		<binding>
 			<command>nasal</command>
-			<script>cdu.input('I');</script>
+			<script>cdu.cduMain.btn('I');</script>
 		</binding>
 	</action>
 </animation>
@@ -1269,7 +623,7 @@
 		<repeatable>false</repeatable>
 		<binding>
 			<command>nasal</command>
-			<script>cdu.input('J');</script>
+			<script>cdu.cduMain.btn('J');</script>
 		</binding>
 	</action>
 </animation>
@@ -1282,7 +636,7 @@
 		<repeatable>false</repeatable>
 		<binding>
 			<command>nasal</command>
-			<script>cdu.input('K');</script>
+			<script>cdu.cduMain.btn('K');</script>
 		</binding>
 	</action>
 </animation>
@@ -1295,7 +649,7 @@
 		<repeatable>false</repeatable>
 		<binding>
 			<command>nasal</command>
-			<script>cdu.input('L');</script>
+			<script>cdu.cduMain.btn('L');</script>
 		</binding>
 	</action>
 </animation>
@@ -1308,7 +662,7 @@
 		<repeatable>false</repeatable>
 		<binding>
 			<command>nasal</command>
-			<script>cdu.input('M');</script>
+			<script>cdu.cduMain.btn('M');</script>
 		</binding>
 	</action>
 </animation>
@@ -1321,7 +675,7 @@
 		<repeatable>false</repeatable>
 		<binding>
 			<command>nasal</command>
-			<script>cdu.input('N');</script>
+			<script>cdu.cduMain.btn('N');</script>
 		</binding>
 	</action>
 </animation>
@@ -1334,7 +688,7 @@
 		<repeatable>false</repeatable>
 		<binding>
 			<command>nasal</command>
-			<script>cdu.input('O');</script>
+			<script>cdu.cduMain.btn('O');</script>
 		</binding>
 	</action>
 </animation>
@@ -1347,7 +701,7 @@
 		<repeatable>false</repeatable>
 		<binding>
 			<command>nasal</command>
-			<script>cdu.input('P');</script>
+			<script>cdu.cduMain.btn('P');</script>
 		</binding>
 	</action>
 </animation>
@@ -1360,7 +714,7 @@
 		<repeatable>false</repeatable>
 		<binding>
 			<command>nasal</command>
-			<script>cdu.input('Q');</script>
+			<script>cdu.cduMain.btn('Q');</script>
 		</binding>
 	</action>
 </animation>
@@ -1373,7 +727,7 @@
 		<repeatable>false</repeatable>
 		<binding>
 			<command>nasal</command>
-			<script>cdu.input('R');</script>
+			<script>cdu.cduMain.btn('R');</script>
 		</binding>
 	</action>
 </animation>
@@ -1386,7 +740,7 @@
 		<repeatable>false</repeatable>
 		<binding>
 			<command>nasal</command>
-			<script>cdu.input('S');</script>
+			<script>cdu.cduMain.btn('S');</script>
 		</binding>
 	</action>
 </animation>
@@ -1399,7 +753,7 @@
 		<repeatable>false</repeatable>
 		<binding>
 			<command>nasal</command>
-			<script>cdu.input('T');</script>
+			<script>cdu.cduMain.btn('T');</script>
 		</binding>
 	</action>
 </animation>
@@ -1412,7 +766,7 @@
 		<repeatable>false</repeatable>
 		<binding>
 			<command>nasal</command>
-			<script>cdu.input('U');</script>
+			<script>cdu.cduMain.btn('U');</script>
 		</binding>
 	</action>
 </animation>
@@ -1425,7 +779,7 @@
 		<repeatable>false</repeatable>
 		<binding>
 			<command>nasal</command>
-			<script>cdu.input('V');</script>
+			<script>cdu.cduMain.btn('V');</script>
 		</binding>
 	</action>
 </animation>
@@ -1438,7 +792,7 @@
 		<repeatable>false</repeatable>
 		<binding>
 			<command>nasal</command>
-			<script>cdu.input('W');</script>
+			<script>cdu.cduMain.btn('W');</script>
 		</binding>
 	</action>
 </animation>
@@ -1451,7 +805,7 @@
 		<repeatable>false</repeatable>
 		<binding>
 			<command>nasal</command>
-			<script>cdu.input('X');</script>
+			<script>cdu.cduMain.btn('X');</script>
 		</binding>
 	</action>
 </animation>
@@ -1464,7 +818,7 @@
 		<repeatable>false</repeatable>
 		<binding>
 			<command>nasal</command>
-			<script>cdu.input('Y');</script>
+			<script>cdu.cduMain.btn('Y');</script>
 		</binding>
 	</action>
 </animation>
@@ -1477,7 +831,7 @@
 		<repeatable>false</repeatable>
 		<binding>
 			<command>nasal</command>
-			<script>cdu.input('Z');</script>
+			<script>cdu.cduMain.btn('Z');</script>
 		</binding>
 	</action>
 </animation>
@@ -1490,7 +844,7 @@
 		<repeatable>false</repeatable>
 		<binding>
 			<command>nasal</command>
-			<script>cdu.plusminus();</script>
+			<script>cdu.cduMain.btn('-');</script>
 		</binding>
 	</action>
 </animation>
@@ -1503,7 +857,7 @@
 		<repeatable>false</repeatable>
 		<binding>
 			<command>nasal</command>
-			<script>cdu.input('.');</script>
+			<script>cdu.cduMain.btn('.');</script>
 		</binding>
 	</action>
 </animation>
@@ -1516,7 +870,7 @@
 		<repeatable>false</repeatable>
 		<binding>
 			<command>nasal</command>
-			<script>cdu.input('/');</script>
+			<script>cdu.cduMain.btn('/');</script>
 		</binding>
 	</action>
 </animation>
@@ -1529,7 +883,7 @@
 		<repeatable>false</repeatable>
 		<binding>
 			<command>nasal</command>
-			<script>cdu.delete();</script>
+			<script>cdu.cduMain.delete();</script>
 		</binding>
 	</action>
 </animation>
@@ -1546,6 +900,5 @@
 		</binding>
 	</action>
 </animation>
-
 
 </PropertyList>

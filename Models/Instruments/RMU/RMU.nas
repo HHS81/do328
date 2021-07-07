@@ -1,12 +1,11 @@
 ### Canvas RMU ###
-### clm76 - 2016 ###
-### xcvb - 2017 ###
+### xcvb 2017-2018 ###
 
 var RMU1Instance = {};
 var RMU2Instance = {};
 
 # colors:
-var amber = [1,0.93,0];
+var amber = [1,0.84,0];
 var cyan = [0.33,0.73,0.93];
 var green = [0,1,0];
 var magenta = [0.93,0.05,0.35];
@@ -15,17 +14,19 @@ var white = [1,1,1];
 var PageEnum = {frequencies:0,
 	pagemenu:1,
 	memorycom:2,
-	navigation:3,
-	engine1:4,
-	engine2:5,
-	atctcas:6,
-	maintenance:7,
-	strapsmenu:8,
-	straps:9,
-	software:10,
-	maintlogmenu:11,
-	maintlog:12,
-	rmusetup:13
+	memorynav:3,
+	navigation:4,
+	engine1:5,
+	engine2:6,
+	atctcas:7,
+	mls:8,
+	maintenance:9,
+	strapsmenu:10,
+	straps:11,
+	software:12,
+	maintlogmenu:13,
+	maintlog:14,
+	rmusetup:15
 };
 
 ### RMU ###
@@ -36,14 +37,15 @@ var RMU = {
 		m.knob = 0;
 		m.knob1 = 0;
 
-		canvas.parsesvg(group.createChild('group'), "Aircraft/do328/Models/Instruments/RMU/background.svg");
 		m.Pages[PageEnum.frequencies] = canvas_frequencies.new(group.createChild('group'), instance);
 		m.Pages[PageEnum.pagemenu] = canvas_pagemenu.new(group.createChild('group'), instance);
 		m.Pages[PageEnum.memorycom] = canvas_memorycom.new(group.createChild('group'), instance);
+		m.Pages[PageEnum.memorynav] = canvas_memorynav.new(group.createChild('group'), instance);
 		m.Pages[PageEnum.navigation] = canvas_navigation.new(group.createChild('group'), instance);
 		m.Pages[PageEnum.engine1] = canvas_engine1.new(group.createChild('group'), instance);
 		m.Pages[PageEnum.engine2] = canvas_engine2.new(group.createChild('group'), instance);
 		m.Pages[PageEnum.atctcas] = canvas_atctcas.new(group.createChild('group'), instance);
+		m.Pages[PageEnum.mls] = canvas_mls.new(group.createChild('group'), instance);
 		m.Pages[PageEnum.maintenance] = canvas_maintenance.new(group.createChild('group'), instance);
 		m.Pages[PageEnum.strapsmenu] = canvas_strapsmenu.new(group.createChild('group'), instance);
 		m.Pages[PageEnum.straps] = canvas_straps.new(group.createChild('group'), instance);
@@ -54,7 +56,6 @@ var RMU = {
 		m.DisplayDim = canvas_displaydim.new(group.createChild('group'), instance);
 		m.DisplayDim.hide();
 		m.DimActive = 0;
-		canvas.parsesvg(group.createChild('group'), "Aircraft/do328/Models/Instruments/RMU/mask.svg");
 
 		setlistener("instrumentation/rmu["~m.Instance~"]/page", func {
 			var page = getprop("instrumentation/rmu["~m.Instance~"]/page");
@@ -79,7 +80,15 @@ var RMU = {
 	BtClick: func(input = -1) {
 		me.DisplayDim.hide();
 
-		if(me.DimActive) {
+		if(input == 12) {
+			if(getprop("instrumentation/rcu/squelch")) {
+				setprop("instrumentation/rcu/squelch", 0);
+			}
+			else {
+				setprop("instrumentation/rcu/squelch", 1);
+			}
+		}
+		else if(me.DimActive) {
 			me.DisplayDim.hide();
 			me.DimActive = 0;
 		}
@@ -167,12 +176,16 @@ var rmuListener = setlistener("/sim/signals/fdm-initialized", func () {
 	setprop("instrumentation/rmu[1]/lighting", 1);
 	setprop("instrumentation/rmu[0]/offside", 0);
 	setprop("instrumentation/rmu[1]/offside", 0);
-	setprop("instrumentation/rmu[0]/atcId", 0);
-	setprop("instrumentation/rmu[1]/atcId", 0);
-	setprop("instrumentation/rmu[0]/tcasDisplay", 1);
-	setprop("instrumentation/rmu[1]/tcasDisplay", 1);
+	setprop("instrumentation/rmu[0]/mlsDsp", 0);
+	setprop("instrumentation/rmu[1]/mlsDsp", 0);
+	setprop("instrumentation/rmu[0]/atcId", 1);
+	setprop("instrumentation/rmu[1]/atcId", 1);
+	setprop("instrumentation/rmu[0]/tcasDsp", 1);
+	setprop("instrumentation/rmu[1]/tcasDsp", 1);
 	setprop("instrumentation/rmu[0]/tcasRange", 1);
 	setprop("instrumentation/rmu[1]/tcasRange", 1);
+#	setprop("instrumentation/rmu[0]/autoBright", 0);
+#	setprop("instrumentation/rmu[1]/autoBright", 0);
 
 	frequencyStorage();
 

@@ -5,10 +5,12 @@ Dornier 328-300
 Started by Heiko Schulz
 ************************************************************************
 -->
+
 <PropertyList include="do328-common.xml">
    <sim>
       <description>Dornier 328-300</description>
-      <author>HHS (3d, config, fdm); xcvb85 (Primus 2000 Canvas, debug); clm76 (CDU, RMU); Jentron (prop and turbine files)</author>
+      <variant-of>do328-110</variant-of>
+      <author>HHS (3d, config, fdm); xcvb85 (EICAS, RMU, systems); clm76 (CDU, RCU); Jentron (prop and turbine files)</author>
       <status>devel</status>
       <flight-model>jsb</flight-model>
       <aero>do328-300</aero>
@@ -21,6 +23,11 @@ Started by Heiko Schulz
          <tag>twin-engine</tag>
          <tag>glass-cockpit</tag>
       </tags>
+      <!--to select the center pedestal type-->
+<aircraft-type>
+<prop>0</prop>
+</aircraft-type>
+
       <startup>
          <splash-texture>Aircraft/do328/splashjet.png</splash-texture>
       </startup>
@@ -92,17 +99,23 @@ Started by Heiko Schulz
    </sim>
    <nasal>
       <systems>
+         <file>Aircraft/do328/Nasal/common_systems.nas</file>
+         <file>Aircraft/do328/Nasal/jet_systems.nas</file>
+         <file>Aircraft/do328/Nasal/flightdirector.nas</file>
          <file>Aircraft/do328/Nasal/Electrical.nas</file>
          <file>Aircraft/do328/Nasal/ground_steering.nas</file>
          <file>Aircraft/do328/Nasal/tyresmoke.nas</file>
          <file>Aircraft/do328/Nasal/lightmap.nas</file>
-         <file>Aircraft/do328/Nasal/jetsystems.nas</file>
          <file>Aircraft/do328/Nasal/lightmap.nas</file>
          <file>Aircraft/do328/Nasal/Autostart.nas</file>
          <file>Aircraft/do328/Nasal/pressurization.nas</file>
       </systems>
       <efis>
+         <file>Aircraft/do328/Models/Instruments/EFIS/maps/loader.nas</file>
+         <file>Aircraft/do328/Models/Instruments/EFIS/Framework.nas</file>
+
          <file>Aircraft/do328/Models/Instruments/EFIS/PFD.nas</file>
+         <file>Aircraft/do328/Models/Instruments/EFIS/exceedance.nas</file>
          <file>Aircraft/do328/Models/Instruments/EFIS/eicasJet.nas</file>
          <file>Aircraft/do328/Models/Instruments/EFIS/nd.nas</file>
 
@@ -128,10 +141,12 @@ Started by Heiko Schulz
          <file>Aircraft/do328/Models/Instruments/RMU/frequencies.nas</file>
          <file>Aircraft/do328/Models/Instruments/RMU/pagemenu.nas</file>
          <file>Aircraft/do328/Models/Instruments/RMU/memorycom.nas</file>
+         <file>Aircraft/do328/Models/Instruments/RMU/memorynav.nas</file>
          <file>Aircraft/do328/Models/Instruments/RMU/navigation.nas</file>
          <file>Aircraft/do328/Models/Instruments/RMU/engine1jet.nas</file>
          <file>Aircraft/do328/Models/Instruments/RMU/engine2.nas</file>
          <file>Aircraft/do328/Models/Instruments/RMU/atctcas.nas</file>
+         <file>Aircraft/do328/Models/Instruments/RMU/mls.nas</file>
          <file>Aircraft/do328/Models/Instruments/RMU/maintenance.nas</file>
          <file>Aircraft/do328/Models/Instruments/RMU/strapsmenu.nas</file>
          <file>Aircraft/do328/Models/Instruments/RMU/straps.nas</file>
@@ -151,18 +166,9 @@ Started by Heiko Schulz
          <file>Aircraft/do328/Models/Instruments/CDU/Procedures/fmsTP.nas</file>
          <file>Aircraft/do328/Models/Instruments/CDU/Procedures/fmsTransition.nas</file>
       </procedures>
-      <displaypages>
-         <file>Aircraft/do328/Models/Instruments/CDU/DispPages/CduStart.nas</file>
-         <file>Aircraft/do328/Models/Instruments/CDU/DispPages/FltPlan.nas</file>
-         <file>Aircraft/do328/Models/Instruments/CDU/DispPages/FltList.nas</file>
-         <file>Aircraft/do328/Models/Instruments/CDU/DispPages/FltDeparture.nas</file>
-         <file>Aircraft/do328/Models/Instruments/CDU/DispPages/FltDestination.nas</file>
-         <file>Aircraft/do328/Models/Instruments/CDU/DispPages/NavPages.nas</file>
-         <file>Aircraft/do328/Models/Instruments/CDU/DispPages/Performance.nas</file>
-         <file>Aircraft/do328/Models/Instruments/CDU/DispPages/Progress.nas</file>
-      </displaypages>
       <cdu>
          <file>Aircraft/do328/Models/Instruments/CDU/CDU.nas</file>
+         <file>Aircraft/do328/Models/Instruments/CDU/CDUpages.nas</file>
       </cdu>
       <dialogs>
          <file>Aircraft/do328/Nasal/dialogs.nas</file>

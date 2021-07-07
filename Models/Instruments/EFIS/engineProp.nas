@@ -20,14 +20,15 @@ var canvas_engine = {
 				"readout_oilTemp1","readout_oilTemp2","readout_oilPrss1","readout_oilPrss2",
 				"arrowOilTemp1","arrowOilTemp2","arrowOilPrss1","arrowOilPrss2",
 				"oilTempLow1","oilTempLow2","oilTempHigh1","oilTempHigh2",
-				"oilPrssLow1","oilPrssLow2","hideme"];
+				"oilPrssLow1","oilPrssLow2","hideme",
+				"readout_oat","readout_ft"];
 
 		foreach(var key; svg_keys) {
 			m[key] = canvasGroup.getElementById(key);
 		}
 
 		m.hideme.hide();
-		m.active = 0;
+		m.timer = maketimer(0.1, m, m.update);
 		return m;
 	},
 	update: func()
@@ -80,20 +81,18 @@ var canvas_engine = {
 			}
 			me["readout_ff"~(me.n+1)].setText(sprintf("%3.0f",(getprop("engines/engine["~me.n~"]/fuel-flow_pph") or 0)));
 		}
-
-		if(me.active == 1) {
-			settimer(func me.update(), 0.1);
-		}
+		me.readout_oat.setText(sprintf("%3.01f", getprop("environment/temperature-degc") or 0));
+		me.readout_ft.setText(sprintf("%3.0f", getprop("instrumentation/altimeter/indicated-altitude-ft") or 0));
 	},
 	show: func()
 	{
-		me.active = 1;
 		me.update();
+		me.timer.start();
 		me.group.show();
 	},
 	hide: func()
 	{
-		me.active = 0;
+		me.timer.stop();
 		me.group.hide();
 	}
 };
